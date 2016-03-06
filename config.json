@@ -26,5 +26,5 @@
   "ignore": [
     "stylus"
   ],
-  "baseUrl": "/site/"
+  "baseUrl": "/"
 }
