@@ -1,0 +1,59 @@
+
+/** grid
+ * Flex grid
+ *
+*/
+
+makegrid(breakpoint=false)
+  if breakpoint
+    @media (min-width: breakpoint)
+      display flex
+      flex-flow row wrap
+  else
+    display flex
+    flex-flow row wrap
+
+.grid
+  margin-left -(column-gap)
+  margin-right -(column-gap)
+  margin-top -(column-gap)
+
+  &:not(.grid--responsive)
+    makegrid()
+
+  &:not(:last-child)
+    margin-bottom -(column-gap)
+
+  &--responsive
+    makegrid(responsive-breakpoint)
+
+  // Utilidades de grid
+  &--expand
+    justify-content space-between
+
+  &--vertical-align
+    align-items center
+
+  &--horizontal-align
+    justify-content center
+
+.grid-item
+  flex 1
+  padding column-gap
+  // Automatic width
+
+$flex-item-disable
+  flex none
+.grid-item
+  &--fifth
+    @extends $flex-item-disable
+    width 20%
+  &--quarter
+    @extends $flex-item-disable
+    width 25%
+  &--third
+    @extends $flex-item-disable
+    width 33.33%
+  &--half
+    @extends $flex-item-disable
+    width 50%

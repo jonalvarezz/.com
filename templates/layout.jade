@@ -11,6 +11,7 @@ html(lang='en')
         block title
           = locals.name
       link(rel='alternate', href=locals.url+'/feed.xml', type='application/rss+xml', title=locals.description)
+      link(rel='stylesheet', href=contents.css['main.css'].url)
   body(class=bodyclass)
-    div
+    div.wrap
       block body
