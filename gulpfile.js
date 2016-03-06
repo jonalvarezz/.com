@@ -5,8 +5,11 @@ var $ = require('gulp-load-plugins')();
 var nib = require('nib');
 var through = require('through');
 var isDev = process.argv.indexOf('watch') !== -1;
+var wintersmith = require('run-wintersmith');
 
+var PORT = 8080;
 var baseDir = './contents/';
+wintersmith.settings.port = PORT;
 
 // [DEV] Process CSS files and reload the web browser
 gulp.task('styles:build', function() {
@@ -21,8 +24,16 @@ gulp.task('styles:build', function() {
     .pipe(gulp.dest(baseDir + 'css/'));
 });
 
+gulp.task('deploy', ['styles:build'], function() {
+  wintersmith.build(function () {
+    gulp.src('./build/**/*')
+      .pipe($.ghPages());
+  })
+});
+
 
 gulp.task('watch', function() {
+  wintersmith.preview();
   gulp.watch( [baseDir + 'stylus/**/*.styl'], ['styles:build'] )
 });
 
