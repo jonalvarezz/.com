@@ -14,15 +14,9 @@ makegrid(breakpoint=false)
     flex-flow row wrap
 
 .grid
-  margin-left -(column-gap)
-  margin-right -(column-gap)
-  margin-top -(column-gap)
 
   &:not(.grid--responsive)
     makegrid()
-
-  &:not(:last-child)
-    margin-bottom -(column-gap)
 
   &--responsive
     makegrid(responsive-breakpoint)
@@ -36,6 +30,13 @@ makegrid(breakpoint=false)
 
   &--horizontal-align
     justify-content center
+
+  &--fix-margin
+    margin-left -(column-gap)
+    margin-right -(column-gap)
+    margin-top -(column-gap)
+    &:not(:last-child)
+      margin-bottom -(column-gap)
 
 .grid-item
   flex 1
