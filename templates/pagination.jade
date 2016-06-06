@@ -8,10 +8,12 @@
 
 nav(class="article-pagination grid grid--vertical-align")
   div(class="prev grid-item grid-item--half text-left")
-    div
-      small PREV
-    a(href=prev.url || '/')= prev.title
+    if prev
+      div
+        small PREV
+      a(href=prev.url)= prev.title
   div(class="next grid-item grid-item--half text-right")
-    div
-      small NEXT
-    a(href=next.url || '/')= next.title
+    if next
+      div
+        small NEXT
+      a(href=next.url)= next.title
