@@ -1,4 +1,4 @@
-extends layout
+extends partials/layout
 
 block vars
   - var bodyclass = 'article';
@@ -26,7 +26,7 @@ block body
 
     footer(class="footer-article")
       div(class="default-wrap")
-        include pagination
+        include partials/pagination
         div(class="footer-colophon text-center")
           small
             a(href=contents.index.url, title="Go home") JONATHAN ÁLVAREZ G ©
