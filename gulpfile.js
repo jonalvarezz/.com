@@ -32,7 +32,7 @@ gulp.task('deploy', ['styles:build'], function() {
 });
 
 
-gulp.task('watch', function() {
+gulp.task('watch', ['default'], function() {
   wintersmith.preview();
   gulp.watch( [baseDir + 'stylus/**/*.styl'], ['styles:build'] )
 });
