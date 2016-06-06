@@ -1,7 +1,10 @@
 extends layout
 
+block vars
+  - var bodyclass = 'home';
+
 block body
-  div.full-page.grid.grid--vertical-align.grid--horizontal-align
+  section.full-page.grid.grid--vertical-align.grid--horizontal-align
     figure.hero.content
       h1.hero-title= locals.name
       figcaption.hero-caption
@@ -13,3 +16,16 @@ block body
             i.fa.fa-twitter
           a(href="mailto:j@jonalvarezz.com?subject=Let's%20Work%20Together", title="Email me and let's work together")
             i.fa.fa-envelope
+
+  section(id="articles", class="full-page grid grid--vertical-align grid--horizontal-align")
+    div(class="default-wrap content")
+      h2 Articles
+      p I write about stuff I dont find easily in web for my further reference, maybe it is useful for someone else.
+      ul(class="article-list")
+
+        - var count = articles.length
+        each article in articles
+          li(data-count=count, class="article-item")
+            i= count
+            a(href=article.url)= article.title
+          - count--
