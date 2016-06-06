@@ -16,14 +16,14 @@ block body
         div(class="article-inner text-center")
 
           div(class="article-meta")
-          h1(class="article-title article-wrap")= page.title
+          h1(class="article-title default-wrap")= page.title
           div(class="article-meta")
             span!= moment(page.metadata.date, 'YYYY-MM-DD HH:MM').format('MMMM Do YYYY')
 
-    section(class="article-content article-wrap")!= typogr(page.html).typogrify()
+    section(class="article-content default-wrap")!= typogr(page.html).typogrify()
 
     //- TODO: Add next, prev articles
     //- https://github.com/ndhu/wintersmith-milchglas-template/blob/master/templates/article.jade
     footer(class="article-footer")
-      div(class="article-wrap")
+      div(class="default-wrap")
         a(href=contents.index.url) &laquo; Full blog
