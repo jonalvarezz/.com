@@ -1,0 +1,19 @@
+
+perpendicular(degs=-1deg, inBottom=true, color=white)
+  position relative
+  if inBottom
+    padding-bottom 1vw
+  else
+    padding-top 1vw
+  &:after
+    position absolute
+    right 0
+    left 0
+    content ""
+    background-color color
+    if inBottom
+      bottom -1.2vw
+    else
+      top -1.2vw
+    height 2.158vw
+    transform rotate(degs)
