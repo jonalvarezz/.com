@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Optimizar el Rendimiento y Tiempo de Carga de Wordpress en 7 pasos - Jonathan Álvarez González
+    </title>
+    <meta name="description" content="Frontend developer but also worken with backend technologies everyday. I also like designing. Here you will find some links and articles I'd write">
+    <link rel="alternate" href="http://localhost:8080/feed.xml" type="application/rss+xml" title="Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development">
+    <link href="/favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  </head>
+  <body class="article">
+    <div class="wrap">
+      <article class="content">
+        <header style="background-image: url('optimizar_tiempo_de_carga_en_wordpress.jpg');" class="article-header grid grid--vertical-align grid--horizontal-align">
+          <div class="article-inner text-center">
+            <div class="article-meta"></div>
+            <h1 class="article-title default-wrap">Optimizar el Rendimiento y Tiempo de Carga de Wordpress en 7 pasos</h1>
+            <div class="article-meta"><span>January 29th 2014</span></div>
+          </div>
+        </header>
+        <section class="article-content default-wrap"><p>Esta es una forma muy sencilla de optimizar el rendimiento y tiempo de carga de cualquier instalación de wordpress. Son 6 simples pasos y se puede lograr un aumento hasta del&nbsp;30%.</p>
+<blockquote>
+<p>Antes y despues de realizar estos pasos, mide tu sitio para saber cuánto ha mejorado. Recomiendo hacerlo desde <a href="http://gtmetrix.com">Gtmetrix</a> y <a href="http://tools.pingdom.com/fpt">Pingdoom&nbsp;Tools</a></p>
+</blockquote>
+<h2 id="1-definir-reglas-de-compresi-n-en-htaccess-">1. Definir reglas de compresión en <code>.htaccess</code></h2>
+<p>Realiza primero un backup de este archivo en caso que algo salga&nbsp;mal</p>
+<pre><code>    cp .htaccess .htaccess.bkp
+
+    Ahora, agregamos las siguientes reglas a las existentes en el archivo
+
+## BEGIN wordpress optimization
+
+    Header unset Pragma
+    FileETag None
+    Header unset ETag
+
+    &lt;IfModule mod_headers.c&gt;
+        &lt;FilesMatch \&quot;\\.(js|css|xml|gz)$\&quot;&gt;
+            Header append Vary Accept-Encoding
+        &lt;/FilesMatch&gt;
+    &lt;/IfModule&gt;
+
+    &lt;FilesMatch \&quot;\\.(gif|jpg|jpeg|png|ico)$\&quot;&gt;
+            ExpiresActive On
+            ExpiresDefault \&quot;access plus 1 month\&quot;
+    &lt;/FilesMatch&gt;
+
+    &lt;FilesMatch \&quot;\\.(css|js|html?|xml|txt)$\&quot;&gt;
+            ExpiresActive On
+            ExpiresDefault \&quot;access plus 1 week\&quot;
+    &lt;/FilesMatch&gt;
+
+    # compress text, html, javascript, css, xml:
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+
+    # Or, compress certain file types by extension:
+    &lt;Files *.html&gt;
+    SetOutputFilter DEFLATE
+    &lt;/Files&gt;
+
+    ## END wordpress optimization
+
+    Guardan, e ingresan al sitio para comprobar que cargue sin problemas.
+</code></pre><h2 id="2-utilizar-plugin-photon-">2. Utilizar plugin&nbsp;Photon.</h2>
+<p>Photon es una extensión del plugin de <a href="http://jetpack.me">Jetpack</a> y lo que hace es funcionar como un <abbr title=\"Content Delivery Network\"><span class="caps">CDN</span></abbr> sirviendo las imágenes de nuestro sitio por nosotros, acelerando así la carga del sitio y menor consumo de ancho de&nbsp;banda.</p>
+<p><img src="/articles/optimizar-el-rendimiento-y-tiempo-de-carga-de-wordpress-en-5-simples-pasos/jetpack_modules.png" alt="módulos Jetpack"></p>
+<p><a href="http://wordpress.org/plugins/jetpack/">Descargar&nbsp;Jetpack</a></p>
+<p>Aunque tenga sus detractores, por temas de <span class="caps">SEO</span> en imágenes, ciertamente mejora el mucho rendimiento. Aprovechando que estas en la configuración de Jetpack, deshabilita todo lo que no necesitas y&nbsp;desconozcas.</p>
+<h2 id="3-utilizar-plugin-de-cache-">3. Utilizar plugin de&nbsp;cache.</h2>
+<p>Esto es quizas lo más importante y que más les ayudará. <span class="caps">TIENEN</span> que instalar un plugin que se haga cargo de gestionar el cache de su sitio, existen muchísimos,&nbsp;recomiendo:</p>
+<ul>
+<li><a href="http://wordpress.org/plugins/quick-cache/">Quick&nbsp;cache</a></li>
+<li><a href="http://wordpress.org/plugins/wp-super-cache/"><span class="caps">WP</span> Super&nbsp;Cache</a></li>
+<li><a href="http://wordpress.org/plugins/w3-total-cache/">W3 Total&nbsp;Cache</a></li>
+</ul>
+<p><em>El sencillo, el moderado y el avanzado, respectivamente.</em> Todos son igual de buenos. Todos poseen opciones para no hacer cache de ciertas páginas, como por ejemplo si tienes tienda virtual, un carro de compras,&nbsp;etc.</p>
+<h2 id="4-usar-jquery-desde-el-cdn-de-google-">4. Usar jQuery desde el <span class="caps">CDN</span> de&nbsp;Google.</h2>
+<p><em>Esto puede causar comportamientos inesperados o romper el funcionamiento de algunos&nbsp;plugins.</em></p>
+<p>jQuery es ampliamente usado por otros plugins y wordpress por defecto la carga desde nuestro servidor. Podemos agilizar las cosas y permitir que se cargue en paralelo con nuestro sitio utilizando el <span class="caps">CDN</span> que Google&nbsp;provee.</p>
+<p>Y para ello existe basta con agregar al final del archivo <code>functions.php</code> del&nbsp;tema:</p>
+<pre><code>    function jquery_cdn() {
+         if (!is_admin()) {
+                wp_deregister_script(&#39;jquery&#39;);
+                wp_register_script(&#39;jquery&#39;, &#39;//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js&#39;, false, &#39;1.10.2&#39;);
+                wp_enqueue_script(&#39;jquery&#39;);
+                }
+         }
+    add_action(&#39;init&#39;, &#39;jquery_cdn&#39;);
+</code></pre><p><a href="https://developers.google.com/speed/libraries/devguide#jquery">Pueden cambiar la versión de jQuery por la que&nbsp;deseen.</a></p>
+<h2 id="5-mover-los-archivos-js-al-footer-">5. Mover los archivos <code>js</code> al&nbsp;footer.</h2>
+<p><em>Esto puede causar comportamientos inesperados o romper el funcionamiento de algunos&nbsp;plugins.</em></p>
+<p>El script&nbsp;es:</p>
+<pre><code>    remove_action(&#39;wp_head&#39;, &#39;wp_print_scripts&#39;);
+     remove_action(&#39;wp_head&#39;, &#39;wp_print_head_scripts&#39;, 9);
+     remove_action(&#39;wp_head&#39;, &#39;wp_enqueue_scripts&#39;, 1);
+     add_action(&#39;wp_footer&#39;, &#39;wp_print_scripts&#39;, 5);
+     add_action(&#39;wp_footer&#39;, &#39;wp_enqueue_scripts&#39;, 5);
+     add_action(&#39;wp_footer&#39;, &#39;wp_print_head_scripts&#39;, 5);
+</code></pre><p>De nuevo, esto puede romper el funcionamiento de algunos plugins, y deberás regisrar todos los plugins  de tu tema en el footer. Por&nbsp;ejemplo:</p>
+<pre><code>wp_enqueue_script( &#39;miPlugin&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, true );
+</code></pre><p><em>El <code>true</code> al final indica que se debe cargar en el&nbsp;footer.</em> </p>
+<p>Hagan bien sus pruebas y atentos a los errores en ejecución de&nbsp;Javascript.</p>
+<h2 id="6-eliminar-query-strings-de-archivos-est-ticos">6. Eliminar Query Strings de archivos&nbsp;estáticos</h2>
+<p>Si? lo han visto? <code>http//misitio.com/wp-content/themes/mitema/js/archivo.js?ver=2.4.1</code></p>
+<p>Bien, pues Wordpress pone una query strings a todos los archivos <code>js</code> y <code>css</code> que carguemos para indicar la versión del script/stylesheet y que no sirve para nada excepto para que alguien obtenga más  información y el tiempo de carga sea un poco más&nbsp;lento.</p>
+<p>Los removemos&nbsp;así:</p>
+<pre><code>function remove_query_script( $src ){
+    $parts = explode( &#39;?&#39;, $src );
+    return $parts[0];
+}
+add_filter( &#39;script_loader_src&#39;, &#39;remove_query_script&#39;, 15, 1 );
+add_filter( &#39;style_loader_src&#39;, &#39;remove_query_script&#39;, 15, 1 );
+</code></pre><p>Tendrás conflictos si necesitas de alguna query string, como por ejemplo Google Webfonts o la <span class="caps">API</span> de Google Maps, pero con otra linea de más en el script controlas la&nbsp;excepción.</p>
+<h2 id="7-comparte-tus-resultados">7. Comparte tus&nbsp;resultados</h2>
+<p>Este es uno de los&nbsp;mios:</p>
+<p><img src="/articles/optimizar-el-rendimiento-y-tiempo-de-carga-de-wordpress-en-5-simples-pasos/gtmetrix_report_boost_wordpress.png" alt="Reporte optimización Wordpress 6 pasos jonalvarezz.com"></p>
+</section>
+        <aside class="article-share text-center default-wrap">
+          <hr><a href="https://twitter.com/share?text=Optimizar%20el%20Rendimiento%20y%20Tiempo%20de%20Carga%20de%20Wordpress%20en%207%20pasos by @jonalvarezz&amp;url=" title="Share on Twitter" onclick="this.href+=window.location.href; window.open(this.href, 'twitter-share', 'width=550,height=330');return false;"><i class="fa fa-twitter"></i></a><a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook" onclick="this.href+=window.location.href; window.open(this.href, 'facebook-share', 'width=580,height=330');return false;"><i class="fa fa-facebook"></i></a>
+        </aside>
+        <footer class="footer-article">
+          <div class="default-wrap">
+            <nav class="article-pagination grid grid--vertical-align">
+              <div class="prev grid-item grid-item--half text-left">
+                <div><small>PREV</small></div><a href="/articles/utplus/">UTPlus - Mejorando la forma en que ingresas al portal estudiantil UTPereira</a>
+              </div>
+              <div class="next grid-item grid-item--half text-right">
+                <div><small>NEXT</small></div><a href="/articles/configurar-y-gestionar-sitios-en-nginx-ii/">Configurar  y gestionar sitios en Nginx II</a>
+              </div>
+            </nav>
+            <div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ÁLVAREZ G ©</a></small></div>
+          </div>
+        </footer>
+      </article>
+    </div>
+    <script>
+      WebFontConfig = {
+        google: { families: [ 'Source+Sans+Pro:700,400:latin', 'Source+Serif+Pro:400,700:latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })()
+    </script>
+  </body>
+</html>

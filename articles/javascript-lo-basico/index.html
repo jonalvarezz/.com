@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Javascript, lo básico - Jonathan Álvarez González
+    </title>
+    <meta name="description" content="Frontend developer but also worken with backend technologies everyday. I also like designing. Here you will find some links and articles I'd write">
+    <link rel="alternate" href="http://localhost:8080/feed.xml" type="application/rss+xml" title="Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development">
+    <link href="/favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  </head>
+  <body class="article">
+    <div class="wrap">
+      <article class="content">
+        <header style="" class="article-header grid grid--vertical-align grid--horizontal-align">
+          <div class="article-inner text-center">
+            <div class="article-meta"></div>
+            <h1 class="article-title default-wrap">Javascript, lo básico</h1>
+            <div class="article-meta"><span>December 29th 2014</span></div>
+          </div>
+        </header>
+        <section class="article-content default-wrap"><p>Esto es una recopilación de apuntes personales sobre cosas de Javascript. Espero que a alguien le pueda ser útil&nbsp;también.</p>
+<h2 id="objetos">Objetos</h2>
+<p>Todo lo que no sea un número (Number), una cadena de texto (String), un boolean (Boolean), un símbolo (Symbol), null o Undefined es un objeto en&nbsp;Javascript.</p>
+<p>Esto quiere decir que las funciones (Function), los fechas (Date), las expresiones regulares (RegExp) y los array (Array) son un <em>tipo especial de objeto</em>.</p>
+<p>La mejor forma de definir objetos es en forma literal (literal&nbsp;syntax):</p>
+<pre><code>var o = {};
+
+var person = {
+    name: &quot;Jonathan&quot;,
+    lastName: &quot;Alvarez&quot;,
+        likes : {
+        play: &quot;Zelda, Pokemon&quot;
+    }
+};
+</code></pre><p>La razón de esto es&nbsp;porque:</p>
+<p>1. Es fácil de entender.
+2. Es rápido de escribir.
+3. Es la sintaxys usada por <span class="caps">JSON</span> por lo que deberá preferirse&nbsp;siempre.</p>
+<p>Para acceder a las propiedades de un&nbsp;objeto:</p>
+<pre><code>person.name; 
+person[&quot;name&quot;]; //Forma preferida
+</code></pre><p>La segunda es la forma preferida ya que no interferirá con el uso de palabras reservadas del lenguaje, pues siempre irá entre comillas dobles o&nbsp;simples.</p>
+<h2 id="array">Array</h2>
+<p>Funcionan como un objeto salvo por dos&nbsp;cosas:</p>
+<ul>
+<li>Solo pueden ser accedidos utilizando valores númericos, correspondientes al índice, entre llaves <code>[]</code>.</li>
+<li>Poseen la propiedad <code>length</code>.</li>
+</ul>
+<p>Ejemplo de&nbsp;sintaxis:</p>
+<pre><code>var ciudades = [&quot;Pereira&quot;, &quot;Manizales&quot;, &quot;Medellín&quot;];
+ciudades[1]; // Manizales.
+ciudades.length; // 3
+</code></pre><p>No es recomendado dejar una coma al final de los valores del array ya que en algunos browsers puede crear un nuevo índice con valor <code>undefined</code>.</p>
+<p>Se debe tener en cuenta que el valor de la propiedad <code>length</code> es el valor del índice mas alto más uno; y no el tamaño del array en sí. Esto&nbsp;es:</p>
+<pre><code>var a = [&quot;apple&quot;, &quot;onion&quot;, &quot;coconaut&quot;];
+a.length; // 3
+
+a[120] = &quot;orange&quot;;
+a.length; // 121
+</code></pre><p>Interesante,&nbsp;no?</p>
+<p>Un error común al utilizar variables es calcular el tamaño en cada iteración de un ciclo o&nbsp;loop:</p>
+<pre><code>for(var i = 0; i &lt; a.length; a++;) {
+    // Do something
+}
+</code></pre><p>Una forma más óptima&nbsp;sería</p>
+<pre><code>for(var i = 0, len = a.length; i &lt; len; a++;) {
+    // Do something
+}
+</code></pre><p>Y una forma más&nbsp;bonita: </p>
+<pre><code>for (var i = 0, item; item = a[i++];) {
+    // Do something
+}
+</code></pre><p>Esta última recorrerá el array hasta toparse con una <em>sentencia falsa</em> como <code>undefined</code>. Así que si hay un valor en el array separado por <code>undefined</code>, nunca se llegará a este valor de esa&nbsp;forma.</p>
+<p>Y la forma preferida que no fallará como la anterior&nbsp;sería:</p>
+<pre><code>for( var fruit in a ) {
+    // Do something
+}
+</code></pre><h3 id="array-map">Array&nbsp;Map</h3>
+<p>La propiedad <code>Array.prototype.map</code> de los arrays permite recorrerlos también. Por su facilidad, ante un <code>for</code>, esta forma es&nbsp;proferible. </p>
+<p>Siguiendo con el ejemplo del array <code>a</code></p>
+<pre><code>a.map(function(element, index) {
+    console.log(element)
+}
+</code></pre><p>Referencia: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map?redirectlocale=en-US&amp;redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FArray%2Fmap"><span class="caps">MDN</span></a></p>
+</section>
+        <aside class="article-share text-center default-wrap">
+          <hr><a href="https://twitter.com/share?text=Javascript,%20lo%20b%C3%A1sico by @jonalvarezz&amp;url=" title="Share on Twitter" onclick="this.href+=window.location.href; window.open(this.href, 'twitter-share', 'width=550,height=330');return false;"><i class="fa fa-twitter"></i></a><a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook" onclick="this.href+=window.location.href; window.open(this.href, 'facebook-share', 'width=580,height=330');return false;"><i class="fa fa-facebook"></i></a>
+        </aside>
+        <footer class="footer-article">
+          <div class="default-wrap">
+            <nav class="article-pagination grid grid--vertical-align">
+              <div class="prev grid-item grid-item--half text-left">
+                <div><small>PREV</small></div><a href="/articles/django-rest-framework-authentication-with-a-custom-model-user/">Django Rest Framework Authentication with a custom Model User</a>
+              </div>
+              <div class="next grid-item grid-item--half text-right">
+                <div><small>NEXT</small></div><a href="/articles/abrir-una-carpeta-o-archivo-en-sublime-desde-la-terminal/">Abrir una carpeta o archivo en Sublime Text desde la Terminal</a>
+              </div>
+            </nav>
+            <div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ÁLVAREZ G ©</a></small></div>
+          </div>
+        </footer>
+      </article>
+    </div>
+    <script>
+      WebFontConfig = {
+        google: { families: [ 'Source+Sans+Pro:700,400:latin', 'Source+Serif+Pro:400,700:latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })()
+    </script>
+  </body>
+</html>

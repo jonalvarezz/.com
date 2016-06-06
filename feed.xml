@@ -1,0 +1,777 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jonathan Álvarez González</title>
+    <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"></atom:link>
+    <link>http://localhost:8080</link>
+    <description>Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development</description>
+    <pubDate>Tue, 07 Jul 2015 10:54:00 -0500</pubDate>
+    <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
+    <language>en</language>
+    <item>
+      <title>Django Rest Framework Authentication with a custom Model User</title>
+      <link>http://localhost:8080/articles/django-rest-framework-authentication-with-a-custom-model-user/</link>
+      <pubDate>Tue, 07 Jul 2015 10:54:00 -0500</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/django-rest-framework-authentication-with-a-custom-model-user/</guid>
+      <author></author>
+      <description>&lt;p&gt;&lt;strong&gt;Django Rest Framework&lt;/strong&gt; uses the Django user model by default. If you have a custom user model, you will get this error when trying to browse the API with a logged in user:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;TypeError at /some/endpoint/
+&amp;#39;bool&amp;#39; object is not iterable
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You need to create your own authentication model in order to Django Rest Framework authenticate the resquest.&lt;/p&gt;
+&lt;p&gt;First, create and &lt;code&gt;authentication.py&lt;/code&gt; file under your project primary folder, wich defines the authenticate class:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-python&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; your.custom.user.model.path &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; User
+&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; rest_framework &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; authentication
+&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; rest_framework &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; exceptions
+
+&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;ApiAuthentication&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(authentication.BaseAuthentication)&lt;/span&gt;:&lt;/span&gt;
+    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;authenticate&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, request)&lt;/span&gt;:&lt;/span&gt;
+        username = request.META.get(&lt;span class=&quot;string&quot;&gt;'X_USERNAME'&lt;/span&gt;)
+        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;not&lt;/span&gt; username:
+            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;None&lt;/span&gt;
+
+        &lt;span class=&quot;keyword&quot;&gt;try&lt;/span&gt;:
+            user = User.objects.get(username=username)
+        &lt;span class=&quot;keyword&quot;&gt;except&lt;/span&gt; User.DoesNotExist:
+            &lt;span class=&quot;keyword&quot;&gt;raise&lt;/span&gt; exceptions.AuthenticationFailed(&lt;span class=&quot;string&quot;&gt;'No such user'&lt;/span&gt;)
+
+        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; (user, &lt;span class=&quot;keyword&quot;&gt;None&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The first line is the line what really matters; and note that our authentication class extends the Django Rest Framework default one: &lt;code&gt;BaseAuthentication&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Now, in your &lt;code&gt;settings.py&lt;/code&gt; :&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-python&quot;&gt;REST_FRAMEWORK = {
+    &lt;span class=&quot;string&quot;&gt;'DEFAULT_AUTHENTICATION_CLASSES'&lt;/span&gt;: (
+        &lt;span class=&quot;string&quot;&gt;'your-proyect.authentication.ApiAuthentication'&lt;/span&gt;,
+    )
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And that’s all.&lt;/p&gt;
+&lt;h2 id=&quot;more-info&quot;&gt;More Info&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.django-rest-framework.org/api-guide/authentication/&quot;&gt;Authentication - Django Rest Framework Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    <item>
+      <title>Javascript, lo básico</title>
+      <link>http://localhost:8080/articles/javascript-lo-basico/</link>
+      <pubDate>Mon, 29 Dec 2014 19:32:00 -0500</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/javascript-lo-basico/</guid>
+      <author></author>
+      <description>&lt;p&gt;Esto es una recopilación de apuntes personales sobre cosas de Javascript. Espero que a alguien le pueda ser útil también.&lt;/p&gt;
+&lt;h2 id=&quot;objetos&quot;&gt;Objetos&lt;/h2&gt;
+&lt;p&gt;Todo lo que no sea un número (Number), una cadena de texto (String), un boolean (Boolean), un símbolo (Symbol), null o Undefined es un objeto en Javascript.&lt;/p&gt;
+&lt;p&gt;Esto quiere decir que las funciones (Function), los fechas (Date), las expresiones regulares (RegExp) y los array (Array) son un &lt;em&gt;tipo especial de objeto&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;La mejor forma de definir objetos es en forma literal (literal syntax):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var o = {};
+
+var person = {
+    name: &amp;quot;Jonathan&amp;quot;,
+    lastName: &amp;quot;Alvarez&amp;quot;,
+        likes : {
+        play: &amp;quot;Zelda, Pokemon&amp;quot;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;La razón de esto es porque:&lt;/p&gt;
+&lt;p&gt;1. Es fácil de entender.
+2. Es rápido de escribir.
+3. Es la sintaxys usada por JSON por lo que deberá preferirse siempre.&lt;/p&gt;
+&lt;p&gt;Para acceder a las propiedades de un objeto:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;person.name; 
+person[&amp;quot;name&amp;quot;]; //Forma preferida
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;La segunda es la forma preferida ya que no interferirá con el uso de palabras reservadas del lenguaje, pues siempre irá entre comillas dobles o simples.&lt;/p&gt;
+&lt;h2 id=&quot;array&quot;&gt;Array&lt;/h2&gt;
+&lt;p&gt;Funcionan como un objeto salvo por dos cosas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Solo pueden ser accedidos utilizando valores númericos, correspondientes al índice, entre llaves &lt;code&gt;[]&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Poseen la propiedad &lt;code&gt;length&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ejemplo de sintaxis:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var ciudades = [&amp;quot;Pereira&amp;quot;, &amp;quot;Manizales&amp;quot;, &amp;quot;Medellín&amp;quot;];
+ciudades[1]; // Manizales.
+ciudades.length; // 3
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;No es recomendado dejar una coma al final de los valores del array ya que en algunos browsers puede crear un nuevo índice con valor &lt;code&gt;undefined&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Se debe tener en cuenta que el valor de la propiedad &lt;code&gt;length&lt;/code&gt; es el valor del índice mas alto más uno; y no el tamaño del array en sí. Esto es:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var a = [&amp;quot;apple&amp;quot;, &amp;quot;onion&amp;quot;, &amp;quot;coconaut&amp;quot;];
+a.length; // 3
+
+a[120] = &amp;quot;orange&amp;quot;;
+a.length; // 121
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Interesante, no?&lt;/p&gt;
+&lt;p&gt;Un error común al utilizar variables es calcular el tamaño en cada iteración de un ciclo o loop:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;for(var i = 0; i &amp;lt; a.length; a++;) {
+    // Do something
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Una forma más óptima sería&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;for(var i = 0, len = a.length; i &amp;lt; len; a++;) {
+    // Do something
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Y una forma más bonita: &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;for (var i = 0, item; item = a[i++];) {
+    // Do something
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Esta última recorrerá el array hasta toparse con una &lt;em&gt;sentencia falsa&lt;/em&gt; como &lt;code&gt;undefined&lt;/code&gt;. Así que si hay un valor en el array separado por &lt;code&gt;undefined&lt;/code&gt;, nunca se llegará a este valor de esa forma.&lt;/p&gt;
+&lt;p&gt;Y la forma preferida que no fallará como la anterior sería:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;for( var fruit in a ) {
+    // Do something
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;array-map&quot;&gt;Array Map&lt;/h3&gt;
+&lt;p&gt;La propiedad &lt;code&gt;Array.prototype.map&lt;/code&gt; de los arrays permite recorrerlos también. Por su facilidad, ante un &lt;code&gt;for&lt;/code&gt;, esta forma es proferible. &lt;/p&gt;
+&lt;p&gt;Siguiendo con el ejemplo del array &lt;code&gt;a&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;a.map(function(element, index) {
+    console.log(element)
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Referencia: &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map?redirectlocale=en-US&amp;amp;redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FArray%2Fmap&quot;&gt;MDN&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Abrir una carpeta o archivo en Sublime Text desde la Terminal</title>
+      <link>http://localhost:8080/articles/abrir-una-carpeta-o-archivo-en-sublime-desde-la-terminal/</link>
+      <pubDate>Mon, 08 Dec 2014 12:48:00 -0500</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/abrir-una-carpeta-o-archivo-en-sublime-desde-la-terminal/</guid>
+      <author></author>
+      <description>&lt;p&gt;Si eres desarrollador, poder abrir cualquier archivo o carpeta entera en Sublime Text mientras se esta trabajando en la terminal sin duda es algo que no puede faltar si quieres ahorrarte algunos segundos y clicks extras.&lt;/p&gt;
+&lt;iframe width=&quot;760&quot; height=&quot;428&quot; src=&quot;//www.youtube.com/embed/P1WW3wTU4WY?controls=0&amp;amp;showinfo=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+
+
+&lt;p&gt;Los pasos para hacerlo son:&lt;/p&gt;
+&lt;p&gt;1. Crear un enlace simbólico de la aplicación de Sublime Text en &lt;code&gt;/usr/local/bin/&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# ln -s /Applications/Sublime Text.app/Contents/SharedSupport/bin/subl usr/local/bin/subl
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Pueden crear el enlace con cualquier nombre. Prefiero &lt;code&gt;subl&lt;/code&gt; porque es mas corto.&lt;/p&gt;
+&lt;p&gt;2. Asegurarse de que &lt;code&gt;/usr/local/bin&lt;/code&gt; se encuentre en nuestro &lt;code&gt;$PATH&lt;/code&gt;, pueden revisarlo abriendo el archivo &lt;code&gt;~/.bash_profile&lt;/code&gt; o bien revisando la salida de esa variable:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$PATH
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;En caso que la salida de que la ruta no este incluida la agregan al archivo &lt;code&gt;~/.bash_profile&lt;/code&gt; &lt;/p&gt;
+&lt;p&gt;3. Cargar el archivo bash nuevamente. También pueden cerrar por completo la terminal y abrirla de nuevo para retomar los cambios.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ source ~/.bash_profile
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;modo-de-uso&quot;&gt;Modo de uso&lt;/h2&gt;
+&lt;p&gt;Podemos &lt;strong&gt;abrir archivos o carpetas completas desde la terminal en Sublime Text&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Para abrir archivos en específico&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  $ subl nombre_del_archivo
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Para abrir carpetas completas&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  $ subl /ruta/de/la/carpeta/
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;O bien si nos encontramos en la carpeta de nuestro interés, basta con reemplazar la ruta con un punto&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ subl .
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>Error 404 en Wordpress al utilizar query vars (GET)</title>
+      <link>http://localhost:8080/articles/error-404-en-wordpress-al-utilizar-query-vars-get/</link>
+      <pubDate>Tue, 11 Nov 2014 00:54:00 -0500</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/error-404-en-wordpress-al-utilizar-query-vars-get/</guid>
+      <author></author>
+      <description>&lt;p&gt;Estaba creando una &lt;strong&gt;página personalizada en Wordpress&lt;/strong&gt; en la que recibía información, a través de parámetros GET, desde un servicio externo y aunque la URL estaba bien escrita, los parámetros GET o query vars tampoco presentaban errores, &lt;strong&gt;Wordpress me arrojaba a la página de error 404&lt;/strong&gt;, página no encontrada.&lt;/p&gt;
+&lt;p&gt;Me jodí muchas horas encontrando la causa, desde conflicto de plugins de caché, seguridad hasta configuración backend del servidor, nada parecia funcionar.&lt;/p&gt;
+&lt;p&gt;Finalmente fijándome en los parámetros que estaba recibiendo por GET noté que venía el atributo &lt;code&gt;name&lt;/code&gt; y como bien se sabe éste parámetro es propio de Wordpress para sus búsquedas por GET.&lt;/p&gt;
+&lt;p&gt;En general, los parámetros o query vars que recibes por GET no pueden ser iguales a ninguno de los atributos de query_vars() de Wordpress ya que son palabras reservadas. &lt;em&gt;A no ser claro que tu propósito sea alterar el query de Wordpress.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Esta es la lista de palabras reservadas de query vars:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var $public_query_vars = array(&amp;#39;m&amp;#39;, &amp;#39;p&amp;#39;, &amp;#39;posts&amp;#39;, &amp;#39;w&amp;#39;, &amp;#39;cat&amp;#39;, &amp;#39;withcomments&amp;#39;, &amp;#39;withoutcomments&amp;#39;, &amp;#39;s&amp;#39;, &amp;#39;search&amp;#39;, &amp;#39;exact&amp;#39;, &amp;#39;sentence&amp;#39;, &amp;#39;debug&amp;#39;, &amp;#39;calendar&amp;#39;, &amp;#39;page&amp;#39;, &amp;#39;paged&amp;#39;, &amp;#39;more&amp;#39;, &amp;#39;tb&amp;#39;, &amp;#39;pb&amp;#39;, &amp;#39;author&amp;#39;, &amp;#39;order&amp;#39;, &amp;#39;orderby&amp;#39;, &amp;#39;year&amp;#39;, &amp;#39;monthnum&amp;#39;, &amp;#39;day&amp;#39;, &amp;#39;hour&amp;#39;, &amp;#39;minute&amp;#39;, &amp;#39;second&amp;#39;, &amp;#39;name&amp;#39;, &amp;#39;category_name&amp;#39;, &amp;#39;tag&amp;#39;, &amp;#39;feed&amp;#39;, &amp;#39;author_name&amp;#39;, &amp;#39;static&amp;#39;, &amp;#39;pagename&amp;#39;, &amp;#39;page_id&amp;#39;, &amp;#39;error&amp;#39;, &amp;#39;comments_popup&amp;#39;, &amp;#39;attachment&amp;#39;, &amp;#39;attachment_id&amp;#39;, &amp;#39;subpost&amp;#39;, &amp;#39;subpost_id&amp;#39;, &amp;#39;preview&amp;#39;, &amp;#39;robots&amp;#39;, &amp;#39;taxonomy&amp;#39;, &amp;#39;term&amp;#39;, &amp;#39;cpage&amp;#39;, &amp;#39;post_type&amp;#39;);
+
+var $private_query_vars = array(&amp;#39;offset&amp;#39;, &amp;#39;posts_per_page&amp;#39;, &amp;#39;posts_per_archive_page&amp;#39;, &amp;#39;showposts&amp;#39;, &amp;#39;nopaging&amp;#39;, &amp;#39;post_type&amp;#39;, &amp;#39;post_status&amp;#39;, &amp;#39;category__in&amp;#39;, &amp;#39;category__not_in&amp;#39;, &amp;#39;category__and&amp;#39;, &amp;#39;tag__in&amp;#39;, &amp;#39;tag__not_in&amp;#39;, &amp;#39;tag__and&amp;#39;, &amp;#39;tag_slug__in&amp;#39;, &amp;#39;tag_slug__and&amp;#39;, &amp;#39;tag_id&amp;#39;, &amp;#39;post_mime_type&amp;#39;, &amp;#39;perm&amp;#39;, &amp;#39;comments_per_page&amp;#39;);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Sí alguno de los parámetros GET que necesitas se encuentra en esta lista, tienes dos opciones:&lt;/p&gt;
+&lt;p&gt;1. Si tienes control sobre cómo se envían los parámetros GET a tu página receptora en cuestión, simplemente cambia el nombre del atributo por uno que no cause conflicto.&lt;/p&gt;
+&lt;p&gt;2. Si no tienes control sobre el cómo se envían tus campos, utiliza la dirección sin permalink para tu sitio. Por ejemplo, si el ID de mi página receptora es 13, sería &lt;code&gt;http://misitio.com/?p=13&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;De esta forma se evita ese &lt;strong&gt;error 404 en Wordpress recibiendo parámetros GET&lt;/strong&gt; y podrás manipular los datos que recibas sin problema.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Cómo cambiar la carpeta wp-content en Wordpress</title>
+      <link>http://localhost:8080/articles/cambiar-la-carpeta-wp-content/</link>
+      <pubDate>Mon, 03 Nov 2014 13:44:00 -0500</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/cambiar-la-carpeta-wp-content/</guid>
+      <author></author>
+      <description>&lt;p&gt;Una buena forma de personalizar aún más nuestro Wordpress es cambiar la carpeta &lt;code&gt;wp-content&lt;/code&gt; por otra que elijamos.&lt;/p&gt;
+&lt;p&gt;Aunque el hecho que hagas esto &lt;strong&gt;no evitará que se conozca que tu sitio es un Wordpress&lt;/strong&gt;, tal vez si ayude un poco a evitar bots automatizados que busquen vulnerabilidades en estos sitios, pues la estructura de archivos no será igual.&lt;/p&gt;
+&lt;p&gt;Pueden utilizar los nombres que quieran. Yo utilizaré la siguiente estructura&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;wp-content&lt;/code&gt; ahora será &lt;code&gt;assets&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;La carpeta de &lt;code&gt;plugins&lt;/code&gt; ahora será &lt;code&gt;scripts&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;La carpeta &lt;code&gt;uploads&lt;/code&gt; ahora será &lt;code&gt;media&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Para hacerlo, modificaremos el archivo &lt;code&gt;wp-config.php&lt;/code&gt;, pueden agregar esto al final.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/**
+ * Changing Wordpress default directories
+ *
+ */
+define (&amp;#39;WP_CONTENT_FOLDERNAME&amp;#39;, &amp;#39;assets&amp;#39;);
+define (&amp;#39;WP_CONTENT_DIR&amp;#39;, ABSPATH . WP_CONTENT_FOLDERNAME);
+
+define(&amp;#39;WP_SITEURL&amp;#39;, &amp;#39;http://sitioWordpress/&amp;#39;);
+define(&amp;#39;WP_CONTENT_URL&amp;#39;, WP_SITEURL . WP_CONTENT_FOLDERNAME);
+
+define (&amp;#39;WP_PLUGIN_FOLDERNAME&amp;#39;, &amp;#39;scripts&amp;#39;);
+define( &amp;#39;WP_PLUGIN_DIR&amp;#39;, WP_CONTENT_DIR . &amp;#39;/&amp;#39; . WP_PLUGIN_FOLDERNAME );
+define( &amp;#39;WP_PLUGIN_URL&amp;#39;, WP_CONTENT_URL . &amp;#39;/&amp;#39; . WP_PLUGIN_FOLDERNAME );
+
+define( &amp;#39;UPLOADS&amp;#39;, &amp;#39;assets/media&amp;#39; );
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Nótese que la URL del sitio debe &lt;em&gt;hardcodearse&lt;/em&gt; en &lt;code&gt;WP_SITEURL&lt;/code&gt; para que los plugins funcionen adecuadamente. &lt;/p&gt;
+&lt;p&gt;Lo que resta por hacer es que cambies el nombre de las carpetas &lt;code&gt;wp-content&lt;/code&gt;, &lt;code&gt;plugins&lt;/code&gt; y &lt;code&gt;uploads&lt;/code&gt; por los nuevos nombres que definiste.&lt;/p&gt;
+&lt;p&gt;Si todo ha salido bien, podrán acceder al administrador, instalar/eliminar temas, plugins y subir archivos como de costumbre. El cambio sólo se verá en la estructura de las URLs de sus archivos.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Ordenar strings numéricamente en Angular JS</title>
+      <link>http://localhost:8080/articles/ordenar-strings-numericamente-en-angular-js/</link>
+      <pubDate>Sun, 26 Oct 2014 23:37:00 -0500</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/ordenar-strings-numericamente-en-angular-js/</guid>
+      <author></author>
+      <description>&lt;p&gt;Utilizar el filtro &lt;code&gt;OrderBy&lt;/code&gt; de &lt;strong&gt;AngularJS&lt;/strong&gt; es bastante sencillo. Ordenará alfabéticamente las cadenas de texto y numéricamente los números.&lt;/p&gt;
+&lt;p&gt;Sin embargo cuando traemos devuelta algunos campos númericos de algunas APIS o bases de datos, pueden ser retornados como &lt;code&gt;strings&lt;/code&gt; y al querer ordenar númericamente el resultado no será el esperado. Puede suceder por ejemplo con fechas.&lt;/p&gt;
+&lt;p&gt;Una forma rápido de solucionarlo, sin modificar el valor en la base de datos sería crear una expresión para evaluar el &lt;code&gt;OrderBy&lt;/code&gt;. &lt;/p&gt;
+&lt;p&gt;Veámoslo en código, supongamos que cargamos una lista de posts y queremos filtrar por fecha. La fecha del post es devuelta como &lt;code&gt;&amp;quot;mmm-dd-yy&amp;quot;&lt;/code&gt; lo cual no nos sirve ya que es una cadena. Utilizando una expresión en el filtro &lt;code&gt;OrderBy&lt;/code&gt;, sería:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ng-repeat=&amp;quot;post in posts | orderBy : date&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Donde  &lt;code&gt;date&lt;/code&gt; es el nombre de la expresión. Y en el controlador de esa plantilla:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$scope.date = function(post) {
+    var date = new Date(post.publishedDate);
+    return date;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Y para ordenar en orden inverso sería:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ng-repeat=&amp;quot;post in posts | orderBy : date : true&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>TIP Programar el apagado en MAC OSX / *Unix</title>
+      <link>http://localhost:8080/articles/tip-programar-el-apagado-en-mac-osx-unix/</link>
+      <pubDate>Tue, 21 Oct 2014 01:55:00 -0500</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/tip-programar-el-apagado-en-mac-osx-unix/</guid>
+      <author></author>
+      <description>&lt;p&gt;Muchas veces dejamos nuestros equipos descargando archivos muy pesados en la noche mientras dormimos y aunque la descarga dure unas pocas horas, el equipo permanecerá encendido hasta que despertemos de nuevo.&lt;/p&gt;
+&lt;p&gt;Para evitar esto, podemos &lt;strong&gt;programar el equipo para que se apague luego de cierto tiempo o a una hora específica&lt;/strong&gt;, así ahorramos algo de energía.&lt;/p&gt;
+&lt;p&gt;En la familia *Unix programar el apagado del equipo es tan fácil como:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo shutdown -h +90
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Esto creará una un proceso de apagado que indica que el equipo se apagará dentro de 1 hora 30 minutos.&lt;/p&gt;
+&lt;p&gt;En general para apagar el equipo,&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo shutdown -h &amp;lt;time&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Donde &lt;code&gt;&amp;lt;time&amp;gt;&lt;/code&gt; pueden ser los minutos a partir de los cuales se ejecutará el proceso de apagado &lt;code&gt;+minutos&lt;/code&gt;, o bien una fecha exacta en formato &lt;code&gt;yymmddhhmm&lt;/code&gt; año, mes, día, hora, minutos.&lt;/p&gt;
+&lt;p&gt;Si programan un apagado no olviden &lt;strong&gt;desactivar la función de &lt;em&gt;dormir&lt;/em&gt; del equipo&lt;/strong&gt;, ya que podría dormir el proceso que se ha dejado ejecutando. Para esto utilizo en MAC OS X, &lt;a href=&quot;http://sleepnomoreapp.com&quot;&gt;Sleep No More&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Para más información sobre este comando:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ man shutdown
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Si has descargado algún programa de un tercero para hacer esto, deberías sentirte muy mal ahora mismo.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Configurar una terminal hermosa con iTerm 2 en MAC OS X</title>
+      <link>http://localhost:8080/articles/configurar-una-terminal-hermosa-con-iterm2/</link>
+      <pubDate>Fri, 17 Oct 2014 13:15:00 -0500</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/configurar-una-terminal-hermosa-con-iterm2/</guid>
+      <author></author>
+      <description>&lt;iframe width=&quot;760&quot; height=&quot;428&quot; src=&quot;//www.youtube.com/embed/v1S5J39-93I?rel=0&amp;amp;showinfo=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Programar es mejor cuando tu terminal se ve hermosa&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;iTerm2 es un reemplazo para las terminal por defecto de MAC OS X y trae un monton de caracterísitcas muy interesantes, preferida tanto por newbies como por viejos veteranos.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://iterm2.com&quot;&gt;Descargar iTerm2&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;En el video enseño las principales opciones a (des)habilitar en iTerm2, cómo configurar una nueva fuente y hacerle ver hermosa. También te muestro las &lt;strong&gt;mejores fuentes para utilizar en tu consola o terminal&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Si no desean ver el video acá se los especifico.&lt;/p&gt;
+&lt;p&gt;Abrir iTerm2 y entrar a su configuración &lt;code&gt;⌘&lt;/code&gt; + &lt;code&gt;,&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/articles/configurar-una-terminal-hermosa-con-iterm2/Preferencias_de_iterm2.png&quot; alt=&quot;Preferencias de iTerm2&quot;&gt;&lt;/p&gt;
+&lt;p&gt;1. En la pestaña de &lt;strong&gt;General&lt;/strong&gt;, desactivar &lt;strong&gt;Confirm closing multiple sessions&lt;/strong&gt; y &lt;strong&gt;Confirm “Quit iTerm2 (Cmd+Q)” command&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;2. Crear un nuevo perfil desde la pestaña de &lt;strong&gt;Profiles&lt;/strong&gt; presionando el ícono &lt;code&gt;+&lt;/code&gt; (abajo) y seleccionenlo como perfil por defecto en &lt;strong&gt;Other Actions… &amp;gt; Set as Default&lt;/strong&gt; &lt;/p&gt;
+&lt;p&gt;3. &lt;em&gt;(Esto no aparece en el video)&lt;/em&gt; Allí mismo, en la pestaña &lt;strong&gt;General&lt;/strong&gt; (derecha) activar &lt;strong&gt;Reuse previous session’s directory&lt;/strong&gt;. Esto es para que al abrir una nueva pestaña/ventana de la terminal se sitúe por defecto en el directorio en el cual se esta trabajando.&lt;/p&gt;
+&lt;p&gt;4. En la pestaña &lt;strong&gt;Window&lt;/strong&gt; cambien el tamaño por defecto de la terminal. Un tamaño de 127x35 es promedio, aunque utilizo 140x26.&lt;/p&gt;
+&lt;p&gt;5. Descargar el tema &lt;a href=&quot;http://ethanschoonover.com/solarized&quot;&gt;Solarized&lt;/a&gt;, descomprimirlo.&lt;/p&gt;
+&lt;p&gt;6. De vuelta en las preferencias de tu perfil que acabar de crear, en la parte inferior de la pestaña &lt;strong&gt;Colors&lt;/strong&gt;, encontrarán un desplegable para cargar ajustes. Dan click &lt;strong&gt;Load Presets &amp;gt; Import&lt;/strong&gt; y seleccionan el archivo dentro de la carpeta iTerm2 que viene con el tema Solarized. Hay un archivo para el tema oscuro y otro para un tema de colores claros.&lt;/p&gt;
+&lt;p&gt;7. Luego de importado lo seleccionan &lt;strong&gt;Load Presets &amp;gt; Solarized Dark/Light&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Hasta este momento se ha configurado iTerm2. Sin embargo para que tengamos muchos más colores y podamos personalizar más la consola hay que modificar unos archivos.&lt;/p&gt;
+&lt;p&gt;Si no tienes nada que perder en estos archivos, o no existían, que es lo más seguro, puedes reemplazarlos. En caso contrario copian y pegan así como realicé en el video.&lt;/p&gt;
+&lt;p&gt;La forma resumida es:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cd ~
+$ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.bash_profile
+$ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.bash_prompt
+$ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.aliases
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Lo que hace eso es situarse en tu carpeta de usuario y descargar los archivos de configuración para el &lt;code&gt;bash_profile&lt;/code&gt;, &lt;code&gt;bash_prompt&lt;/code&gt; y &lt;code&gt;aliases&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Otro archivo opcional es tener más colores al usar Git.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cd ~
+$ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gitconfig
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;em&gt;Todos estos archivos hacen parte de &lt;a href=&quot;https://github.com/nicolashery&quot;&gt;Nicolas Henry&lt;/a&gt;. Pueden encontrar más tweaks para configurar su MAC en su repositorio &lt;a href=&quot;https://github.com/nicolashery/mac-dev-setup&quot;&gt;mac-dev-setup&lt;/a&gt;. Aunque realmente lo más interesante es esto para iTerm. No vayan a instalar Homebrew por amor a Batman.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Con esto su terminal lucirá algo como:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/articles/configurar-una-terminal-hermosa-con-iterm2/Captura_de_pantalla_2014_10_21_a_las_1_26_21_a_m_.png&quot; alt=&quot;iTerm2 configurado y hermoso&quot;&gt;&lt;/p&gt;
+&lt;p&gt;En el video muestro cómo cambiar el hostname, que en mi caso lo tengo como “da house”&lt;/p&gt;
+&lt;h2 id=&quot;mejores-fuentes-para-las-terminales&quot;&gt;Mejores fuentes para las terminales&lt;/h2&gt;
+&lt;p&gt;En particular, estas son las fuentes que más me gustan.&lt;/p&gt;
+&lt;p&gt;1. &lt;a href=&quot;http://www.google.com/fonts/specimen/Inconsolata&quot;&gt;Inconsolata&lt;/a&gt;
+2. Monaco (Viene con MAC OSX)
+3. &lt;a href=&quot;http://www.google.com/fonts/specimen/Droid+Sans+Mono&quot;&gt;Droid Sans Mono&lt;/a&gt;
+4. En su defecto, Consolas. Viene con Windows.&lt;/p&gt;
+&lt;p&gt;¿Conoces algún otro &lt;em&gt;tweak&lt;/em&gt; hermoso?&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>¿Realizarás un Clean Install del nuevo OSX? Asegúrate de guardar estos archivos</title>
+      <link>http://localhost:8080/articles/post-post/</link>
+      <pubDate>Fri, 17 Oct 2014 13:15:00 -0500</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/post-post/</guid>
+      <author></author>
+      <description>&lt;p&gt;Me gusta aprovechar al máximo todas las caracterísiticas de las nuevas versiones de sistemas operativos, en especial en OSX, por eso siempre que sale una nueva versión no lo pienso dos veces para realizar una instalación en limpio (Clean Install)&lt;/p&gt;
+&lt;p&gt;Particularmente no utilizo gestores de backup como &lt;strong&gt;Time Machine, o copia completa del disco duro&lt;/strong&gt;. Lo hago todo &lt;em&gt;a la antigua&lt;/em&gt;: copio manualmente mis archivos, sólo los realmente importantes, en una &lt;strong&gt;memoría USB&lt;/strong&gt; y luego los restauro.&lt;/p&gt;
+&lt;p&gt;El proceso es más lento, si, pero me aseguro que Disfrutaré del nuevo sistema &lt;em&gt;como recién salido de la caja&lt;/em&gt;, como nuevo, como a la gente de Palo Alto mejor les ha parecido. &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Al usar Time Machine para restaurar tus datos también restauras las aplicaciones y tus configuraciones anteriores. Podrías perderte de alguna nueva característica y nunca darte cuenta.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Sin embargo hay archivos que guardan ciertas configuraciones y que no son necesariamente propios de OSX y que deberías asegurarte de guardar.&lt;/p&gt;
+&lt;p&gt;En mi caso:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Imágenes de tus máquinas virtuales.&lt;/strong&gt; Recrearlas es fácil, pero meh. En Virtualbox puedes exportar las imágenes que quieres utilizando &lt;code&gt;File -&amp;gt; Export Appliance&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Archivos de configuración de tu editor de texto.&lt;/strong&gt; Utilizo Sublime Text, pero estas configuraciones prefiero recrearlas desde cero para hacer &lt;em&gt;limpieza&lt;/em&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Configuración de SSH&lt;/strong&gt; Si tienen la buena costumbre de definir los parámetros de conexión de sus servidores en SSH, no querrán volverlo a hacer. &lt;code&gt;~/ssh/config&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Perfil bash&lt;/strong&gt; es bueno mantener los PATH y configuraciones propias de tu terminal.  &lt;code&gt;~/.bash_profile&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Tus sitios locales y sus bases de datos&lt;/strong&gt; Los archivos por lo general no se te escaparan, pero si tienes bases de datos en MySQL no olvides exportarlas. Puedes usar &lt;code&gt;mysqldump&lt;/code&gt; o bien utilizar algún gestor gráfico como &lt;a href=&quot;http://www.sequelpro.com&quot;&gt;Sequel PRO&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Entornos virtuales de Python&lt;/strong&gt; Si los usas, sería problemático crearlos de nuevo. Por defecto están en &lt;code&gt;~/.enviroments&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Los marcadores de tu navegador&lt;/strong&gt; Lamentable perder tan valiosa recopilación&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Gestores de Contraseña&lt;/strong&gt; Asegúrate de tener como recuperar tu información de contraseñas si usas Apps como &lt;strong&gt;1Password&lt;/strong&gt; o similares. Lo mejor es utilizar sincronización por iCloud o Dropbox y así recuperar tu información.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Carpetas ocultas&lt;/strong&gt; Tal vez tengas alguna carpeta oculta con información muy importante o porno.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;¿Alguno que se me haya escapado o que te falte a tí?&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Solución Wordpress pide datos FTP para los plugins</title>
+      <link>http://localhost:8080/articles/solucion-wordpress-pide-datos-ftp-para-los-plugins/</link>
+      <pubDate>Wed, 26 Feb 2014 23:45:00 -0500</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/solucion-wordpress-pide-datos-ftp-para-los-plugins/</guid>
+      <author></author>
+      <description>&lt;p&gt;Algunas veces, luego de instalar Wordpress, nos encontraremos que al acceder a nuestros plugins, bien sea para eliminar o instalar uno nuevo, Wordpress nos pide información de conexión relacionada a nuestro FTP.&lt;/p&gt;
+&lt;h2 id=&quot;why-&quot;&gt;WHY?&lt;/h2&gt;
+&lt;p&gt;Simple: permisos del servidor. – &lt;em&gt;Linux, qué&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Wordpress es incapaz de eliminar o crear nuevos ficheros en el directorio &lt;code&gt;/wp-content/plugins&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Pasa frecuentemente cuando descargamos Wordpress en el &lt;code&gt;home&lt;/code&gt; de nuestro usuario, lo descomprimimos y luego lo movemos a nuestra carpeta de acceso público o donde se ejecuta el servidor web. &lt;/p&gt;
+&lt;p&gt;Los permisos permanecerán definidos al del usuario que creó los archivos. El primero y que regularmente no coincide con el usuario que ejecuta el servidor web (_www, http, www-data…)&lt;/p&gt;
+&lt;h2 id=&quot;c-mo-lo-soluciono-&quot;&gt;Cómo lo soluciono?&lt;/h2&gt;
+&lt;p&gt;Arreglando permisos. &lt;em&gt;–Really?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;1. Arreglar permisos de todos los directorios.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# find * -type d | xargs chmod g+ws
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;2. Arreglar permisos de todos los archivos.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# find * -type f | xargs chmod g+w
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;3. El más importante: Asignar a la carpeta que contiene wordpress &lt;code&gt;wpfolder&lt;/code&gt; el mismo usuario y grupo que esta ejecutando el proceso de su servidor web (apache, nginx…)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# chown -hR user:group wpfolder
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Si no estan seguros de cuál usuario y grupo ejecuta ese proceso lo pueden averiguar con:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ps aux | grep ‘apache’
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Y con eso será suficiente.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>UTPlus - Mejorando la forma en que ingresas al portal estudiantil UTPereira</title>
+      <link>http://localhost:8080/articles/utplus/</link>
+      <pubDate>Sat, 08 Feb 2014 03:00:00 -0500</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/utplus/</guid>
+      <author></author>
+      <description>&lt;iframe width=&quot;760&quot; height=&quot;428&quot; src=&quot;//www.youtube.com/embed/rwHrb0ynAds?rel=0&amp;amp;showinfo=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;Mira Mamá! sin el mouse!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Como seguro se han percatado, la forma de ingresar al &lt;a href=&quot;http://utp.edu.co/pe/&quot;&gt;portal estudiantil&lt;/a&gt; es algo &lt;em&gt;rara&lt;/em&gt;, y sobre todo poco productiva para quienes realizamos todo con el teclado,  básicamente por 3 cosas:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;El campo para ingresar el código no es enfocado automáticamente al cargar la página, por lo que debemos ir con el puntero y seleccionarlo para empezar a escribir.&lt;/li&gt;
+&lt;li&gt;Por más que presionemos &lt;code&gt;Enter&lt;/code&gt; luego de escribir la contraseña, no pasará nada.&lt;/li&gt;
+&lt;li&gt;Es tan &lt;em&gt;raro&lt;/em&gt;, que de todos los formularios que existen en el mundo, el de UTPereira no brinda la opción para que el navegador nos permita guardar la contraseña. &lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;UTPlus es una extensión de Google Chrome que soluciona esas molestas cosas.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;qu-hace&quot;&gt;Qué hace&lt;/h2&gt;
+&lt;p&gt;Por el momento, la extensión UTPlus realiza lo siguiente&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;El campo de código se habilita para que escribas inmediatamente cargue la página.&lt;/li&gt;
+&lt;li&gt;Ahora puedes utilizar la tecla Enter para entrar al portal.&lt;/li&gt;
+&lt;li&gt;Elimina el innecesario e inútil botón ‘Salir’&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/jonalvarezz/UTPlus#muy-pronto&quot;&gt;Próximamente&lt;/a&gt; se habilitará el guardado de contraseñas para evitar escribirla una y otra vez.&lt;/p&gt;
+&lt;h2 id=&quot;descarga-e-instalaci-n&quot;&gt;Descarga e Instalación&lt;/h2&gt;
+&lt;p&gt;Para instalar arrastran el archivo &lt;code&gt;UTPlus.crx&lt;/code&gt; a la página de extensiones de Google Chrome. (&lt;a href=&quot;http://youtu.be/rwHrb0ynAds?t=29s&quot;&gt;Ver video&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;a class=&quot;button blue large&quot; onClick=&quot;_gaq.push(['_trackEvent', 'utpluscrx_dd', 'utpluscrx', 'UTP Crx']);&quot; href=&quot;http://blog.jonalvarezz.com/content/images/2014/Jan/UTPlus.crx&quot;&gt;&lt;i class=&quot;fa fa-arrow-circle-down&quot;&gt;&lt;/i&gt; Descargar Extensión Google Chrome&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&quot;button orange large&quot; href=&quot;https://github.com/jonalvarezz/UTPlus&quot; target=&quot;_blank&quot;&gt;&lt;i class=&quot;fa fa-github&quot;&gt;&lt;/i&gt; Ver  en Github&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Ahora disfruta, se cool y riega la voz.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Optimizar el Rendimiento y Tiempo de Carga de Wordpress en 7 pasos</title>
+      <link>http://localhost:8080/articles/optimizar-el-rendimiento-y-tiempo-de-carga-de-wordpress-en-5-simples-pasos/</link>
+      <pubDate>Wed, 29 Jan 2014 14:10:00 -0500</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/optimizar-el-rendimiento-y-tiempo-de-carga-de-wordpress-en-5-simples-pasos/</guid>
+      <author></author>
+      <description>&lt;p&gt;Esta es una forma muy sencilla de optimizar el rendimiento y tiempo de carga de cualquier instalación de wordpress. Son 6 simples pasos y se puede lograr un aumento hasta del 30%.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Antes y despues de realizar estos pasos, mide tu sitio para saber cuánto ha mejorado. Recomiendo hacerlo desde &lt;a href=&quot;http://gtmetrix.com&quot;&gt;Gtmetrix&lt;/a&gt; y &lt;a href=&quot;http://tools.pingdom.com/fpt&quot;&gt;Pingdoom Tools&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;1-definir-reglas-de-compresi-n-en-htaccess-&quot;&gt;1. Definir reglas de compresión en &lt;code&gt;.htaccess&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;Realiza primero un backup de este archivo en caso que algo salga mal&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    cp .htaccess .htaccess.bkp
+
+    Ahora, agregamos las siguientes reglas a las existentes en el archivo
+
+## BEGIN wordpress optimization
+
+    Header unset Pragma
+    FileETag None
+    Header unset ETag
+
+    &amp;lt;IfModule mod_headers.c&amp;gt;
+        &amp;lt;FilesMatch \&amp;quot;\\.(js|css|xml|gz)$\&amp;quot;&amp;gt;
+            Header append Vary Accept-Encoding
+        &amp;lt;/FilesMatch&amp;gt;
+    &amp;lt;/IfModule&amp;gt;
+
+    &amp;lt;FilesMatch \&amp;quot;\\.(gif|jpg|jpeg|png|ico)$\&amp;quot;&amp;gt;
+            ExpiresActive On
+            ExpiresDefault \&amp;quot;access plus 1 month\&amp;quot;
+    &amp;lt;/FilesMatch&amp;gt;
+
+    &amp;lt;FilesMatch \&amp;quot;\\.(css|js|html?|xml|txt)$\&amp;quot;&amp;gt;
+            ExpiresActive On
+            ExpiresDefault \&amp;quot;access plus 1 week\&amp;quot;
+    &amp;lt;/FilesMatch&amp;gt;
+
+    # compress text, html, javascript, css, xml:
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+
+    # Or, compress certain file types by extension:
+    &amp;lt;Files *.html&amp;gt;
+    SetOutputFilter DEFLATE
+    &amp;lt;/Files&amp;gt;
+
+    ## END wordpress optimization
+
+    Guardan, e ingresan al sitio para comprobar que cargue sin problemas.
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;2-utilizar-plugin-photon-&quot;&gt;2. Utilizar plugin Photon.&lt;/h2&gt;
+&lt;p&gt;Photon es una extensión del plugin de &lt;a href=&quot;http://jetpack.me&quot;&gt;Jetpack&lt;/a&gt; y lo que hace es funcionar como un &lt;abbr title=\&quot;Content Delivery Network\&quot;&gt;CDN&lt;/abbr&gt; sirviendo las imágenes de nuestro sitio por nosotros, acelerando así la carga del sitio y menor consumo de ancho de banda.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/articles/optimizar-el-rendimiento-y-tiempo-de-carga-de-wordpress-en-5-simples-pasos/jetpack_modules.png&quot; alt=&quot;módulos Jetpack&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://wordpress.org/plugins/jetpack/&quot;&gt;Descargar Jetpack&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Aunque tenga sus detractores, por temas de SEO en imágenes, ciertamente mejora el mucho rendimiento. Aprovechando que estas en la configuración de Jetpack, deshabilita todo lo que no necesitas y desconozcas.&lt;/p&gt;
+&lt;h2 id=&quot;3-utilizar-plugin-de-cache-&quot;&gt;3. Utilizar plugin de cache.&lt;/h2&gt;
+&lt;p&gt;Esto es quizas lo más importante y que más les ayudará. TIENEN que instalar un plugin que se haga cargo de gestionar el cache de su sitio, existen muchísimos, recomiendo:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://wordpress.org/plugins/quick-cache/&quot;&gt;Quick cache&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://wordpress.org/plugins/wp-super-cache/&quot;&gt;WP Super Cache&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://wordpress.org/plugins/w3-total-cache/&quot;&gt;W3 Total Cache&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;El sencillo, el moderado y el avanzado, respectivamente.&lt;/em&gt; Todos son igual de buenos. Todos poseen opciones para no hacer cache de ciertas páginas, como por ejemplo si tienes tienda virtual, un carro de compras, etc.&lt;/p&gt;
+&lt;h2 id=&quot;4-usar-jquery-desde-el-cdn-de-google-&quot;&gt;4. Usar jQuery desde el CDN de Google.&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Esto puede causar comportamientos inesperados o romper el funcionamiento de algunos plugins.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;jQuery es ampliamente usado por otros plugins y wordpress por defecto la carga desde nuestro servidor. Podemos agilizar las cosas y permitir que se cargue en paralelo con nuestro sitio utilizando el CDN que Google provee.&lt;/p&gt;
+&lt;p&gt;Y para ello existe basta con agregar al final del archivo &lt;code&gt;functions.php&lt;/code&gt; del tema:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    function jquery_cdn() {
+         if (!is_admin()) {
+                wp_deregister_script(&amp;#39;jquery&amp;#39;);
+                wp_register_script(&amp;#39;jquery&amp;#39;, &amp;#39;//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js&amp;#39;, false, &amp;#39;1.10.2&amp;#39;);
+                wp_enqueue_script(&amp;#39;jquery&amp;#39;);
+                }
+         }
+    add_action(&amp;#39;init&amp;#39;, &amp;#39;jquery_cdn&amp;#39;);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;a href=&quot;https://developers.google.com/speed/libraries/devguide#jquery&quot;&gt;Pueden cambiar la versión de jQuery por la que deseen.&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;5-mover-los-archivos-js-al-footer-&quot;&gt;5. Mover los archivos &lt;code&gt;js&lt;/code&gt; al footer.&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Esto puede causar comportamientos inesperados o romper el funcionamiento de algunos plugins.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;El script es:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    remove_action(&amp;#39;wp_head&amp;#39;, &amp;#39;wp_print_scripts&amp;#39;);
+     remove_action(&amp;#39;wp_head&amp;#39;, &amp;#39;wp_print_head_scripts&amp;#39;, 9);
+     remove_action(&amp;#39;wp_head&amp;#39;, &amp;#39;wp_enqueue_scripts&amp;#39;, 1);
+     add_action(&amp;#39;wp_footer&amp;#39;, &amp;#39;wp_print_scripts&amp;#39;, 5);
+     add_action(&amp;#39;wp_footer&amp;#39;, &amp;#39;wp_enqueue_scripts&amp;#39;, 5);
+     add_action(&amp;#39;wp_footer&amp;#39;, &amp;#39;wp_print_head_scripts&amp;#39;, 5);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;De nuevo, esto puede romper el funcionamiento de algunos plugins, y deberás regisrar todos los plugins  de tu tema en el footer. Por ejemplo:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;wp_enqueue_script( &amp;#39;miPlugin&amp;#39;, &amp;#39;&amp;#39;, &amp;#39;&amp;#39;, &amp;#39;&amp;#39;, true );
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;em&gt;El &lt;code&gt;true&lt;/code&gt; al final indica que se debe cargar en el footer.&lt;/em&gt; &lt;/p&gt;
+&lt;p&gt;Hagan bien sus pruebas y atentos a los errores en ejecución de Javascript.&lt;/p&gt;
+&lt;h2 id=&quot;6-eliminar-query-strings-de-archivos-est-ticos&quot;&gt;6. Eliminar Query Strings de archivos estáticos&lt;/h2&gt;
+&lt;p&gt;Si? lo han visto? &lt;code&gt;http//misitio.com/wp-content/themes/mitema/js/archivo.js?ver=2.4.1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Bien, pues Wordpress pone una query strings a todos los archivos &lt;code&gt;js&lt;/code&gt; y &lt;code&gt;css&lt;/code&gt; que carguemos para indicar la versión del script/stylesheet y que no sirve para nada excepto para que alguien obtenga más  información y el tiempo de carga sea un poco más lento.&lt;/p&gt;
+&lt;p&gt;Los removemos así:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function remove_query_script( $src ){
+    $parts = explode( &amp;#39;?&amp;#39;, $src );
+    return $parts[0];
+}
+add_filter( &amp;#39;script_loader_src&amp;#39;, &amp;#39;remove_query_script&amp;#39;, 15, 1 );
+add_filter( &amp;#39;style_loader_src&amp;#39;, &amp;#39;remove_query_script&amp;#39;, 15, 1 );
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Tendrás conflictos si necesitas de alguna query string, como por ejemplo Google Webfonts o la API de Google Maps, pero con otra linea de más en el script controlas la excepción.&lt;/p&gt;
+&lt;h2 id=&quot;7-comparte-tus-resultados&quot;&gt;7. Comparte tus resultados&lt;/h2&gt;
+&lt;p&gt;Este es uno de los mios:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/articles/optimizar-el-rendimiento-y-tiempo-de-carga-de-wordpress-en-5-simples-pasos/gtmetrix_report_boost_wordpress.png&quot; alt=&quot;Reporte optimización Wordpress 6 pasos jonalvarezz.com&quot;&gt;&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Configurar  y gestionar sitios en Nginx II</title>
+      <link>http://localhost:8080/articles/configurar-y-gestionar-sitios-en-nginx-ii/</link>
+      <pubDate>Fri, 24 Jan 2014 16:04:00 -0500</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/configurar-y-gestionar-sitios-en-nginx-ii/</guid>
+      <author></author>
+      <description>&lt;p&gt;Continuando, y ahora que tenemos nuestra &lt;a href=&quot;http://blog.jonalvarezz.com/configurar-y-gestionar-sitios-en-nginx/&quot;&gt;configuración global para Nginx&lt;/a&gt;, veremos cómo administrar nuestros sitios.&lt;/p&gt;
+&lt;p&gt;Primero creamos dos carpetas sobre el directorio de configuración de Nginx&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd /etc/nginx/
+mkdir -p sites-available
+mkdir -p sites-enabled
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Los nombres de las carpetas describen su funcionalidad. &lt;strong&gt;Esto es importante:&lt;/strong&gt; Crearemos un archivo &lt;code&gt;misitio.conf&lt;/code&gt; en &lt;code&gt;sites-available&lt;/code&gt; por cada sitio que queramos en nuestro servidor.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;En algunas distribuciones, como Ubuntu, viene un archivo predefinido llamado default. Recomiendo borrarlo y utilizar &lt;code&gt;misitio.conf&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;De este modo, cada archivo &lt;code&gt;.conf&lt;/code&gt; describirá configuraciones específicas para cada sitio, por ejemplo incluir o no &lt;code&gt;php&lt;/code&gt; o servir como un frontend proxy para usar &lt;code&gt;node&lt;/code&gt;, &lt;code&gt;django&lt;/code&gt; ó demás. Nginx es supremamente flexible.&lt;/p&gt;
+&lt;p&gt;Así, un sitio típico con php para Nginx sería: &lt;code&gt;/etc/nginx/sites-available/misitio.conf&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;server {
+        listen 80;
+
+    server_name misitio.com;
+
+    root /srv/http/misitio;
+    index index.php index.html index.htm;
+
+    # limit_conn limit_per_ip 16; ssi on;
+                #location / {
+        #  Enables directory listings when index file not found
+    # autoindex on; Shows file listing times as local time autoindex_localtime on; Enable for vBulletin usage WITHOUT 
+    # vbSEO installed try_files $uri $uri/ /index.php; root /usr/share/nginx/html; index index.html index.htm;
+                #}
+
+    location / {
+            root /srv/http/misitio;
+        try_files $uri $uri/ /index.php?$args;
+                }
+    include /etc/nginx/global/php.conf;
+    include /etc/nginx/global/drop.conf;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Aclaremos unas cosas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;server_name&lt;/code&gt; Lleva el dominio, en caso de no tener uno aún, usen la IP del servidor.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;root&lt;/code&gt; Especifica la ruta del servidor donde se encuentran los archivos del sitio. Es decir que en &lt;code&gt;/srv/http/&lt;/code&gt; existe una carpeta de nombre &lt;code&gt;misitio&lt;/code&gt; que contiene mis archivos de &lt;code&gt;html&lt;/code&gt;, &lt;code&gt;php&lt;/code&gt;, &lt;code&gt;css&lt;/code&gt; y demás. &lt;strong&gt;Usen siempre carpeta por sitio, así solo sea uno.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;include&lt;/code&gt; Incluye archivos/ módulos adicionales para ese sitio que Nginx deberá tener en cuenta. Para este caso agregamos el módulo para ejecutar &lt;code&gt;php&lt;/code&gt; y algunas excepciones para el servidor en &lt;code&gt;drop.conf&lt;/code&gt; que &lt;a href=&quot;http://blog.jonalvarezz.com/configurar-y-gestionar-sitios-en-nginx/&quot;&gt;antes habíamos definido&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;El sitio está añadido, habilitémoslo entonces:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd /etc/nginx/sites-enabled/
+ln -s ../sites-available/misitio.conf misitio.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Si, sólo creamos un enlace simbólico a la configuración del sitio que queremos habilitar. Así no perdemos archivos de configuración cuando queramos dar sitios de baja.&lt;/p&gt;
+&lt;p&gt;Y sólo por confirmar, definamos permisos sobre la carpeta de nuestro sitio&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# chown -hR http:http /srv/http/
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Recuerden cambiar el usuario &lt;code&gt;http&lt;/code&gt; por el usuario correcto, por ejemplo en ubuntu debería ser &lt;code&gt;www-data&lt;/code&gt;; Así mismo la ruta de archivos públicos, que en Ubuntu sería &lt;code&gt;/home/www/public/misitio/&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Nuestra configuración esta lista. Verificamos que todo este bien ejecutando &lt;code&gt;nginx -t&lt;/code&gt; y reiniciamos el servicio de Nginx con &lt;code&gt;sudo systemctl nginx restart&lt;/code&gt;. No debería aparecer algún error, y nuestro sitio debería ser visible desde el dominio especificado en &lt;code&gt;server_name&lt;/code&gt;.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Configurar y gestionar sitios en Nginx I</title>
+      <link>http://localhost:8080/articles/configurar-y-gestionar-sitios-en-nginx/</link>
+      <pubDate>Fri, 24 Jan 2014 16:00:00 -0500</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/configurar-y-gestionar-sitios-en-nginx/</guid>
+      <author></author>
+      <description>&lt;p&gt;&lt;em&gt;¿Así que quieres/debes abandonar tu querido servidor Apache con CPanel, te pasas a Nginx y no sabes cómo empezar?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Aunque al principio Nginx paresca confuso, verás que es estúpidamente simple y flexible. &lt;em&gt;Además de rápido.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Lo que muestro a continuación es la forma más recomendada y pro de mantener tus sitios en orden en Nginx.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Las ubicaciones pueden variar de acuerdo a la distribución linux utilizada. Se muestran como ejemplo en Archlinux&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Lo primero es darle una configuración básica a Nginx.&lt;/p&gt;
+&lt;p&gt;Reemplaza el contenido del archivo &lt;code&gt;/etc/nginx/nginx.conf&lt;/code&gt; por:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# https://github.com/perusio/wordpress-nginx
+
+user http; 
+worker_processes 1; 
+
+error_log logs/error.log;
+#error_log logs/error.log notice; 
+#error_log logs/error.log info; 
+
+#pid logs/nginx.pid;
+
+events {
+    worker_connections 2048;
+    # optmized to serve many clients with each thread, essential for linux Accept as many connections as possible.
+    use epoll;
+
+    # Accept as many connections as possible.
+    multi_accept on;
+}
+http {
+
+    include mime.types;
+    default_type application/octet-stream;
+    server_names_hash_bucket_size 64;
+
+    #log_format main &amp;#39;$remote_addr - $remote_user [$time_local] \&amp;quot;$request\&amp;quot; &amp;#39;
+    #                  &amp;#39;$status $body_bytes_sent \&amp;quot;$http_referer\&amp;quot; &amp;#39; &amp;#39;\&amp;quot;$http_user_agent\&amp;quot; \&amp;quot;$http_x_forwarded_for\&amp;quot;&amp;#39;; access_log 
+    #off;
+    ## FastCGI.
+    include /etc/nginx/fastcgi.conf;
+
+    ## Use sendfile() syscall to speed up I/O operations and speed up static file serving.}
+    sendfile on;
+
+    ## Handling of IPs in proxied and load balancing situations.
+    #set_real_ip_from 0.0.0.0/32; # all addresses get a real IP. real_ip_header X-Forwarded-For; # the ip is forwarded from the 
+    #load balancer/proxy
+
+    ## Define a zone for limiting the number of simultaneous connections nginx accepts. 1m means 32000 simultaneous sessions. 
+    ## We need to define for each server the limit_conn value refering to this or other zones. ** This syntax requires nginx 
+    ## version &amp;gt;= ** 1.1.8. Cf. http://nginx.org/en/CHANGES. If using an older ** version then use the limit_zone directive 
+    ## below ** instead. Comment out this ** one if not using nginx version &amp;gt;= 1.1.8.
+    limit_conn_zone $binary_remote_addr zone=arbeit:10m;
+
+    ## Define a zone for limiting the number of simultaneous connections nginx accepts. 1m means 32000 simultaneous sessions. 
+    ## We need to define for each server the limit_conn value refering to this or other zones. ** Use this directive for nginx 
+    ## versions below 1.1.8. Uncomment the line below.
+    #limit_zone arbeit $binary_remote_addr 10m;
+
+    ## Timeouts.
+    client_body_timeout 60;
+    client_header_timeout 60;
+    keepalive_timeout 10 10;
+    send_timeout 60;
+
+    ## Reset lingering timed out connections. Deflect DDoS.
+    reset_timedout_connection on;
+
+    ## Body size.
+    client_max_body_size 10m;
+
+    ## TCP options.
+    tcp_nodelay on;
+
+    ## Optimization of socket handling when using sendfile.
+    tcp_nopush on;
+
+    ## Compression.
+    gzip on;
+    gzip_buffers 16 8k;
+    gzip_comp_level 1;
+    gzip_http_version 1.1;
+    gzip_min_length 10;
+    gzip_types text/plain text/css application/x-javascript text/xml application/xml application/xml+rss text/javascript image/x-icon application/vnd.ms-fontobject font/opentype application/x-font-ttf;
+    gzip_vary on;
+    gzip_proxied any; # Compression for all requests.
+
+    ## No need for regexps. See http://wiki.nginx.org/NginxHttpGzipModule#gzip_disable
+    gzip_disable \&amp;quot;msie6\&amp;quot;;
+
+    ## Serve already compressed files directly, bypassing on-the-fly compression.
+    gzip_static on;
+
+    ## Hide the Nginx version number.
+    server_tokens off;
+
+    ## Use a SSL/TLS cache for SSL session resume. This needs to be here (in this context, for session resumption to work. See 
+    ## this thread on the Nginx mailing list: http://nginx.org/pipermail/nginx/2010-November/023736.html.
+    #ssl_session_cache shared:SSL:10m; ssl_session_timeout 10m;
+
+    ## Enable clickjacking protection in modern browsers. Available in IE8 also. See 
+    ## https://developer.mozilla.org/en/The_X-FRAME-OPTIONS_response_header
+    add_header X-Frame-Options sameorigin;
+
+    ## Include the upstream servers for PHP FastCGI handling config.
+    #include upstream_phpcgi.conf;
+
+    ## Include the upstream servers for Apache handling the PHP processes. In this case Nginx functions as a reverse proxy.
+    #include reverse_proxy.conf; include upstream_phpapache.conf;
+    ## Include the php-fpm status allowed hosts configuration block. Uncomment to enable if you&amp;#39;re running php-fpm.
+    #include php_fpm_status_allowed_hosts.conf;
+    ## Include blacklist for bad bot and referer blocking.
+    #include blacklist.conf;
+
+    ## Include all vhosts.
+    include /etc/nginx/sites-enabled/*;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;em&gt;Calm down. Es algo genérico y  funcionará con cualquier sitio.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Sólo debes asegurarte que el usuario que utilices sea el que realmente emplea tu servidor, en Archlinux es &lt;code&gt;http&lt;/code&gt;, otras distribuciones familia Debian como Ubuntu, utilizan &lt;code&gt;www-data&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;hora-de-modular&quot;&gt;Hora de modular&lt;/h2&gt;
+&lt;p&gt;Ahora, creemos archivos de configuración para utilizarlos como módulos e incluirlos sólo en los sitios que queramos. Como por ejemplo para &lt;code&gt;php&lt;/code&gt;, controles de seguridad, manejo de archivos estáticos comúnes y el que necesites.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd /etc/nginx/
+mkdir -p global
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Algunas restricciones para archivos comunes &lt;code&gt;/etc/nginx/global/drop.conf&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# http://centminmod.com/nginx_configure_wordpress.html
+location = /robots.txt { access_log off; log_not_found off; } 
+location = /favicon.ico { access_log off; log_not_found off; expires 30d; } 
+location ~ /\.  { access_log off; log_not_found off; deny all; } 
+location ~ ~$ { access_log off; log_not_found off; deny all; }
+location ~ /\.git { access_log off; log_not_found off; deny all; }
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Algunos controles de seguridad &lt;code&gt;/etc/nginx/global/sec.conf&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## http://centminmod.com/nginx_configure_wordpress.html
+# Deny access to any files with a .php extension in the uploads directory Works in sub-directory installs and also in multisite 
+# network
+location ~* /(?:uploads|files)/.*\.php$ {
+        deny all;
+}
+# Make sure files with the following extensions do not get loaded by nginx because nginx would display the source code, and 
+# these files can contain PASSWORDS!
+location ~* \.(engine|inc|info|install|make|module|profile|test|po|sh|.*sql|theme|tpl(\.php)?|xtmpl)$|^(\..*|Entries.*|Repository|Root|Tag|Template)$|\.php_  {
+    return 444;
+}
+#nocgi
+location ~* \.(pl|cgi|py|sh|lua)\$ {
+    return 444;
+}
+#disallow
+location ~* (roundcube|webdav|smtp|http\:|soap|w00tw00t) {
+    return 444;
+}
+location ~ /(\.|wp-config.php|readme.html|license.txt) { deny all; }
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Y este último para &lt;code&gt;php-fpm&lt;/code&gt; en &lt;code&gt;/etc/nginx/global/php.conf&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# PHP FastCGI config
+location ~ \.php$ {
+    try_files $uri = 404;
+    # socket
+    fastcgi_pass unix:/var/run/php-fpm/php-fpm.sock;
+    fastcgi_index index.php;
+    include fastcgi.conf;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Podemos verificar la sintaxis y estado ejecutando &lt;code&gt;nginx -t&lt;/code&gt; si recibimos un error, tal vez escribiste algo mal.&lt;/p&gt;
+&lt;p&gt;Ahora continua &lt;a href=&quot;http://blog.jonalvarezz.com/configurar-y-gestionar-sitios-en-nginx-ii/&quot;&gt;creando cada configuración específica para cada sitio&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Crear Menús Administrativos en Wordpress</title>
+      <link>http://localhost:8080/articles/crear-menus-de-navegacion-administrativos-en-wordpress/</link>
+      <pubDate>Thu, 23 Jan 2014 15:00:00 -0500</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/crear-menus-de-navegacion-administrativos-en-wordpress/</guid>
+      <author></author>
+      <description>&lt;p&gt;Se resume en:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Registrar un nuevo menú en el tema.&lt;/li&gt;
+&lt;li&gt;Cargar el menú en algún lugar de nuestro tema.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Para registrar el nuevo menú agregamos las siguientes lineas a nuestro archivo &lt;code&gt;functions.php&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function mi_tema_after_setup() {
+        register_nav_menu( &amp;#39;id&amp;#39;, &amp;#39;id humano&amp;#39; ) );
+}
+add_action( &amp;#39;after_setup_theme&amp;#39;, &amp;#39;mi_tema_after_setup&amp;#39; );
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Claramente los id deben ser únicos, como &lt;code&gt;footerMenu&lt;/code&gt; y &lt;code&gt;Menú del Footer&lt;/code&gt;, respectivamente.&lt;/p&gt;
+&lt;p&gt;Para cargar el menú en algún lugar de nuestro tema:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;wp_nav_menu( array( &amp;#39;theme_location&amp;#39; =&amp;gt; &amp;#39;id&amp;#39;, &amp;#39;menu_class&amp;#39; =&amp;gt; &amp;#39;clases-css-adicionales&amp;#39; ) );
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;La función ya trae un &lt;em&gt;built-in&lt;/em&gt; que devuelve una lista desordenada &lt;code&gt;ul&lt;/code&gt; con cada elemento del menú.&lt;/p&gt;
+&lt;p style=\&quot;text-align: center;\&quot;&gt;
+&lt;img src=&quot;/articles/crear-menus-de-navegacion-administrativos-en-wordpress/opciones_menu_wordpress.png&quot; alt=&quot;Opciones Del Menú - Wordpress&quot;&gt;
+    &lt;/p&gt;
+
+&lt;p&gt;Ahora, en &lt;strong&gt;Apariencia - Menús&lt;/strong&gt;, basta con crear un nuevo menú y elegir la ubicación del tema en la parte inferior, donde aparecerá nuestro &lt;code&gt;id humano&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Welcome...</title>
+      <link>http://localhost:8080/articles/hi-betch/</link>
+      <pubDate>Wed, 22 Jan 2014 15:00:00 -0500</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/hi-betch/</guid>
+      <author></author>
+      <description>&lt;p class=&quot;text-center&quot;&gt;
+  &lt;img src=&quot;/articles/hi-betch/080423.gif&quot; alt=&quot;featured-image&quot;&gt;
+&lt;/p&gt;
+
+&lt;p&gt;That’s all folks. Move along&lt;/p&gt;
+</description>
+    </item>
+  </channel>
+</rss>

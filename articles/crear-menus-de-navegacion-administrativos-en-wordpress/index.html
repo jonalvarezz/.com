@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crear Menús Administrativos en Wordpress - Jonathan Álvarez González
+    </title>
+    <meta name="description" content="Frontend developer but also worken with backend technologies everyday. I also like designing. Here you will find some links and articles I'd write">
+    <link rel="alternate" href="http://localhost:8080/feed.xml" type="application/rss+xml" title="Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development">
+    <link href="/favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  </head>
+  <body class="article">
+    <div class="wrap">
+      <article class="content">
+        <header style="background-image: url('menus_administrativos_wordpress.jpg');" class="article-header grid grid--vertical-align grid--horizontal-align">
+          <div class="article-inner text-center">
+            <div class="article-meta"></div>
+            <h1 class="article-title default-wrap">Crear Menús Administrativos en Wordpress</h1>
+            <div class="article-meta"><span>January 23rd 2014</span></div>
+          </div>
+        </header>
+        <section class="article-content default-wrap"><p>Se resume&nbsp;en:</p>
+<ol>
+<li>Registrar un nuevo menú en el&nbsp;tema.</li>
+<li>Cargar el menú en algún lugar de nuestro&nbsp;tema.</li>
+</ol>
+<p>Para registrar el nuevo menú agregamos las siguientes lineas a nuestro archivo <code>functions.php</code></p>
+<pre><code>function mi_tema_after_setup() {
+        register_nav_menu( &#39;id&#39;, &#39;id humano&#39; ) );
+}
+add_action( &#39;after_setup_theme&#39;, &#39;mi_tema_after_setup&#39; );
+</code></pre><p>Claramente los id deben ser únicos, como <code>footerMenu</code> y <code>Menú del Footer</code>,&nbsp;respectivamente.</p>
+<p>Para cargar el menú en algún lugar de nuestro&nbsp;tema:</p>
+<pre><code>wp_nav_menu( array( &#39;theme_location&#39; =&gt; &#39;id&#39;, &#39;menu_class&#39; =&gt; &#39;clases-css-adicionales&#39; ) );
+</code></pre><p>La función ya trae un <em>built-in</em> que devuelve una lista desordenada <code>ul</code> con cada elemento del&nbsp;menú.</p>
+<p style=\"text-align: center;\">
+<img src="/articles/crear-menus-de-navegacion-administrativos-en-wordpress/opciones_menu_wordpress.png" alt="Opciones Del Menú - Wordpress">
+    </p>
+
+<p>Ahora, en <strong>Apariencia - Menús</strong>, basta con crear un nuevo menú y elegir la ubicación del tema en la parte inferior, donde aparecerá nuestro <code>id humano</code></p>
+</section>
+        <aside class="article-share text-center default-wrap">
+          <hr><a href="https://twitter.com/share?text=Crear%20Men%C3%BAs%20Administrativos%20en%20Wordpress by @jonalvarezz&amp;url=" title="Share on Twitter" onclick="this.href+=window.location.href; window.open(this.href, 'twitter-share', 'width=550,height=330');return false;"><i class="fa fa-twitter"></i></a><a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook" onclick="this.href+=window.location.href; window.open(this.href, 'facebook-share', 'width=580,height=330');return false;"><i class="fa fa-facebook"></i></a>
+        </aside>
+        <footer class="footer-article">
+          <div class="default-wrap">
+            <nav class="article-pagination grid grid--vertical-align">
+              <div class="prev grid-item grid-item--half text-left">
+                <div><small>PREV</small></div><a href="/articles/configurar-y-gestionar-sitios-en-nginx/">Configurar y gestionar sitios en Nginx I</a>
+              </div>
+              <div class="next grid-item grid-item--half text-right">
+                <div><small>NEXT</small></div><a href="/articles/hi-betch/">Welcome...</a>
+              </div>
+            </nav>
+            <div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ÁLVAREZ G ©</a></small></div>
+          </div>
+        </footer>
+      </article>
+    </div>
+    <script>
+      WebFontConfig = {
+        google: { families: [ 'Source+Sans+Pro:700,400:latin', 'Source+Serif+Pro:400,700:latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })()
+    </script>
+  </body>
+</html>

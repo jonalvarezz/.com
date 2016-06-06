@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Configurar una terminal hermosa con iTerm 2 en MAC OS X - Jonathan Álvarez González
+    </title>
+    <meta name="description" content="Frontend developer but also worken with backend technologies everyday. I also like designing. Here you will find some links and articles I'd write">
+    <link rel="alternate" href="http://localhost:8080/feed.xml" type="application/rss+xml" title="Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development">
+    <link href="/favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  </head>
+  <body class="article">
+    <div class="wrap">
+      <article class="content">
+        <header style="" class="article-header grid grid--vertical-align grid--horizontal-align">
+          <div class="article-inner text-center">
+            <div class="article-meta"></div>
+            <h1 class="article-title default-wrap">Configurar una terminal hermosa con iTerm 2 en MAC OS X</h1>
+            <div class="article-meta"><span>October 17th 2014</span></div>
+          </div>
+        </header>
+        <section class="article-content default-wrap"><iframe width="760" height="428" src="//www.youtube.com/embed/v1S5J39-93I?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+
+<blockquote>
+<p>Programar es mejor cuando tu terminal se ve&nbsp;hermosa</p>
+</blockquote>
+<p>iTerm2 es un reemplazo para las terminal por defecto de <span class="caps">MAC</span> OS X y trae un monton de caracterísitcas muy interesantes, preferida tanto por newbies como por viejos&nbsp;veteranos.</p>
+<p><a href="http://iterm2.com">Descargar&nbsp;iTerm2</a></p>
+<p>En el video enseño las principales opciones a (des)habilitar en iTerm2, cómo configurar una nueva fuente y hacerle ver hermosa. También te muestro las <strong>mejores fuentes para utilizar en tu consola o terminal</strong>.</p>
+<p>Si no desean ver el video acá se los&nbsp;especifico.</p>
+<p>Abrir iTerm2 y entrar a su configuración <code>⌘</code> + <code>,</code></p>
+<p><img src="/articles/configurar-una-terminal-hermosa-con-iterm2/Preferencias_de_iterm2.png" alt="Preferencias de iTerm2"></p>
+<p>1. En la pestaña de <strong>General</strong>, desactivar <strong>Confirm closing multiple sessions</strong> y <strong>Confirm “Quit iTerm2 (Cmd+Q)”&nbsp;command</strong></p>
+<p>2. Crear un nuevo perfil desde la pestaña de <strong>Profiles</strong> presionando el ícono <code>+</code> (abajo) y seleccionenlo como perfil por defecto en <strong>Other Actions… &gt; Set as&nbsp;Default</strong> </p>
+<p>3. <em>(Esto no aparece en el video)</em> Allí mismo, en la pestaña <strong>General</strong> (derecha) activar <strong>Reuse previous session’s directory</strong>. Esto es para que al abrir una nueva pestaña/ventana de la terminal se sitúe por defecto en el directorio en el cual se esta&nbsp;trabajando.</p>
+<p>4. En la pestaña <strong>Window</strong> cambien el tamaño por defecto de la terminal. Un tamaño de 127x35 es promedio, aunque utilizo&nbsp;140x26.</p>
+<p>5. Descargar el tema <a href="http://ethanschoonover.com/solarized">Solarized</a>,&nbsp;descomprimirlo.</p>
+<p>6. De vuelta en las preferencias de tu perfil que acabar de crear, en la parte inferior de la pestaña <strong>Colors</strong>, encontrarán un desplegable para cargar ajustes. Dan click <strong>Load Presets &gt; Import</strong> y seleccionan el archivo dentro de la carpeta iTerm2 que viene con el tema Solarized. Hay un archivo para el tema oscuro y otro para un tema de colores&nbsp;claros.</p>
+<p>7. Luego de importado lo seleccionan <strong>Load Presets &gt; Solarized&nbsp;Dark/Light</strong></p>
+<p>Hasta este momento se ha configurado iTerm2. Sin embargo para que tengamos muchos más colores y podamos personalizar más la consola hay que modificar unos&nbsp;archivos.</p>
+<p>Si no tienes nada que perder en estos archivos, o no existían, que es lo más seguro, puedes reemplazarlos. En caso contrario copian y pegan así como realicé en el&nbsp;video.</p>
+<p>La forma resumida&nbsp;es:</p>
+<pre><code>$ cd ~
+$ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.bash_profile
+$ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.bash_prompt
+$ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.aliases
+</code></pre><p>Lo que hace eso es situarse en tu carpeta de usuario y descargar los archivos de configuración para el <code>bash_profile</code>, <code>bash_prompt</code> y <code>aliases</code></p>
+<p>Otro archivo opcional es tener más colores al usar&nbsp;Git.</p>
+<pre><code>$ cd ~
+$ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gitconfig
+</code></pre><p><em>Todos estos archivos hacen parte de <a href="https://github.com/nicolashery">Nicolas Henry</a>. Pueden encontrar más tweaks para configurar su <span class="caps">MAC</span> en su repositorio <a href="https://github.com/nicolashery/mac-dev-setup">mac-dev-setup</a>. Aunque realmente lo más interesante es esto para iTerm. No vayan a instalar Homebrew por amor a&nbsp;Batman.</em></p>
+<p>Con esto su terminal lucirá algo&nbsp;como:</p>
+<p><img src="/articles/configurar-una-terminal-hermosa-con-iterm2/Captura_de_pantalla_2014_10_21_a_las_1_26_21_a_m_.png" alt="iTerm2 configurado y hermoso"></p>
+<p>En el video muestro cómo cambiar el hostname, que en mi caso lo tengo como “da&nbsp;house”</p>
+<h2 id="mejores-fuentes-para-las-terminales">Mejores fuentes para las&nbsp;terminales</h2>
+<p>En particular, estas son las fuentes que más me&nbsp;gustan.</p>
+<p>1. <a href="http://www.google.com/fonts/specimen/Inconsolata">Inconsolata</a>
+2. Monaco (Viene con <span class="caps">MAC</span> OSX)
+3. <a href="http://www.google.com/fonts/specimen/Droid+Sans+Mono">Droid Sans Mono</a>
+4. En su defecto, Consolas. Viene con&nbsp;Windows.</p>
+<p>¿Conoces algún otro <em>tweak</em>&nbsp;hermoso?</p>
+</section>
+        <aside class="article-share text-center default-wrap">
+          <hr><a href="https://twitter.com/share?text=Configurar%20una%20terminal%20hermosa%20con%20iTerm%202%20en%20MAC%20OS%20X by @jonalvarezz&amp;url=" title="Share on Twitter" onclick="this.href+=window.location.href; window.open(this.href, 'twitter-share', 'width=550,height=330');return false;"><i class="fa fa-twitter"></i></a><a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook" onclick="this.href+=window.location.href; window.open(this.href, 'facebook-share', 'width=580,height=330');return false;"><i class="fa fa-facebook"></i></a>
+        </aside>
+        <footer class="footer-article">
+          <div class="default-wrap">
+            <nav class="article-pagination grid grid--vertical-align">
+              <div class="prev grid-item grid-item--half text-left">
+                <div><small>PREV</small></div><a href="/articles/tip-programar-el-apagado-en-mac-osx-unix/">TIP Programar el apagado en MAC OSX / *Unix</a>
+              </div>
+              <div class="next grid-item grid-item--half text-right">
+                <div><small>NEXT</small></div><a href="/articles/post-post/">¿Realizarás un Clean Install del nuevo OSX? Asegúrate de guardar estos archivos</a>
+              </div>
+            </nav>
+            <div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ÁLVAREZ G ©</a></small></div>
+          </div>
+        </footer>
+      </article>
+    </div>
+    <script>
+      WebFontConfig = {
+        google: { families: [ 'Source+Sans+Pro:700,400:latin', 'Source+Serif+Pro:400,700:latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })()
+    </script>
+  </body>
+</html>
