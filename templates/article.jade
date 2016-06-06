@@ -24,6 +24,9 @@ block body
 
     //- TODO: Add next, prev articles
     //- https://github.com/ndhu/wintersmith-milchglas-template/blob/master/templates/article.jade
-    footer(class="article-footer")
+    footer(class="footer-article")
       div(class="default-wrap")
-        a(href=contents.index.url) &laquo; Full blog
+        include pagination
+        div(class="footer-colophon text-center")
+          small
+            a(href=contents.index.url, title="Go home") JONATHAN ÁLVAREZ G ©
