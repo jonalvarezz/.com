@@ -9,7 +9,7 @@ block prepend title
 block body
   article(class="content")
 
-    - var headerstyle = "background-image: url('"+page.metadata.thumb+"');"
+    - var headerstyle = page.metadata.thumb ? "background-image: url('"+ page.metadata.thumb +"');" : ""
     header(class="article-header grid grid--vertical-align grid--horizontal-align",
       style=headerstyle)
 
@@ -18,7 +18,7 @@ block body
           div(class="article-meta")
           h1(class="article-title default-wrap")= page.title
           div(class="article-meta")
-            span!= moment(page.metadata.date, 'YYYY-MM-DD HH:MM').format('MMMM Do YYYY')
+            span!= moment(page.metadata.date, 'YYYY-MM-DD').format('MMMM Do YYYY')
 
     section(class="article-content default-wrap")!= typogr(page.html).typogrify()
 
