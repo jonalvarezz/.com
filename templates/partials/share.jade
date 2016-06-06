@@ -1,9 +1,10 @@
 
+- var authorTw = page.metadata.author
 
 aside(class="article-share text-center default-wrap")
   hr
 
-  - var tw = "https://twitter.com/share?text=" + encodeURI(page.metadata.title) + '&url='
+  - var tw = "https://twitter.com/share?text=" + encodeURI(page.metadata.title) + ' by @' + authorTw + '&url='
   a(href=tw, title="Share on Twitter", onclick="this.href+=window.location.href; window.open(this.href, 'twitter-share', 'width=550,height=330');return false;")
     i(class="fa fa-twitter")
 
