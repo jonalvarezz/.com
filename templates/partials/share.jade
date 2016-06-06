@@ -1,0 +1,12 @@
+
+
+aside(class="article-share text-center default-wrap")
+  hr
+
+  - var tw = "https://twitter.com/share?text=" + encodeURI(page.metadata.title) + '&url='
+  a(href=tw, title="Share on Twitter", onclick="this.href+=window.location.href; window.open(this.href, 'twitter-share', 'width=550,height=330');return false;")
+    i(class="fa fa-twitter")
+
+  - var fb = "https://www.facebook.com/sharer/sharer.php?u="
+  a(href=fb, title="Share on Facebook", onclick="this.href+=window.location.href; window.open(this.href, 'facebook-share', 'width=580,height=330');return false;")
+    i(class="fa fa-facebook")
