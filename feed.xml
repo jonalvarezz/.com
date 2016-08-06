@@ -5,9 +5,42 @@
     <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://localhost:8080</link>
     <description>Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development</description>
-    <pubDate>Tue, 07 Jul 2015 10:54:00 -0500</pubDate>
+    <pubDate>Sat, 06  Aug 2016 16:08:00 -0500</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
+    <item>
+      <title>Find largest folders size in GNU/Linux</title>
+      <link>http://localhost:8080/articles/find-largest-folders-size-linux/</link>
+      <pubDate>Sat, 06  Aug 2016 16:08:00 -0500</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/find-largest-folders-size-linux/</guid>
+      <author></author>
+      <description>&lt;p&gt;You can see your disk available space using `df in your console:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;df -h
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Sample output:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda1        30G  29.9G   25G  99% /
+dev             492M     0  492M   0% /dev
+run             500M  212K  500M   1% /run
+tmpfs           500M     0  500M   0% /dev/shm
+tmpfs           500M     0  500M   0% /sys/fs/cgroup
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;To find the folder and files with largest size you can use &lt;code&gt;du&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# cd /
+# du -hsx * | sort -rh | head -10
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This will output the top 10 folders with larger size. Now on you can use &lt;code&gt;cd&lt;/code&gt;
+to get into each folder and excecute &lt;code&gt;du&lt;/code&gt; again and going deeper to find the
+folders and files which are occupying your disk space.&lt;/p&gt;
+&lt;p&gt;Generally you will land into &lt;code&gt;/var/log/&lt;/code&gt;. If so, you can delete that files
+safely just make sure you dont delete folders. I use to delete the log file and
+create a empty new one because some programms may asume the file exist. i.e.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# rm unnecesarry-and-large-file.log
+# touch unnecesarry-and-large-file.log
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;make sure to also restore the same file permissions, user and group.&lt;/p&gt;
+&lt;p&gt;Btw, if you find &lt;code&gt;mysql&lt;/code&gt; had very large files named like &lt;code&gt;mysql-bin.***&lt;/code&gt; Its 
+safer to use mysql purge feature:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ mysql -u root -p 
+&amp;gt; PURGE BINARY LOGS BEFORE &amp;#39;2016-08-01&amp;#39;;
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
     <item>
       <title>Django Rest Framework Authentication with a custom Model User</title>
       <link>http://localhost:8080/articles/django-rest-framework-authentication-with-a-custom-model-user/</link>
