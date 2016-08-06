@@ -24,10 +24,14 @@ gulp.task('styles:build', function() {
     .pipe(gulp.dest(baseDir + 'css/'));
 });
 
+gulp.task('publish', ['deploy'], function () {
+  return gulp.src('./build/**/*')
+    .pipe($.ghPages());
+})
+
 gulp.task('deploy', ['styles:build'], function() {
   wintersmith.build(function () {
-    gulp.src('./build/**/*')
-      .pipe($.ghPages());
+    //
   })
 });
 
