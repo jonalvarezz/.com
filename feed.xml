@@ -5,9 +5,101 @@
     <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://localhost:8080</link>
     <description>Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development</description>
-    <pubDate>Sat, 06  Aug 2016 16:08:00 -0500</pubDate>
+    <pubDate>Sun, 07  Aug 2016 13:30:00 -0500</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
+    <item>
+      <title>How To Solve GIT Conflicts</title>
+      <link>http://localhost:8080/articles/how-to-solve-git-conflicts/</link>
+      <pubDate>Sun, 07  Aug 2016 13:30:00 -0500</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/how-to-solve-git-conflicts/</guid>
+      <author></author>
+      <description>&lt;p&gt;&lt;small&gt;&lt;em&gt;&lt;a href=&quot;https://unsplash.com/?photo=VZ07w73ta-k&quot;&gt;Photo by Mike Wilson.&lt;/a&gt;&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
+&lt;p&gt;This is a quick guide that show you how to solve a GIT conflict manually using 
+your console.&lt;/p&gt;
+&lt;p&gt;First at all a GIT conflict may happen when you merge another branch to your own.
+GIT will output something like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Auto-merging apps/users/views.py
+CONFLICT (content): Merge conflict in apps/users/views.py
+Auto-merging apps/users/urls.py
+CONFLICT (content): Merge conflict in apps/users/urls.py
+...
+Automatic merge failed; fix conflicts and then commit the result.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Dont be scared by the CONFLICT word, if you already know what your team is doing, 
+project’s guidelines and roadmap are clear, solving conflicts will mostly be 
+about including your folk’s code into yours or viceversa.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A GIT conflict does not mean you or your folk did something wrong, it only 
+means that both have worked on the same file/lines, and GIT needs to be sure 
+which lines of code should kept.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;1-identify-the-files-in-conflict&quot;&gt;1. Identify the files in conflict&lt;/h2&gt;
+&lt;p&gt;Run &lt;code&gt;git status&lt;/code&gt; to get the list of conflicted files, GIT will also give you a 
+short reason:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;On branch merged-branch-name
+You have unmerged paths.
+  (fix conflicts and run &amp;quot;git commit&amp;quot;)
+
+Changes to be committed:
+
+        ...
+
+Unmerged paths:
+  (use &amp;quot;git add &amp;lt;file&amp;gt;...&amp;quot; to mark resolution)
+
+        both modified:   apps/users/urls.py
+        both modified:   apps/users/views.py
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The part of interesting here is &lt;strong&gt;Unmerged paths&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2-start-resolving-conflicts&quot;&gt;2. Start resolving conflicts&lt;/h2&gt;
+&lt;p&gt;Open the first file Unmerged paths shows with your text editor. You will find 
+your code is separated by some lines GIT introduced:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD
+... You code
+=======
+... Your folks code
+&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; merged-branch-name
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;GIT split the code with your code (From &lt;code&gt;HEAD&lt;/code&gt; to &lt;code&gt;====&lt;/code&gt; line) and your folk 
+code (From &lt;code&gt;===&lt;/code&gt; to &lt;code&gt;merged-branch-name&lt;/code&gt;). &lt;/p&gt;
+&lt;p&gt;Your task here is to compare which are the lines that need to be included. 
+Delete and move the lines of code that should be kept. Make sure to also delete 
+the lines GIT added (&lt;code&gt;====&lt;/code&gt;, &lt;code&gt;HEAD&lt;/code&gt;, …)&lt;/p&gt;
+&lt;h3 id=&quot;some-tips&quot;&gt;Some tips&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Do not merge any branch if you are not 100% sure that you know what are you 
+including. First understand your folk’s code/features then merge.&lt;/li&gt;
+&lt;li&gt;When resolving the conflict, try to not modify code, &lt;strong&gt;do not do refactors&lt;/strong&gt;.
+Do the merge then refactor in a new commit. This will make the history 
+transparent. Other way your refactor will be lost in the merge commit, only you 
+will know a refactor ocurred.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;3-mark-the-conflict-file-as-resolved&quot;&gt;3. Mark the conflict file as resolved&lt;/h2&gt;
+&lt;p&gt;Once you resolved the conflict you mark it as resolved with:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git add /path/to/the/resolved/file.ext
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;4-loop&quot;&gt;4. Loop&lt;/h2&gt;
+&lt;p&gt;Great! now repeat steps 1, 2, 3 until all the files in GIT’s Unmerged paths gets 
+empty.&lt;/p&gt;
+&lt;h2 id=&quot;5-make-sure-everything-is-fine&quot;&gt;5. Make sure everything is fine&lt;/h2&gt;
+&lt;p&gt;Finish?&lt;/p&gt;
+&lt;p&gt;You solved all the conflicts but it does not mean the logic and changes are 
+right. &lt;/p&gt;
+&lt;p&gt;Run any test your project have to make sure the changes are fine and include all 
+the new features.&lt;/p&gt;
+&lt;h2 id=&quot;6-commit&quot;&gt;6. Commit&lt;/h2&gt;
+&lt;p&gt;Once everithing looks fine, commit the changes:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git commit
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Note that we are no adding a custom message to the commit, this very important 
+cause GIT will add the message automatically. That message will include the
+name of the merged branches and also a valuable list of the new commits the 
+merge included.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git commit&lt;/code&gt; will open your console text editor, generally &lt;code&gt;nano&lt;/code&gt;, with the 
+commit message. Just save the message (&lt;code&gt;CTRL&lt;/code&gt;+&lt;code&gt;o&lt;/code&gt;) and exit nano (&lt;code&gt;CTRL&lt;/code&gt;+&lt;code&gt;x&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;You are done now.&lt;/p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Working in branch is a very powerfull way of managing a project with a team, 
+specially for incoporating new features in paralallel. If you are looking in how 
+to work with branches you can refer to &lt;a href=&quot;http://nvie.com/posts/a-successful-git-branching-model/&quot;&gt;GIT Branching Model&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>Find largest folders size in GNU/Linux</title>
       <link>http://localhost:8080/articles/find-largest-folders-size-linux/</link>
@@ -286,6 +378,43 @@ define( &amp;#39;UPLOADS&amp;#39;, &amp;#39;assets/media&amp;#39; );
 </description>
     </item>
     <item>
+      <title>¿Realizarás un Clean Install del nuevo OSX? Asegúrate de guardar estos archivos</title>
+      <link>http://localhost:8080/articles/post-post/</link>
+      <pubDate>Fri, 17 Oct 2014 13:15:00 -0500</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/post-post/</guid>
+      <author></author>
+      <description>&lt;p&gt;Me gusta aprovechar al máximo todas las caracterísiticas de las nuevas versiones de sistemas operativos, en especial en OSX, por eso siempre que sale una nueva versión no lo pienso dos veces para realizar una instalación en limpio (Clean Install)&lt;/p&gt;
+&lt;p&gt;Particularmente no utilizo gestores de backup como &lt;strong&gt;Time Machine, o copia completa del disco duro&lt;/strong&gt;. Lo hago todo &lt;em&gt;a la antigua&lt;/em&gt;: copio manualmente mis archivos, sólo los realmente importantes, en una &lt;strong&gt;memoría USB&lt;/strong&gt; y luego los restauro.&lt;/p&gt;
+&lt;p&gt;El proceso es más lento, si, pero me aseguro que Disfrutaré del nuevo sistema &lt;em&gt;como recién salido de la caja&lt;/em&gt;, como nuevo, como a la gente de Palo Alto mejor les ha parecido. &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Al usar Time Machine para restaurar tus datos también restauras las aplicaciones y tus configuraciones anteriores. Podrías perderte de alguna nueva característica y nunca darte cuenta.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Sin embargo hay archivos que guardan ciertas configuraciones y que no son necesariamente propios de OSX y que deberías asegurarte de guardar.&lt;/p&gt;
+&lt;p&gt;En mi caso:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Imágenes de tus máquinas virtuales.&lt;/strong&gt; Recrearlas es fácil, pero meh. En Virtualbox puedes exportar las imágenes que quieres utilizando &lt;code&gt;File -&amp;gt; Export Appliance&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Archivos de configuración de tu editor de texto.&lt;/strong&gt; Utilizo Sublime Text, pero estas configuraciones prefiero recrearlas desde cero para hacer &lt;em&gt;limpieza&lt;/em&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Configuración de SSH&lt;/strong&gt; Si tienen la buena costumbre de definir los parámetros de conexión de sus servidores en SSH, no querrán volverlo a hacer. &lt;code&gt;~/ssh/config&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Perfil bash&lt;/strong&gt; es bueno mantener los PATH y configuraciones propias de tu terminal.  &lt;code&gt;~/.bash_profile&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Tus sitios locales y sus bases de datos&lt;/strong&gt; Los archivos por lo general no se te escaparan, pero si tienes bases de datos en MySQL no olvides exportarlas. Puedes usar &lt;code&gt;mysqldump&lt;/code&gt; o bien utilizar algún gestor gráfico como &lt;a href=&quot;http://www.sequelpro.com&quot;&gt;Sequel PRO&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Entornos virtuales de Python&lt;/strong&gt; Si los usas, sería problemático crearlos de nuevo. Por defecto están en &lt;code&gt;~/.enviroments&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Los marcadores de tu navegador&lt;/strong&gt; Lamentable perder tan valiosa recopilación&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Gestores de Contraseña&lt;/strong&gt; Asegúrate de tener como recuperar tu información de contraseñas si usas Apps como &lt;strong&gt;1Password&lt;/strong&gt; o similares. Lo mejor es utilizar sincronización por iCloud o Dropbox y así recuperar tu información.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Carpetas ocultas&lt;/strong&gt; Tal vez tengas alguna carpeta oculta con información muy importante o porno.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;¿Alguno que se me haya escapado o que te falte a tí?&lt;/p&gt;
+</description>
+    </item>
+    <item>
       <title>Configurar una terminal hermosa con iTerm 2 en MAC OS X</title>
       <link>http://localhost:8080/articles/configurar-una-terminal-hermosa-con-iterm2/</link>
       <pubDate>Fri, 17 Oct 2014 13:15:00 -0500</pubDate>
@@ -331,43 +460,6 @@ $ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gi
 3. &lt;a href=&quot;http://www.google.com/fonts/specimen/Droid+Sans+Mono&quot;&gt;Droid Sans Mono&lt;/a&gt;
 4. En su defecto, Consolas. Viene con Windows.&lt;/p&gt;
 &lt;p&gt;¿Conoces algún otro &lt;em&gt;tweak&lt;/em&gt; hermoso?&lt;/p&gt;
-</description>
-    </item>
-    <item>
-      <title>¿Realizarás un Clean Install del nuevo OSX? Asegúrate de guardar estos archivos</title>
-      <link>http://localhost:8080/articles/post-post/</link>
-      <pubDate>Fri, 17 Oct 2014 13:15:00 -0500</pubDate>
-      <guid isPermaLink="true">http://localhost:8080/articles/post-post/</guid>
-      <author></author>
-      <description>&lt;p&gt;Me gusta aprovechar al máximo todas las caracterísiticas de las nuevas versiones de sistemas operativos, en especial en OSX, por eso siempre que sale una nueva versión no lo pienso dos veces para realizar una instalación en limpio (Clean Install)&lt;/p&gt;
-&lt;p&gt;Particularmente no utilizo gestores de backup como &lt;strong&gt;Time Machine, o copia completa del disco duro&lt;/strong&gt;. Lo hago todo &lt;em&gt;a la antigua&lt;/em&gt;: copio manualmente mis archivos, sólo los realmente importantes, en una &lt;strong&gt;memoría USB&lt;/strong&gt; y luego los restauro.&lt;/p&gt;
-&lt;p&gt;El proceso es más lento, si, pero me aseguro que Disfrutaré del nuevo sistema &lt;em&gt;como recién salido de la caja&lt;/em&gt;, como nuevo, como a la gente de Palo Alto mejor les ha parecido. &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Al usar Time Machine para restaurar tus datos también restauras las aplicaciones y tus configuraciones anteriores. Podrías perderte de alguna nueva característica y nunca darte cuenta.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Sin embargo hay archivos que guardan ciertas configuraciones y que no son necesariamente propios de OSX y que deberías asegurarte de guardar.&lt;/p&gt;
-&lt;p&gt;En mi caso:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Imágenes de tus máquinas virtuales.&lt;/strong&gt; Recrearlas es fácil, pero meh. En Virtualbox puedes exportar las imágenes que quieres utilizando &lt;code&gt;File -&amp;gt; Export Appliance&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Archivos de configuración de tu editor de texto.&lt;/strong&gt; Utilizo Sublime Text, pero estas configuraciones prefiero recrearlas desde cero para hacer &lt;em&gt;limpieza&lt;/em&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Configuración de SSH&lt;/strong&gt; Si tienen la buena costumbre de definir los parámetros de conexión de sus servidores en SSH, no querrán volverlo a hacer. &lt;code&gt;~/ssh/config&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Perfil bash&lt;/strong&gt; es bueno mantener los PATH y configuraciones propias de tu terminal.  &lt;code&gt;~/.bash_profile&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Tus sitios locales y sus bases de datos&lt;/strong&gt; Los archivos por lo general no se te escaparan, pero si tienes bases de datos en MySQL no olvides exportarlas. Puedes usar &lt;code&gt;mysqldump&lt;/code&gt; o bien utilizar algún gestor gráfico como &lt;a href=&quot;http://www.sequelpro.com&quot;&gt;Sequel PRO&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Entornos virtuales de Python&lt;/strong&gt; Si los usas, sería problemático crearlos de nuevo. Por defecto están en &lt;code&gt;~/.enviroments&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Los marcadores de tu navegador&lt;/strong&gt; Lamentable perder tan valiosa recopilación&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Gestores de Contraseña&lt;/strong&gt; Asegúrate de tener como recuperar tu información de contraseñas si usas Apps como &lt;strong&gt;1Password&lt;/strong&gt; o similares. Lo mejor es utilizar sincronización por iCloud o Dropbox y así recuperar tu información.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Carpetas ocultas&lt;/strong&gt; Tal vez tengas alguna carpeta oculta con información muy importante o porno.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;¿Alguno que se me haya escapado o que te falte a tí?&lt;/p&gt;
 </description>
     </item>
     <item>
