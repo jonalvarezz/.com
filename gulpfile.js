@@ -6,6 +6,7 @@ var nib = require('nib');
 var through = require('through');
 var isDev = process.argv.indexOf('watch') !== -1;
 var wintersmith = require('run-wintersmith');
+var runSequence = require('run-sequence');
 
 var PORT = 8080;
 var baseDir = './contents/';
@@ -24,14 +25,13 @@ gulp.task('styles:build', function() {
     .pipe(gulp.dest(baseDir + 'css/'));
 });
 
-gulp.task('publish', ['deploy'], function () {
-  return gulp.src('./build/**/*')
-    .pipe($.ghPages());
+gulp.task('publish', function () {
+  return gulp.src('./build/**/*').pipe($.ghPages());
 })
 
 gulp.task('deploy', ['styles:build'], function() {
   wintersmith.build(function () {
-    //
+    runSequence('publish')
   })
 });
 

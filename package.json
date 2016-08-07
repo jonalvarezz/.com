@@ -13,6 +13,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-stylus": "^2.3.0",
     "nib": "^1.1.0",
+    "run-sequence": "^1.2.2",
     "run-wintersmith": "0.0.3",
     "through": "^2.3.8"
   }
