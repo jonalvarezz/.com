@@ -21,12 +21,12 @@
             <div class="article-meta"><span>July 7th 2015</span></div>
           </div>
         </header>
-        <section class="article-content default-wrap"><p><strong>Django Rest Framework</strong> uses the Django user model by default. If you have a custom user model, you will get this error when trying to browse the <span class="caps">API</span> with a logged in&nbsp;user:</p>
+        <section class="article-content default-wrap"><p><strong>Django Rest Framework</strong> uses the Django user model by default. If you have a custom user model, you will get this error when trying to browse the <span class="caps">API</span> with a logged in<span class="widont">&nbsp;</span>user:</p>
 <pre><code>TypeError at /some/endpoint/
 &#39;bool&#39; object is not iterable
 ...
-</code></pre><p>You need to create your own authentication model in order to Django Rest Framework authenticate the&nbsp;resquest.</p>
-<p>First, create and <code>authentication.py</code> file under your project primary folder, wich defines the authenticate&nbsp;class:</p>
+</code></pre><p>You need to create your own authentication model in order to Django Rest Framework authenticate the<span class="widont">&nbsp;</span>resquest.</p>
+<p>First, create and <code>authentication.py</code> file under your project primary folder, wich defines the authenticate<span class="widont">&nbsp;</span>class:</p>
 <pre><code class="lang-python"><span class="keyword">from</span> your.custom.user.model.path <span class="keyword">import</span> User
 <span class="keyword">from</span> rest_framework <span class="keyword">import</span> authentication
 <span class="keyword">from</span> rest_framework <span class="keyword">import</span> exceptions
@@ -43,6 +43,7 @@
             <span class="keyword">raise</span> exceptions.AuthenticationFailed(<span class="string">'No such user'</span>)
 
         <span class="keyword">return</span> (user, <span class="keyword">None</span>)
+
 </code></pre>
 <p>The first line is the line what really matters; and note that our authentication class extends the Django Rest Framework default one: <code>BaseAuthentication</code>.</p>
 <p>Now, in your <code>settings.py</code> :</p>
@@ -52,10 +53,10 @@
     )
     }
 </code></pre>
-<p>And that’s&nbsp;all.</p>
-<h2 id="more-info">More&nbsp;Info</h2>
+<p>And that’s all.</p>
+<h2 id="more-info">More Info</h2>
 <ul>
-<li><a href="http://www.django-rest-framework.org/api-guide/authentication/">Authentication - Django Rest Framework&nbsp;Documentation</a></li>
+<li><a href="http://www.django-rest-framework.org/api-guide/authentication/">Authentication - Django Rest Framework<span class="widont">&nbsp;</span>Documentation</a></li>
 </ul>
 </section>
         <aside class="article-share text-center default-wrap">

@@ -21,20 +21,20 @@
             <div class="article-meta"><span>January 23rd 2014</span></div>
           </div>
         </header>
-        <section class="article-content default-wrap"><p>Se resume&nbsp;en:</p>
+        <section class="article-content default-wrap"><p>Se resume en:</p>
 <ol>
-<li>Registrar un nuevo menú en el&nbsp;tema.</li>
-<li>Cargar el menú en algún lugar de nuestro&nbsp;tema.</li>
+<li>Registrar un nuevo menú en el<span class="widont">&nbsp;</span>tema.</li>
+<li>Cargar el menú en algún lugar de nuestro<span class="widont">&nbsp;</span>tema.</li>
 </ol>
 <p>Para registrar el nuevo menú agregamos las siguientes lineas a nuestro archivo <code>functions.php</code></p>
 <pre><code>function mi_tema_after_setup() {
         register_nav_menu( &#39;id&#39;, &#39;id humano&#39; ) );
 }
 add_action( &#39;after_setup_theme&#39;, &#39;mi_tema_after_setup&#39; );
-</code></pre><p>Claramente los id deben ser únicos, como <code>footerMenu</code> y <code>Menú del Footer</code>,&nbsp;respectivamente.</p>
-<p>Para cargar el menú en algún lugar de nuestro&nbsp;tema:</p>
+</code></pre><p>Claramente los id deben ser únicos, como <code>footerMenu</code> y <code>Menú del Footer</code>, respectivamente.</p>
+<p>Para cargar el menú en algún lugar de nuestro<span class="widont">&nbsp;</span>tema:</p>
 <pre><code>wp_nav_menu( array( &#39;theme_location&#39; =&gt; &#39;id&#39;, &#39;menu_class&#39; =&gt; &#39;clases-css-adicionales&#39; ) );
-</code></pre><p>La función ya trae un <em>built-in</em> que devuelve una lista desordenada <code>ul</code> con cada elemento del&nbsp;menú.</p>
+</code></pre><p>La función ya trae un <em>built-in</em> que devuelve una lista desordenada <code>ul</code> con cada elemento del<span class="widont">&nbsp;</span>menú.</p>
 <p style=\"text-align: center;\">
 <img src="/articles/crear-menus-de-navegacion-administrativos-en-wordpress/opciones_menu_wordpress.png" alt="Opciones Del Menú - Wordpress">
     </p>

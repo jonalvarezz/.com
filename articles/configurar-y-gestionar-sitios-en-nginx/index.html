@@ -21,13 +21,13 @@
             <div class="article-meta"><span>January 24th 2014</span></div>
           </div>
         </header>
-        <section class="article-content default-wrap"><p><em>¿Así que quieres/debes abandonar tu querido servidor Apache con CPanel, te pasas a Nginx y no sabes cómo&nbsp;empezar?</em></p>
-<p>Aunque al principio Nginx paresca confuso, verás que es estúpidamente simple y flexible. <em>Además de&nbsp;rápido.</em></p>
-<p>Lo que muestro a continuación es la forma más recomendada y pro de mantener tus sitios en orden en&nbsp;Nginx.</p>
+        <section class="article-content default-wrap"><p><em>¿Así que quieres/debes abandonar tu querido servidor Apache con CPanel, te pasas a Nginx y no sabes cómo<span class="widont">&nbsp;</span>empezar?</em></p>
+<p>Aunque al principio Nginx paresca confuso, verás que es estúpidamente simple y flexible. <em>Además de<span class="widont">&nbsp;</span>rápido.</em></p>
+<p>Lo que muestro a continuación es la forma más recomendada y pro de mantener tus sitios en orden en<span class="widont">&nbsp;</span>Nginx.</p>
 <blockquote>
-<p>Las ubicaciones pueden variar de acuerdo a la distribución linux utilizada. Se muestran como ejemplo en&nbsp;Archlinux</p>
+<p>Las ubicaciones pueden variar de acuerdo a la distribución linux utilizada. Se muestran como ejemplo en<span class="widont">&nbsp;</span>Archlinux</p>
 </blockquote>
-<p>Lo primero es darle una configuración básica a&nbsp;Nginx.</p>
+<p>Lo primero es darle una configuración básica a<span class="widont">&nbsp;</span>Nginx.</p>
 <p>Reemplaza el contenido del archivo <code>/etc/nginx/nginx.conf</code> por:</p>
 <pre><code># https://github.com/perusio/wordpress-nginx
 
@@ -136,10 +136,10 @@ http {
     ## Include all vhosts.
     include /etc/nginx/sites-enabled/*;
 }
-</code></pre><p><em>Calm down. Es algo genérico y  funcionará con cualquier&nbsp;sitio.</em></p>
+</code></pre><p><em>Calm down. Es algo genérico y  funcionará con cualquier<span class="widont">&nbsp;</span>sitio.</em></p>
 <p>Sólo debes asegurarte que el usuario que utilices sea el que realmente emplea tu servidor, en Archlinux es <code>http</code>, otras distribuciones familia Debian como Ubuntu, utilizan <code>www-data</code>.</p>
-<h2 id="hora-de-modular">Hora de&nbsp;modular</h2>
-<p>Ahora, creemos archivos de configuración para utilizarlos como módulos e incluirlos sólo en los sitios que queramos. Como por ejemplo para <code>php</code>, controles de seguridad, manejo de archivos estáticos comúnes y el que&nbsp;necesites.</p>
+<h2 id="hora-de-modular">Hora de modular</h2>
+<p>Ahora, creemos archivos de configuración para utilizarlos como módulos e incluirlos sólo en los sitios que queramos. Como por ejemplo para <code>php</code>, controles de seguridad, manejo de archivos estáticos comúnes y el que<span class="widont">&nbsp;</span>necesites.</p>
 <pre><code>cd /etc/nginx/
 mkdir -p global
 </code></pre><p>Algunas restricciones para archivos comunes <code>/etc/nginx/global/drop.conf</code></p>
@@ -179,8 +179,8 @@ location ~ \.php$ {
     fastcgi_index index.php;
     include fastcgi.conf;
 }
-</code></pre><p>Podemos verificar la sintaxis y estado ejecutando <code>nginx -t</code> si recibimos un error, tal vez escribiste algo&nbsp;mal.</p>
-<p>Ahora continua <a href="http://blog.jonalvarezz.com/configurar-y-gestionar-sitios-en-nginx-ii/">creando cada configuración específica para cada sitio</a>.</p>
+</code></pre><p>Podemos verificar la sintaxis y estado ejecutando <code>nginx -t</code> si recibimos un error, tal vez escribiste algo<span class="widont">&nbsp;</span>mal.</p>
+<p>Ahora continua <a href="http://blog.jonalvarezz.com/configurar-y-gestionar-sitios-en-nginx-ii/">creando cada configuración específica para cada<span class="widont">&nbsp;</span>sitio</a>.</p>
 </section>
         <aside class="article-share text-center default-wrap">
           <hr><a href="https://twitter.com/share?text=Configurar%20y%20gestionar%20sitios%20en%20Nginx%20I by @jonalvarezz&amp;url=" title="Share on Twitter" onclick="this.href+=window.location.href; window.open(this.href, 'twitter-share', 'width=550,height=330');return false;"><i class="fa fa-twitter"></i></a><a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook" onclick="this.href+=window.location.href; window.open(this.href, 'facebook-share', 'width=580,height=330');return false;"><i class="fa fa-facebook"></i></a>

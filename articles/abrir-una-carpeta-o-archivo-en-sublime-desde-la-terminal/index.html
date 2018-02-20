@@ -21,30 +21,30 @@
             <div class="article-meta"><span>December 8th 2014</span></div>
           </div>
         </header>
-        <section class="article-content default-wrap"><p>Si eres desarrollador, poder abrir cualquier archivo o carpeta entera en Sublime Text mientras se esta trabajando en la terminal sin duda es algo que no puede faltar si quieres ahorrarte algunos segundos y clicks&nbsp;extras.</p>
+        <section class="article-content default-wrap"><p>Si eres desarrollador, poder abrir cualquier archivo o carpeta entera en Sublime Text mientras se esta trabajando en la terminal sin duda es algo que no puede faltar si quieres ahorrarte algunos segundos y clicks<span class="widont">&nbsp;</span>extras.</p>
 <iframe width="760" height="428" src="//www.youtube.com/embed/P1WW3wTU4WY?controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
 
-<p>Los pasos para hacerlo&nbsp;son:</p>
+<p>Los pasos para hacerlo<span class="widont">&nbsp;</span>son:</p>
 <p>1. Crear un enlace simbólico de la aplicación de Sublime Text en <code>/usr/local/bin/</code></p>
 <pre><code># ln -s /Applications/Sublime Text.app/Contents/SharedSupport/bin/subl usr/local/bin/subl
-</code></pre><p>Pueden crear el enlace con cualquier nombre. Prefiero <code>subl</code> porque es mas&nbsp;corto.</p>
-<p>2. Asegurarse de que <code>/usr/local/bin</code> se encuentre en nuestro <code>$PATH</code>, pueden revisarlo abriendo el archivo <code>~/.bash_profile</code> o bien revisando la salida de esa&nbsp;variable:</p>
+</code></pre><p>Pueden crear el enlace con cualquier nombre. Prefiero <code>subl</code> porque es mas<span class="widont">&nbsp;</span>corto.</p>
+<p>2. Asegurarse de que <code>/usr/local/bin</code> se encuentre en nuestro <code>$PATH</code>, pueden revisarlo abriendo el archivo <code>~/.bash_profile</code> o bien revisando la salida de esa<span class="widont">&nbsp;</span>variable:</p>
 <pre><code>$PATH
 </code></pre><p>En caso que la salida de que la ruta no este incluida la agregan al archivo <code>~/.bash_profile</code> </p>
-<p>3. Cargar el archivo bash nuevamente. También pueden cerrar por completo la terminal y abrirla de nuevo para retomar los&nbsp;cambios.</p>
+<p>3. Cargar el archivo bash nuevamente. También pueden cerrar por completo la terminal y abrirla de nuevo para retomar los<span class="widont">&nbsp;</span>cambios.</p>
 <pre><code>$ source ~/.bash_profile
-</code></pre><h2 id="modo-de-uso">Modo de&nbsp;uso</h2>
+</code></pre><h2 id="modo-de-uso">Modo de uso</h2>
 <p>Podemos <strong>abrir archivos o carpetas completas desde la terminal en Sublime Text</strong>:</p>
 <ul>
-<li><p>Para abrir archivos en&nbsp;específico</p>
+<li><p>Para abrir archivos en<span class="widont">&nbsp;</span>específico</p>
 <pre><code>  $ subl nombre_del_archivo
 </code></pre></li>
-<li><p>Para abrir carpetas&nbsp;completas</p>
+<li><p>Para abrir carpetas<span class="widont">&nbsp;</span>completas</p>
 <pre><code>  $ subl /ruta/de/la/carpeta/
 </code></pre></li>
 </ul>
-<p>O bien si nos encontramos en la carpeta de nuestro interés, basta con reemplazar la ruta con un&nbsp;punto</p>
+<p>O bien si nos encontramos en la carpeta de nuestro interés, basta con reemplazar la ruta con un<span class="widont">&nbsp;</span>punto</p>
 <pre><code>$ subl .
 </code></pre></section>
         <aside class="article-share text-center default-wrap">

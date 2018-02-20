@@ -21,12 +21,12 @@
             <div class="article-meta"><span>January 29th 2014</span></div>
           </div>
         </header>
-        <section class="article-content default-wrap"><p>Esta es una forma muy sencilla de optimizar el rendimiento y tiempo de carga de cualquier instalación de wordpress. Son 6 simples pasos y se puede lograr un aumento hasta del&nbsp;30%.</p>
+        <section class="article-content default-wrap"><p>Esta es una forma muy sencilla de optimizar el rendimiento y tiempo de carga de cualquier instalación de wordpress. Son 6 simples pasos y se puede lograr un aumento hasta del<span class="widont">&nbsp;</span>30%.</p>
 <blockquote>
-<p>Antes y despues de realizar estos pasos, mide tu sitio para saber cuánto ha mejorado. Recomiendo hacerlo desde <a href="http://gtmetrix.com">Gtmetrix</a> y <a href="http://tools.pingdom.com/fpt">Pingdoom&nbsp;Tools</a></p>
+<p>Antes y despues de realizar estos pasos, mide tu sitio para saber cuánto ha mejorado. Recomiendo hacerlo desde <a href="http://gtmetrix.com">Gtmetrix</a> y <a href="http://tools.pingdom.com/fpt">Pingdoom<span class="widont">&nbsp;</span>Tools</a></p>
 </blockquote>
-<h2 id="1-definir-reglas-de-compresi-n-en-htaccess-">1. Definir reglas de compresión en <code>.htaccess</code></h2>
-<p>Realiza primero un backup de este archivo en caso que algo salga&nbsp;mal</p>
+<h2 id="1-definir-reglas-de-compresi-n-en-htaccess">1. Definir reglas de compresión en <code>.htaccess</code></h2>
+<p>Realiza primero un backup de este archivo en caso que algo salga<span class="widont">&nbsp;</span>mal</p>
 <pre><code>    cp .htaccess .htaccess.bkp
 
     Ahora, agregamos las siguientes reglas a las existentes en el archivo
@@ -72,23 +72,23 @@
     ## END wordpress optimization
 
     Guardan, e ingresan al sitio para comprobar que cargue sin problemas.
-</code></pre><h2 id="2-utilizar-plugin-photon-">2. Utilizar plugin&nbsp;Photon.</h2>
-<p>Photon es una extensión del plugin de <a href="http://jetpack.me">Jetpack</a> y lo que hace es funcionar como un <abbr title=\"Content Delivery Network\"><span class="caps">CDN</span></abbr> sirviendo las imágenes de nuestro sitio por nosotros, acelerando así la carga del sitio y menor consumo de ancho de&nbsp;banda.</p>
+</code></pre><h2 id="2-utilizar-plugin-photon-">2. Utilizar plugin<span class="widont">&nbsp;</span>Photon.</h2>
+<p>Photon es una extensión del plugin de <a href="http://jetpack.me">Jetpack</a> y lo que hace es funcionar como un <abbr title=\"Content Delivery Network\"><span class="caps">CDN</span></abbr> sirviendo las imágenes de nuestro sitio por nosotros, acelerando así la carga del sitio y menor consumo de ancho de<span class="widont">&nbsp;</span>banda.</p>
 <p><img src="/articles/optimizar-el-rendimiento-y-tiempo-de-carga-de-wordpress-en-5-simples-pasos/jetpack_modules.png" alt="módulos Jetpack"></p>
-<p><a href="http://wordpress.org/plugins/jetpack/">Descargar&nbsp;Jetpack</a></p>
-<p>Aunque tenga sus detractores, por temas de <span class="caps">SEO</span> en imágenes, ciertamente mejora el mucho rendimiento. Aprovechando que estas en la configuración de Jetpack, deshabilita todo lo que no necesitas y&nbsp;desconozcas.</p>
-<h2 id="3-utilizar-plugin-de-cache-">3. Utilizar plugin de&nbsp;cache.</h2>
-<p>Esto es quizas lo más importante y que más les ayudará. <span class="caps">TIENEN</span> que instalar un plugin que se haga cargo de gestionar el cache de su sitio, existen muchísimos,&nbsp;recomiendo:</p>
+<p><a href="http://wordpress.org/plugins/jetpack/">Descargar Jetpack</a></p>
+<p>Aunque tenga sus detractores, por temas de <span class="caps">SEO</span> en imágenes, ciertamente mejora el mucho rendimiento. Aprovechando que estas en la configuración de Jetpack, deshabilita todo lo que no necesitas y<span class="widont">&nbsp;</span>desconozcas.</p>
+<h2 id="3-utilizar-plugin-de-cache-">3. Utilizar plugin de<span class="widont">&nbsp;</span>cache.</h2>
+<p>Esto es quizas lo más importante y que más les ayudará. <span class="caps">TIENEN</span> que instalar un plugin que se haga cargo de gestionar el cache de su sitio, existen muchísimos,<span class="widont">&nbsp;</span>recomiendo:</p>
 <ul>
-<li><a href="http://wordpress.org/plugins/quick-cache/">Quick&nbsp;cache</a></li>
-<li><a href="http://wordpress.org/plugins/wp-super-cache/"><span class="caps">WP</span> Super&nbsp;Cache</a></li>
-<li><a href="http://wordpress.org/plugins/w3-total-cache/">W3 Total&nbsp;Cache</a></li>
+<li><a href="http://wordpress.org/plugins/quick-cache/">Quick cache</a></li>
+<li><a href="http://wordpress.org/plugins/wp-super-cache/"><span class="caps">WP</span> Super Cache</a></li>
+<li><a href="http://wordpress.org/plugins/w3-total-cache/">W3 Total Cache</a></li>
 </ul>
-<p><em>El sencillo, el moderado y el avanzado, respectivamente.</em> Todos son igual de buenos. Todos poseen opciones para no hacer cache de ciertas páginas, como por ejemplo si tienes tienda virtual, un carro de compras,&nbsp;etc.</p>
-<h2 id="4-usar-jquery-desde-el-cdn-de-google-">4. Usar jQuery desde el <span class="caps">CDN</span> de&nbsp;Google.</h2>
-<p><em>Esto puede causar comportamientos inesperados o romper el funcionamiento de algunos&nbsp;plugins.</em></p>
-<p>jQuery es ampliamente usado por otros plugins y wordpress por defecto la carga desde nuestro servidor. Podemos agilizar las cosas y permitir que se cargue en paralelo con nuestro sitio utilizando el <span class="caps">CDN</span> que Google&nbsp;provee.</p>
-<p>Y para ello existe basta con agregar al final del archivo <code>functions.php</code> del&nbsp;tema:</p>
+<p><em>El sencillo, el moderado y el avanzado, respectivamente.</em> Todos son igual de buenos. Todos poseen opciones para no hacer cache de ciertas páginas, como por ejemplo si tienes tienda virtual, un carro de compras,<span class="widont">&nbsp;</span>etc.</p>
+<h2 id="4-usar-jquery-desde-el-cdn-de-google-">4. Usar jQuery desde el <span class="caps">CDN</span> de<span class="widont">&nbsp;</span>Google.</h2>
+<p><em>Esto puede causar comportamientos inesperados o romper el funcionamiento de algunos<span class="widont">&nbsp;</span>plugins.</em></p>
+<p>jQuery es ampliamente usado por otros plugins y wordpress por defecto la carga desde nuestro servidor. Podemos agilizar las cosas y permitir que se cargue en paralelo con nuestro sitio utilizando el <span class="caps">CDN</span> que Google<span class="widont">&nbsp;</span>provee.</p>
+<p>Y para ello existe basta con agregar al final del archivo <code>functions.php</code> del tema:</p>
 <pre><code>    function jquery_cdn() {
          if (!is_admin()) {
                 wp_deregister_script(&#39;jquery&#39;);
@@ -97,33 +97,33 @@
                 }
          }
     add_action(&#39;init&#39;, &#39;jquery_cdn&#39;);
-</code></pre><p><a href="https://developers.google.com/speed/libraries/devguide#jquery">Pueden cambiar la versión de jQuery por la que&nbsp;deseen.</a></p>
-<h2 id="5-mover-los-archivos-js-al-footer-">5. Mover los archivos <code>js</code> al&nbsp;footer.</h2>
-<p><em>Esto puede causar comportamientos inesperados o romper el funcionamiento de algunos&nbsp;plugins.</em></p>
-<p>El script&nbsp;es:</p>
+</code></pre><p><a href="https://developers.google.com/speed/libraries/devguide#jquery">Pueden cambiar la versión de jQuery por la que<span class="widont">&nbsp;</span>deseen.</a></p>
+<h2 id="5-mover-los-archivos-js-al-footer-">5. Mover los archivos <code>js</code> al footer.</h2>
+<p><em>Esto puede causar comportamientos inesperados o romper el funcionamiento de algunos<span class="widont">&nbsp;</span>plugins.</em></p>
+<p>El script es:</p>
 <pre><code>    remove_action(&#39;wp_head&#39;, &#39;wp_print_scripts&#39;);
      remove_action(&#39;wp_head&#39;, &#39;wp_print_head_scripts&#39;, 9);
      remove_action(&#39;wp_head&#39;, &#39;wp_enqueue_scripts&#39;, 1);
      add_action(&#39;wp_footer&#39;, &#39;wp_print_scripts&#39;, 5);
      add_action(&#39;wp_footer&#39;, &#39;wp_enqueue_scripts&#39;, 5);
      add_action(&#39;wp_footer&#39;, &#39;wp_print_head_scripts&#39;, 5);
-</code></pre><p>De nuevo, esto puede romper el funcionamiento de algunos plugins, y deberás regisrar todos los plugins  de tu tema en el footer. Por&nbsp;ejemplo:</p>
+</code></pre><p>De nuevo, esto puede romper el funcionamiento de algunos plugins, y deberás regisrar todos los plugins  de tu tema en el footer. Por<span class="widont">&nbsp;</span>ejemplo:</p>
 <pre><code>wp_enqueue_script( &#39;miPlugin&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, true );
-</code></pre><p><em>El <code>true</code> al final indica que se debe cargar en el&nbsp;footer.</em> </p>
-<p>Hagan bien sus pruebas y atentos a los errores en ejecución de&nbsp;Javascript.</p>
-<h2 id="6-eliminar-query-strings-de-archivos-est-ticos">6. Eliminar Query Strings de archivos&nbsp;estáticos</h2>
+</code></pre><p><em>El <code>true</code> al final indica que se debe cargar en el<span class="widont">&nbsp;</span>footer.</em> </p>
+<p>Hagan bien sus pruebas y atentos a los errores en ejecución de<span class="widont">&nbsp;</span>Javascript.</p>
+<h2 id="6-eliminar-query-strings-de-archivos-est-ticos">6. Eliminar Query Strings de archivos<span class="widont">&nbsp;</span>estáticos</h2>
 <p>Si? lo han visto? <code>http//misitio.com/wp-content/themes/mitema/js/archivo.js?ver=2.4.1</code></p>
-<p>Bien, pues Wordpress pone una query strings a todos los archivos <code>js</code> y <code>css</code> que carguemos para indicar la versión del script/stylesheet y que no sirve para nada excepto para que alguien obtenga más  información y el tiempo de carga sea un poco más&nbsp;lento.</p>
-<p>Los removemos&nbsp;así:</p>
+<p>Bien, pues Wordpress pone una query strings a todos los archivos <code>js</code> y <code>css</code> que carguemos para indicar la versión del script/stylesheet y que no sirve para nada excepto para que alguien obtenga más  información y el tiempo de carga sea un poco más<span class="widont">&nbsp;</span>lento.</p>
+<p>Los removemos así:</p>
 <pre><code>function remove_query_script( $src ){
     $parts = explode( &#39;?&#39;, $src );
     return $parts[0];
 }
 add_filter( &#39;script_loader_src&#39;, &#39;remove_query_script&#39;, 15, 1 );
 add_filter( &#39;style_loader_src&#39;, &#39;remove_query_script&#39;, 15, 1 );
-</code></pre><p>Tendrás conflictos si necesitas de alguna query string, como por ejemplo Google Webfonts o la <span class="caps">API</span> de Google Maps, pero con otra linea de más en el script controlas la&nbsp;excepción.</p>
-<h2 id="7-comparte-tus-resultados">7. Comparte tus&nbsp;resultados</h2>
-<p>Este es uno de los&nbsp;mios:</p>
+</code></pre><p>Tendrás conflictos si necesitas de alguna query string, como por ejemplo Google Webfonts o la <span class="caps">API</span> de Google Maps, pero con otra linea de más en el script controlas la<span class="widont">&nbsp;</span>excepción.</p>
+<h2 id="7-comparte-tus-resultados">7. Comparte tus<span class="widont">&nbsp;</span>resultados</h2>
+<p>Este es uno de los<span class="widont">&nbsp;</span>mios:</p>
 <p><img src="/articles/optimizar-el-rendimiento-y-tiempo-de-carga-de-wordpress-en-5-simples-pasos/gtmetrix_report_boost_wordpress.png" alt="Reporte optimización Wordpress 6 pasos jonalvarezz.com"></p>
 </section>
         <aside class="article-share text-center default-wrap">

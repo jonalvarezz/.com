@@ -21,15 +21,15 @@
             <div class="article-meta"><span>November 3rd 2014</span></div>
           </div>
         </header>
-        <section class="article-content default-wrap"><p>Una buena forma de personalizar aún más nuestro Wordpress es cambiar la carpeta <code>wp-content</code> por otra que&nbsp;elijamos.</p>
-<p>Aunque el hecho que hagas esto <strong>no evitará que se conozca que tu sitio es un Wordpress</strong>, tal vez si ayude un poco a evitar bots automatizados que busquen vulnerabilidades en estos sitios, pues la estructura de archivos no será&nbsp;igual.</p>
-<p>Pueden utilizar los nombres que quieran. Yo utilizaré la siguiente&nbsp;estructura</p>
+        <section class="article-content default-wrap"><p>Una buena forma de personalizar aún más nuestro Wordpress es cambiar la carpeta <code>wp-content</code> por otra que<span class="widont">&nbsp;</span>elijamos.</p>
+<p>Aunque el hecho que hagas esto <strong>no evitará que se conozca que tu sitio es un Wordpress</strong>, tal vez si ayude un poco a evitar bots automatizados que busquen vulnerabilidades en estos sitios, pues la estructura de archivos no será<span class="widont">&nbsp;</span>igual.</p>
+<p>Pueden utilizar los nombres que quieran. Yo utilizaré la siguiente<span class="widont">&nbsp;</span>estructura</p>
 <ul>
 <li><code>wp-content</code> ahora será <code>assets</code></li>
 <li>La carpeta de <code>plugins</code> ahora será <code>scripts</code></li>
 <li>La carpeta <code>uploads</code> ahora será <code>media</code></li>
 </ul>
-<p>Para hacerlo, modificaremos el archivo <code>wp-config.php</code>, pueden agregar esto al&nbsp;final.</p>
+<p>Para hacerlo, modificaremos el archivo <code>wp-config.php</code>, pueden agregar esto al<span class="widont">&nbsp;</span>final.</p>
 <pre><code>/**
  * Changing Wordpress default directories
  *
@@ -45,9 +45,9 @@ define( &#39;WP_PLUGIN_DIR&#39;, WP_CONTENT_DIR . &#39;/&#39; . WP_PLUGIN_FOLDER
 define( &#39;WP_PLUGIN_URL&#39;, WP_CONTENT_URL . &#39;/&#39; . WP_PLUGIN_FOLDERNAME );
 
 define( &#39;UPLOADS&#39;, &#39;assets/media&#39; );
-</code></pre><p>Nótese que la <span class="caps">URL</span> del sitio debe <em>hardcodearse</em> en <code>WP_SITEURL</code> para que los plugins funcionen&nbsp;adecuadamente. </p>
-<p>Lo que resta por hacer es que cambies el nombre de las carpetas <code>wp-content</code>, <code>plugins</code> y <code>uploads</code> por los nuevos nombres que&nbsp;definiste.</p>
-<p>Si todo ha salido bien, podrán acceder al administrador, instalar/eliminar temas, plugins y subir archivos como de costumbre. El cambio sólo se verá en la estructura de las URLs de sus&nbsp;archivos.</p>
+</code></pre><p>Nótese que la <span class="caps">URL</span> del sitio debe <em>hardcodearse</em> en <code>WP_SITEURL</code> para que los plugins funcionen<span class="widont">&nbsp;</span>adecuadamente. </p>
+<p>Lo que resta por hacer es que cambies el nombre de las carpetas <code>wp-content</code>, <code>plugins</code> y <code>uploads</code> por los nuevos nombres que<span class="widont">&nbsp;</span>definiste.</p>
+<p>Si todo ha salido bien, podrán acceder al administrador, instalar/eliminar temas, plugins y subir archivos como de costumbre. El cambio sólo se verá en la estructura de las URLs de sus<span class="widont">&nbsp;</span>archivos.</p>
 </section>
         <aside class="article-share text-center default-wrap">
           <hr><a href="https://twitter.com/share?text=C%C3%B3mo%20cambiar%20la%20carpeta%20wp-content%20en%20Wordpress by @jonalvarezz&amp;url=" title="Share on Twitter" onclick="this.href+=window.location.href; window.open(this.href, 'twitter-share', 'width=550,height=330');return false;"><i class="fa fa-twitter"></i></a><a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook" onclick="this.href+=window.location.href; window.open(this.href, 'facebook-share', 'width=580,height=330');return false;"><i class="fa fa-facebook"></i></a>

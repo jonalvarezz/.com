@@ -21,9 +21,9 @@
             <div class="article-meta"><span>August 6th 2016</span></div>
           </div>
         </header>
-        <section class="article-content default-wrap"><p>You can see your disk available space using `df in your&nbsp;console:</p>
+        <section class="article-content default-wrap"><p>You can see your disk available space using `df in your<span class="widont">&nbsp;</span>console:</p>
 <pre><code>df -h
-</code></pre><p>Sample&nbsp;output:</p>
+</code></pre><p>Sample output:</p>
 <pre><code>Filesystem      Size  Used Avail Use% Mounted on
 /dev/vda1        30G  29.9G   25G  99% /
 dev             492M     0  492M   0% /dev
@@ -35,15 +35,15 @@ tmpfs           500M     0  500M   0% /sys/fs/cgroup
 # du -hsx * | sort -rh | head -10
 </code></pre><p>This will output the top 10 folders with larger size. Now on you can use <code>cd</code>
 to get into each folder and excecute <code>du</code> again and going deeper to find the
-folders and files which are occupying your disk&nbsp;space.</p>
+folders and files which are occupying your disk<span class="widont">&nbsp;</span>space.</p>
 <p>Generally you will land into <code>/var/log/</code>. If so, you can delete that files
 safely just make sure you dont delete folders. I use to delete the log file and
-create a empty new one because some programms may asume the file exist.&nbsp;i.e.</p>
+create a empty new one because some programms may asume the file exist.<span class="widont">&nbsp;</span>i.e.</p>
 <pre><code># rm unnecesarry-and-large-file.log
 # touch unnecesarry-and-large-file.log
-</code></pre><p>make sure to also restore the same file permissions, user and&nbsp;group.</p>
+</code></pre><p>make sure to also restore the same file permissions, user and<span class="widont">&nbsp;</span>group.</p>
 <p>Btw, if you find <code>mysql</code> had very large files named like <code>mysql-bin.***</code> Its 
-safer to use mysql purge&nbsp;feature:</p>
+safer to use mysql purge<span class="widont">&nbsp;</span>feature:</p>
 <pre><code>$ mysql -u root -p 
 &gt; PURGE BINARY LOGS BEFORE &#39;2016-08-01&#39;;
 </code></pre></section>

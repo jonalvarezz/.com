@@ -21,17 +21,17 @@
             <div class="article-meta"><span>October 26th 2014</span></div>
           </div>
         </header>
-        <section class="article-content default-wrap"><p>Utilizar el filtro <code>OrderBy</code> de <strong>AngularJS</strong> es bastante sencillo. Ordenará alfabéticamente las cadenas de texto y numéricamente los&nbsp;números.</p>
-<p>Sin embargo cuando traemos devuelta algunos campos númericos de algunas <span class="caps">APIS</span> o bases de datos, pueden ser retornados como <code>strings</code> y al querer ordenar númericamente el resultado no será el esperado. Puede suceder por ejemplo con&nbsp;fechas.</p>
+        <section class="article-content default-wrap"><p>Utilizar el filtro <code>OrderBy</code> de <strong>AngularJS</strong> es bastante sencillo. Ordenará alfabéticamente las cadenas de texto y numéricamente los<span class="widont">&nbsp;</span>números.</p>
+<p>Sin embargo cuando traemos devuelta algunos campos númericos de algunas <span class="caps">APIS</span> o bases de datos, pueden ser retornados como <code>strings</code> y al querer ordenar númericamente el resultado no será el esperado. Puede suceder por ejemplo con<span class="widont">&nbsp;</span>fechas.</p>
 <p>Una forma rápido de solucionarlo, sin modificar el valor en la base de datos sería crear una expresión para evaluar el <code>OrderBy</code>. </p>
-<p>Veámoslo en código, supongamos que cargamos una lista de posts y queremos filtrar por fecha. La fecha del post es devuelta como <code>&quot;mmm-dd-yy&quot;</code> lo cual no nos sirve ya que es una cadena. Utilizando una expresión en el filtro <code>OrderBy</code>,&nbsp;sería:</p>
+<p>Veámoslo en código, supongamos que cargamos una lista de posts y queremos filtrar por fecha. La fecha del post es devuelta como <code>&quot;mmm-dd-yy&quot;</code> lo cual no nos sirve ya que es una cadena. Utilizando una expresión en el filtro <code>OrderBy</code>, sería:</p>
 <pre><code>ng-repeat=&quot;post in posts | orderBy : date&quot;
-</code></pre><p>Donde  <code>date</code> es el nombre de la expresión. Y en el controlador de esa&nbsp;plantilla:</p>
+</code></pre><p>Donde  <code>date</code> es el nombre de la expresión. Y en el controlador de esa<span class="widont">&nbsp;</span>plantilla:</p>
 <pre><code>$scope.date = function(post) {
     var date = new Date(post.publishedDate);
     return date;
 }
-</code></pre><p>Y para ordenar en orden inverso&nbsp;sería:</p>
+</code></pre><p>Y para ordenar en orden inverso<span class="widont">&nbsp;</span>sería:</p>
 <pre><code>ng-repeat=&quot;post in posts | orderBy : date : true&quot;
 </code></pre></section>
         <aside class="article-share text-center default-wrap">

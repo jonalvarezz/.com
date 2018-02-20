@@ -21,11 +21,11 @@
             <div class="article-meta"><span>December 29th 2014</span></div>
           </div>
         </header>
-        <section class="article-content default-wrap"><p>Esto es una recopilación de apuntes personales sobre cosas de Javascript. Espero que a alguien le pueda ser útil&nbsp;también.</p>
+        <section class="article-content default-wrap"><p>Esto es una recopilación de apuntes personales sobre cosas de Javascript. Espero que a alguien le pueda ser útil<span class="widont">&nbsp;</span>también.</p>
 <h2 id="objetos">Objetos</h2>
-<p>Todo lo que no sea un número (Number), una cadena de texto (String), un boolean (Boolean), un símbolo (Symbol), null o Undefined es un objeto en&nbsp;Javascript.</p>
-<p>Esto quiere decir que las funciones (Function), los fechas (Date), las expresiones regulares (RegExp) y los array (Array) son un <em>tipo especial de objeto</em>.</p>
-<p>La mejor forma de definir objetos es en forma literal (literal&nbsp;syntax):</p>
+<p>Todo lo que no sea un número (Number), una cadena de texto (String), un boolean (Boolean), un símbolo (Symbol), null o Undefined es un objeto en<span class="widont">&nbsp;</span>Javascript.</p>
+<p>Esto quiere decir que las funciones (Function), los fechas (Date), las expresiones regulares (RegExp) y los array (Array) son un <em>tipo especial de<span class="widont">&nbsp;</span>objeto</em>.</p>
+<p>La mejor forma de definir objetos es en forma literal (literal<span class="widont">&nbsp;</span>syntax):</p>
 <pre><code>var o = {};
 
 var person = {
@@ -35,51 +35,51 @@ var person = {
         play: &quot;Zelda, Pokemon&quot;
     }
 };
-</code></pre><p>La razón de esto es&nbsp;porque:</p>
+</code></pre><p>La razón de esto es<span class="widont">&nbsp;</span>porque:</p>
 <p>1. Es fácil de entender.
 2. Es rápido de escribir.
-3. Es la sintaxys usada por <span class="caps">JSON</span> por lo que deberá preferirse&nbsp;siempre.</p>
-<p>Para acceder a las propiedades de un&nbsp;objeto:</p>
+3. Es la sintaxys usada por <span class="caps">JSON</span> por lo que deberá preferirse<span class="widont">&nbsp;</span>siempre.</p>
+<p>Para acceder a las propiedades de un<span class="widont">&nbsp;</span>objeto:</p>
 <pre><code>person.name; 
 person[&quot;name&quot;]; //Forma preferida
-</code></pre><p>La segunda es la forma preferida ya que no interferirá con el uso de palabras reservadas del lenguaje, pues siempre irá entre comillas dobles o&nbsp;simples.</p>
+</code></pre><p>La segunda es la forma preferida ya que no interferirá con el uso de palabras reservadas del lenguaje, pues siempre irá entre comillas dobles o<span class="widont">&nbsp;</span>simples.</p>
 <h2 id="array">Array</h2>
-<p>Funcionan como un objeto salvo por dos&nbsp;cosas:</p>
+<p>Funcionan como un objeto salvo por dos<span class="widont">&nbsp;</span>cosas:</p>
 <ul>
 <li>Solo pueden ser accedidos utilizando valores númericos, correspondientes al índice, entre llaves <code>[]</code>.</li>
 <li>Poseen la propiedad <code>length</code>.</li>
 </ul>
-<p>Ejemplo de&nbsp;sintaxis:</p>
+<p>Ejemplo de sintaxis:</p>
 <pre><code>var ciudades = [&quot;Pereira&quot;, &quot;Manizales&quot;, &quot;Medellín&quot;];
 ciudades[1]; // Manizales.
 ciudades.length; // 3
 </code></pre><p>No es recomendado dejar una coma al final de los valores del array ya que en algunos browsers puede crear un nuevo índice con valor <code>undefined</code>.</p>
-<p>Se debe tener en cuenta que el valor de la propiedad <code>length</code> es el valor del índice mas alto más uno; y no el tamaño del array en sí. Esto&nbsp;es:</p>
+<p>Se debe tener en cuenta que el valor de la propiedad <code>length</code> es el valor del índice mas alto más uno; y no el tamaño del array en sí. Esto<span class="widont">&nbsp;</span>es:</p>
 <pre><code>var a = [&quot;apple&quot;, &quot;onion&quot;, &quot;coconaut&quot;];
 a.length; // 3
 
 a[120] = &quot;orange&quot;;
 a.length; // 121
-</code></pre><p>Interesante,&nbsp;no?</p>
-<p>Un error común al utilizar variables es calcular el tamaño en cada iteración de un ciclo o&nbsp;loop:</p>
+</code></pre><p>Interesante, no?</p>
+<p>Un error común al utilizar variables es calcular el tamaño en cada iteración de un ciclo o<span class="widont">&nbsp;</span>loop:</p>
 <pre><code>for(var i = 0; i &lt; a.length; a++;) {
     // Do something
 }
-</code></pre><p>Una forma más óptima&nbsp;sería</p>
+</code></pre><p>Una forma más óptima<span class="widont">&nbsp;</span>sería</p>
 <pre><code>for(var i = 0, len = a.length; i &lt; len; a++;) {
     // Do something
 }
-</code></pre><p>Y una forma más&nbsp;bonita: </p>
+</code></pre><p>Y una forma más<span class="widont">&nbsp;</span>bonita: </p>
 <pre><code>for (var i = 0, item; item = a[i++];) {
     // Do something
 }
-</code></pre><p>Esta última recorrerá el array hasta toparse con una <em>sentencia falsa</em> como <code>undefined</code>. Así que si hay un valor en el array separado por <code>undefined</code>, nunca se llegará a este valor de esa&nbsp;forma.</p>
-<p>Y la forma preferida que no fallará como la anterior&nbsp;sería:</p>
+</code></pre><p>Esta última recorrerá el array hasta toparse con una <em>sentencia falsa</em> como <code>undefined</code>. Así que si hay un valor en el array separado por <code>undefined</code>, nunca se llegará a este valor de esa<span class="widont">&nbsp;</span>forma.</p>
+<p>Y la forma preferida que no fallará como la anterior<span class="widont">&nbsp;</span>sería:</p>
 <pre><code>for( var fruit in a ) {
     // Do something
 }
-</code></pre><h3 id="array-map">Array&nbsp;Map</h3>
-<p>La propiedad <code>Array.prototype.map</code> de los arrays permite recorrerlos también. Por su facilidad, ante un <code>for</code>, esta forma es&nbsp;proferible. </p>
+</code></pre><h3 id="array-map">Array Map</h3>
+<p>La propiedad <code>Array.prototype.map</code> de los arrays permite recorrerlos también. Por su facilidad, ante un <code>for</code>, esta forma es<span class="widont">&nbsp;</span>proferible. </p>
 <p>Siguiendo con el ejemplo del array <code>a</code></p>
 <pre><code>a.map(function(element, index) {
     console.log(element)

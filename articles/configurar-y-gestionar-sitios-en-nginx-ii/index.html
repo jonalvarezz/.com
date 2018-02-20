@@ -21,16 +21,16 @@
             <div class="article-meta"><span>January 24th 2014</span></div>
           </div>
         </header>
-        <section class="article-content default-wrap"><p>Continuando, y ahora que tenemos nuestra <a href="http://blog.jonalvarezz.com/configurar-y-gestionar-sitios-en-nginx/">configuración global para Nginx</a>, veremos cómo administrar nuestros&nbsp;sitios.</p>
-<p>Primero creamos dos carpetas sobre el directorio de configuración de&nbsp;Nginx</p>
+        <section class="article-content default-wrap"><p>Continuando, y ahora que tenemos nuestra <a href="http://blog.jonalvarezz.com/configurar-y-gestionar-sitios-en-nginx/">configuración global para Nginx</a>, veremos cómo administrar nuestros<span class="widont">&nbsp;</span>sitios.</p>
+<p>Primero creamos dos carpetas sobre el directorio de configuración de<span class="widont">&nbsp;</span>Nginx</p>
 <pre><code>cd /etc/nginx/
 mkdir -p sites-available
 mkdir -p sites-enabled
-</code></pre><p>Los nombres de las carpetas describen su funcionalidad. <strong>Esto es importante:</strong> Crearemos un archivo <code>misitio.conf</code> en <code>sites-available</code> por cada sitio que queramos en nuestro&nbsp;servidor.</p>
+</code></pre><p>Los nombres de las carpetas describen su funcionalidad. <strong>Esto es importante:</strong> Crearemos un archivo <code>misitio.conf</code> en <code>sites-available</code> por cada sitio que queramos en nuestro<span class="widont">&nbsp;</span>servidor.</p>
 <blockquote>
 <p>En algunas distribuciones, como Ubuntu, viene un archivo predefinido llamado default. Recomiendo borrarlo y utilizar <code>misitio.conf</code></p>
 </blockquote>
-<p>De este modo, cada archivo <code>.conf</code> describirá configuraciones específicas para cada sitio, por ejemplo incluir o no <code>php</code> o servir como un frontend proxy para usar <code>node</code>, <code>django</code> ó demás. Nginx es supremamente&nbsp;flexible.</p>
+<p>De este modo, cada archivo <code>.conf</code> describirá configuraciones específicas para cada sitio, por ejemplo incluir o no <code>php</code> o servir como un frontend proxy para usar <code>node</code>, <code>django</code> ó demás. Nginx es supremamente<span class="widont">&nbsp;</span>flexible.</p>
 <p>Así, un sitio típico con php para Nginx sería: <code>/etc/nginx/sites-available/misitio.conf</code></p>
 <pre><code>server {
         listen 80;
@@ -54,17 +54,17 @@ mkdir -p sites-enabled
     include /etc/nginx/global/php.conf;
     include /etc/nginx/global/drop.conf;
 }
-</code></pre><p>Aclaremos unas&nbsp;cosas:</p>
+</code></pre><p>Aclaremos unas cosas:</p>
 <ul>
-<li><code>server_name</code> Lleva el dominio, en caso de no tener uno aún, usen la <span class="caps">IP</span> del&nbsp;servidor.</li>
-<li><code>root</code> Especifica la ruta del servidor donde se encuentran los archivos del sitio. Es decir que en <code>/srv/http/</code> existe una carpeta de nombre <code>misitio</code> que contiene mis archivos de <code>html</code>, <code>php</code>, <code>css</code> y demás. <strong>Usen siempre carpeta por sitio, así solo sea&nbsp;uno.</strong></li>
-<li><code>include</code> Incluye archivos/ módulos adicionales para ese sitio que Nginx deberá tener en cuenta. Para este caso agregamos el módulo para ejecutar <code>php</code> y algunas excepciones para el servidor en <code>drop.conf</code> que <a href="http://blog.jonalvarezz.com/configurar-y-gestionar-sitios-en-nginx/">antes habíamos definido</a>.</li>
+<li><code>server_name</code> Lleva el dominio, en caso de no tener uno aún, usen la <span class="caps">IP</span> del<span class="widont">&nbsp;</span>servidor.</li>
+<li><code>root</code> Especifica la ruta del servidor donde se encuentran los archivos del sitio. Es decir que en <code>/srv/http/</code> existe una carpeta de nombre <code>misitio</code> que contiene mis archivos de <code>html</code>, <code>php</code>, <code>css</code> y demás. <strong>Usen siempre carpeta por sitio, así solo sea<span class="widont">&nbsp;</span>uno.</strong></li>
+<li><code>include</code> Incluye archivos/ módulos adicionales para ese sitio que Nginx deberá tener en cuenta. Para este caso agregamos el módulo para ejecutar <code>php</code> y algunas excepciones para el servidor en <code>drop.conf</code> que <a href="http://blog.jonalvarezz.com/configurar-y-gestionar-sitios-en-nginx/">antes habíamos<span class="widont">&nbsp;</span>definido</a>.</li>
 </ul>
-<p>El sitio está añadido, habilitémoslo&nbsp;entonces:</p>
+<p>El sitio está añadido, habilitémoslo<span class="widont">&nbsp;</span>entonces:</p>
 <pre><code>cd /etc/nginx/sites-enabled/
 ln -s ../sites-available/misitio.conf misitio.conf
-</code></pre><p>Si, sólo creamos un enlace simbólico a la configuración del sitio que queremos habilitar. Así no perdemos archivos de configuración cuando queramos dar sitios de&nbsp;baja.</p>
-<p>Y sólo por confirmar, definamos permisos sobre la carpeta de nuestro&nbsp;sitio</p>
+</code></pre><p>Si, sólo creamos un enlace simbólico a la configuración del sitio que queremos habilitar. Así no perdemos archivos de configuración cuando queramos dar sitios de<span class="widont">&nbsp;</span>baja.</p>
+<p>Y sólo por confirmar, definamos permisos sobre la carpeta de nuestro<span class="widont">&nbsp;</span>sitio</p>
 <pre><code># chown -hR http:http /srv/http/
 </code></pre><p>Recuerden cambiar el usuario <code>http</code> por el usuario correcto, por ejemplo en ubuntu debería ser <code>www-data</code>; Así mismo la ruta de archivos públicos, que en Ubuntu sería <code>/home/www/public/misitio/</code></p>
 <p>Nuestra configuración esta lista. Verificamos que todo este bien ejecutando <code>nginx -t</code> y reiniciamos el servicio de Nginx con <code>sudo systemctl nginx restart</code>. No debería aparecer algún error, y nuestro sitio debería ser visible desde el dominio especificado en <code>server_name</code>.</p>
