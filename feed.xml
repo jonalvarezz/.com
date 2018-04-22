@@ -5,9 +5,51 @@
     <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://localhost:8080</link>
     <description>Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development</description>
-    <pubDate>Sun, 07  Aug 2016 13:30:00 -0500</pubDate>
+    <pubDate>Mon, 19 Feb 2018 23:08:00 -0500</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
+    <item>
+      <title>Debugging React Applications</title>
+      <link>http://localhost:8080/articles/debugging-react-applications/</link>
+      <pubDate>Mon, 19 Feb 2018 23:08:00 -0500</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/debugging-react-applications/</guid>
+      <author></author>
+      <description>&lt;p&gt;&lt;small&gt;&lt;em&gt;Photo by &lt;a href=&quot;https://unsplash.com/photos/naDLKYn2eMs&quot;&gt;Christopher Burns&lt;/a&gt; on &lt;a href=&quot;https://unsplash.com&quot;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Debugging a React application might be very confusing.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If you are not familiar with bundlers, compilers, JSX and all that &lt;em&gt;modern JavaScript&lt;/em&gt; stuff, you might spend a lot of time trying to debug your application.&lt;/p&gt;
+&lt;p&gt;Let me introduce you three ways that might help you:&lt;/p&gt;
+&lt;h2 id=&quot;1-use-the-debugger-statement-&quot;&gt;1. Use the &lt;code&gt;debugger&lt;/code&gt; statement.&lt;/h2&gt;
+&lt;p&gt;You just need to put the &lt;code&gt;debugger&lt;/code&gt; statement in the line of code you want the browser to stop the JavaScript execution, as a breakpoint.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// posible buggy line of code&lt;/span&gt;
+&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; b = ...
+debugger
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Do not forget to remove those debugger statements once you’re done.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;2-add-breakpoints-from-chrome-s-devtool-&quot;&gt;2. Add breakpoints from Chrome’s DevTool.&lt;/h2&gt;
+&lt;p class=&quot;text-center&quot;&gt;&lt;img src=&quot;/articles/debugging-react-applications/2-undefined-in-bundle-js.png&quot; alt=&quot;Javascript error in bundle.js&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Getting those kind of errors are not very helpful, right? Even if you manage to open your bundle.js file without your Text editor to hang for some minutes, most probably is you won’t be able to know where is that line coming from.&lt;/p&gt;
+&lt;p&gt;That’s the reason why all bundlers will give you the option to produce source maps with your bundled files, allowing the browser to show you in which of your JavaScript files, the error occurred.&lt;/p&gt;
+&lt;p class=&quot;text-center&quot;&gt;&lt;img src=&quot;/articles/debugging-react-applications/2-undefined-in-body-jsx.png&quot; alt=&quot;JavaScript error in body.jsx&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;To add a breakpoint from Chrome’s DevTools, open the &lt;strong&gt;Source&lt;/strong&gt; tab, hit &lt;code&gt;CMD&lt;/code&gt; + &lt;code&gt;p&lt;/code&gt; keys (&lt;code&gt;CTRL&lt;/code&gt; if you on Windows) to search for your file, and then click the line number you want the breakpoint to be added. &lt;/p&gt;
+&lt;p class=&quot;text-center&quot;&gt;&lt;img src=&quot;/articles/debugging-react-applications/2-browser-sourcemaps.png&quot; alt=&quot;Searching source maps from DevTools.jsx&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;There are some bugs adding breakpoints to source maps, like breakpoint been added in another line different to the clicked one, but it’ll work most of the times.&lt;/p&gt;
+&lt;h2 id=&quot;3-use-react-devtools&quot;&gt;3. Use React DevTools&lt;/h2&gt;
+&lt;p&gt;There is a very useful Chrome’s extension that allows you to search through your rendered React Components as a DOM tree, you can inspect them, see their props, ref, and state.&lt;/p&gt;
+&lt;p class=&quot;text-center&quot;&gt;&lt;img src=&quot;/articles/debugging-react-applications/3-react-devtools-components.png&quot; alt=&quot;Searching React components in the DOM tree.jsx&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;You can go to the &lt;a href=&quot;https://github.com/facebook/react-devtools&quot;&gt;React DevTools official GitHub repository&lt;/a&gt; to get more information and installation instructions.&lt;/p&gt;
+&lt;h2 id=&quot;4-console-log&quot;&gt;4. &lt;code&gt;console.log&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;Well, and if nothing works, just console.log all the things.&lt;/p&gt;
+&lt;p&gt;Is there any other handy way you use to debug React apps?&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>How To Solve GIT Conflicts</title>
       <link>http://localhost:8080/articles/how-to-solve-git-conflicts/</link>
