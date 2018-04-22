@@ -5,13 +5,13 @@
     <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://localhost:8080</link>
     <description>Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development</description>
-    <pubDate>Mon, 19 Feb 2018 23:08:00 -0500</pubDate>
+    <pubDate>Sat, 21 Apr 2018 22:51:00 -0500</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
     <item>
       <title>Debugging React Applications</title>
       <link>http://localhost:8080/articles/debugging-react-applications/</link>
-      <pubDate>Mon, 19 Feb 2018 23:08:00 -0500</pubDate>
+      <pubDate>Sat, 21 Apr 2018 22:51:00 -0500</pubDate>
       <guid isPermaLink="true">http://localhost:8080/articles/debugging-react-applications/</guid>
       <author></author>
       <description>&lt;p&gt;&lt;small&gt;&lt;em&gt;Photo by &lt;a href=&quot;https://unsplash.com/photos/naDLKYn2eMs&quot;&gt;Christopher Burns&lt;/a&gt; on &lt;a href=&quot;https://unsplash.com&quot;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
