@@ -1,8 +1,9 @@
 {
   "scripts": {
+    "start": "npm run dev",
     "dev": "gulp watch",
     "build": "gulp build",
-    "deploy": "gulp deploy"
+    "publish": "gulp deploy"
   },
   "dependencies": {
     "moment": "^2.20.1",
