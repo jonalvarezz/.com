@@ -5,13 +5,83 @@
     <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://localhost:8080</link>
     <description>Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development</description>
-    <pubDate>Sat, 21 Apr 2018 22:51:00 -0500</pubDate>
+    <pubDate>Sat, 16 Jun 2018 11:05:00 -0500</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
     <item>
+      <title>Features your editor must have for web development</title>
+      <link>http://localhost:8080/articles/features-your-editor-must-have-for-web-development/</link>
+      <pubDate>Sat, 16 Jun 2018 11:05:00 -0500</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/features-your-editor-must-have-for-web-development/</guid>
+      <author></author>
+      <description>&lt;p&gt;&lt;small&gt;&lt;em&gt;Photo by &lt;a href=&quot;https://unsplash.com/photos/AoEEtI6onH4&quot;&gt;Chris Leggat&lt;/a&gt; on &lt;a href=&quot;https://unsplash.com&quot;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In my years of experience, I have found some features I am always looking for when I’m using an Editor. Features which allows me to write faster and better code.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;These are my 6 must features your editor should have, and I also included a &lt;strong&gt;bonus&lt;/strong&gt; at the end.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Heads up:&lt;/strong&gt; I am going to put the keyboard shortcuts only for MacOS using VS Code Editor. You should Google the right shortcut if you have any different setup.&lt;/p&gt;
+&lt;h2 id=&quot;0-word-selection-&quot;&gt;0. Word selection.&lt;/h2&gt;
+&lt;p&gt;I love this feature because it looks so basic and useless, but believe me, it’ll save you a ton of time when making selections from keyboard, and when combining together with other commands, it is very powerful.&lt;/p&gt;
+&lt;p&gt;I am pretty sure shortcut is the one I use the most everyday.&lt;/p&gt;
+&lt;p class=&quot;text-center&quot;&gt;&lt;img src=&quot;/articles/features-your-editor-must-have-for-web-development/0-multicursors-vs-code.gif&quot; alt=&quot;Word selection in VS Code&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Keyboard shortcut:&lt;/strong&gt; &lt;code&gt;CMD&lt;/code&gt; + &lt;code&gt;D&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;1-multicursors-&quot;&gt;1. Multicursors.&lt;/h2&gt;
+&lt;p&gt;This one blows the mind for every one which see it for the very first time.&lt;/p&gt;
+&lt;p class=&quot;text-center&quot;&gt;&lt;img src=&quot;/articles/features-your-editor-must-have-for-web-development/1-multicursors-vs-code.gif&quot; alt=&quot;Multicursors in VS Code&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Keyboard shortcut:&lt;/strong&gt; Hold &lt;code&gt;CMD&lt;/code&gt; key, and &lt;code&gt;Click&lt;/code&gt; wherever you want to put a cursor.&lt;/p&gt;
+&lt;h2 id=&quot;2-multiselection-&quot;&gt;2. Multiselection.&lt;/h2&gt;
+&lt;p&gt;This feature is a sort of comibation between word selections and multicursors.&lt;/p&gt;
+&lt;p class=&quot;text-center&quot;&gt;&lt;img src=&quot;/articles/features-your-editor-must-have-for-web-development/2-multiselection-vscode.gif&quot; alt=&quot;Multiselection in VSCode&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Keyboard shortcut:&lt;/strong&gt; &lt;code&gt;CMD&lt;/code&gt; + &lt;code&gt;D&lt;/code&gt; Multiple times over a word or chunk of code.&lt;/p&gt;
+&lt;h2 id=&quot;3-render-whitespaces-&quot;&gt;3. Render whitespaces.&lt;/h2&gt;
+&lt;p&gt;Either your project uses tabs or spaces, you should always use a consistent style. And being able to see if there is a space or tab really makes the difference.&lt;/p&gt;
+&lt;p class=&quot;text-center&quot;&gt;&lt;img src=&quot;/articles/features-your-editor-must-have-for-web-development/3-render-whitespaces.png&quot; alt=&quot;Editor rendering whitespaces&quot;&gt;&lt;/p&gt;
+&lt;em&gt;Do you see those little dots? Those are spaces. Tabs get rendered as &lt;code&gt;-&amp;gt;&lt;/code&gt;.&lt;/em&gt;
+&lt;p&gt;
+&lt;p&gt;&lt;strong&gt;Add to Settings:&lt;/strong&gt; &lt;code&gt;&amp;quot;editor.renderWhitespace&amp;quot;: &amp;quot;all&amp;quot;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;4-version-control-integration-&quot;&gt;4. Version Control Integration.&lt;/h2&gt;
+&lt;p&gt;Being able to see what is new in a file, what have changed, and where in the file are you working on, is priceless. You get that by integrating your editor with the version control software you are using on the project.&lt;/p&gt;
+&lt;p class=&quot;text-center&quot;&gt;&lt;img src=&quot;/articles/features-your-editor-must-have-for-web-development/4-git-integration.png&quot; alt=&quot;Editor displaying Git changes&quot;&gt;&lt;/p&gt;
+&lt;em&gt;VS Code include Git integration by default&lt;/em&gt;
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;5-snippets-&quot;&gt;5. Snippets.&lt;/h2&gt;
+&lt;p&gt;No matter the library or framework you use, even if you use vanilla JavaScript there are boilerplate code you need to write down every time. Snippets will save you some time.&lt;/p&gt;
+&lt;p class=&quot;text-center&quot;&gt;&lt;img src=&quot;/articles/features-your-editor-must-have-for-web-development/5-code-snippet-emmet.gif&quot; alt=&quot;ES6 Snippet in VSCode&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;I use: &lt;a href=&quot;https://code.visualstudio.com/docs/editor/emmet&quot;&gt;Emmet&lt;/a&gt;, &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets&quot;&gt;ES6&lt;/a&gt;, And &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=burkeholland.react-food-truck&quot;&gt;React&lt;/a&gt; Snippets.&lt;/p&gt;
+&lt;h2 id=&quot;6-linting-&quot;&gt;6. Linting.&lt;/h2&gt;
+&lt;p&gt;Making typos is so easy when coding. Choose an editor which will help you out in &lt;em&gt;real time&lt;/em&gt; to catch up those kind of errors. Code completion is also very helpful and VS Code’s is great at it.&lt;/p&gt;
+&lt;p class=&quot;text-center&quot;&gt;&lt;img src=&quot;/articles/features-your-editor-must-have-for-web-development/6-intellisense.gif&quot; alt=&quot;VSCode Intellisense&quot;&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;-optional-font-and-theme-&quot;&gt;[Optional] Font and Theme.&lt;/h2&gt;
+&lt;p&gt;Just make sure you use a font which display characters easily distinguishable. &lt;a href=&quot;https://sourcefoundry.org/hack/&quot;&gt;Hack&lt;/a&gt; and &lt;a href=&quot;https://github.com/powerline/fonts/tree/master/InconsolataDz&quot;&gt;Iconsolata-dz&lt;/a&gt; are great. For color schemas I am currently using Coda2, available for &lt;a href=&quot;https://packagecontrol.io/packages/Theme%20-%20Cobalt2&quot;&gt;Sublime Text&lt;/a&gt; and &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=wesbos.theme-cobalt2&quot;&gt;VS Code&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;text-center&quot;&gt;&lt;img src=&quot;/articles/features-your-editor-must-have-for-web-development/7-cobalt2.png&quot; alt=&quot;Cobalt2 Theme&quot;&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;bonus-clipboard-manager-&quot;&gt;Bonus: Clipboard Manager.&lt;/h2&gt;
+&lt;p&gt;This will change your life. A clipboard manager gives you the ability to keep a history for every text you have copied to the clipboard. You won’t need to switch over diffent applications for copying and pasting multiple things.&lt;/p&gt;
+&lt;div class=&quot;text-center&quot;&gt;&lt;video controls=&quot;true&quot; preload src=&quot;8-clipboard-managment.mp4&quot; /&gt;&lt;/div&gt;
+
+&lt;p&gt;For MacOS users, &lt;a href=&quot;https://itunes.apple.com/us/app/flycut-clipboard-manager/id442160987&quot;&gt;Flycut&lt;/a&gt; works like a charm. Make sure you remember the key combination for opening up the history.&lt;/p&gt;
+&lt;h2 id=&quot;that-s-it-&quot;&gt;That’s it!&lt;/h2&gt;
+&lt;p&gt;– Huh? But there are thousands of plugins an extensions out there you can install
+– Yes, I know, but extensions are just a plus, you don’t really need those. That is why the are named… extensions. Also some may not be available for all Editors.
+– Wait, what Text Editor or &lt;abr title=&quot;Integrated Development Enviroment&quot;&gt;IDE’s&lt;/abr&gt; should I use finally?
+– Just use the editor where you are efficient, and stick to it.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;At the of the day, choosing a Text Editor or &lt;abr title=&quot;Integrated Development Enviroment&quot;&gt;IDE’s&lt;/abr&gt; is just a matter of taste. There is no such thing as the perfect Editor.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Is there any other feature you consider vital? &lt;a href=&quot;https://twitter.com/share?text=@jonalvarezz&quot;&gt;Tweet me&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    <item>
       <title>Debugging React Applications</title>
       <link>http://localhost:8080/articles/debugging-react-applications/</link>
-      <pubDate>Sat, 21 Apr 2018 22:51:00 -0500</pubDate>
+      <pubDate>Mon, 19 Feb 2018 23:08:00 -0500</pubDate>
       <guid isPermaLink="true">http://localhost:8080/articles/debugging-react-applications/</guid>
       <author></author>
       <description>&lt;p&gt;&lt;small&gt;&lt;em&gt;Photo by &lt;a href=&quot;https://unsplash.com/photos/naDLKYn2eMs&quot;&gt;Christopher Burns&lt;/a&gt; on &lt;a href=&quot;https://unsplash.com&quot;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
