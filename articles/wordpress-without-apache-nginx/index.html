@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Install WordPress without Apache nor Nginx - Jonathan Álvarez González
+    </title>
+    <meta name="description" content="Frontend developer but also worken with backend technologies everyday. I also like designing. Here you will find some links and articles I'd write">
+    <link rel="alternate" href="http://localhost:8080/feed.xml" type="application/rss+xml" title="Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development">
+    <link href="/favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  </head>
+  <body class="article">
+    <div class="wrap">
+      <article class="content">
+        <header style="background-image: url('unsplash-artem-kim-uydt8hNz3hE.jpg');" class="article-header grid grid--vertical-align grid--horizontal-align">
+          <div class="article-inner text-center">
+            <div class="article-meta"></div>
+            <h1 class="article-title default-wrap">Install WordPress without Apache nor Nginx</h1>
+            <div class="article-meta"><span>November 10th 2018</span></div>
+          </div>
+        </header>
+        <section class="article-content default-wrap"><p><small><em>Photo by <a href="https://unsplash.com/photos/uydt8hNz3hE?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Chris Leggat</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></em></small></p>
+<p>This is a way to get your WordPress site running in a breeze with no need to install a server like Apache or<span class="widont">&nbsp;</span>Nginx.</p>
+<p><strong>Heads Up!</strong> This configuration is only meant to be used in development, do not use this in<span class="widont">&nbsp;</span>production.</p>
+<h2 id="1-download-wordpress-and-set-up-your-database-">1. Download WordPress and set up your<span class="widont">&nbsp;</span>database.</h2>
+<p>Same old, same<span class="widont">&nbsp;</span>old.</p>
+<p>If you are using MacOS, the painless way to get MySQL running is through <a href="https://brew.sh">brew</a></p>
+<pre><code>brew install mysql@5.7
+</code></pre><p><strong>Heads Up!</strong> We are specifying the version as Brew will install the latest MySQL by default, which is 8.xx, and it may be incompatible with some <span class="caps">PHP</span> features like <code>caching_sha2_password</code>, see <a href="https://stackoverflow.com/a/49950165">https://stackoverflow.com/a/49950165</a>.</p>
+<h2 id="2-use-any-php-version-above-5-4">2. Use any <span class="caps">PHP</span> version above<span class="widont">&nbsp;</span>5.4</h2>
+<p>By the way, I had issues with <span class="caps">PHP</span> 7+, therefore I used Brew to install <span class="caps">PHP</span><span class="widont">&nbsp;</span>5.6.</p>
+<h2 id="3-you-re-done-">3. You’re done.</h2>
+<p>Here is the trick. <span class="caps">PHP</span> introduced a built-in web server starting version 5.4, and it works for running<span class="widont">&nbsp;</span>WordPress.</p>
+<p>Open your terminal and launch your site<span class="widont">&nbsp;</span>with:</p>
+<pre><code>cd /your/wordpress/installation/path
+php -S 127.0.0.1:8000
+</code></pre><p>That’s it, going to <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a> will load your WordPress<span class="widont">&nbsp;</span>site.</p>
+<p>Would you prefer to use an <span class="caps">URL</span> like <a href="http://myAwesomeSite.localhost">http://myAwesomeSite.localhost</a> instead of <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a>? Keep reading…</p>
+<h2 id="bonus-introducing-hotel">Bonus: Introducing Hotel</h2>
+<p>This is one of my favorite tiny but tremendously useful applications when<span class="widont">&nbsp;</span>developing.</p>
+<p>Hotel allows you to manage your local sites from a single dashboard and plus it makes it stupidly easy to get your sites to use <code>.locahost</code> domains. How awesome is<span class="widont">&nbsp;</span>that?</p>
+<p class="text-center"><img src="/articles/wordpress-without-apache-nginx/hotel.png" alt="Hotel, process manager"></p>
+
+<p>You can find the installation steps in <a href="https://github.com/typicode/hotel">Hotel official<span class="widont">&nbsp;</span>repository</a></p>
+<p>Once you got Hotel installed and running, you can add your WordPress site by<span class="widont">&nbsp;</span>running:</p>
+<pre><code>cd /your/wordpress/installation/path
+hotel add &#39;php -S 127.0.0.1:$PORT&#39;
+</code></pre><p>And now, your site will be available in <a href="http://hotel.localhost/">http://hotel.localhost/</a> and <a href="http://yourWordpressFolderName.localhost/">http://yourWordpressFolderName.localhost/</a></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Being able to get rid of Apache or Nginx to run your WordPress site locally is a huge time saver, no need to deal with virtual hosts nor <code>.conf</code> files.</p>
+</section>
+        <aside class="article-share text-center default-wrap">
+          <hr><a href="https://twitter.com/share?text=Install%20WordPress%20without%20Apache%20nor%20Nginx by @jonalvarezz&amp;url=" title="Share on Twitter" onclick="this.href+=window.location.href; window.open(this.href, 'twitter-share', 'width=550,height=330');return false;"><i class="fa fa-twitter"></i></a><a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook" onclick="this.href+=window.location.href; window.open(this.href, 'facebook-share', 'width=580,height=330');return false;"><i class="fa fa-facebook"></i></a>
+        </aside>
+        <footer class="footer-article">
+          <div class="default-wrap">
+            <nav class="article-pagination grid grid--vertical-align">
+              <div class="prev grid-item grid-item--half text-left">
+              </div>
+              <div class="next grid-item grid-item--half text-right">
+                <div><small>NEXT</small></div><a href="/articles/features-your-editor-must-have-for-web-development/">Features your editor must have for web development</a>
+              </div>
+            </nav>
+            <div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ÁLVAREZ G ©</a></small></div>
+          </div>
+        </footer>
+      </article>
+    </div>
+    <script>
+      WebFontConfig = {
+        google: { families: [ 'Source+Sans+Pro:700,400:latin', 'Source+Serif+Pro:400,700:latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })()
+    </script>
+  </body>
+</html>

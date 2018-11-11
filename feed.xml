@@ -5,9 +5,46 @@
     <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://localhost:8080</link>
     <description>Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development</description>
-    <pubDate>Sat, 16 Jun 2018 11:05:00 -0500</pubDate>
+    <pubDate>Sat, 10 Nov 2018 20:21:00 -0500</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
+    <item>
+      <title>Install WordPress without Apache nor Nginx</title>
+      <link>http://localhost:8080/articles/wordpress-without-apache-nginx/</link>
+      <pubDate>Sat, 10 Nov 2018 20:21:00 -0500</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/wordpress-without-apache-nginx/</guid>
+      <author></author>
+      <description>&lt;p&gt;&lt;small&gt;&lt;em&gt;Photo by &lt;a href=&quot;https://unsplash.com/photos/uydt8hNz3hE?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Chris Leggat&lt;/a&gt; on &lt;a href=&quot;https://unsplash.com/?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
+&lt;p&gt;This is a way to get your WordPress site running in a breeze with no need to install a server like Apache or Nginx.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Heads Up!&lt;/strong&gt; This configuration is only meant to be used in development, do not use this in production.&lt;/p&gt;
+&lt;h2 id=&quot;1-download-wordpress-and-set-up-your-database-&quot;&gt;1. Download WordPress and set up your database.&lt;/h2&gt;
+&lt;p&gt;Same old, same old.&lt;/p&gt;
+&lt;p&gt;If you are using MacOS, the painless way to get MySQL running is through &lt;a href=&quot;https://brew.sh&quot;&gt;brew&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;brew install mysql@5.7
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;Heads Up!&lt;/strong&gt; We are specifying the version as Brew will install the latest MySQL by default, which is 8.xx, and it may be incompatible with some PHP features like &lt;code&gt;caching_sha2_password&lt;/code&gt;, see &lt;a href=&quot;https://stackoverflow.com/a/49950165&quot;&gt;https://stackoverflow.com/a/49950165&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;2-use-any-php-version-above-5-4&quot;&gt;2. Use any PHP version above 5.4&lt;/h2&gt;
+&lt;p&gt;By the way, I had issues with PHP 7+, therefore I used Brew to install PHP 5.6.&lt;/p&gt;
+&lt;h2 id=&quot;3-you-re-done-&quot;&gt;3. You’re done.&lt;/h2&gt;
+&lt;p&gt;Here is the trick. PHP introduced a built-in web server starting version 5.4, and it works for running WordPress.&lt;/p&gt;
+&lt;p&gt;Open your terminal and launch your site with:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd /your/wordpress/installation/path
+php -S 127.0.0.1:8000
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That’s it, going to &lt;a href=&quot;http://127.0.0.1:8000/&quot;&gt;http://127.0.0.1:8000/&lt;/a&gt; will load your WordPress site.&lt;/p&gt;
+&lt;p&gt;Would you prefer to use an URL like &lt;a href=&quot;http://myAwesomeSite.localhost&quot;&gt;http://myAwesomeSite.localhost&lt;/a&gt; instead of &lt;a href=&quot;http://127.0.0.1:8000/&quot;&gt;http://127.0.0.1:8000/&lt;/a&gt;? Keep reading…&lt;/p&gt;
+&lt;h2 id=&quot;bonus-introducing-hotel&quot;&gt;Bonus: Introducing Hotel&lt;/h2&gt;
+&lt;p&gt;This is one of my favorite tiny but tremendously useful applications when developing.&lt;/p&gt;
+&lt;p&gt;Hotel allows you to manage your local sites from a single dashboard and plus it makes it stupidly easy to get your sites to use &lt;code&gt;.locahost&lt;/code&gt; domains. How awesome is that?&lt;/p&gt;
+&lt;p class=&quot;text-center&quot;&gt;&lt;img src=&quot;/articles/wordpress-without-apache-nginx/hotel.png&quot; alt=&quot;Hotel, process manager&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;You can find the installation steps in &lt;a href=&quot;https://github.com/typicode/hotel&quot;&gt;Hotel official repository&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Once you got Hotel installed and running, you can add your WordPress site by running:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd /your/wordpress/installation/path
+hotel add &amp;#39;php -S 127.0.0.1:$PORT&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And now, your site will be available in &lt;a href=&quot;http://hotel.localhost/&quot;&gt;http://hotel.localhost/&lt;/a&gt; and &lt;a href=&quot;http://yourWordpressFolderName.localhost/&quot;&gt;http://yourWordpressFolderName.localhost/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Being able to get rid of Apache or Nginx to run your WordPress site locally is a huge time saver, no need to deal with virtual hosts nor &lt;code&gt;.conf&lt;/code&gt; files.&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>Features your editor must have for web development</title>
       <link>http://localhost:8080/articles/features-your-editor-must-have-for-web-development/</link>
