@@ -60,5 +60,7 @@ hotel add 'php -S 127.0.0.1:$PORT'
 
 And now, your site will be available in http://hotel.localhost/ and http://yourWordpressFolderName.localhost/
 
+If you are on Windows, the command lines may change, make sure to follow the [official documentation](https://github.com/typicode/hotel#port).
+
 ## Conclusion
 Being able to get rid of Apache or Nginx to run your WordPress site locally is a huge time saver, no need to deal with virtual hosts nor `.conf` files.
