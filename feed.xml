@@ -41,6 +41,7 @@ php -S 127.0.0.1:8000
 &lt;pre&gt;&lt;code&gt;cd /your/wordpress/installation/path
 hotel add &amp;#39;php -S 127.0.0.1:$PORT&amp;#39;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And now, your site will be available in &lt;a href=&quot;http://hotel.localhost/&quot;&gt;http://hotel.localhost/&lt;/a&gt; and &lt;a href=&quot;http://yourWordpressFolderName.localhost/&quot;&gt;http://yourWordpressFolderName.localhost/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you are on Windows, the command lines may change, make sure to follow the &lt;a href=&quot;https://github.com/typicode/hotel#port&quot;&gt;official documentation&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;Being able to get rid of Apache or Nginx to run your WordPress site locally is a huge time saver, no need to deal with virtual hosts nor &lt;code&gt;.conf&lt;/code&gt; files.&lt;/p&gt;
 </description>
@@ -528,6 +529,43 @@ define( &amp;#39;UPLOADS&amp;#39;, &amp;#39;assets/media&amp;#39; );
 </description>
     </item>
     <item>
+      <title>¿Realizarás un Clean Install del nuevo OSX? Asegúrate de guardar estos archivos</title>
+      <link>http://localhost:8080/articles/post-post/</link>
+      <pubDate>Fri, 17 Oct 2014 13:15:00 -0500</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/post-post/</guid>
+      <author></author>
+      <description>&lt;p&gt;Me gusta aprovechar al máximo todas las caracterísiticas de las nuevas versiones de sistemas operativos, en especial en OSX, por eso siempre que sale una nueva versión no lo pienso dos veces para realizar una instalación en limpio (Clean Install)&lt;/p&gt;
+&lt;p&gt;Particularmente no utilizo gestores de backup como &lt;strong&gt;Time Machine, o copia completa del disco duro&lt;/strong&gt;. Lo hago todo &lt;em&gt;a la antigua&lt;/em&gt;: copio manualmente mis archivos, sólo los realmente importantes, en una &lt;strong&gt;memoría USB&lt;/strong&gt; y luego los restauro.&lt;/p&gt;
+&lt;p&gt;El proceso es más lento, si, pero me aseguro que Disfrutaré del nuevo sistema &lt;em&gt;como recién salido de la caja&lt;/em&gt;, como nuevo, como a la gente de Palo Alto mejor les ha parecido. &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Al usar Time Machine para restaurar tus datos también restauras las aplicaciones y tus configuraciones anteriores. Podrías perderte de alguna nueva característica y nunca darte cuenta.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Sin embargo hay archivos que guardan ciertas configuraciones y que no son necesariamente propios de OSX y que deberías asegurarte de guardar.&lt;/p&gt;
+&lt;p&gt;En mi caso:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Imágenes de tus máquinas virtuales.&lt;/strong&gt; Recrearlas es fácil, pero meh. En Virtualbox puedes exportar las imágenes que quieres utilizando &lt;code&gt;File -&amp;gt; Export Appliance&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Archivos de configuración de tu editor de texto.&lt;/strong&gt; Utilizo Sublime Text, pero estas configuraciones prefiero recrearlas desde cero para hacer &lt;em&gt;limpieza&lt;/em&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Configuración de SSH&lt;/strong&gt; Si tienen la buena costumbre de definir los parámetros de conexión de sus servidores en SSH, no querrán volverlo a hacer. &lt;code&gt;~/ssh/config&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Perfil bash&lt;/strong&gt; es bueno mantener los PATH y configuraciones propias de tu terminal.  &lt;code&gt;~/.bash_profile&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Tus sitios locales y sus bases de datos&lt;/strong&gt; Los archivos por lo general no se te escaparan, pero si tienes bases de datos en MySQL no olvides exportarlas. Puedes usar &lt;code&gt;mysqldump&lt;/code&gt; o bien utilizar algún gestor gráfico como &lt;a href=&quot;http://www.sequelpro.com&quot;&gt;Sequel PRO&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Entornos virtuales de Python&lt;/strong&gt; Si los usas, sería problemático crearlos de nuevo. Por defecto están en &lt;code&gt;~/.enviroments&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Los marcadores de tu navegador&lt;/strong&gt; Lamentable perder tan valiosa recopilación&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Gestores de Contraseña&lt;/strong&gt; Asegúrate de tener como recuperar tu información de contraseñas si usas Apps como &lt;strong&gt;1Password&lt;/strong&gt; o similares. Lo mejor es utilizar sincronización por iCloud o Dropbox y así recuperar tu información.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Carpetas ocultas&lt;/strong&gt; Tal vez tengas alguna carpeta oculta con información muy importante o porno.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;¿Alguno que se me haya escapado o que te falte a tí?&lt;/p&gt;
+</description>
+    </item>
+    <item>
       <title>Configurar una terminal hermosa con iTerm 2 en MAC OS X</title>
       <link>http://localhost:8080/articles/configurar-una-terminal-hermosa-con-iterm2/</link>
       <pubDate>Fri, 17 Oct 2014 13:15:00 -0500</pubDate>
@@ -573,43 +611,6 @@ $ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gi
 3. &lt;a href=&quot;http://www.google.com/fonts/specimen/Droid+Sans+Mono&quot;&gt;Droid Sans Mono&lt;/a&gt;
 4. En su defecto, Consolas. Viene con Windows.&lt;/p&gt;
 &lt;p&gt;¿Conoces algún otro &lt;em&gt;tweak&lt;/em&gt; hermoso?&lt;/p&gt;
-</description>
-    </item>
-    <item>
-      <title>¿Realizarás un Clean Install del nuevo OSX? Asegúrate de guardar estos archivos</title>
-      <link>http://localhost:8080/articles/post-post/</link>
-      <pubDate>Fri, 17 Oct 2014 13:15:00 -0500</pubDate>
-      <guid isPermaLink="true">http://localhost:8080/articles/post-post/</guid>
-      <author></author>
-      <description>&lt;p&gt;Me gusta aprovechar al máximo todas las caracterísiticas de las nuevas versiones de sistemas operativos, en especial en OSX, por eso siempre que sale una nueva versión no lo pienso dos veces para realizar una instalación en limpio (Clean Install)&lt;/p&gt;
-&lt;p&gt;Particularmente no utilizo gestores de backup como &lt;strong&gt;Time Machine, o copia completa del disco duro&lt;/strong&gt;. Lo hago todo &lt;em&gt;a la antigua&lt;/em&gt;: copio manualmente mis archivos, sólo los realmente importantes, en una &lt;strong&gt;memoría USB&lt;/strong&gt; y luego los restauro.&lt;/p&gt;
-&lt;p&gt;El proceso es más lento, si, pero me aseguro que Disfrutaré del nuevo sistema &lt;em&gt;como recién salido de la caja&lt;/em&gt;, como nuevo, como a la gente de Palo Alto mejor les ha parecido. &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Al usar Time Machine para restaurar tus datos también restauras las aplicaciones y tus configuraciones anteriores. Podrías perderte de alguna nueva característica y nunca darte cuenta.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Sin embargo hay archivos que guardan ciertas configuraciones y que no son necesariamente propios de OSX y que deberías asegurarte de guardar.&lt;/p&gt;
-&lt;p&gt;En mi caso:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Imágenes de tus máquinas virtuales.&lt;/strong&gt; Recrearlas es fácil, pero meh. En Virtualbox puedes exportar las imágenes que quieres utilizando &lt;code&gt;File -&amp;gt; Export Appliance&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Archivos de configuración de tu editor de texto.&lt;/strong&gt; Utilizo Sublime Text, pero estas configuraciones prefiero recrearlas desde cero para hacer &lt;em&gt;limpieza&lt;/em&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Configuración de SSH&lt;/strong&gt; Si tienen la buena costumbre de definir los parámetros de conexión de sus servidores en SSH, no querrán volverlo a hacer. &lt;code&gt;~/ssh/config&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Perfil bash&lt;/strong&gt; es bueno mantener los PATH y configuraciones propias de tu terminal.  &lt;code&gt;~/.bash_profile&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Tus sitios locales y sus bases de datos&lt;/strong&gt; Los archivos por lo general no se te escaparan, pero si tienes bases de datos en MySQL no olvides exportarlas. Puedes usar &lt;code&gt;mysqldump&lt;/code&gt; o bien utilizar algún gestor gráfico como &lt;a href=&quot;http://www.sequelpro.com&quot;&gt;Sequel PRO&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Entornos virtuales de Python&lt;/strong&gt; Si los usas, sería problemático crearlos de nuevo. Por defecto están en &lt;code&gt;~/.enviroments&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Los marcadores de tu navegador&lt;/strong&gt; Lamentable perder tan valiosa recopilación&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Gestores de Contraseña&lt;/strong&gt; Asegúrate de tener como recuperar tu información de contraseñas si usas Apps como &lt;strong&gt;1Password&lt;/strong&gt; o similares. Lo mejor es utilizar sincronización por iCloud o Dropbox y así recuperar tu información.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Carpetas ocultas&lt;/strong&gt; Tal vez tengas alguna carpeta oculta con información muy importante o porno.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;¿Alguno que se me haya escapado o que te falte a tí?&lt;/p&gt;
 </description>
     </item>
     <item>
