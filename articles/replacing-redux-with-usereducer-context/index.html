@@ -23,27 +23,27 @@
         </header>
         <section class="article-content default-wrap"><p><small><em>Photo by <a href="https://unsplash.com/photos/bvDWbe0zI6Y">Noah van de Wetering </a> on <a href="https://unsplash.com">Unsplash</a></em></small></p>
 <blockquote>
-<p>Heads up! Do not use this<span class="widont">&nbsp;</span>production.</p>
+<p>Heads up! Do not use this in<span class="widont">&nbsp;</span>production.</p>
 </blockquote>
 <p>When React Context got its <a href="https://reactjs.org/blog/2018/03/29/react-v-16-3.html">new and official <span class="caps">API</span></a>, I was very skeptical about Redux dead; Now, with React Hooks, I am starting to doubt<span class="widont">&nbsp;</span>it.</p>
 <p>I decided to create an application using <strong>React Hooks and React Context</strong> to build an architecture similar as with <strong>Redux</strong>, and so get to know how similar and suitable that could<span class="widont">&nbsp;</span>be.</p>
 <h2 id="tl-dr-"><span class="caps">TL</span>:<span class="caps">DR</span>;</h2>
 <ul>
 <li>Jump to the <a href="#conclusions">conclusions</a>.</li>
-<li>Take a look to the application code <a href="https://github.com/jonalvarezz/react-next-example">here</a></li>
+<li>Take a look at the application code <a href="https://github.com/jonalvarezz/react-next-example">here</a></li>
 </ul>
 <h2 id="react-hooks-are-convenient">React Hooks are<span class="widont">&nbsp;</span>convenient</h2>
-<p>Yes, They looked very weird to me at the beggining, and to be honest, it is still the feature I am the least excited about after the React<span class="widont">&nbsp;</span>Conf.</p>
+<p>Yes, They looked very weird to me at the beginning, and to be honest, it is still the feature I am the least excited about after the React<span class="widont">&nbsp;</span>Conf.</p>
 <p>However, once you start using them, you become productive very quickly, and I found out that I stopped worrying about <em>what does React needs to properly work</em> (in terms of lifecycles); to just declaring my logic and let React makes its <em>magic</em>.</p>
-<p>Plus, React Hooks does not introduce breaking changer, nor new concepts, and luckily, no more nested components to share logic and states as HoCs or Render Props<span class="widont">&nbsp;</span>needs.</p>
+<p>Plus, React Hooks does not introduce breaking changes, nor new concepts, and luckily, no more nested components to share logic and states as HoCs or Render Props<span class="widont">&nbsp;</span>needs.</p>
 <h2 id="react-usereducer">React.useReducer</h2>
-<p>As part of the React Hooks <span class="caps">RFC</span>, the <code>React.useReduce</code> bring us the posibility to declare changes in the state as the result of a function that recibes an action describing the<span class="widont">&nbsp;</span>change:</p>
+<p>As part of the React Hooks <span class="caps">RFC</span>, the <code>React.useReduce</code> brings us the possibility to declare changes in the state as the result of a function that receives an action describing the<span class="widont">&nbsp;</span>change:</p>
 <pre><code>    (state, action) =&gt; newState
 </code></pre><p>If you are familiar with Flux-like patterns like Redux, you already know<span class="widont">&nbsp;</span>this.</p>
 <p>Now with this hook as part of the React library, you might not need to use other libraries for state management as React team will support this way of declaring<span class="widont">&nbsp;</span>changes.</p>
 <h2 id="how-is-react-context-important-here-">How is React.Context important<span class="widont">&nbsp;</span>here?</h2>
-<p>React.useReducer will provide us a way to declare changes and mutate our state, as we do with Redux, however we still need a way to easily <em>connect</em> our deepest children with our states, without falling in <a href="https://blog.kentcdodds.com/prop-drilling-bb62e02cb691"><em>prop<span class="widont">&nbsp;</span>drilling</em></a>.</p>
-<p>Context <span class="caps">API</span> is built-in way in React to expose data through components without padding props<span class="widont">&nbsp;</span>down.</p>
+<p>React.useReducer will provide us a way to declare changes and mutate our state, as we do with Redux, however, we still need a way to easily <em>connect</em> our deepest children with our states, without falling in <a href="https://blog.kentcdodds.com/prop-drilling-bb62e02cb691"><em>prop<span class="widont">&nbsp;</span>drilling</em></a>.</p>
+<p>Context <span class="caps">API</span> is a built-in way to expose data through components without padding props<span class="widont">&nbsp;</span>down.</p>
 <p>Therefore, what if we wrap our main component to handle the application’s state with <code>React.useReducer</code> and we pass down the state using <code>React.Context</code>?</p>
 <h2 id="show-me-the-code">Show me the<span class="widont">&nbsp;</span>code</h2>
 <p>This is how the Store component ends<span class="widont">&nbsp;</span>like:</p>
@@ -53,8 +53,8 @@
 <h3 id="what-s-cool-about-it-">What’s cool about<span class="widont">&nbsp;</span>it?</h3>
 <ul>
 <li>We are using <code>useReducer</code> to set our initial<span class="widont">&nbsp;</span>state</li>
-<li>The <code>state</code> will be passed down with Context in: <code>&lt;StoreContext.Provider value={{ ...state, dispatch }}&gt;</code></li>
-<li>We are passing down the dispatch method to allow chidren to trigger<span class="widont">&nbsp;</span>actions</li>
+<li>The <code>state</code> will be passed down with Context in <code>&lt;StoreContext.Provider value={{ ...state, dispatch }}&gt;</code></li>
+<li>We are passing down the dispatch method to allow children to trigger<span class="widont">&nbsp;</span>actions</li>
 <li>We are using the <code>useEffect</code> hook to call our <span class="caps">API</span> and set some data in the<span class="widont">&nbsp;</span>store.</li>
 </ul>
 <p>To achieve that, I created a <strong>file structure</strong> that may result very familiar to<span class="widont">&nbsp;</span>you:</p>
@@ -85,23 +85,23 @@
 <ul>
 <li><p>We can build a Redux-like architecture. using <code>React.Context</code> + <code>React.useReducer</code></p>
 </li>
-<li><p><strong>Same concepts can be implemented</strong>. I used concepts as selectors, and actions creators. You can go further and wrap the dispatch function in order to accept Promises and other functions, same as Redux<span class="widont">&nbsp;</span>Middleware.</p>
+<li><p><strong>Same concepts can be implemented</strong>. I used concepts like selectors and actions creators. You can go further and wrap the dispatch function in order to accept Promises and other functions, same as Redux<span class="widont">&nbsp;</span>Middleware.</p>
 </li>
-<li><p><strong>Your code is less bloated</strong>. Using Hooks instead of HoCs and Render Props does really helps you to keep your components<span class="widont">&nbsp;</span>plain.</p>
+<li><p><strong>Your code is less bloated</strong>. Using Hooks instead of HoCs and Render Props does really help you to keep your components<span class="widont">&nbsp;</span>plain.</p>
 </li>
-<li><p><strong>You lose Redux DevTools</strong>. That tool is great for debugging, and if Hooks make its way into React 17, it’ll be a matter of time for that kind of tools to be integrated with <code>React.useReducer</code>.<p></p>In the mean time, if you have the React extension installed, inpecting a <code>React.useReducer</code> powered Componet, you get very useful information and details to debug your actions and state. It is like a <em>tiny packed-up Redux<span class="widont">&nbsp;</span>Devtool</em>.</p>
+<li><p><strong>You lose Redux DevTools</strong>. That tool is great for debugging, and if Hooks make its way into React 17, it’ll be a matter of time for that kind of tools to be integrated with <code>React.useReducer</code>.<p></p>In the meantime, if you have the React extension installed, inspecting a <code>React.useReducer</code> powered Component, you get very useful information and details to debug your actions and app’s state. It is like a <em>tiny packed-up Redux<span class="widont">&nbsp;</span>Devtool</em>.</p>
 </li>
 </ul>
-<p class="text-center"><img src="/articles/replacing-redux-with-usereducer-context/5-inpecting-useReducer.png" alt="Inspecting a component with useReducer"></p>
+<p class="text-center"><img src="/articles/replacing-redux-with-usereducer-context/5-inspecting-useReducer.png" alt="Inspecting a component with useReducer"></p>
 
 <ul>
-<li><strong>About Hooks</strong>. Although I disliked the idea of introducing <em>magic</em> in React’s <span class="caps">API</span> as my first reaction, once I tried them I started to enjoy using React without worrying about lifecycles.<p></p>Even though, <strong>I strongly suggest newcomers to deeply learn about React’s lifecycles</strong>, as at the end, <strong>the right use of a Hook, highly depends on your understanding of React</strong>.<p></p>For instance take a look to the <code>React.useEffect</code> <a href="https://reactjs.org/docs/hooks-reference.html#useeffect">second paramenter</a>. You can easily don’t care about that being new in React, and end up with a lot a unnecesary re renders and<span class="widont">&nbsp;</span>effects.</li>
+<li><strong>About Hooks</strong>. Although I disliked the idea of introducing <em>magic</em> to React’s <span class="caps">API</span> at first, once I tried them I started to enjoy using React without worrying about lifecycles.<p></p>Even though, <strong>I strongly suggest newcomers to deeply learn about React’s lifecycles</strong>, as at the end, <strong>the right use of a Hook, highly depends on your understanding of React</strong>.<p></p>For instance, take a look to the <code>React.useEffect</code> <a href="https://reactjs.org/docs/hooks-reference.html#useeffect">second parameter</a>. You can easily don’t care about that being new to React and end up with a lot of unnecessary re-renders and<span class="widont">&nbsp;</span>effects.</li>
 </ul>
-<p class="text-center"><img src="/articles/replacing-redux-with-usereducer-context/6-useeffect-hook.png" alt="useEffect Hook with second parameter"></p>
+<p class="text-center"><img src="/articles/replacing-redux-with-usereducer-context/6-useeffect-hook.png" alt="useEffect Hook&#39;s second parameter"></p>
 <p class="text-center"><small><em>See full version on <a href="https://github.com/jonalvarezz/react-next-example/blob/master/src/store/Store.js">GitHub.com/jonalvarezz</a></em></small></p>
 
 <ul>
-<li>And finally, we are to about to enter into a <em>new era</em> of React’s rich diversity. Do you remember the hype when Flux cames out? Well… you better get a sit and some popcorn to enjoy<span class="widont">&nbsp;</span>it.</li>
+<li>And finally, we are about to enter a <em>new era</em> of React’s rich diversity. Do you remember the hype when Flux came out? Well… you better get a sit and some popcorn to enjoy<span class="widont">&nbsp;</span>it.</li>
 </ul>
 </section>
         <aside class="article-share text-center default-wrap">
