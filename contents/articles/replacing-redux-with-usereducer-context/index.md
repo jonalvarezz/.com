@@ -16,8 +16,8 @@ I decided to create an application using **React Hooks and React Context** to bu
 
 ## TL:DR;
 
-- Jump to the [conclusion](#conclusion).
-- Take a look to the application code [here]()
+- Jump to the [conclusions](#conclusions).
+- Take a look to the application code [here](https://github.com/jonalvarezz/react-next-example)
 
 ## React Hooks are convenient
 
@@ -72,7 +72,7 @@ To achieve that, I created a **file structure** that may result very familiar to
 - Same concepts.
 - Other than React Context and Hooks, which have a very short-term cognitive cost to learn (really!), there are no added concepts.
 
-Now, I can use my Store component, which is a Context.Provider Component, to pass down the reducer state. Thus, I can wrap my application:
+Now, I can use the Store component, which is a Context.Provider Component, to pass down the reducer state. Thus, I can wrap my application:
 
 <p class="text-center">![Wrapping the app with Store Component](2-store-wrap.png)</p>
 <p class="text-center"><small>_See full version on [GitHub.com/jonalvarezz](https://github.com/jonalvarezz/react-next-example/blob/master/src/App.js)_</small></p>
@@ -87,3 +87,22 @@ To finally, being able to connect children components to get whatever data they 
 - No more HoCs nor nested logic to connect to the store, not even handling with React's lifecycles
 - We can fire actions that mutate the store from children easily
 - Small and plain Components
+
+## Conclusions
+
+- We can build a Redux-like architecture. using `React.Context` + `React.useReducer`
+
+- **Same concepts can be implemented**. I used concepts as selectors, and actions creators. You can go further and wrap the dispatch function in order to accept Promises and other functions, same as Redux Middleware.
+
+- **Your code is less bloated**. Using Hooks instead of HoCs and Render Props does really helps you to keep your components plain.
+
+- **You lose Redux DevTools**. That tool is great for debugging, and if Hooks make its way into React 17, it'll be a matter of time for that kind of tools to be integrated with `React.useReducer`.<p></p>In the mean time, if you have the React extension installed, inpecting a `React.useReducer` powered Componet, you get very useful information and details to debug your actions and state. It is like a _tiny packed-up Redux Devtool_.
+
+<p class="text-center">![Inspecting a component with useReducer](5-inpecting-useReducer.png)</p>
+
+- **About Hooks**. Although I disliked the idea of introducing _magic_ in React's API as my first reaction, once I tried them I started to enjoy using React without worrying about lifecycles.<p></p>Even though, **I strongly suggest newcomers to deeply learn about React's lifecycles**, as at the end, **the right use of a Hook, highly depends on your understanding of React**.<p></p>For instance take a look to the `React.useEffect` [second paramenter](https://reactjs.org/docs/hooks-reference.html#useeffect). You can easily don't care about that being new in React, and end up with a lot a unnecesary re renders and effects.
+
+<p class="text-center">![useEffect Hook with second parameter](6-useeffect-hook.png)</p>
+<p class="text-center"><small>_See full version on [GitHub.com/jonalvarezz](https://github.com/jonalvarezz/react-next-example/blob/master/src/store/Store.js)_</small></p>
+
+- And finally, we are to about to enter into a _new era_ of React's rich diversity. Do you remember the hype when Flux cames out? Well... you better get a sit and some popcorn to enjoy it.
