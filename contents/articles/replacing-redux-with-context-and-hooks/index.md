@@ -1,5 +1,5 @@
 ---
-title: Replacing Redux with React's useReducer and Context
+title: Replacing Redux with Context and Hooks
 author: jonalvarezz
 date: 2018-11-28 23:15
 template: article.jade
