@@ -49,7 +49,7 @@ Therefore, what if we wrap our main component to handle the application's state 
 
 ## Show me the code
 
-This is how our Store component looks like:
+This is how the Store component ends like:
 
 <p class="text-center">![Store Component](1-store.png)</p>
 <p class="text-center"><small>_See full version on [GitHub.com/jonalvarezz](https://github.com/jonalvarezz/react-next-example/blob/master/src/store/Store.js)_</small></p>
@@ -61,12 +61,23 @@ This is how our Store component looks like:
 - We are passing down the dispatch method to allow chidren to trigger actions
 - We are using the `useEffect` hook to call our API and set some data in the store.
 
-Now we can wrap our application with our Store
+To achieve that, I created a **file structure** that may result very familiar to you:
+
+<p class="text-center">![File structure](4-file-structure.png)</p>
+<p class="text-center"><small>_See on [GitHub.com/jonalvarezz](https://github.com/jonalvarezz/react-next-example/blob/master/src/store)_</small></p>
+
+### What's cool about it?
+
+- If you worked with Flux-like architectures, this will be familiar to you.
+- Same concepts.
+- Other than React Context and Hooks, which have a very short-term cognitive cost to learn (really!), there are no added concepts.
+
+Now, I can use my Store component, which is a Context.Provider Component, to pass down the reducer state. Thus, I can wrap my application:
 
 <p class="text-center">![Wrapping the app with Store Component](2-store-wrap.png)</p>
 <p class="text-center"><small>_See full version on [GitHub.com/jonalvarezz](https://github.com/jonalvarezz/react-next-example/blob/master/src/App.js)_</small></p>
 
-Then, we can connect our components with the Store:
+To finally, being able to connect children components to get whatever data they need, and make'em able to dispatch actions to mutate the store!
 
 <p class="text-center">![Connecting with the Store](3-store-connect.png)</p>
 <p class="text-center"><small>_See full version on [GitHub.com/jonalvarezz](https://github.com/jonalvarezz/react-next-example/blob/master/src/components/sidebar/Sidebar.js)_</small></p>
@@ -76,13 +87,3 @@ Then, we can connect our components with the Store:
 - No more HoCs nor nested logic to connect to the store, not even handling with React's lifecycles
 - We can fire actions that mutate the store from children easily
 - Small and plain Components
-
-I also created a file structure very similar as Redux or Flux-like:
-
-<p class="text-center">![File structure](4-file-structure.png)</p>
-<p class="text-center"><small>_See on [GitHub.com/jonalvarezz](https://github.com/jonalvarezz/react-next-example/blob/master/src/store)_</small></p>
-
-### What's cool about it?
-
-- If you worked with Redux, this will be familiar to you.
-- Same concepts.
