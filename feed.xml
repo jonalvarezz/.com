@@ -5,9 +5,70 @@
     <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://localhost:8080</link>
     <description>Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development</description>
-    <pubDate>Sat, 10 Nov 2018 20:21:00 -0500</pubDate>
+    <pubDate>Wed, 28 Nov 2018 23:15:00 -0500</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
+    <item>
+      <title>Replacing Redux with React's useReducer and Context</title>
+      <link>http://localhost:8080/articles/replacing-redux-with-usereducer-context/</link>
+      <pubDate>Wed, 28 Nov 2018 23:15:00 -0500</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/replacing-redux-with-usereducer-context/</guid>
+      <author></author>
+      <description>&lt;p&gt;&lt;small&gt;&lt;em&gt;Photo by &lt;a href=&quot;https://unsplash.com/photos/bvDWbe0zI6Y&quot;&gt;Noah van de Wetering &lt;/a&gt; on &lt;a href=&quot;https://unsplash.com&quot;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Heads up! Do not use this production.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;When React Context got its &lt;a href=&quot;https://reactjs.org/blog/2018/03/29/react-v-16-3.html&quot;&gt;new and official API&lt;/a&gt;, I was very skeptical about Redux dead; Now, with React Hooks, I am starting to doubt it.&lt;/p&gt;
+&lt;p&gt;I decided to create an application using &lt;strong&gt;React Hooks and React Context&lt;/strong&gt; to build an architecture similar as with &lt;strong&gt;Redux&lt;/strong&gt;, and so get to know how similar and suitable that could be.&lt;/p&gt;
+&lt;h2 id=&quot;tl-dr-&quot;&gt;TL:DR;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Jump to the &lt;a href=&quot;#conclusion&quot;&gt;conclusion&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Take a look to the application code &lt;a href=&quot;http://localhost:8080/articles/replacing-redux-with-usereducer-context/&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;react-hooks-are-convenient&quot;&gt;React Hooks are convenient&lt;/h2&gt;
+&lt;p&gt;Yes, They looked very weird to me at the beggining, and to be honest, it is still the feature I am the least excited about after the React Conf.&lt;/p&gt;
+&lt;p&gt;However, once you start using them, you become productive very quickly, and I found out that I stopped worrying about &lt;em&gt;what does React needs to properly work&lt;/em&gt; (in terms of lifecycles); to just declaring my logic and let React makes its &lt;em&gt;magic&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Plus, React Hooks does not introduce breaking changer, nor new concepts, and luckily, no more nested components to share logic and states as HoCs or Render Props needs.&lt;/p&gt;
+&lt;h2 id=&quot;react-usereducer&quot;&gt;React.useReducer&lt;/h2&gt;
+&lt;p&gt;As part of the React Hooks RFC, the &lt;code&gt;React.useReduce&lt;/code&gt; bring us the posibility to declare changes in the state as the result of a function that recibes an action describing the change:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    (state, action) =&amp;gt; newState
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If you are familiar with Flux-like patterns like Redux, you already know this.&lt;/p&gt;
+&lt;p&gt;Now with this hook as part of the React library, you might not need to use other libraries for state management as React team will support this way of declaring changes.&lt;/p&gt;
+&lt;h2 id=&quot;how-is-react-context-important-here-&quot;&gt;How is React.Context important here?&lt;/h2&gt;
+&lt;p&gt;React.useReducer will provide us a way to declare changes and mutate our state, as we do with Redux, however we still need a way to easily &lt;em&gt;connect&lt;/em&gt; our deepest children with our states, without falling in &lt;a href=&quot;https://blog.kentcdodds.com/prop-drilling-bb62e02cb691&quot;&gt;&lt;em&gt;prop drilling&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Context API is built-in way in React to expose data through components without padding props down.&lt;/p&gt;
+&lt;p&gt;Therefore, what if we wrap our main component to handle the application’s state with &lt;code&gt;React.useReducer&lt;/code&gt; and we pass down the state using &lt;code&gt;React.Context&lt;/code&gt;?&lt;/p&gt;
+&lt;h2 id=&quot;show-me-the-code&quot;&gt;Show me the code&lt;/h2&gt;
+&lt;p&gt;This is how our Store component looks like:&lt;/p&gt;
+&lt;p class=&quot;text-center&quot;&gt;&lt;img src=&quot;/articles/replacing-redux-with-usereducer-context/1-store.png&quot; alt=&quot;Store Component&quot;&gt;&lt;/p&gt;
+&lt;p class=&quot;text-center&quot;&gt;&lt;small&gt;&lt;em&gt;See full version on &lt;a href=&quot;https://github.com/jonalvarezz/react-next-example/blob/master/src/store/Store.js&quot;&gt;GitHub.com/jonalvarezz&lt;/a&gt;&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;what-s-cool-about-it-&quot;&gt;What’s cool about it?&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;We are using &lt;code&gt;useReducer&lt;/code&gt; to set our initial state&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;state&lt;/code&gt; will be passed down with Context in: &lt;code&gt;&amp;lt;StoreContext.Provider value={{ ...state, dispatch }}&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;We are passing down the dispatch method to allow chidren to trigger actions&lt;/li&gt;
+&lt;li&gt;We are using the &lt;code&gt;useEffect&lt;/code&gt; hook to call our API and set some data in the store.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now we can wrap our application with our Store&lt;/p&gt;
+&lt;p class=&quot;text-center&quot;&gt;&lt;img src=&quot;/articles/replacing-redux-with-usereducer-context/2-store-wrap.png&quot; alt=&quot;Wrapping the app with Store Component&quot;&gt;&lt;/p&gt;
+&lt;p class=&quot;text-center&quot;&gt;&lt;small&gt;&lt;em&gt;See full version on &lt;a href=&quot;https://github.com/jonalvarezz/react-next-example/blob/master/src/App.js&quot;&gt;GitHub.com/jonalvarezz&lt;/a&gt;&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;Then, we can connect our components with the Store:&lt;/p&gt;
+&lt;p class=&quot;text-center&quot;&gt;&lt;img src=&quot;/articles/replacing-redux-with-usereducer-context/3-store-connect.png&quot; alt=&quot;Connecting with the Store&quot;&gt;&lt;/p&gt;
+&lt;p class=&quot;text-center&quot;&gt;&lt;small&gt;&lt;em&gt;See full version on &lt;a href=&quot;https://github.com/jonalvarezz/react-next-example/blob/master/src/components/sidebar/Sidebar.js&quot;&gt;GitHub.com/jonalvarezz&lt;/a&gt;&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;what-s-cool-about-it-&quot;&gt;What’s cool about it?&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;No more HoCs nor nested logic to connect to the store, not even handling with React’s lifecycles&lt;/li&gt;
+&lt;li&gt;We can fire actions that mutate the store from children easily&lt;/li&gt;
+&lt;li&gt;Small Component&lt;/li&gt;
+&lt;li&gt;Also note that I am mantaining a file convention pretty similar as Redux (actions, reducers, selectors), and so on…&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;the-file-architecture&quot;&gt;The file architecture&lt;/h3&gt;
+&lt;p&gt;… WIP&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>Install WordPress without Apache nor Nginx</title>
       <link>http://localhost:8080/articles/wordpress-without-apache-nginx/</link>
@@ -529,43 +590,6 @@ define( &amp;#39;UPLOADS&amp;#39;, &amp;#39;assets/media&amp;#39; );
 </description>
     </item>
     <item>
-      <title>¿Realizarás un Clean Install del nuevo OSX? Asegúrate de guardar estos archivos</title>
-      <link>http://localhost:8080/articles/post-post/</link>
-      <pubDate>Fri, 17 Oct 2014 13:15:00 -0500</pubDate>
-      <guid isPermaLink="true">http://localhost:8080/articles/post-post/</guid>
-      <author></author>
-      <description>&lt;p&gt;Me gusta aprovechar al máximo todas las caracterísiticas de las nuevas versiones de sistemas operativos, en especial en OSX, por eso siempre que sale una nueva versión no lo pienso dos veces para realizar una instalación en limpio (Clean Install)&lt;/p&gt;
-&lt;p&gt;Particularmente no utilizo gestores de backup como &lt;strong&gt;Time Machine, o copia completa del disco duro&lt;/strong&gt;. Lo hago todo &lt;em&gt;a la antigua&lt;/em&gt;: copio manualmente mis archivos, sólo los realmente importantes, en una &lt;strong&gt;memoría USB&lt;/strong&gt; y luego los restauro.&lt;/p&gt;
-&lt;p&gt;El proceso es más lento, si, pero me aseguro que Disfrutaré del nuevo sistema &lt;em&gt;como recién salido de la caja&lt;/em&gt;, como nuevo, como a la gente de Palo Alto mejor les ha parecido. &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Al usar Time Machine para restaurar tus datos también restauras las aplicaciones y tus configuraciones anteriores. Podrías perderte de alguna nueva característica y nunca darte cuenta.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Sin embargo hay archivos que guardan ciertas configuraciones y que no son necesariamente propios de OSX y que deberías asegurarte de guardar.&lt;/p&gt;
-&lt;p&gt;En mi caso:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Imágenes de tus máquinas virtuales.&lt;/strong&gt; Recrearlas es fácil, pero meh. En Virtualbox puedes exportar las imágenes que quieres utilizando &lt;code&gt;File -&amp;gt; Export Appliance&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Archivos de configuración de tu editor de texto.&lt;/strong&gt; Utilizo Sublime Text, pero estas configuraciones prefiero recrearlas desde cero para hacer &lt;em&gt;limpieza&lt;/em&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Configuración de SSH&lt;/strong&gt; Si tienen la buena costumbre de definir los parámetros de conexión de sus servidores en SSH, no querrán volverlo a hacer. &lt;code&gt;~/ssh/config&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Perfil bash&lt;/strong&gt; es bueno mantener los PATH y configuraciones propias de tu terminal.  &lt;code&gt;~/.bash_profile&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Tus sitios locales y sus bases de datos&lt;/strong&gt; Los archivos por lo general no se te escaparan, pero si tienes bases de datos en MySQL no olvides exportarlas. Puedes usar &lt;code&gt;mysqldump&lt;/code&gt; o bien utilizar algún gestor gráfico como &lt;a href=&quot;http://www.sequelpro.com&quot;&gt;Sequel PRO&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Entornos virtuales de Python&lt;/strong&gt; Si los usas, sería problemático crearlos de nuevo. Por defecto están en &lt;code&gt;~/.enviroments&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Los marcadores de tu navegador&lt;/strong&gt; Lamentable perder tan valiosa recopilación&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Gestores de Contraseña&lt;/strong&gt; Asegúrate de tener como recuperar tu información de contraseñas si usas Apps como &lt;strong&gt;1Password&lt;/strong&gt; o similares. Lo mejor es utilizar sincronización por iCloud o Dropbox y así recuperar tu información.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Carpetas ocultas&lt;/strong&gt; Tal vez tengas alguna carpeta oculta con información muy importante o porno.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;¿Alguno que se me haya escapado o que te falte a tí?&lt;/p&gt;
-</description>
-    </item>
-    <item>
       <title>Configurar una terminal hermosa con iTerm 2 en MAC OS X</title>
       <link>http://localhost:8080/articles/configurar-una-terminal-hermosa-con-iterm2/</link>
       <pubDate>Fri, 17 Oct 2014 13:15:00 -0500</pubDate>
@@ -611,6 +635,43 @@ $ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gi
 3. &lt;a href=&quot;http://www.google.com/fonts/specimen/Droid+Sans+Mono&quot;&gt;Droid Sans Mono&lt;/a&gt;
 4. En su defecto, Consolas. Viene con Windows.&lt;/p&gt;
 &lt;p&gt;¿Conoces algún otro &lt;em&gt;tweak&lt;/em&gt; hermoso?&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>¿Realizarás un Clean Install del nuevo OSX? Asegúrate de guardar estos archivos</title>
+      <link>http://localhost:8080/articles/post-post/</link>
+      <pubDate>Fri, 17 Oct 2014 13:15:00 -0500</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/post-post/</guid>
+      <author></author>
+      <description>&lt;p&gt;Me gusta aprovechar al máximo todas las caracterísiticas de las nuevas versiones de sistemas operativos, en especial en OSX, por eso siempre que sale una nueva versión no lo pienso dos veces para realizar una instalación en limpio (Clean Install)&lt;/p&gt;
+&lt;p&gt;Particularmente no utilizo gestores de backup como &lt;strong&gt;Time Machine, o copia completa del disco duro&lt;/strong&gt;. Lo hago todo &lt;em&gt;a la antigua&lt;/em&gt;: copio manualmente mis archivos, sólo los realmente importantes, en una &lt;strong&gt;memoría USB&lt;/strong&gt; y luego los restauro.&lt;/p&gt;
+&lt;p&gt;El proceso es más lento, si, pero me aseguro que Disfrutaré del nuevo sistema &lt;em&gt;como recién salido de la caja&lt;/em&gt;, como nuevo, como a la gente de Palo Alto mejor les ha parecido. &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Al usar Time Machine para restaurar tus datos también restauras las aplicaciones y tus configuraciones anteriores. Podrías perderte de alguna nueva característica y nunca darte cuenta.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Sin embargo hay archivos que guardan ciertas configuraciones y que no son necesariamente propios de OSX y que deberías asegurarte de guardar.&lt;/p&gt;
+&lt;p&gt;En mi caso:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Imágenes de tus máquinas virtuales.&lt;/strong&gt; Recrearlas es fácil, pero meh. En Virtualbox puedes exportar las imágenes que quieres utilizando &lt;code&gt;File -&amp;gt; Export Appliance&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Archivos de configuración de tu editor de texto.&lt;/strong&gt; Utilizo Sublime Text, pero estas configuraciones prefiero recrearlas desde cero para hacer &lt;em&gt;limpieza&lt;/em&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Configuración de SSH&lt;/strong&gt; Si tienen la buena costumbre de definir los parámetros de conexión de sus servidores en SSH, no querrán volverlo a hacer. &lt;code&gt;~/ssh/config&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Perfil bash&lt;/strong&gt; es bueno mantener los PATH y configuraciones propias de tu terminal.  &lt;code&gt;~/.bash_profile&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Tus sitios locales y sus bases de datos&lt;/strong&gt; Los archivos por lo general no se te escaparan, pero si tienes bases de datos en MySQL no olvides exportarlas. Puedes usar &lt;code&gt;mysqldump&lt;/code&gt; o bien utilizar algún gestor gráfico como &lt;a href=&quot;http://www.sequelpro.com&quot;&gt;Sequel PRO&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Entornos virtuales de Python&lt;/strong&gt; Si los usas, sería problemático crearlos de nuevo. Por defecto están en &lt;code&gt;~/.enviroments&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Los marcadores de tu navegador&lt;/strong&gt; Lamentable perder tan valiosa recopilación&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Gestores de Contraseña&lt;/strong&gt; Asegúrate de tener como recuperar tu información de contraseñas si usas Apps como &lt;strong&gt;1Password&lt;/strong&gt; o similares. Lo mejor es utilizar sincronización por iCloud o Dropbox y así recuperar tu información.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Carpetas ocultas&lt;/strong&gt; Tal vez tengas alguna carpeta oculta con información muy importante o porno.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;¿Alguno que se me haya escapado o que te falte a tí?&lt;/p&gt;
 </description>
     </item>
     <item>
