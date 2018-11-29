@@ -75,9 +75,14 @@ Then, we can connect our components with the Store:
 
 - No more HoCs nor nested logic to connect to the store, not even handling with React's lifecycles
 - We can fire actions that mutate the store from children easily
-- Small Component
-- Also note that I am mantaining a file convention pretty similar as Redux (actions, reducers, selectors), and so on...
+- Small and plain Components
 
-### The file architecture
+I also created a file structure very similar as Redux or Flux-like:
 
-... WIP
+<p class="text-center">![File structure](4-file-structure.png)</p>
+<p class="text-center"><small>_See on [GitHub.com/jonalvarezz](https://github.com/jonalvarezz/react-next-example/blob/master/src/store)_</small></p>
+
+### What's cool about it?
+
+- If you worked with Redux, this will be familiar to you.
+- Same concepts.
