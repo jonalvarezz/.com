@@ -22,8 +22,8 @@
 &lt;p&gt;I decided to create an application using &lt;strong&gt;React Hooks and React Context&lt;/strong&gt; to build an architecture similar as with &lt;strong&gt;Redux&lt;/strong&gt;, and so get to know how similar and suitable that could be.&lt;/p&gt;
 &lt;h2 id=&quot;tl-dr-&quot;&gt;TL:DR;&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Jump to the &lt;a href=&quot;#conclusion&quot;&gt;conclusion&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Take a look to the application code &lt;a href=&quot;http://localhost:8080/articles/replacing-redux-with-usereducer-context/&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Jump to the &lt;a href=&quot;#conclusions&quot;&gt;conclusions&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Take a look to the application code &lt;a href=&quot;https://github.com/jonalvarezz/react-next-example&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;react-hooks-are-convenient&quot;&gt;React Hooks are convenient&lt;/h2&gt;
 &lt;p&gt;Yes, They looked very weird to me at the beggining, and to be honest, it is still the feature I am the least excited about after the React Conf.&lt;/p&gt;
@@ -39,7 +39,7 @@
 &lt;p&gt;Context API is built-in way in React to expose data through components without padding props down.&lt;/p&gt;
 &lt;p&gt;Therefore, what if we wrap our main component to handle the application’s state with &lt;code&gt;React.useReducer&lt;/code&gt; and we pass down the state using &lt;code&gt;React.Context&lt;/code&gt;?&lt;/p&gt;
 &lt;h2 id=&quot;show-me-the-code&quot;&gt;Show me the code&lt;/h2&gt;
-&lt;p&gt;This is how our Store component looks like:&lt;/p&gt;
+&lt;p&gt;This is how the Store component ends like:&lt;/p&gt;
 &lt;p class=&quot;text-center&quot;&gt;&lt;img src=&quot;/articles/replacing-redux-with-usereducer-context/1-store.png&quot; alt=&quot;Store Component&quot;&gt;&lt;/p&gt;
 &lt;p class=&quot;text-center&quot;&gt;&lt;small&gt;&lt;em&gt;See full version on &lt;a href=&quot;https://github.com/jonalvarezz/react-next-example/blob/master/src/store/Store.js&quot;&gt;GitHub.com/jonalvarezz&lt;/a&gt;&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
 
@@ -50,11 +50,21 @@
 &lt;li&gt;We are passing down the dispatch method to allow chidren to trigger actions&lt;/li&gt;
 &lt;li&gt;We are using the &lt;code&gt;useEffect&lt;/code&gt; hook to call our API and set some data in the store.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Now we can wrap our application with our Store&lt;/p&gt;
+&lt;p&gt;To achieve that, I created a &lt;strong&gt;file structure&lt;/strong&gt; that may result very familiar to you:&lt;/p&gt;
+&lt;p class=&quot;text-center&quot;&gt;&lt;img src=&quot;/articles/replacing-redux-with-usereducer-context/4-file-structure.png&quot; alt=&quot;File structure&quot;&gt;&lt;/p&gt;
+&lt;p class=&quot;text-center&quot;&gt;&lt;small&gt;&lt;em&gt;See on &lt;a href=&quot;https://github.com/jonalvarezz/react-next-example/blob/master/src/store&quot;&gt;GitHub.com/jonalvarezz&lt;/a&gt;&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;what-s-cool-about-it-&quot;&gt;What’s cool about it?&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;If you worked with Flux-like architectures, this will be familiar to you.&lt;/li&gt;
+&lt;li&gt;Same concepts.&lt;/li&gt;
+&lt;li&gt;Other than React Context and Hooks, which have a very short-term cognitive cost to learn (really!), there are no added concepts.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now, I can use the Store component, which is a Context.Provider Component, to pass down the reducer state. Thus, I can wrap my application:&lt;/p&gt;
 &lt;p class=&quot;text-center&quot;&gt;&lt;img src=&quot;/articles/replacing-redux-with-usereducer-context/2-store-wrap.png&quot; alt=&quot;Wrapping the app with Store Component&quot;&gt;&lt;/p&gt;
 &lt;p class=&quot;text-center&quot;&gt;&lt;small&gt;&lt;em&gt;See full version on &lt;a href=&quot;https://github.com/jonalvarezz/react-next-example/blob/master/src/App.js&quot;&gt;GitHub.com/jonalvarezz&lt;/a&gt;&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
 
-&lt;p&gt;Then, we can connect our components with the Store:&lt;/p&gt;
+&lt;p&gt;To finally, being able to connect children components to get whatever data they need, and make’em able to dispatch actions to mutate the store!&lt;/p&gt;
 &lt;p class=&quot;text-center&quot;&gt;&lt;img src=&quot;/articles/replacing-redux-with-usereducer-context/3-store-connect.png&quot; alt=&quot;Connecting with the Store&quot;&gt;&lt;/p&gt;
 &lt;p class=&quot;text-center&quot;&gt;&lt;small&gt;&lt;em&gt;See full version on &lt;a href=&quot;https://github.com/jonalvarezz/react-next-example/blob/master/src/components/sidebar/Sidebar.js&quot;&gt;GitHub.com/jonalvarezz&lt;/a&gt;&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
 
@@ -62,11 +72,30 @@
 &lt;ul&gt;
 &lt;li&gt;No more HoCs nor nested logic to connect to the store, not even handling with React’s lifecycles&lt;/li&gt;
 &lt;li&gt;We can fire actions that mutate the store from children easily&lt;/li&gt;
-&lt;li&gt;Small Component&lt;/li&gt;
-&lt;li&gt;Also note that I am mantaining a file convention pretty similar as Redux (actions, reducers, selectors), and so on…&lt;/li&gt;
+&lt;li&gt;Small and plain Components&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;the-file-architecture&quot;&gt;The file architecture&lt;/h3&gt;
-&lt;p&gt;… WIP&lt;/p&gt;
+&lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;We can build a Redux-like architecture. using &lt;code&gt;React.Context&lt;/code&gt; + &lt;code&gt;React.useReducer&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Same concepts can be implemented&lt;/strong&gt;. I used concepts as selectors, and actions creators. You can go further and wrap the dispatch function in order to accept Promises and other functions, same as Redux Middleware.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Your code is less bloated&lt;/strong&gt;. Using Hooks instead of HoCs and Render Props does really helps you to keep your components plain.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;You lose Redux DevTools&lt;/strong&gt;. That tool is great for debugging, and if Hooks make its way into React 17, it’ll be a matter of time for that kind of tools to be integrated with &lt;code&gt;React.useReducer&lt;/code&gt;.&lt;p&gt;&lt;/p&gt;In the mean time, if you have the React extension installed, inpecting a &lt;code&gt;React.useReducer&lt;/code&gt; powered Componet, you get very useful information and details to debug your actions and state. It is like a &lt;em&gt;tiny packed-up Redux Devtool&lt;/em&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class=&quot;text-center&quot;&gt;&lt;img src=&quot;/articles/replacing-redux-with-usereducer-context/5-inpecting-useReducer.png&quot; alt=&quot;Inspecting a component with useReducer&quot;&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;About Hooks&lt;/strong&gt;. Although I disliked the idea of introducing &lt;em&gt;magic&lt;/em&gt; in React’s API as my first reaction, once I tried them I started to enjoy using React without worrying about lifecycles.&lt;p&gt;&lt;/p&gt;Even though, &lt;strong&gt;I strongly suggest newcomers to deeply learn about React’s lifecycles&lt;/strong&gt;, as at the end, &lt;strong&gt;the right use of a Hook, highly depends on your understanding of React&lt;/strong&gt;.&lt;p&gt;&lt;/p&gt;For instance take a look to the &lt;code&gt;React.useEffect&lt;/code&gt; &lt;a href=&quot;https://reactjs.org/docs/hooks-reference.html#useeffect&quot;&gt;second paramenter&lt;/a&gt;. You can easily don’t care about that being new in React, and end up with a lot a unnecesary re renders and effects.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class=&quot;text-center&quot;&gt;&lt;img src=&quot;/articles/replacing-redux-with-usereducer-context/6-useeffect-hook.png&quot; alt=&quot;useEffect Hook with second parameter&quot;&gt;&lt;/p&gt;
+&lt;p class=&quot;text-center&quot;&gt;&lt;small&gt;&lt;em&gt;See full version on &lt;a href=&quot;https://github.com/jonalvarezz/react-next-example/blob/master/src/store/Store.js&quot;&gt;GitHub.com/jonalvarezz&lt;/a&gt;&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;And finally, we are to about to enter into a &lt;em&gt;new era&lt;/em&gt; of React’s rich diversity. Do you remember the hype when Flux cames out? Well… you better get a sit and some popcorn to enjoy it.&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     <item>
@@ -590,6 +619,43 @@ define( &amp;#39;UPLOADS&amp;#39;, &amp;#39;assets/media&amp;#39; );
 </description>
     </item>
     <item>
+      <title>¿Realizarás un Clean Install del nuevo OSX? Asegúrate de guardar estos archivos</title>
+      <link>http://localhost:8080/articles/post-post/</link>
+      <pubDate>Fri, 17 Oct 2014 13:15:00 -0500</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/post-post/</guid>
+      <author></author>
+      <description>&lt;p&gt;Me gusta aprovechar al máximo todas las caracterísiticas de las nuevas versiones de sistemas operativos, en especial en OSX, por eso siempre que sale una nueva versión no lo pienso dos veces para realizar una instalación en limpio (Clean Install)&lt;/p&gt;
+&lt;p&gt;Particularmente no utilizo gestores de backup como &lt;strong&gt;Time Machine, o copia completa del disco duro&lt;/strong&gt;. Lo hago todo &lt;em&gt;a la antigua&lt;/em&gt;: copio manualmente mis archivos, sólo los realmente importantes, en una &lt;strong&gt;memoría USB&lt;/strong&gt; y luego los restauro.&lt;/p&gt;
+&lt;p&gt;El proceso es más lento, si, pero me aseguro que Disfrutaré del nuevo sistema &lt;em&gt;como recién salido de la caja&lt;/em&gt;, como nuevo, como a la gente de Palo Alto mejor les ha parecido. &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Al usar Time Machine para restaurar tus datos también restauras las aplicaciones y tus configuraciones anteriores. Podrías perderte de alguna nueva característica y nunca darte cuenta.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Sin embargo hay archivos que guardan ciertas configuraciones y que no son necesariamente propios de OSX y que deberías asegurarte de guardar.&lt;/p&gt;
+&lt;p&gt;En mi caso:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Imágenes de tus máquinas virtuales.&lt;/strong&gt; Recrearlas es fácil, pero meh. En Virtualbox puedes exportar las imágenes que quieres utilizando &lt;code&gt;File -&amp;gt; Export Appliance&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Archivos de configuración de tu editor de texto.&lt;/strong&gt; Utilizo Sublime Text, pero estas configuraciones prefiero recrearlas desde cero para hacer &lt;em&gt;limpieza&lt;/em&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Configuración de SSH&lt;/strong&gt; Si tienen la buena costumbre de definir los parámetros de conexión de sus servidores en SSH, no querrán volverlo a hacer. &lt;code&gt;~/ssh/config&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Perfil bash&lt;/strong&gt; es bueno mantener los PATH y configuraciones propias de tu terminal.  &lt;code&gt;~/.bash_profile&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Tus sitios locales y sus bases de datos&lt;/strong&gt; Los archivos por lo general no se te escaparan, pero si tienes bases de datos en MySQL no olvides exportarlas. Puedes usar &lt;code&gt;mysqldump&lt;/code&gt; o bien utilizar algún gestor gráfico como &lt;a href=&quot;http://www.sequelpro.com&quot;&gt;Sequel PRO&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Entornos virtuales de Python&lt;/strong&gt; Si los usas, sería problemático crearlos de nuevo. Por defecto están en &lt;code&gt;~/.enviroments&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Los marcadores de tu navegador&lt;/strong&gt; Lamentable perder tan valiosa recopilación&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Gestores de Contraseña&lt;/strong&gt; Asegúrate de tener como recuperar tu información de contraseñas si usas Apps como &lt;strong&gt;1Password&lt;/strong&gt; o similares. Lo mejor es utilizar sincronización por iCloud o Dropbox y así recuperar tu información.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Carpetas ocultas&lt;/strong&gt; Tal vez tengas alguna carpeta oculta con información muy importante o porno.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;¿Alguno que se me haya escapado o que te falte a tí?&lt;/p&gt;
+</description>
+    </item>
+    <item>
       <title>Configurar una terminal hermosa con iTerm 2 en MAC OS X</title>
       <link>http://localhost:8080/articles/configurar-una-terminal-hermosa-con-iterm2/</link>
       <pubDate>Fri, 17 Oct 2014 13:15:00 -0500</pubDate>
@@ -635,43 +701,6 @@ $ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gi
 3. &lt;a href=&quot;http://www.google.com/fonts/specimen/Droid+Sans+Mono&quot;&gt;Droid Sans Mono&lt;/a&gt;
 4. En su defecto, Consolas. Viene con Windows.&lt;/p&gt;
 &lt;p&gt;¿Conoces algún otro &lt;em&gt;tweak&lt;/em&gt; hermoso?&lt;/p&gt;
-</description>
-    </item>
-    <item>
-      <title>¿Realizarás un Clean Install del nuevo OSX? Asegúrate de guardar estos archivos</title>
-      <link>http://localhost:8080/articles/post-post/</link>
-      <pubDate>Fri, 17 Oct 2014 13:15:00 -0500</pubDate>
-      <guid isPermaLink="true">http://localhost:8080/articles/post-post/</guid>
-      <author></author>
-      <description>&lt;p&gt;Me gusta aprovechar al máximo todas las caracterísiticas de las nuevas versiones de sistemas operativos, en especial en OSX, por eso siempre que sale una nueva versión no lo pienso dos veces para realizar una instalación en limpio (Clean Install)&lt;/p&gt;
-&lt;p&gt;Particularmente no utilizo gestores de backup como &lt;strong&gt;Time Machine, o copia completa del disco duro&lt;/strong&gt;. Lo hago todo &lt;em&gt;a la antigua&lt;/em&gt;: copio manualmente mis archivos, sólo los realmente importantes, en una &lt;strong&gt;memoría USB&lt;/strong&gt; y luego los restauro.&lt;/p&gt;
-&lt;p&gt;El proceso es más lento, si, pero me aseguro que Disfrutaré del nuevo sistema &lt;em&gt;como recién salido de la caja&lt;/em&gt;, como nuevo, como a la gente de Palo Alto mejor les ha parecido. &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Al usar Time Machine para restaurar tus datos también restauras las aplicaciones y tus configuraciones anteriores. Podrías perderte de alguna nueva característica y nunca darte cuenta.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Sin embargo hay archivos que guardan ciertas configuraciones y que no son necesariamente propios de OSX y que deberías asegurarte de guardar.&lt;/p&gt;
-&lt;p&gt;En mi caso:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Imágenes de tus máquinas virtuales.&lt;/strong&gt; Recrearlas es fácil, pero meh. En Virtualbox puedes exportar las imágenes que quieres utilizando &lt;code&gt;File -&amp;gt; Export Appliance&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Archivos de configuración de tu editor de texto.&lt;/strong&gt; Utilizo Sublime Text, pero estas configuraciones prefiero recrearlas desde cero para hacer &lt;em&gt;limpieza&lt;/em&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Configuración de SSH&lt;/strong&gt; Si tienen la buena costumbre de definir los parámetros de conexión de sus servidores en SSH, no querrán volverlo a hacer. &lt;code&gt;~/ssh/config&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Perfil bash&lt;/strong&gt; es bueno mantener los PATH y configuraciones propias de tu terminal.  &lt;code&gt;~/.bash_profile&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Tus sitios locales y sus bases de datos&lt;/strong&gt; Los archivos por lo general no se te escaparan, pero si tienes bases de datos en MySQL no olvides exportarlas. Puedes usar &lt;code&gt;mysqldump&lt;/code&gt; o bien utilizar algún gestor gráfico como &lt;a href=&quot;http://www.sequelpro.com&quot;&gt;Sequel PRO&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Entornos virtuales de Python&lt;/strong&gt; Si los usas, sería problemático crearlos de nuevo. Por defecto están en &lt;code&gt;~/.enviroments&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Los marcadores de tu navegador&lt;/strong&gt; Lamentable perder tan valiosa recopilación&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Gestores de Contraseña&lt;/strong&gt; Asegúrate de tener como recuperar tu información de contraseñas si usas Apps como &lt;strong&gt;1Password&lt;/strong&gt; o similares. Lo mejor es utilizar sincronización por iCloud o Dropbox y así recuperar tu información.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Carpetas ocultas&lt;/strong&gt; Tal vez tengas alguna carpeta oculta con información muy importante o porno.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;¿Alguno que se me haya escapado o que te falte a tí?&lt;/p&gt;
 </description>
     </item>
     <item>
