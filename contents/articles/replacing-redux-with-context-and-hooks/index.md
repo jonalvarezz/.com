@@ -10,7 +10,7 @@ thumb: noah-van-de-wetering-223984-unsplash.jpg
 
 > Heads up! Do not use this in production.
 
-When React Context got its [new and official API](https://reactjs.org/blog/2018/03/29/react-v-16-3.html), I was very skeptical about Redux dying; Now, with React Hooks, I am starting to have a second though.
+When React Context got its [new and official API](https://reactjs.org/blog/2018/03/29/react-v-16-3.html), I was very skeptical about Redux dying; Now, with React Hooks, I am starting to have a second thought.
 
 I decided to create an application using **React Hooks and React Context** to build an architecture similar to **Redux**, and assert how similar they could get to be, as well as how suitable the new tools are for the job.
 
@@ -90,7 +90,7 @@ To finally, being able to connect children components to get whatever data they 
 
 ## Conclusions
 
-- We can build a Redux-like architecture. using `React.Context` + `React.useReducer`
+- Even though this architecture may result handy, it will be limited to React-only applications. Redux can be used with any other library.
 
 - **Same concepts can be implemented**. I used concepts like selectors and actions creators. You can go further and wrap the dispatch function in order to accept Promises and other functions, same as Redux Middleware.
 
