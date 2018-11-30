@@ -18,28 +18,28 @@
 &lt;blockquote&gt;
 &lt;p&gt;Heads up! Do not use this in production.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;When React Context got its &lt;a href=&quot;https://reactjs.org/blog/2018/03/29/react-v-16-3.html&quot;&gt;new and official API&lt;/a&gt;, I was very skeptical about Redux dead; Now, with React Hooks, I am starting to doubt it.&lt;/p&gt;
-&lt;p&gt;I decided to create an application using &lt;strong&gt;React Hooks and React Context&lt;/strong&gt; to build an architecture similar as with &lt;strong&gt;Redux&lt;/strong&gt;, and so get to know how similar and suitable that could be.&lt;/p&gt;
+&lt;p&gt;When React Context got its &lt;a href=&quot;https://reactjs.org/blog/2018/03/29/react-v-16-3.html&quot;&gt;new and official API&lt;/a&gt;, I was very skeptical about Redux dying; Now, with React Hooks, I am starting to have a second though.&lt;/p&gt;
+&lt;p&gt;I decided to create an application using &lt;strong&gt;React Hooks and React Context&lt;/strong&gt; to build an architecture similar to &lt;strong&gt;Redux&lt;/strong&gt;, and assert how similar they could get to be, as well as how suitable the new tools are for the job.&lt;/p&gt;
 &lt;h2 id=&quot;tl-dr-&quot;&gt;TL:DR;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Jump to the &lt;a href=&quot;#conclusions&quot;&gt;conclusions&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;Take a look at the application code &lt;a href=&quot;https://github.com/jonalvarezz/react-next-example&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;react-hooks-are-convenient&quot;&gt;React Hooks are convenient&lt;/h2&gt;
-&lt;p&gt;Yes, They looked very weird to me at the beginning, and to be honest, it is still the feature I am the least excited about after the React Conf.&lt;/p&gt;
-&lt;p&gt;However, once you start using them, you become productive very quickly, and I found out that I stopped worrying about &lt;em&gt;what does React needs to properly work&lt;/em&gt; (in terms of lifecycles); to just declaring my logic and let React makes its &lt;em&gt;magic&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;Plus, React Hooks does not introduce breaking changes, nor new concepts, and luckily, no more nested components to share logic and states as HoCs or Render Props needs.&lt;/p&gt;
+&lt;p&gt;Yes, They looked very weird to me at first, and to be honest, it is still the feature I am the least excited about after the React Conf.&lt;/p&gt;
+&lt;p&gt;However, once you start using them, you become productive very quickly, and I found that I stopped worrying about &lt;em&gt;what does React needs to properly work&lt;/em&gt; (in terms of lifecycles); to just declaring my logic and let React make its &lt;em&gt;magic&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Plus, React Hooks do not introduce breaking changes, nor new concepts, and luckily, no more nested components to share logic and states as HoCs or Render Props needed.&lt;/p&gt;
 &lt;h2 id=&quot;react-usereducer&quot;&gt;React.useReducer&lt;/h2&gt;
 &lt;p&gt;As part of the React Hooks RFC, the &lt;code&gt;React.useReduce&lt;/code&gt; brings us the possibility to declare changes in the state as the result of a function that receives an action describing the change:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;    (state, action) =&amp;gt; newState
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If you are familiar with Flux-like patterns like Redux, you already know this.&lt;/p&gt;
-&lt;p&gt;Now with this hook as part of the React library, you might not need to use other libraries for state management as React team will support this way of declaring changes.&lt;/p&gt;
+&lt;p&gt;Now with this Hook as part of the React library, you might not need to use other libraries for state management as the React team will support this way of declaring changes to the state of the application.&lt;/p&gt;
 &lt;h2 id=&quot;how-is-react-context-important-here-&quot;&gt;How is React.Context important here?&lt;/h2&gt;
 &lt;p&gt;React.useReducer will provide us a way to declare changes and mutate our state, as we do with Redux, however, we still need a way to easily &lt;em&gt;connect&lt;/em&gt; our deepest children with our states, without falling in &lt;a href=&quot;https://blog.kentcdodds.com/prop-drilling-bb62e02cb691&quot;&gt;&lt;em&gt;prop drilling&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Context API is a built-in way to expose data through components without padding props down.&lt;/p&gt;
+&lt;p&gt;Context API is a built-in way to expose data through components without passing props down.&lt;/p&gt;
 &lt;p&gt;Therefore, what if we wrap our main component to handle the application’s state with &lt;code&gt;React.useReducer&lt;/code&gt; and we pass down the state using &lt;code&gt;React.Context&lt;/code&gt;?&lt;/p&gt;
 &lt;h2 id=&quot;show-me-the-code&quot;&gt;Show me the code&lt;/h2&gt;
-&lt;p&gt;This is how the Store component ends like:&lt;/p&gt;
+&lt;p&gt;This is how the Store component ends up being like:&lt;/p&gt;
 &lt;p class=&quot;text-center&quot;&gt;&lt;img src=&quot;/articles/replacing-redux-with-context-and-hooks/1-store.png&quot; alt=&quot;Store Component&quot;&gt;&lt;/p&gt;
 &lt;p class=&quot;text-center&quot;&gt;&lt;small&gt;&lt;em&gt;See full version on &lt;a href=&quot;https://github.com/jonalvarezz/react-next-example/blob/master/src/store/Store.js&quot;&gt;GitHub.com/jonalvarezz&lt;/a&gt;&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
 
@@ -70,7 +70,7 @@
 
 &lt;h3 id=&quot;what-s-cool-about-it-&quot;&gt;What’s cool about it?&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;No more HoCs nor nested logic to connect to the store, not even handling with React’s lifecycles&lt;/li&gt;
+&lt;li&gt;No more HoCs nor nested logic to connect to the store, not even the need to fiddle around with React’s lifecycles&lt;/li&gt;
 &lt;li&gt;We can fire actions that mutate the store from children easily&lt;/li&gt;
 &lt;li&gt;Small and plain Components&lt;/li&gt;
 &lt;/ul&gt;
@@ -88,13 +88,13 @@
 &lt;p class=&quot;text-center&quot;&gt;&lt;img src=&quot;/articles/replacing-redux-with-context-and-hooks/5-inspecting-useReducer.png&quot; alt=&quot;Inspecting a component with useReducer&quot;&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;About Hooks&lt;/strong&gt;. Although I disliked the idea of introducing &lt;em&gt;magic&lt;/em&gt; to React’s API at first, once I tried them I started to enjoy using React without worrying about lifecycles.&lt;p&gt;&lt;/p&gt;Even though, &lt;strong&gt;I strongly suggest newcomers to deeply learn about React’s lifecycles&lt;/strong&gt;, as at the end, &lt;strong&gt;the right use of a Hook, highly depends on your understanding of React&lt;/strong&gt;.&lt;p&gt;&lt;/p&gt;For instance, take a look to the &lt;code&gt;React.useEffect&lt;/code&gt; &lt;a href=&quot;https://reactjs.org/docs/hooks-reference.html#useeffect&quot;&gt;second parameter&lt;/a&gt;. You can easily don’t care about that being new to React and end up with a lot of unnecessary re-renders and effects.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;About Hooks&lt;/strong&gt;. Although I disliked the idea of introducing &lt;em&gt;magic&lt;/em&gt; to React’s API at first, once I tried them I started to enjoy using React without worrying about lifecycles.&lt;p&gt;&lt;/p&gt;Even though, &lt;strong&gt;I strongly suggest newcomers to deeply learn about React’s lifecycles&lt;/strong&gt;, as at the end, &lt;strong&gt;the right use of a Hook, highly depends on your understanding of React&lt;/strong&gt;.&lt;p&gt;&lt;/p&gt;For instance, take a look to the &lt;code&gt;React.useEffect&lt;/code&gt; &lt;a href=&quot;https://reactjs.org/docs/hooks-reference.html#useeffect&quot;&gt;second parameter&lt;/a&gt;. You can easily miss it being new to React and end up with a lot of unnecessary re-renders and effects.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p class=&quot;text-center&quot;&gt;&lt;img src=&quot;/articles/replacing-redux-with-context-and-hooks/6-useeffect-hook.png&quot; alt=&quot;useEffect Hook&amp;#39;s second parameter&quot;&gt;&lt;/p&gt;
 &lt;p class=&quot;text-center&quot;&gt;&lt;small&gt;&lt;em&gt;See full version on &lt;a href=&quot;https://github.com/jonalvarezz/react-next-example/blob/master/src/store/Store.js&quot;&gt;GitHub.com/jonalvarezz&lt;/a&gt;&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;And finally, we are about to enter a &lt;em&gt;new era&lt;/em&gt; of React’s rich diversity. Do you remember the hype when Flux came out? Well… you better get a sit and some popcorn to enjoy it.&lt;/li&gt;
+&lt;li&gt;And finally, we are about to enter a &lt;em&gt;new era&lt;/em&gt; of React’s rich diversity. Do you remember the hype when Flux came out? Well… you better sit down, grab some popcorn and enjoy the &lt;em&gt;JavaScript fatigue&lt;/em&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
