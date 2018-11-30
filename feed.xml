@@ -18,7 +18,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;Heads up! Do not use this in production.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;When React Context got its &lt;a href=&quot;https://reactjs.org/blog/2018/03/29/react-v-16-3.html&quot;&gt;new and official API&lt;/a&gt;, I was very skeptical about Redux dying; Now, with React Hooks, I am starting to have a second though.&lt;/p&gt;
+&lt;p&gt;When React Context got its &lt;a href=&quot;https://reactjs.org/blog/2018/03/29/react-v-16-3.html&quot;&gt;new and official API&lt;/a&gt;, I was very skeptical about Redux dying; Now, with React Hooks, I am starting to have a second thought.&lt;/p&gt;
 &lt;p&gt;I decided to create an application using &lt;strong&gt;React Hooks and React Context&lt;/strong&gt; to build an architecture similar to &lt;strong&gt;Redux&lt;/strong&gt;, and assert how similar they could get to be, as well as how suitable the new tools are for the job.&lt;/p&gt;
 &lt;h2 id=&quot;tl-dr-&quot;&gt;TL:DR;&lt;/h2&gt;
 &lt;ul&gt;
@@ -76,7 +76,7 @@
 &lt;/ul&gt;
 &lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;We can build a Redux-like architecture. using &lt;code&gt;React.Context&lt;/code&gt; + &lt;code&gt;React.useReducer&lt;/code&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Even though this architecture may result handy, it will be limited to React-only applications. Redux can be used with any other library.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Same concepts can be implemented&lt;/strong&gt;. I used concepts like selectors and actions creators. You can go further and wrap the dispatch function in order to accept Promises and other functions, same as Redux Middleware.&lt;/p&gt;
 &lt;/li&gt;
