@@ -25,7 +25,7 @@ brew install mysql@5.7
 
 
 ## 2. Use any PHP version above 5.4
-By the way, I had issues with PHP 7+, therefore I used Brew to install PHP 5.6.
+By the way, I had issues with PHP 7+, therefore [I used Brew to install PHP 5.6.](https://getgrav.org/blog/macos-mojave-apache-multiple-php-versions)
 
 
 ## 3. You're done.
