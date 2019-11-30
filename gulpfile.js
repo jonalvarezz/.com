@@ -1,21 +1,20 @@
 "use strict";
 
-var gulp = require("gulp");
-var $ = require("gulp-load-plugins")();
-var nib = require("nib");
-var through = require("through");
-var isDev = process.argv.indexOf("watch") !== -1;
-var wintersmith = require("run-wintersmith");
-var runSequence = require("run-sequence");
+const { src, dest, series, watch } = require("gulp");
+const $ = require("gulp-load-plugins")();
+const nib = require("nib");
+const through = require("through");
+const isDev = process.argv.indexOf("watch") !== -1;
+const wintersmith = require("run-wintersmith");
+const runSequence = require("run-sequence");
 
-var PORT = 8080;
-var baseDir = "./contents/";
+const PORT = 8080;
+const baseDir = "./contents/";
+
 wintersmith.settings.port = PORT;
 
-// [DEV] Process CSS files and reload the web browser
-gulp.task("styles:build", function() {
-  return gulp
-    .src(baseDir + "stylus/main.styl")
+function styles(cb) {
+  return src(baseDir + "stylus/main.styl")
     .pipe(!isDev ? through() : $.plumber())
     .pipe($.sourcemaps.init())
     .pipe(
@@ -25,28 +24,25 @@ gulp.task("styles:build", function() {
     )
     .pipe(!isDev ? $.minifyCss() : through())
     .pipe($.sourcemaps.write())
-    .pipe(gulp.dest(baseDir + "css/"));
-});
+    .pipe(dest(baseDir + "css/"));
+}
 
-gulp.task("publish", function() {
-  return gulp.src("./build/**/*").pipe($.ghPages());
-});
+const html = wintersmith.build;
 
-gulp.task("deploy", ["styles:build"], function() {
-  wintersmith.build(function() {
-    runSequence("publish");
-  });
-});
-
-gulp.task("build", ["styles:build"], function() {
-  wintersmith.build(function() {
-    wintersmith.preview();
-  });
-});
-
-gulp.task("watch", ["default"], function() {
+function dev() {
+  watch([baseDir + "stylus/**/*.styl"], styles);
   wintersmith.preview();
-  gulp.watch([baseDir + "stylus/**/*.styl"], ["styles:build"]);
-});
+}
 
-gulp.task("default", ["styles:build"]);
+const build = series(styles, html);
+
+function upload() {
+  return src("./build/**/*").pipe($.ghPages());
+}
+
+const deploy = series(build, upload);
+
+exports.styles = styles;
+exports.dev = dev;
+exports.build = build;
+exports.deploy = deploy;

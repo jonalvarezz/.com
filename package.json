@@ -1,25 +1,27 @@
 {
+  "name": "jonalvarezz.com",
+  "author": "@jonalvarezz",
   "engines": {
     "node": "~8.16.0"
   },
   "scripts": {
     "start": "npm run dev",
-    "dev": "gulp watch",
+    "dev": "gulp dev",
     "build": "gulp build",
     "deploy": "gulp deploy"
   },
   "dependencies": {
-    "moment": "^2.20.1",
-    "typogr": "0.6.x"
+    "moment": "^2.24.0",
+    "typogr": "0.6.8"
   },
   "private": true,
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-gh-pages": "^0.5.4",
-    "gulp-load-plugins": "^1.2.0",
+    "gulp": "^4.0.2",
+    "gulp-gh-pages": "^0.6.0-6",
+    "gulp-load-plugins": "^2.0.1",
     "gulp-minify-css": "^1.2.4",
-    "gulp-plumber": "^1.1.0",
-    "gulp-sourcemaps": "^2.6.4",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sourcemaps": "^2.6.5",
     "gulp-stylus": "^2.3.0",
     "nib": "^1.1.0",
     "run-sequence": "2.2.1",
