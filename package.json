@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": "~8.16.0"
+  },
   "scripts": {
     "start": "npm run dev",
     "dev": "gulp watch",
@@ -9,7 +12,7 @@
     "moment": "^2.20.1",
     "typogr": "0.6.x"
   },
-  "private": "true",
+  "private": true,
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-gh-pages": "^0.5.4",
