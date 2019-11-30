@@ -14,10 +14,10 @@
   <body class="article">
     <div class="wrap">
       <article class="content">
-        <header style="background-image: url('nginx_featured_image_emerald_bg_1.jpg');" class="article-header grid grid--vertical-align grid--horizontal-align">
-          <div class="article-inner text-center">
-            <div class="article-meta"></div>
-            <h1 class="article-title default-wrap">Configurar y gestionar sitios en Nginx I</h1>
+        <header class="article-header default-wrap">
+          <div class="article-inner">
+            <nav class="article-author"><a href="/" title="Go home">Jonathan Alvarez</a></nav>
+            <h1 class="article-title">Configurar y gestionar sitios en Nginx I</h1>
             <div class="article-meta"><span>January 24th 2014</span></div>
           </div>
         </header>
@@ -31,12 +31,12 @@
 <p>Reemplaza el contenido del archivo <code>/etc/nginx/nginx.conf</code> por:</p>
 <pre><code># https://github.com/perusio/wordpress-nginx
 
-user http; 
-worker_processes 1; 
+user http;
+worker_processes 1;
 
 error_log logs/error.log;
-#error_log logs/error.log notice; 
-#error_log logs/error.log info; 
+#error_log logs/error.log notice;
+#error_log logs/error.log info;
 
 #pid logs/nginx.pid;
 
@@ -55,7 +55,7 @@ http {
     server_names_hash_bucket_size 64;
 
     #log_format main &#39;$remote_addr - $remote_user [$time_local] \&quot;$request\&quot; &#39;
-    #                  &#39;$status $body_bytes_sent \&quot;$http_referer\&quot; &#39; &#39;\&quot;$http_user_agent\&quot; \&quot;$http_x_forwarded_for\&quot;&#39;; access_log 
+    #                  &#39;$status $body_bytes_sent \&quot;$http_referer\&quot; &#39; &#39;\&quot;$http_user_agent\&quot; \&quot;$http_x_forwarded_for\&quot;&#39;; access_log
     #off;
     ## FastCGI.
     include /etc/nginx/fastcgi.conf;
@@ -64,17 +64,17 @@ http {
     sendfile on;
 
     ## Handling of IPs in proxied and load balancing situations.
-    #set_real_ip_from 0.0.0.0/32; # all addresses get a real IP. real_ip_header X-Forwarded-For; # the ip is forwarded from the 
+    #set_real_ip_from 0.0.0.0/32; # all addresses get a real IP. real_ip_header X-Forwarded-For; # the ip is forwarded from the
     #load balancer/proxy
 
-    ## Define a zone for limiting the number of simultaneous connections nginx accepts. 1m means 32000 simultaneous sessions. 
-    ## We need to define for each server the limit_conn value refering to this or other zones. ** This syntax requires nginx 
-    ## version &gt;= ** 1.1.8. Cf. http://nginx.org/en/CHANGES. If using an older ** version then use the limit_zone directive 
+    ## Define a zone for limiting the number of simultaneous connections nginx accepts. 1m means 32000 simultaneous sessions.
+    ## We need to define for each server the limit_conn value refering to this or other zones. ** This syntax requires nginx
+    ## version &gt;= ** 1.1.8. Cf. http://nginx.org/en/CHANGES. If using an older ** version then use the limit_zone directive
     ## below ** instead. Comment out this ** one if not using nginx version &gt;= 1.1.8.
     limit_conn_zone $binary_remote_addr zone=arbeit:10m;
 
-    ## Define a zone for limiting the number of simultaneous connections nginx accepts. 1m means 32000 simultaneous sessions. 
-    ## We need to define for each server the limit_conn value refering to this or other zones. ** Use this directive for nginx 
+    ## Define a zone for limiting the number of simultaneous connections nginx accepts. 1m means 32000 simultaneous sessions.
+    ## We need to define for each server the limit_conn value refering to this or other zones. ** Use this directive for nginx
     ## versions below 1.1.8. Uncomment the line below.
     #limit_zone arbeit $binary_remote_addr 10m;
 
@@ -115,11 +115,11 @@ http {
     ## Hide the Nginx version number.
     server_tokens off;
 
-    ## Use a SSL/TLS cache for SSL session resume. This needs to be here (in this context, for session resumption to work. See 
+    ## Use a SSL/TLS cache for SSL session resume. This needs to be here (in this context, for session resumption to work. See
     ## this thread on the Nginx mailing list: http://nginx.org/pipermail/nginx/2010-November/023736.html.
     #ssl_session_cache shared:SSL:10m; ssl_session_timeout 10m;
 
-    ## Enable clickjacking protection in modern browsers. Available in IE8 also. See 
+    ## Enable clickjacking protection in modern browsers. Available in IE8 also. See
     ## https://developer.mozilla.org/en/The_X-FRAME-OPTIONS_response_header
     add_header X-Frame-Options sameorigin;
 
@@ -136,7 +136,7 @@ http {
     ## Include all vhosts.
     include /etc/nginx/sites-enabled/*;
 }
-</code></pre><p><em>Calm down. Es algo genérico y  funcionará con cualquier<span class="widont">&nbsp;</span>sitio.</em></p>
+</code></pre><p><em>Calm down. Es algo genérico y funcionará con cualquier<span class="widont">&nbsp;</span>sitio.</em></p>
 <p>Sólo debes asegurarte que el usuario que utilices sea el que realmente emplea tu servidor, en Archlinux es <code>http</code>, otras distribuciones familia Debian como Ubuntu, utilizan <code>www-data</code>.</p>
 <h2 id="hora-de-modular">Hora de modular</h2>
 <p>Ahora, creemos archivos de configuración para utilizarlos como módulos e incluirlos sólo en los sitios que queramos. Como por ejemplo para <code>php</code>, controles de seguridad, manejo de archivos estáticos comúnes y el que<span class="widont">&nbsp;</span>necesites.</p>
@@ -144,19 +144,19 @@ http {
 mkdir -p global
 </code></pre><p>Algunas restricciones para archivos comunes <code>/etc/nginx/global/drop.conf</code></p>
 <pre><code># http://centminmod.com/nginx_configure_wordpress.html
-location = /robots.txt { access_log off; log_not_found off; } 
-location = /favicon.ico { access_log off; log_not_found off; expires 30d; } 
-location ~ /\.  { access_log off; log_not_found off; deny all; } 
+location = /robots.txt { access_log off; log_not_found off; }
+location = /favicon.ico { access_log off; log_not_found off; expires 30d; }
+location ~ /\.  { access_log off; log_not_found off; deny all; }
 location ~ ~$ { access_log off; log_not_found off; deny all; }
 location ~ /\.git { access_log off; log_not_found off; deny all; }
 </code></pre><p>Algunos controles de seguridad <code>/etc/nginx/global/sec.conf</code></p>
 <pre><code>## http://centminmod.com/nginx_configure_wordpress.html
-# Deny access to any files with a .php extension in the uploads directory Works in sub-directory installs and also in multisite 
+# Deny access to any files with a .php extension in the uploads directory Works in sub-directory installs and also in multisite
 # network
 location ~* /(?:uploads|files)/.*\.php$ {
         deny all;
 }
-# Make sure files with the following extensions do not get loaded by nginx because nginx would display the source code, and 
+# Make sure files with the following extensions do not get loaded by nginx because nginx would display the source code, and
 # these files can contain PASSWORDS!
 location ~* \.(engine|inc|info|install|make|module|profile|test|po|sh|.*sql|theme|tpl(\.php)?|xtmpl)$|^(\..*|Entries.*|Repository|Root|Tag|Template)$|\.php_  {
     return 444;
@@ -195,14 +195,14 @@ location ~ \.php$ {
                 <div><small>NEXT</small></div><a href="/articles/crear-menus-de-navegacion-administrativos-en-wordpress/">Crear Menús Administrativos en Wordpress</a>
               </div>
             </nav>
-            <div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ÁLVAREZ G ©</a></small></div>
+            <div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ALVAREZ</a></small></div>
           </div>
         </footer>
       </article>
     </div>
     <script>
       WebFontConfig = {
-        google: { families: [ 'Source+Sans+Pro:700,400:latin', 'Source+Serif+Pro:400,700:latin' ] }
+        google: { families: [ 'Merriweather:400,900:latin', 'Source+Sans+Pro:700' ] }
       };
       (function() {
         var wf = document.createElement('script');

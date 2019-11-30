@@ -14,10 +14,10 @@
   <body class="article">
     <div class="wrap">
       <article class="content">
-        <header style="background-image: url('nginx_featured_image_emerald_bg.jpg');" class="article-header grid grid--vertical-align grid--horizontal-align">
-          <div class="article-inner text-center">
-            <div class="article-meta"></div>
-            <h1 class="article-title default-wrap">Configurar  y gestionar sitios en Nginx II</h1>
+        <header class="article-header default-wrap">
+          <div class="article-inner">
+            <nav class="article-author"><a href="/" title="Go home">Jonathan Alvarez</a></nav>
+            <h1 class="article-title">Configurar  y gestionar sitios en Nginx II</h1>
             <div class="article-meta"><span>January 24th 2014</span></div>
           </div>
         </header>
@@ -43,7 +43,7 @@ mkdir -p sites-enabled
     # limit_conn limit_per_ip 16; ssi on;
                 #location / {
         #  Enables directory listings when index file not found
-    # autoindex on; Shows file listing times as local time autoindex_localtime on; Enable for vBulletin usage WITHOUT 
+    # autoindex on; Shows file listing times as local time autoindex_localtime on; Enable for vBulletin usage WITHOUT
     # vbSEO installed try_files $uri $uri/ /index.php; root /usr/share/nginx/html; index index.html index.htm;
                 #}
 
@@ -82,14 +82,14 @@ ln -s ../sites-available/misitio.conf misitio.conf
                 <div><small>NEXT</small></div><a href="/articles/configurar-y-gestionar-sitios-en-nginx/">Configurar y gestionar sitios en Nginx I</a>
               </div>
             </nav>
-            <div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ÁLVAREZ G ©</a></small></div>
+            <div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ALVAREZ</a></small></div>
           </div>
         </footer>
       </article>
     </div>
     <script>
       WebFontConfig = {
-        google: { families: [ 'Source+Sans+Pro:700,400:latin', 'Source+Serif+Pro:400,700:latin' ] }
+        google: { families: [ 'Merriweather:400,900:latin', 'Source+Sans+Pro:700' ] }
       };
       (function() {
         var wf = document.createElement('script');

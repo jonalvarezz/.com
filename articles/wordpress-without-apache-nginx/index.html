@@ -14,15 +14,14 @@
   <body class="article">
     <div class="wrap">
       <article class="content">
-        <header style="background-image: url('unsplash-artem-kim-uydt8hNz3hE.jpg');" class="article-header grid grid--vertical-align grid--horizontal-align">
-          <div class="article-inner text-center">
-            <div class="article-meta"></div>
-            <h1 class="article-title default-wrap">Install WordPress without Apache nor Nginx</h1>
+        <header class="article-header default-wrap">
+          <div class="article-inner">
+            <nav class="article-author"><a href="/" title="Go home">Jonathan Alvarez</a></nav>
+            <h1 class="article-title">Install WordPress without Apache nor Nginx</h1>
             <div class="article-meta"><span>November 10th 2018</span></div>
           </div>
         </header>
-        <section class="article-content default-wrap"><p><small><em>Photo by <a href="https://unsplash.com/photos/uydt8hNz3hE?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Chris Leggat</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></em></small></p>
-<p>This is a way to get your WordPress site running in a breeze with no need to install a server like Apache or<span class="widont">&nbsp;</span>Nginx.</p>
+        <section class="article-content default-wrap"><p>This is a way to get your WordPress site running in a breeze with no need to install a server like Apache or<span class="widont">&nbsp;</span>Nginx.</p>
 <p><strong>Heads Up!</strong> This configuration is only meant to be used in development, do not use this in<span class="widont">&nbsp;</span>production.</p>
 <h2 id="1-download-wordpress-and-set-up-your-database-">1. Download WordPress and set up your<span class="widont">&nbsp;</span>database.</h2>
 <p>Same old, same<span class="widont">&nbsp;</span>old.</p>
@@ -30,7 +29,7 @@
 <pre><code>brew install mysql@5.7
 </code></pre><p><strong>Heads Up!</strong> We are specifying the version as Brew will install the latest MySQL by default, which is 8.xx, and it may be incompatible with some <span class="caps">PHP</span> features like <code>caching_sha2_password</code>, see <a href="https://stackoverflow.com/a/49950165">https://stackoverflow.com/a/49950165</a>.</p>
 <h2 id="2-use-any-php-version-above-5-4">2. Use any <span class="caps">PHP</span> version above<span class="widont">&nbsp;</span>5.4</h2>
-<p>By the way, I had issues with <span class="caps">PHP</span> 7+, therefore I used Brew to install <span class="caps">PHP</span><span class="widont">&nbsp;</span>5.6.</p>
+<p>By the way, I had issues with <span class="caps">PHP</span> 7+, therefore <a href="https://getgrav.org/blog/macos-mojave-apache-multiple-php-versions">I used Brew to install <span class="caps">PHP</span><span class="widont">&nbsp;</span>5.6.</a></p>
 <h2 id="3-you-re-done-">3. You’re done.</h2>
 <p>Here is the trick. <span class="caps">PHP</span> introduced a built-in web server starting version 5.4, and it works for running<span class="widont">&nbsp;</span>WordPress.</p>
 <p>Open your terminal and launch your site<span class="widont">&nbsp;</span>with:</p>
@@ -65,14 +64,14 @@ hotel add &#39;php -S 127.0.0.1:$PORT&#39;
                 <div><small>NEXT</small></div><a href="/articles/features-your-editor-must-have-for-web-development/">Features your editor must have for web development</a>
               </div>
             </nav>
-            <div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ÁLVAREZ G ©</a></small></div>
+            <div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ALVAREZ</a></small></div>
           </div>
         </footer>
       </article>
     </div>
     <script>
       WebFontConfig = {
-        google: { families: [ 'Source+Sans+Pro:700,400:latin', 'Source+Serif+Pro:400,700:latin' ] }
+        google: { families: [ 'Merriweather:400,900:latin', 'Source+Sans+Pro:700' ] }
       };
       (function() {
         var wf = document.createElement('script');

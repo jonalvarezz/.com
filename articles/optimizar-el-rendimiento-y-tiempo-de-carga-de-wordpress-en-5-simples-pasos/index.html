@@ -14,10 +14,10 @@
   <body class="article">
     <div class="wrap">
       <article class="content">
-        <header style="background-image: url('optimizar_tiempo_de_carga_en_wordpress.jpg');" class="article-header grid grid--vertical-align grid--horizontal-align">
-          <div class="article-inner text-center">
-            <div class="article-meta"></div>
-            <h1 class="article-title default-wrap">Optimizar el Rendimiento y Tiempo de Carga de Wordpress en 7 pasos</h1>
+        <header class="article-header default-wrap">
+          <div class="article-inner">
+            <nav class="article-author"><a href="/" title="Go home">Jonathan Alvarez</a></nav>
+            <h1 class="article-title">Optimizar el Rendimiento y Tiempo de Carga de Wordpress en 7 pasos</h1>
             <div class="article-meta"><span>January 29th 2014</span></div>
           </div>
         </header>
@@ -107,13 +107,13 @@
      add_action(&#39;wp_footer&#39;, &#39;wp_print_scripts&#39;, 5);
      add_action(&#39;wp_footer&#39;, &#39;wp_enqueue_scripts&#39;, 5);
      add_action(&#39;wp_footer&#39;, &#39;wp_print_head_scripts&#39;, 5);
-</code></pre><p>De nuevo, esto puede romper el funcionamiento de algunos plugins, y deberás regisrar todos los plugins  de tu tema en el footer. Por<span class="widont">&nbsp;</span>ejemplo:</p>
+</code></pre><p>De nuevo, esto puede romper el funcionamiento de algunos plugins, y deberás regisrar todos los plugins de tu tema en el footer. Por<span class="widont">&nbsp;</span>ejemplo:</p>
 <pre><code>wp_enqueue_script( &#39;miPlugin&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, true );
-</code></pre><p><em>El <code>true</code> al final indica que se debe cargar en el<span class="widont">&nbsp;</span>footer.</em> </p>
+</code></pre><p><em>El <code>true</code> al final indica que se debe cargar en el<span class="widont">&nbsp;</span>footer.</em></p>
 <p>Hagan bien sus pruebas y atentos a los errores en ejecución de<span class="widont">&nbsp;</span>Javascript.</p>
 <h2 id="6-eliminar-query-strings-de-archivos-est-ticos">6. Eliminar Query Strings de archivos<span class="widont">&nbsp;</span>estáticos</h2>
 <p>Si? lo han visto? <code>http//misitio.com/wp-content/themes/mitema/js/archivo.js?ver=2.4.1</code></p>
-<p>Bien, pues Wordpress pone una query strings a todos los archivos <code>js</code> y <code>css</code> que carguemos para indicar la versión del script/stylesheet y que no sirve para nada excepto para que alguien obtenga más  información y el tiempo de carga sea un poco más<span class="widont">&nbsp;</span>lento.</p>
+<p>Bien, pues Wordpress pone una query strings a todos los archivos <code>js</code> y <code>css</code> que carguemos para indicar la versión del script/stylesheet y que no sirve para nada excepto para que alguien obtenga más información y el tiempo de carga sea un poco más<span class="widont">&nbsp;</span>lento.</p>
 <p>Los removemos así:</p>
 <pre><code>function remove_query_script( $src ){
     $parts = explode( &#39;?&#39;, $src );
@@ -139,14 +139,14 @@ add_filter( &#39;style_loader_src&#39;, &#39;remove_query_script&#39;, 15, 1 );
                 <div><small>NEXT</small></div><a href="/articles/configurar-y-gestionar-sitios-en-nginx-ii/">Configurar  y gestionar sitios en Nginx II</a>
               </div>
             </nav>
-            <div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ÁLVAREZ G ©</a></small></div>
+            <div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ALVAREZ</a></small></div>
           </div>
         </footer>
       </article>
     </div>
     <script>
       WebFontConfig = {
-        google: { families: [ 'Source+Sans+Pro:700,400:latin', 'Source+Serif+Pro:400,700:latin' ] }
+        google: { families: [ 'Merriweather:400,900:latin', 'Source+Sans+Pro:700' ] }
       };
       (function() {
         var wf = document.createElement('script');

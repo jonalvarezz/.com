@@ -14,15 +14,14 @@
   <body class="article">
     <div class="wrap">
       <article class="content">
-        <header style="background-image: url('christopher-burns-381838-unsplash.jpg');" class="article-header grid grid--vertical-align grid--horizontal-align">
-          <div class="article-inner text-center">
-            <div class="article-meta"></div>
-            <h1 class="article-title default-wrap">Debugging React Applications</h1>
+        <header class="article-header default-wrap">
+          <div class="article-inner">
+            <nav class="article-author"><a href="/" title="Go home">Jonathan Alvarez</a></nav>
+            <h1 class="article-title">Debugging React Applications</h1>
             <div class="article-meta"><span>February 19th 2018</span></div>
           </div>
         </header>
-        <section class="article-content default-wrap"><p><small><em>Photo by <a href="https://unsplash.com/photos/naDLKYn2eMs">Christopher Burns</a> on <a href="https://unsplash.com">Unsplash</a></em></small></p>
-<blockquote>
+        <section class="article-content default-wrap"><blockquote>
 <p>Debugging a React application might be very<span class="widont">&nbsp;</span>confusing.</p>
 </blockquote>
 <p>If you are not familiar with bundlers, compilers, <span class="caps">JSX</span> and all that <em>modern JavaScript</em> stuff, you might spend a lot of time trying to debug your<span class="widont">&nbsp;</span>application.</p>
@@ -43,7 +42,7 @@ debugger
 <p>That’s the reason why all bundlers will give you the option to produce source maps with your bundled files, allowing the browser to show you in which of your JavaScript files, the error<span class="widont">&nbsp;</span>occurred.</p>
 <p class="text-center"><img src="/articles/debugging-react-applications/2-undefined-in-body-jsx.png" alt="JavaScript error in body.jsx"></p>
 
-<p>To add a breakpoint from Chrome’s DevTools, open the <strong>Source</strong> tab, hit <code>CMD</code> + <code>p</code> keys (<code>CTRL</code> if you on Windows) to search for your file, and then click the line number you want the breakpoint to be<span class="widont">&nbsp;</span>added. </p>
+<p>To add a breakpoint from Chrome’s DevTools, open the <strong>Source</strong> tab, hit <code>CMD</code> + <code>p</code> keys (<code>CTRL</code> if you on Windows) to search for your file, and then click the line number you want the breakpoint to be<span class="widont">&nbsp;</span>added.</p>
 <p class="text-center"><img src="/articles/debugging-react-applications/2-browser-sourcemaps.png" alt="Searching source maps from DevTools.jsx"></p>
 
 <p>There are some bugs adding breakpoints to source maps, like breakpoint been added in another line different to the clicked one, but it’ll work most of the<span class="widont">&nbsp;</span>times.</p>
@@ -69,14 +68,14 @@ debugger
                 <div><small>NEXT</small></div><a href="/articles/how-to-solve-git-conflicts/">How To Solve GIT Conflicts</a>
               </div>
             </nav>
-            <div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ÁLVAREZ G ©</a></small></div>
+            <div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ALVAREZ</a></small></div>
           </div>
         </footer>
       </article>
     </div>
     <script>
       WebFontConfig = {
-        google: { families: [ 'Source+Sans+Pro:700,400:latin', 'Source+Serif+Pro:400,700:latin' ] }
+        google: { families: [ 'Merriweather:400,900:latin', 'Source+Sans+Pro:700' ] }
       };
       (function() {
         var wf = document.createElement('script');

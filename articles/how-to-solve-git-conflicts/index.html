@@ -14,15 +14,14 @@
   <body class="article">
     <div class="wrap">
       <article class="content">
-        <header style="background-image: url('git-conflicts-bg.jpg');" class="article-header grid grid--vertical-align grid--horizontal-align">
-          <div class="article-inner text-center">
-            <div class="article-meta"></div>
-            <h1 class="article-title default-wrap">How To Solve GIT Conflicts</h1>
+        <header class="article-header default-wrap">
+          <div class="article-inner">
+            <nav class="article-author"><a href="/" title="Go home">Jonathan Alvarez</a></nav>
+            <h1 class="article-title">How To Solve GIT Conflicts</h1>
             <div class="article-meta"><span>August 7th 2016</span></div>
           </div>
         </header>
-        <section class="article-content default-wrap"><p><small><em><a href="https://unsplash.com/?photo=VZ07w73ta-k">Photo by Mike Wilson.</a></em></small></p>
-<p>This is a quick guide that show you how to solve a <span class="caps">GIT</span> conflict manually using 
+        <section class="article-content default-wrap"><p>This is a quick guide that show you how to solve a <span class="caps">GIT</span> conflict manually using
 your<span class="widont">&nbsp;</span>console.</p>
 <p>First at all a <span class="caps">GIT</span> conflict may happen when you merge another branch to your own.
 <span class="caps">GIT</span> will output something like<span class="widont">&nbsp;</span>this:</p>
@@ -32,16 +31,16 @@ Auto-merging apps/users/urls.py
 CONFLICT (content): Merge conflict in apps/users/urls.py
 ...
 Automatic merge failed; fix conflicts and then commit the result.
-</code></pre><p>Dont be scared by the <span class="caps">CONFLICT</span> word, if you already know what your team is doing, 
-project’s guidelines and roadmap are clear, solving conflicts will mostly be 
+</code></pre><p>Dont be scared by the <span class="caps">CONFLICT</span> word, if you already know what your team is doing,
+project’s guidelines and roadmap are clear, solving conflicts will mostly be
 about including your folk’s code into yours or<span class="widont">&nbsp;</span>viceversa.</p>
 <blockquote>
-<p>A <span class="caps">GIT</span> conflict does not mean you or your folk did something wrong, it only 
-means that both have worked on the same file/lines, and <span class="caps">GIT</span> needs to be sure 
+<p>A <span class="caps">GIT</span> conflict does not mean you or your folk did something wrong, it only
+means that both have worked on the same file/lines, and <span class="caps">GIT</span> needs to be sure
 which lines of code should<span class="widont">&nbsp;</span>kept.</p>
 </blockquote>
 <h2 id="1-identify-the-files-in-conflict">1. Identify the files in<span class="widont">&nbsp;</span>conflict</h2>
-<p>Run <code>git status</code> to get the list of conflicted files, <span class="caps">GIT</span> will also give you a 
+<p>Run <code>git status</code> to get the list of conflicted files, <span class="caps">GIT</span> will also give you a
 short<span class="widont">&nbsp;</span>reason:</p>
 <pre><code>On branch merged-branch-name
 You have unmerged paths.
@@ -58,25 +57,25 @@ Unmerged paths:
         both modified:   apps/users/views.py
 </code></pre><p>The part of interesting here is <strong>Unmerged<span class="widont">&nbsp;</span>paths</strong></p>
 <h2 id="2-start-resolving-conflicts">2. Start resolving<span class="widont">&nbsp;</span>conflicts</h2>
-<p>Open the first file Unmerged paths shows with your text editor. You will find 
+<p>Open the first file Unmerged paths shows with your text editor. You will find
 your code is separated by some lines <span class="caps">GIT</span><span class="widont">&nbsp;</span>introduced:</p>
 <pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
 ... You code
 =======
 ... Your folks code
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; merged-branch-name
-</code></pre><p><span class="caps">GIT</span> split the code with your code (From <code>HEAD</code> to <code>====</code> line) and your folk 
-code (From <code>===</code> to <code>merged-branch-name</code>). </p>
-<p>Your task here is to compare which are the lines that need to be included. 
-Delete and move the lines of code that should be kept. Make sure to also delete 
+</code></pre><p><span class="caps">GIT</span> split the code with your code (From <code>HEAD</code> to <code>====</code> line) and your folk
+code (From <code>===</code> to <code>merged-branch-name</code>).</p>
+<p>Your task here is to compare which are the lines that need to be included.
+Delete and move the lines of code that should be kept. Make sure to also delete
 the lines <span class="caps">GIT</span> added (<code>====</code>, <code>HEAD</code>, …)</p>
 <h3 id="some-tips">Some tips</h3>
 <ul>
-<li>Do not merge any branch if you are not 100% sure that you know what are you 
+<li>Do not merge any branch if you are not 100% sure that you know what are you
 including. First understand your folk’s code/features then<span class="widont">&nbsp;</span>merge.</li>
 <li>When resolving the conflict, try to not modify code, <strong>do not do refactors</strong>.
-Do the merge then refactor in a new commit. This will make the history 
-transparent. Other way your refactor will be lost in the merge commit, only you 
+Do the merge then refactor in a new commit. This will make the history
+transparent. Other way your refactor will be lost in the merge commit, only you
 will know a refactor<span class="widont">&nbsp;</span>ocurred.</li>
 </ul>
 <h2 id="3-mark-the-conflict-file-as-resolved">3. Mark the conflict file as<span class="widont">&nbsp;</span>resolved</h2>
@@ -86,22 +85,22 @@ will know a refactor<span class="widont">&nbsp;</span>ocurred.</li>
 <p>Great! now repeat steps 1, 2, 3 until all the files in <span class="caps">GIT</span>’s Unmerged paths gets<span class="widont">&nbsp;</span>empty.</p>
 <h2 id="5-make-sure-everything-is-fine">5. Make sure everything is<span class="widont">&nbsp;</span>fine</h2>
 <p>Finish?</p>
-<p>You solved all the conflicts but it does not mean the logic and changes are<span class="widont">&nbsp;</span>right. </p>
-<p>Run any test your project have to make sure the changes are fine and include all 
+<p>You solved all the conflicts but it does not mean the logic and changes are<span class="widont">&nbsp;</span>right.</p>
+<p>Run any test your project have to make sure the changes are fine and include all
 the new<span class="widont">&nbsp;</span>features.</p>
 <h2 id="6-commit">6. Commit</h2>
 <p>Once everithing looks fine, commit the<span class="widont">&nbsp;</span>changes:</p>
 <pre><code>git commit
-</code></pre><p>Note that we are no adding a custom message to the commit, this very important 
+</code></pre><p>Note that we are no adding a custom message to the commit, this very important
 cause <span class="caps">GIT</span> will add the message automatically. That message will include the
-name of the merged branches and also a valuable list of the new commits the 
+name of the merged branches and also a valuable list of the new commits the
 merge<span class="widont">&nbsp;</span>included.</p>
-<p><code>git commit</code> will open your console text editor, generally <code>nano</code>, with the 
+<p><code>git commit</code> will open your console text editor, generally <code>nano</code>, with the
 commit message. Just save the message (<code>CTRL</code>+<code>o</code>) and exit nano (<code>CTRL</code>+<code>x</code>)</p>
 <p>You are done<span class="widont">&nbsp;</span>now.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>Working in branch is a very powerfull way of managing a project with a team, 
-specially for incoporating new features in paralallel. If you are looking in how 
+<p>Working in branch is a very powerfull way of managing a project with a team,
+specially for incoporating new features in paralallel. If you are looking in how
 to work with branches you can refer to <a href="http://nvie.com/posts/a-successful-git-branching-model/"><span class="caps">GIT</span> Branching<span class="widont">&nbsp;</span>Model</a>.</p>
 </section>
         <aside class="article-share text-center default-wrap">
@@ -117,14 +116,14 @@ to work with branches you can refer to <a href="http://nvie.com/posts/a-successf
                 <div><small>NEXT</small></div><a href="/articles/find-largest-folders-size-linux/">Find largest folders size in GNU/Linux</a>
               </div>
             </nav>
-            <div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ÁLVAREZ G ©</a></small></div>
+            <div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ALVAREZ</a></small></div>
           </div>
         </footer>
       </article>
     </div>
     <script>
       WebFontConfig = {
-        google: { families: [ 'Source+Sans+Pro:700,400:latin', 'Source+Serif+Pro:400,700:latin' ] }
+        google: { families: [ 'Merriweather:400,900:latin', 'Source+Sans+Pro:700' ] }
       };
       (function() {
         var wf = document.createElement('script');

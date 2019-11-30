@@ -5,17 +5,16 @@
     <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://localhost:8080</link>
     <description>Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development</description>
-    <pubDate>Wed, 28 Nov 2018 23:15:00 -0500</pubDate>
+    <pubDate>Wed, 28 Nov 2018 23:15:00 +0100</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
     <item>
       <title>Replacing Redux with Context and Hooks</title>
       <link>http://localhost:8080/articles/replacing-redux-with-context-and-hooks/</link>
-      <pubDate>Wed, 28 Nov 2018 23:15:00 -0500</pubDate>
+      <pubDate>Wed, 28 Nov 2018 23:15:00 +0100</pubDate>
       <guid isPermaLink="true">http://localhost:8080/articles/replacing-redux-with-context-and-hooks/</guid>
       <author></author>
-      <description>&lt;p&gt;&lt;small&gt;&lt;em&gt;Photo by &lt;a href=&quot;https://unsplash.com/photos/bvDWbe0zI6Y&quot;&gt;Noah van de Wetering &lt;/a&gt; on &lt;a href=&quot;https://unsplash.com&quot;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
-&lt;blockquote&gt;
+      <description>&lt;blockquote&gt;
 &lt;p&gt;Heads up! Do not use this in production.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;When React Context got its &lt;a href=&quot;https://reactjs.org/blog/2018/03/29/react-v-16-3.html&quot;&gt;new and official API&lt;/a&gt;, I was very skeptical about Redux dying; Now, with React Hooks, I am starting to have a second thought.&lt;/p&gt;
@@ -101,11 +100,10 @@
     <item>
       <title>Install WordPress without Apache nor Nginx</title>
       <link>http://localhost:8080/articles/wordpress-without-apache-nginx/</link>
-      <pubDate>Sat, 10 Nov 2018 20:21:00 -0500</pubDate>
+      <pubDate>Sat, 10 Nov 2018 20:21:00 +0100</pubDate>
       <guid isPermaLink="true">http://localhost:8080/articles/wordpress-without-apache-nginx/</guid>
       <author></author>
-      <description>&lt;p&gt;&lt;small&gt;&lt;em&gt;Photo by &lt;a href=&quot;https://unsplash.com/photos/uydt8hNz3hE?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Chris Leggat&lt;/a&gt; on &lt;a href=&quot;https://unsplash.com/?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
-&lt;p&gt;This is a way to get your WordPress site running in a breeze with no need to install a server like Apache or Nginx.&lt;/p&gt;
+      <description>&lt;p&gt;This is a way to get your WordPress site running in a breeze with no need to install a server like Apache or Nginx.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Heads Up!&lt;/strong&gt; This configuration is only meant to be used in development, do not use this in production.&lt;/p&gt;
 &lt;h2 id=&quot;1-download-wordpress-and-set-up-your-database-&quot;&gt;1. Download WordPress and set up your database.&lt;/h2&gt;
 &lt;p&gt;Same old, same old.&lt;/p&gt;
@@ -113,7 +111,7 @@
 &lt;pre&gt;&lt;code&gt;brew install mysql@5.7
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;Heads Up!&lt;/strong&gt; We are specifying the version as Brew will install the latest MySQL by default, which is 8.xx, and it may be incompatible with some PHP features like &lt;code&gt;caching_sha2_password&lt;/code&gt;, see &lt;a href=&quot;https://stackoverflow.com/a/49950165&quot;&gt;https://stackoverflow.com/a/49950165&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&quot;2-use-any-php-version-above-5-4&quot;&gt;2. Use any PHP version above 5.4&lt;/h2&gt;
-&lt;p&gt;By the way, I had issues with PHP 7+, therefore I used Brew to install PHP 5.6.&lt;/p&gt;
+&lt;p&gt;By the way, I had issues with PHP 7+, therefore &lt;a href=&quot;https://getgrav.org/blog/macos-mojave-apache-multiple-php-versions&quot;&gt;I used Brew to install PHP 5.6.&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;3-you-re-done-&quot;&gt;3. You’re done.&lt;/h2&gt;
 &lt;p&gt;Here is the trick. PHP introduced a built-in web server starting version 5.4, and it works for running WordPress.&lt;/p&gt;
 &lt;p&gt;Open your terminal and launch your site with:&lt;/p&gt;
@@ -139,11 +137,10 @@ hotel add &amp;#39;php -S 127.0.0.1:$PORT&amp;#39;
     <item>
       <title>Features your editor must have for web development</title>
       <link>http://localhost:8080/articles/features-your-editor-must-have-for-web-development/</link>
-      <pubDate>Sat, 16 Jun 2018 11:05:00 -0500</pubDate>
+      <pubDate>Sat, 16 Jun 2018 11:05:00 +0200</pubDate>
       <guid isPermaLink="true">http://localhost:8080/articles/features-your-editor-must-have-for-web-development/</guid>
       <author></author>
-      <description>&lt;p&gt;&lt;small&gt;&lt;em&gt;Photo by &lt;a href=&quot;https://unsplash.com/photos/AoEEtI6onH4&quot;&gt;Chris Leggat&lt;/a&gt; on &lt;a href=&quot;https://unsplash.com&quot;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
-&lt;blockquote&gt;
+      <description>&lt;blockquote&gt;
 &lt;p&gt;In my years of experience, I have found some features I am always looking for when I’m using an Editor. Features which allows me to write faster and better code.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;These are my 6 must features your editor should have, and I also included a &lt;strong&gt;bonus&lt;/strong&gt; at the end.&lt;/p&gt;
@@ -209,11 +206,10 @@ hotel add &amp;#39;php -S 127.0.0.1:$PORT&amp;#39;
     <item>
       <title>Debugging React Applications</title>
       <link>http://localhost:8080/articles/debugging-react-applications/</link>
-      <pubDate>Mon, 19 Feb 2018 23:08:00 -0500</pubDate>
+      <pubDate>Mon, 19 Feb 2018 23:08:00 +0100</pubDate>
       <guid isPermaLink="true">http://localhost:8080/articles/debugging-react-applications/</guid>
       <author></author>
-      <description>&lt;p&gt;&lt;small&gt;&lt;em&gt;Photo by &lt;a href=&quot;https://unsplash.com/photos/naDLKYn2eMs&quot;&gt;Christopher Burns&lt;/a&gt; on &lt;a href=&quot;https://unsplash.com&quot;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
-&lt;blockquote&gt;
+      <description>&lt;blockquote&gt;
 &lt;p&gt;Debugging a React application might be very confusing.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;If you are not familiar with bundlers, compilers, JSX and all that &lt;em&gt;modern JavaScript&lt;/em&gt; stuff, you might spend a lot of time trying to debug your application.&lt;/p&gt;
@@ -234,7 +230,7 @@ debugger
 &lt;p&gt;That’s the reason why all bundlers will give you the option to produce source maps with your bundled files, allowing the browser to show you in which of your JavaScript files, the error occurred.&lt;/p&gt;
 &lt;p class=&quot;text-center&quot;&gt;&lt;img src=&quot;/articles/debugging-react-applications/2-undefined-in-body-jsx.png&quot; alt=&quot;JavaScript error in body.jsx&quot;&gt;&lt;/p&gt;
 
-&lt;p&gt;To add a breakpoint from Chrome’s DevTools, open the &lt;strong&gt;Source&lt;/strong&gt; tab, hit &lt;code&gt;CMD&lt;/code&gt; + &lt;code&gt;p&lt;/code&gt; keys (&lt;code&gt;CTRL&lt;/code&gt; if you on Windows) to search for your file, and then click the line number you want the breakpoint to be added. &lt;/p&gt;
+&lt;p&gt;To add a breakpoint from Chrome’s DevTools, open the &lt;strong&gt;Source&lt;/strong&gt; tab, hit &lt;code&gt;CMD&lt;/code&gt; + &lt;code&gt;p&lt;/code&gt; keys (&lt;code&gt;CTRL&lt;/code&gt; if you on Windows) to search for your file, and then click the line number you want the breakpoint to be added.&lt;/p&gt;
 &lt;p class=&quot;text-center&quot;&gt;&lt;img src=&quot;/articles/debugging-react-applications/2-browser-sourcemaps.png&quot; alt=&quot;Searching source maps from DevTools.jsx&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;There are some bugs adding breakpoints to source maps, like breakpoint been added in another line different to the clicked one, but it’ll work most of the times.&lt;/p&gt;
@@ -251,11 +247,10 @@ debugger
     <item>
       <title>How To Solve GIT Conflicts</title>
       <link>http://localhost:8080/articles/how-to-solve-git-conflicts/</link>
-      <pubDate>Sun, 07  Aug 2016 13:30:00 -0500</pubDate>
+      <pubDate>Sun, 07  Aug 2016 13:30:00 +0200</pubDate>
       <guid isPermaLink="true">http://localhost:8080/articles/how-to-solve-git-conflicts/</guid>
       <author></author>
-      <description>&lt;p&gt;&lt;small&gt;&lt;em&gt;&lt;a href=&quot;https://unsplash.com/?photo=VZ07w73ta-k&quot;&gt;Photo by Mike Wilson.&lt;/a&gt;&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
-&lt;p&gt;This is a quick guide that show you how to solve a GIT conflict manually using 
+      <description>&lt;p&gt;This is a quick guide that show you how to solve a GIT conflict manually using
 your console.&lt;/p&gt;
 &lt;p&gt;First at all a GIT conflict may happen when you merge another branch to your own.
 GIT will output something like this:&lt;/p&gt;
@@ -265,16 +260,16 @@ Auto-merging apps/users/urls.py
 CONFLICT (content): Merge conflict in apps/users/urls.py
 ...
 Automatic merge failed; fix conflicts and then commit the result.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Dont be scared by the CONFLICT word, if you already know what your team is doing, 
-project’s guidelines and roadmap are clear, solving conflicts will mostly be 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Dont be scared by the CONFLICT word, if you already know what your team is doing,
+project’s guidelines and roadmap are clear, solving conflicts will mostly be
 about including your folk’s code into yours or viceversa.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;A GIT conflict does not mean you or your folk did something wrong, it only 
-means that both have worked on the same file/lines, and GIT needs to be sure 
+&lt;p&gt;A GIT conflict does not mean you or your folk did something wrong, it only
+means that both have worked on the same file/lines, and GIT needs to be sure
 which lines of code should kept.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;1-identify-the-files-in-conflict&quot;&gt;1. Identify the files in conflict&lt;/h2&gt;
-&lt;p&gt;Run &lt;code&gt;git status&lt;/code&gt; to get the list of conflicted files, GIT will also give you a 
+&lt;p&gt;Run &lt;code&gt;git status&lt;/code&gt; to get the list of conflicted files, GIT will also give you a
 short reason:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;On branch merged-branch-name
 You have unmerged paths.
@@ -291,59 +286,59 @@ Unmerged paths:
         both modified:   apps/users/views.py
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The part of interesting here is &lt;strong&gt;Unmerged paths&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&quot;2-start-resolving-conflicts&quot;&gt;2. Start resolving conflicts&lt;/h2&gt;
-&lt;p&gt;Open the first file Unmerged paths shows with your text editor. You will find 
+&lt;p&gt;Open the first file Unmerged paths shows with your text editor. You will find
 your code is separated by some lines GIT introduced:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD
 ... You code
 =======
 ... Your folks code
 &amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; merged-branch-name
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;GIT split the code with your code (From &lt;code&gt;HEAD&lt;/code&gt; to &lt;code&gt;====&lt;/code&gt; line) and your folk 
-code (From &lt;code&gt;===&lt;/code&gt; to &lt;code&gt;merged-branch-name&lt;/code&gt;). &lt;/p&gt;
-&lt;p&gt;Your task here is to compare which are the lines that need to be included. 
-Delete and move the lines of code that should be kept. Make sure to also delete 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;GIT split the code with your code (From &lt;code&gt;HEAD&lt;/code&gt; to &lt;code&gt;====&lt;/code&gt; line) and your folk
+code (From &lt;code&gt;===&lt;/code&gt; to &lt;code&gt;merged-branch-name&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Your task here is to compare which are the lines that need to be included.
+Delete and move the lines of code that should be kept. Make sure to also delete
 the lines GIT added (&lt;code&gt;====&lt;/code&gt;, &lt;code&gt;HEAD&lt;/code&gt;, …)&lt;/p&gt;
 &lt;h3 id=&quot;some-tips&quot;&gt;Some tips&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Do not merge any branch if you are not 100% sure that you know what are you 
+&lt;li&gt;Do not merge any branch if you are not 100% sure that you know what are you
 including. First understand your folk’s code/features then merge.&lt;/li&gt;
 &lt;li&gt;When resolving the conflict, try to not modify code, &lt;strong&gt;do not do refactors&lt;/strong&gt;.
-Do the merge then refactor in a new commit. This will make the history 
-transparent. Other way your refactor will be lost in the merge commit, only you 
+Do the merge then refactor in a new commit. This will make the history
+transparent. Other way your refactor will be lost in the merge commit, only you
 will know a refactor ocurred.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;3-mark-the-conflict-file-as-resolved&quot;&gt;3. Mark the conflict file as resolved&lt;/h2&gt;
 &lt;p&gt;Once you resolved the conflict you mark it as resolved with:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;git add /path/to/the/resolved/file.ext
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;4-loop&quot;&gt;4. Loop&lt;/h2&gt;
-&lt;p&gt;Great! now repeat steps 1, 2, 3 until all the files in GIT’s Unmerged paths gets 
+&lt;p&gt;Great! now repeat steps 1, 2, 3 until all the files in GIT’s Unmerged paths gets
 empty.&lt;/p&gt;
 &lt;h2 id=&quot;5-make-sure-everything-is-fine&quot;&gt;5. Make sure everything is fine&lt;/h2&gt;
 &lt;p&gt;Finish?&lt;/p&gt;
-&lt;p&gt;You solved all the conflicts but it does not mean the logic and changes are 
-right. &lt;/p&gt;
-&lt;p&gt;Run any test your project have to make sure the changes are fine and include all 
+&lt;p&gt;You solved all the conflicts but it does not mean the logic and changes are
+right.&lt;/p&gt;
+&lt;p&gt;Run any test your project have to make sure the changes are fine and include all
 the new features.&lt;/p&gt;
 &lt;h2 id=&quot;6-commit&quot;&gt;6. Commit&lt;/h2&gt;
 &lt;p&gt;Once everithing looks fine, commit the changes:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;git commit
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Note that we are no adding a custom message to the commit, this very important 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Note that we are no adding a custom message to the commit, this very important
 cause GIT will add the message automatically. That message will include the
-name of the merged branches and also a valuable list of the new commits the 
+name of the merged branches and also a valuable list of the new commits the
 merge included.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;git commit&lt;/code&gt; will open your console text editor, generally &lt;code&gt;nano&lt;/code&gt;, with the 
+&lt;p&gt;&lt;code&gt;git commit&lt;/code&gt; will open your console text editor, generally &lt;code&gt;nano&lt;/code&gt;, with the
 commit message. Just save the message (&lt;code&gt;CTRL&lt;/code&gt;+&lt;code&gt;o&lt;/code&gt;) and exit nano (&lt;code&gt;CTRL&lt;/code&gt;+&lt;code&gt;x&lt;/code&gt;)&lt;/p&gt;
 &lt;p&gt;You are done now.&lt;/p&gt;
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;Working in branch is a very powerfull way of managing a project with a team, 
-specially for incoporating new features in paralallel. If you are looking in how 
+&lt;p&gt;Working in branch is a very powerfull way of managing a project with a team,
+specially for incoporating new features in paralallel. If you are looking in how
 to work with branches you can refer to &lt;a href=&quot;http://nvie.com/posts/a-successful-git-branching-model/&quot;&gt;GIT Branching Model&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     <item>
       <title>Find largest folders size in GNU/Linux</title>
       <link>http://localhost:8080/articles/find-largest-folders-size-linux/</link>
-      <pubDate>Sat, 06  Aug 2016 16:08:00 -0500</pubDate>
+      <pubDate>Sat, 06  Aug 2016 16:08:00 +0200</pubDate>
       <guid isPermaLink="true">http://localhost:8080/articles/find-largest-folders-size-linux/</guid>
       <author></author>
       <description>&lt;p&gt;You can see your disk available space using `df in your console:&lt;/p&gt;
@@ -376,7 +371,7 @@ safer to use mysql purge feature:&lt;/p&gt;
     <item>
       <title>Django Rest Framework Authentication with a custom Model User</title>
       <link>http://localhost:8080/articles/django-rest-framework-authentication-with-a-custom-model-user/</link>
-      <pubDate>Tue, 07 Jul 2015 10:54:00 -0500</pubDate>
+      <pubDate>Tue, 07 Jul 2015 10:54:00 +0200</pubDate>
       <guid isPermaLink="true">http://localhost:8080/articles/django-rest-framework-authentication-with-a-custom-model-user/</guid>
       <author></author>
       <description>&lt;p&gt;&lt;strong&gt;Django Rest Framework&lt;/strong&gt; uses the Django user model by default. If you have a custom user model, you will get this error when trying to browse the API with a logged in user:&lt;/p&gt;
@@ -421,7 +416,7 @@ safer to use mysql purge feature:&lt;/p&gt;
     <item>
       <title>Javascript, lo básico</title>
       <link>http://localhost:8080/articles/javascript-lo-basico/</link>
-      <pubDate>Mon, 29 Dec 2014 19:32:00 -0500</pubDate>
+      <pubDate>Mon, 29 Dec 2014 19:32:00 +0100</pubDate>
       <guid isPermaLink="true">http://localhost:8080/articles/javascript-lo-basico/</guid>
       <author></author>
       <description>&lt;p&gt;Esto es una recopilación de apuntes personales sobre cosas de Javascript. Espero que a alguien le pueda ser útil también.&lt;/p&gt;
@@ -493,7 +488,7 @@ a.length; // 121
     <item>
       <title>Abrir una carpeta o archivo en Sublime Text desde la Terminal</title>
       <link>http://localhost:8080/articles/abrir-una-carpeta-o-archivo-en-sublime-desde-la-terminal/</link>
-      <pubDate>Mon, 08 Dec 2014 12:48:00 -0500</pubDate>
+      <pubDate>Mon, 08 Dec 2014 12:48:00 +0100</pubDate>
       <guid isPermaLink="true">http://localhost:8080/articles/abrir-una-carpeta-o-archivo-en-sublime-desde-la-terminal/</guid>
       <author></author>
       <description>&lt;p&gt;Si eres desarrollador, poder abrir cualquier archivo o carpeta entera en Sublime Text mientras se esta trabajando en la terminal sin duda es algo que no puede faltar si quieres ahorrarte algunos segundos y clicks extras.&lt;/p&gt;
@@ -526,7 +521,7 @@ a.length; // 121
     <item>
       <title>Error 404 en Wordpress al utilizar query vars (GET)</title>
       <link>http://localhost:8080/articles/error-404-en-wordpress-al-utilizar-query-vars-get/</link>
-      <pubDate>Tue, 11 Nov 2014 00:54:00 -0500</pubDate>
+      <pubDate>Tue, 11 Nov 2014 00:54:00 +0100</pubDate>
       <guid isPermaLink="true">http://localhost:8080/articles/error-404-en-wordpress-al-utilizar-query-vars-get/</guid>
       <author></author>
       <description>&lt;p&gt;Estaba creando una &lt;strong&gt;página personalizada en Wordpress&lt;/strong&gt; en la que recibía información, a través de parámetros GET, desde un servicio externo y aunque la URL estaba bien escrita, los parámetros GET o query vars tampoco presentaban errores, &lt;strong&gt;Wordpress me arrojaba a la página de error 404&lt;/strong&gt;, página no encontrada.&lt;/p&gt;
@@ -546,7 +541,7 @@ var $private_query_vars = array(&amp;#39;offset&amp;#39;, &amp;#39;posts_per_pag
     <item>
       <title>Cómo cambiar la carpeta wp-content en Wordpress</title>
       <link>http://localhost:8080/articles/cambiar-la-carpeta-wp-content/</link>
-      <pubDate>Mon, 03 Nov 2014 13:44:00 -0500</pubDate>
+      <pubDate>Mon, 03 Nov 2014 13:44:00 +0100</pubDate>
       <guid isPermaLink="true">http://localhost:8080/articles/cambiar-la-carpeta-wp-content/</guid>
       <author></author>
       <description>&lt;p&gt;Una buena forma de personalizar aún más nuestro Wordpress es cambiar la carpeta &lt;code&gt;wp-content&lt;/code&gt; por otra que elijamos.&lt;/p&gt;
@@ -581,15 +576,15 @@ define( &amp;#39;UPLOADS&amp;#39;, &amp;#39;assets/media&amp;#39; );
     <item>
       <title>Ordenar strings numéricamente en Angular JS</title>
       <link>http://localhost:8080/articles/ordenar-strings-numericamente-en-angular-js/</link>
-      <pubDate>Sun, 26 Oct 2014 23:37:00 -0500</pubDate>
+      <pubDate>Sun, 26 Oct 2014 23:37:00 +0100</pubDate>
       <guid isPermaLink="true">http://localhost:8080/articles/ordenar-strings-numericamente-en-angular-js/</guid>
       <author></author>
       <description>&lt;p&gt;Utilizar el filtro &lt;code&gt;OrderBy&lt;/code&gt; de &lt;strong&gt;AngularJS&lt;/strong&gt; es bastante sencillo. Ordenará alfabéticamente las cadenas de texto y numéricamente los números.&lt;/p&gt;
 &lt;p&gt;Sin embargo cuando traemos devuelta algunos campos númericos de algunas APIS o bases de datos, pueden ser retornados como &lt;code&gt;strings&lt;/code&gt; y al querer ordenar númericamente el resultado no será el esperado. Puede suceder por ejemplo con fechas.&lt;/p&gt;
-&lt;p&gt;Una forma rápido de solucionarlo, sin modificar el valor en la base de datos sería crear una expresión para evaluar el &lt;code&gt;OrderBy&lt;/code&gt;. &lt;/p&gt;
+&lt;p&gt;Una forma rápido de solucionarlo, sin modificar el valor en la base de datos sería crear una expresión para evaluar el &lt;code&gt;OrderBy&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Veámoslo en código, supongamos que cargamos una lista de posts y queremos filtrar por fecha. La fecha del post es devuelta como &lt;code&gt;&amp;quot;mmm-dd-yy&amp;quot;&lt;/code&gt; lo cual no nos sirve ya que es una cadena. Utilizando una expresión en el filtro &lt;code&gt;OrderBy&lt;/code&gt;, sería:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;ng-repeat=&amp;quot;post in posts | orderBy : date&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Donde  &lt;code&gt;date&lt;/code&gt; es el nombre de la expresión. Y en el controlador de esa plantilla:&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Donde &lt;code&gt;date&lt;/code&gt; es el nombre de la expresión. Y en el controlador de esa plantilla:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$scope.date = function(post) {
     var date = new Date(post.publishedDate);
     return date;
@@ -601,7 +596,7 @@ define( &amp;#39;UPLOADS&amp;#39;, &amp;#39;assets/media&amp;#39; );
     <item>
       <title>TIP Programar el apagado en MAC OSX / *Unix</title>
       <link>http://localhost:8080/articles/tip-programar-el-apagado-en-mac-osx-unix/</link>
-      <pubDate>Tue, 21 Oct 2014 01:55:00 -0500</pubDate>
+      <pubDate>Tue, 21 Oct 2014 01:55:00 +0200</pubDate>
       <guid isPermaLink="true">http://localhost:8080/articles/tip-programar-el-apagado-en-mac-osx-unix/</guid>
       <author></author>
       <description>&lt;p&gt;Muchas veces dejamos nuestros equipos descargando archivos muy pesados en la noche mientras dormimos y aunque la descarga dure unas pocas horas, el equipo permanecerá encendido hasta que despertemos de nuevo.&lt;/p&gt;
@@ -619,46 +614,9 @@ define( &amp;#39;UPLOADS&amp;#39;, &amp;#39;assets/media&amp;#39; );
 </description>
     </item>
     <item>
-      <title>¿Realizarás un Clean Install del nuevo OSX? Asegúrate de guardar estos archivos</title>
-      <link>http://localhost:8080/articles/post-post/</link>
-      <pubDate>Fri, 17 Oct 2014 13:15:00 -0500</pubDate>
-      <guid isPermaLink="true">http://localhost:8080/articles/post-post/</guid>
-      <author></author>
-      <description>&lt;p&gt;Me gusta aprovechar al máximo todas las caracterísiticas de las nuevas versiones de sistemas operativos, en especial en OSX, por eso siempre que sale una nueva versión no lo pienso dos veces para realizar una instalación en limpio (Clean Install)&lt;/p&gt;
-&lt;p&gt;Particularmente no utilizo gestores de backup como &lt;strong&gt;Time Machine, o copia completa del disco duro&lt;/strong&gt;. Lo hago todo &lt;em&gt;a la antigua&lt;/em&gt;: copio manualmente mis archivos, sólo los realmente importantes, en una &lt;strong&gt;memoría USB&lt;/strong&gt; y luego los restauro.&lt;/p&gt;
-&lt;p&gt;El proceso es más lento, si, pero me aseguro que Disfrutaré del nuevo sistema &lt;em&gt;como recién salido de la caja&lt;/em&gt;, como nuevo, como a la gente de Palo Alto mejor les ha parecido. &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Al usar Time Machine para restaurar tus datos también restauras las aplicaciones y tus configuraciones anteriores. Podrías perderte de alguna nueva característica y nunca darte cuenta.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Sin embargo hay archivos que guardan ciertas configuraciones y que no son necesariamente propios de OSX y que deberías asegurarte de guardar.&lt;/p&gt;
-&lt;p&gt;En mi caso:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Imágenes de tus máquinas virtuales.&lt;/strong&gt; Recrearlas es fácil, pero meh. En Virtualbox puedes exportar las imágenes que quieres utilizando &lt;code&gt;File -&amp;gt; Export Appliance&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Archivos de configuración de tu editor de texto.&lt;/strong&gt; Utilizo Sublime Text, pero estas configuraciones prefiero recrearlas desde cero para hacer &lt;em&gt;limpieza&lt;/em&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Configuración de SSH&lt;/strong&gt; Si tienen la buena costumbre de definir los parámetros de conexión de sus servidores en SSH, no querrán volverlo a hacer. &lt;code&gt;~/ssh/config&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Perfil bash&lt;/strong&gt; es bueno mantener los PATH y configuraciones propias de tu terminal.  &lt;code&gt;~/.bash_profile&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Tus sitios locales y sus bases de datos&lt;/strong&gt; Los archivos por lo general no se te escaparan, pero si tienes bases de datos en MySQL no olvides exportarlas. Puedes usar &lt;code&gt;mysqldump&lt;/code&gt; o bien utilizar algún gestor gráfico como &lt;a href=&quot;http://www.sequelpro.com&quot;&gt;Sequel PRO&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Entornos virtuales de Python&lt;/strong&gt; Si los usas, sería problemático crearlos de nuevo. Por defecto están en &lt;code&gt;~/.enviroments&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Los marcadores de tu navegador&lt;/strong&gt; Lamentable perder tan valiosa recopilación&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Gestores de Contraseña&lt;/strong&gt; Asegúrate de tener como recuperar tu información de contraseñas si usas Apps como &lt;strong&gt;1Password&lt;/strong&gt; o similares. Lo mejor es utilizar sincronización por iCloud o Dropbox y así recuperar tu información.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Carpetas ocultas&lt;/strong&gt; Tal vez tengas alguna carpeta oculta con información muy importante o porno.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;¿Alguno que se me haya escapado o que te falte a tí?&lt;/p&gt;
-</description>
-    </item>
-    <item>
       <title>Configurar una terminal hermosa con iTerm 2 en MAC OS X</title>
       <link>http://localhost:8080/articles/configurar-una-terminal-hermosa-con-iterm2/</link>
-      <pubDate>Fri, 17 Oct 2014 13:15:00 -0500</pubDate>
+      <pubDate>Fri, 17 Oct 2014 13:15:00 +0200</pubDate>
       <guid isPermaLink="true">http://localhost:8080/articles/configurar-una-terminal-hermosa-con-iterm2/</guid>
       <author></author>
       <description>&lt;iframe width=&quot;760&quot; height=&quot;428&quot; src=&quot;//www.youtube.com/embed/v1S5J39-93I?rel=0&amp;amp;showinfo=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
@@ -704,16 +662,53 @@ $ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gi
 </description>
     </item>
     <item>
+      <title>¿Realizarás un Clean Install del nuevo OSX? Asegúrate de guardar estos archivos</title>
+      <link>http://localhost:8080/articles/post-post/</link>
+      <pubDate>Fri, 17 Oct 2014 13:15:00 +0200</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/post-post/</guid>
+      <author></author>
+      <description>&lt;p&gt;Me gusta aprovechar al máximo todas las caracterísiticas de las nuevas versiones de sistemas operativos, en especial en OSX, por eso siempre que sale una nueva versión no lo pienso dos veces para realizar una instalación en limpio (Clean Install)&lt;/p&gt;
+&lt;p&gt;Particularmente no utilizo gestores de backup como &lt;strong&gt;Time Machine, o copia completa del disco duro&lt;/strong&gt;. Lo hago todo &lt;em&gt;a la antigua&lt;/em&gt;: copio manualmente mis archivos, sólo los realmente importantes, en una &lt;strong&gt;memoría USB&lt;/strong&gt; y luego los restauro.&lt;/p&gt;
+&lt;p&gt;El proceso es más lento, si, pero me aseguro que Disfrutaré del nuevo sistema &lt;em&gt;como recién salido de la caja&lt;/em&gt;, como nuevo, como a la gente de Palo Alto mejor les ha parecido. &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Al usar Time Machine para restaurar tus datos también restauras las aplicaciones y tus configuraciones anteriores. Podrías perderte de alguna nueva característica y nunca darte cuenta.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Sin embargo hay archivos que guardan ciertas configuraciones y que no son necesariamente propios de OSX y que deberías asegurarte de guardar.&lt;/p&gt;
+&lt;p&gt;En mi caso:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Imágenes de tus máquinas virtuales.&lt;/strong&gt; Recrearlas es fácil, pero meh. En Virtualbox puedes exportar las imágenes que quieres utilizando &lt;code&gt;File -&amp;gt; Export Appliance&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Archivos de configuración de tu editor de texto.&lt;/strong&gt; Utilizo Sublime Text, pero estas configuraciones prefiero recrearlas desde cero para hacer &lt;em&gt;limpieza&lt;/em&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Configuración de SSH&lt;/strong&gt; Si tienen la buena costumbre de definir los parámetros de conexión de sus servidores en SSH, no querrán volverlo a hacer. &lt;code&gt;~/ssh/config&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Perfil bash&lt;/strong&gt; es bueno mantener los PATH y configuraciones propias de tu terminal.  &lt;code&gt;~/.bash_profile&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Tus sitios locales y sus bases de datos&lt;/strong&gt; Los archivos por lo general no se te escaparan, pero si tienes bases de datos en MySQL no olvides exportarlas. Puedes usar &lt;code&gt;mysqldump&lt;/code&gt; o bien utilizar algún gestor gráfico como &lt;a href=&quot;http://www.sequelpro.com&quot;&gt;Sequel PRO&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Entornos virtuales de Python&lt;/strong&gt; Si los usas, sería problemático crearlos de nuevo. Por defecto están en &lt;code&gt;~/.enviroments&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Los marcadores de tu navegador&lt;/strong&gt; Lamentable perder tan valiosa recopilación&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Gestores de Contraseña&lt;/strong&gt; Asegúrate de tener como recuperar tu información de contraseñas si usas Apps como &lt;strong&gt;1Password&lt;/strong&gt; o similares. Lo mejor es utilizar sincronización por iCloud o Dropbox y así recuperar tu información.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Carpetas ocultas&lt;/strong&gt; Tal vez tengas alguna carpeta oculta con información muy importante o porno.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;¿Alguno que se me haya escapado o que te falte a tí?&lt;/p&gt;
+</description>
+    </item>
+    <item>
       <title>Solución Wordpress pide datos FTP para los plugins</title>
       <link>http://localhost:8080/articles/solucion-wordpress-pide-datos-ftp-para-los-plugins/</link>
-      <pubDate>Wed, 26 Feb 2014 23:45:00 -0500</pubDate>
+      <pubDate>Wed, 26 Feb 2014 23:45:00 +0100</pubDate>
       <guid isPermaLink="true">http://localhost:8080/articles/solucion-wordpress-pide-datos-ftp-para-los-plugins/</guid>
       <author></author>
       <description>&lt;p&gt;Algunas veces, luego de instalar Wordpress, nos encontraremos que al acceder a nuestros plugins, bien sea para eliminar o instalar uno nuevo, Wordpress nos pide información de conexión relacionada a nuestro FTP.&lt;/p&gt;
 &lt;h2 id=&quot;why-&quot;&gt;WHY?&lt;/h2&gt;
 &lt;p&gt;Simple: permisos del servidor. – &lt;em&gt;Linux, qué&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Wordpress es incapaz de eliminar o crear nuevos ficheros en el directorio &lt;code&gt;/wp-content/plugins&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Pasa frecuentemente cuando descargamos Wordpress en el &lt;code&gt;home&lt;/code&gt; de nuestro usuario, lo descomprimimos y luego lo movemos a nuestra carpeta de acceso público o donde se ejecuta el servidor web. &lt;/p&gt;
+&lt;p&gt;Pasa frecuentemente cuando descargamos Wordpress en el &lt;code&gt;home&lt;/code&gt; de nuestro usuario, lo descomprimimos y luego lo movemos a nuestra carpeta de acceso público o donde se ejecuta el servidor web.&lt;/p&gt;
 &lt;p&gt;Los permisos permanecerán definidos al del usuario que creó los archivos. El primero y que regularmente no coincide con el usuario que ejecuta el servidor web (_www, http, www-data…)&lt;/p&gt;
 &lt;h2 id=&quot;c-mo-lo-soluciono-&quot;&gt;Cómo lo soluciono?&lt;/h2&gt;
 &lt;p&gt;Arreglando permisos. &lt;em&gt;–Really?&lt;/em&gt;&lt;/p&gt;
@@ -731,7 +726,7 @@ $ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gi
     <item>
       <title>UTPlus - Mejorando la forma en que ingresas al portal estudiantil UTPereira</title>
       <link>http://localhost:8080/articles/utplus/</link>
-      <pubDate>Sat, 08 Feb 2014 03:00:00 -0500</pubDate>
+      <pubDate>Sat, 08 Feb 2014 03:00:00 +0100</pubDate>
       <guid isPermaLink="true">http://localhost:8080/articles/utplus/</guid>
       <author></author>
       <description>&lt;iframe width=&quot;760&quot; height=&quot;428&quot; src=&quot;//www.youtube.com/embed/rwHrb0ynAds?rel=0&amp;amp;showinfo=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
@@ -767,7 +762,7 @@ $ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gi
     <item>
       <title>Optimizar el Rendimiento y Tiempo de Carga de Wordpress en 7 pasos</title>
       <link>http://localhost:8080/articles/optimizar-el-rendimiento-y-tiempo-de-carga-de-wordpress-en-5-simples-pasos/</link>
-      <pubDate>Wed, 29 Jan 2014 14:10:00 -0500</pubDate>
+      <pubDate>Wed, 29 Jan 2014 14:10:00 +0100</pubDate>
       <guid isPermaLink="true">http://localhost:8080/articles/optimizar-el-rendimiento-y-tiempo-de-carga-de-wordpress-en-5-simples-pasos/</guid>
       <author></author>
       <description>&lt;p&gt;Esta es una forma muy sencilla de optimizar el rendimiento y tiempo de carga de cualquier instalación de wordpress. Son 6 simples pasos y se puede lograr un aumento hasta del 30%.&lt;/p&gt;
@@ -856,13 +851,13 @@ $ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gi
      add_action(&amp;#39;wp_footer&amp;#39;, &amp;#39;wp_print_scripts&amp;#39;, 5);
      add_action(&amp;#39;wp_footer&amp;#39;, &amp;#39;wp_enqueue_scripts&amp;#39;, 5);
      add_action(&amp;#39;wp_footer&amp;#39;, &amp;#39;wp_print_head_scripts&amp;#39;, 5);
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;De nuevo, esto puede romper el funcionamiento de algunos plugins, y deberás regisrar todos los plugins  de tu tema en el footer. Por ejemplo:&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;De nuevo, esto puede romper el funcionamiento de algunos plugins, y deberás regisrar todos los plugins de tu tema en el footer. Por ejemplo:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;wp_enqueue_script( &amp;#39;miPlugin&amp;#39;, &amp;#39;&amp;#39;, &amp;#39;&amp;#39;, &amp;#39;&amp;#39;, true );
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;em&gt;El &lt;code&gt;true&lt;/code&gt; al final indica que se debe cargar en el footer.&lt;/em&gt; &lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;em&gt;El &lt;code&gt;true&lt;/code&gt; al final indica que se debe cargar en el footer.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Hagan bien sus pruebas y atentos a los errores en ejecución de Javascript.&lt;/p&gt;
 &lt;h2 id=&quot;6-eliminar-query-strings-de-archivos-est-ticos&quot;&gt;6. Eliminar Query Strings de archivos estáticos&lt;/h2&gt;
 &lt;p&gt;Si? lo han visto? &lt;code&gt;http//misitio.com/wp-content/themes/mitema/js/archivo.js?ver=2.4.1&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Bien, pues Wordpress pone una query strings a todos los archivos &lt;code&gt;js&lt;/code&gt; y &lt;code&gt;css&lt;/code&gt; que carguemos para indicar la versión del script/stylesheet y que no sirve para nada excepto para que alguien obtenga más  información y el tiempo de carga sea un poco más lento.&lt;/p&gt;
+&lt;p&gt;Bien, pues Wordpress pone una query strings a todos los archivos &lt;code&gt;js&lt;/code&gt; y &lt;code&gt;css&lt;/code&gt; que carguemos para indicar la versión del script/stylesheet y que no sirve para nada excepto para que alguien obtenga más información y el tiempo de carga sea un poco más lento.&lt;/p&gt;
 &lt;p&gt;Los removemos así:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;function remove_query_script( $src ){
     $parts = explode( &amp;#39;?&amp;#39;, $src );
@@ -879,7 +874,7 @@ add_filter( &amp;#39;style_loader_src&amp;#39;, &amp;#39;remove_query_script&amp
     <item>
       <title>Configurar  y gestionar sitios en Nginx II</title>
       <link>http://localhost:8080/articles/configurar-y-gestionar-sitios-en-nginx-ii/</link>
-      <pubDate>Fri, 24 Jan 2014 16:04:00 -0500</pubDate>
+      <pubDate>Fri, 24 Jan 2014 16:04:00 +0100</pubDate>
       <guid isPermaLink="true">http://localhost:8080/articles/configurar-y-gestionar-sitios-en-nginx-ii/</guid>
       <author></author>
       <description>&lt;p&gt;Continuando, y ahora que tenemos nuestra &lt;a href=&quot;http://blog.jonalvarezz.com/configurar-y-gestionar-sitios-en-nginx/&quot;&gt;configuración global para Nginx&lt;/a&gt;, veremos cómo administrar nuestros sitios.&lt;/p&gt;
@@ -904,7 +899,7 @@ mkdir -p sites-enabled
     # limit_conn limit_per_ip 16; ssi on;
                 #location / {
         #  Enables directory listings when index file not found
-    # autoindex on; Shows file listing times as local time autoindex_localtime on; Enable for vBulletin usage WITHOUT 
+    # autoindex on; Shows file listing times as local time autoindex_localtime on; Enable for vBulletin usage WITHOUT
     # vbSEO installed try_files $uri $uri/ /index.php; root /usr/share/nginx/html; index index.html index.htm;
                 #}
 
@@ -934,7 +929,7 @@ ln -s ../sites-available/misitio.conf misitio.conf
     <item>
       <title>Configurar y gestionar sitios en Nginx I</title>
       <link>http://localhost:8080/articles/configurar-y-gestionar-sitios-en-nginx/</link>
-      <pubDate>Fri, 24 Jan 2014 16:00:00 -0500</pubDate>
+      <pubDate>Fri, 24 Jan 2014 16:00:00 +0100</pubDate>
       <guid isPermaLink="true">http://localhost:8080/articles/configurar-y-gestionar-sitios-en-nginx/</guid>
       <author></author>
       <description>&lt;p&gt;&lt;em&gt;¿Así que quieres/debes abandonar tu querido servidor Apache con CPanel, te pasas a Nginx y no sabes cómo empezar?&lt;/em&gt;&lt;/p&gt;
@@ -947,12 +942,12 @@ ln -s ../sites-available/misitio.conf misitio.conf
 &lt;p&gt;Reemplaza el contenido del archivo &lt;code&gt;/etc/nginx/nginx.conf&lt;/code&gt; por:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;# https://github.com/perusio/wordpress-nginx
 
-user http; 
-worker_processes 1; 
+user http;
+worker_processes 1;
 
 error_log logs/error.log;
-#error_log logs/error.log notice; 
-#error_log logs/error.log info; 
+#error_log logs/error.log notice;
+#error_log logs/error.log info;
 
 #pid logs/nginx.pid;
 
@@ -971,7 +966,7 @@ http {
     server_names_hash_bucket_size 64;
 
     #log_format main &amp;#39;$remote_addr - $remote_user [$time_local] \&amp;quot;$request\&amp;quot; &amp;#39;
-    #                  &amp;#39;$status $body_bytes_sent \&amp;quot;$http_referer\&amp;quot; &amp;#39; &amp;#39;\&amp;quot;$http_user_agent\&amp;quot; \&amp;quot;$http_x_forwarded_for\&amp;quot;&amp;#39;; access_log 
+    #                  &amp;#39;$status $body_bytes_sent \&amp;quot;$http_referer\&amp;quot; &amp;#39; &amp;#39;\&amp;quot;$http_user_agent\&amp;quot; \&amp;quot;$http_x_forwarded_for\&amp;quot;&amp;#39;; access_log
     #off;
     ## FastCGI.
     include /etc/nginx/fastcgi.conf;
@@ -980,17 +975,17 @@ http {
     sendfile on;
 
     ## Handling of IPs in proxied and load balancing situations.
-    #set_real_ip_from 0.0.0.0/32; # all addresses get a real IP. real_ip_header X-Forwarded-For; # the ip is forwarded from the 
+    #set_real_ip_from 0.0.0.0/32; # all addresses get a real IP. real_ip_header X-Forwarded-For; # the ip is forwarded from the
     #load balancer/proxy
 
-    ## Define a zone for limiting the number of simultaneous connections nginx accepts. 1m means 32000 simultaneous sessions. 
-    ## We need to define for each server the limit_conn value refering to this or other zones. ** This syntax requires nginx 
-    ## version &amp;gt;= ** 1.1.8. Cf. http://nginx.org/en/CHANGES. If using an older ** version then use the limit_zone directive 
+    ## Define a zone for limiting the number of simultaneous connections nginx accepts. 1m means 32000 simultaneous sessions.
+    ## We need to define for each server the limit_conn value refering to this or other zones. ** This syntax requires nginx
+    ## version &amp;gt;= ** 1.1.8. Cf. http://nginx.org/en/CHANGES. If using an older ** version then use the limit_zone directive
     ## below ** instead. Comment out this ** one if not using nginx version &amp;gt;= 1.1.8.
     limit_conn_zone $binary_remote_addr zone=arbeit:10m;
 
-    ## Define a zone for limiting the number of simultaneous connections nginx accepts. 1m means 32000 simultaneous sessions. 
-    ## We need to define for each server the limit_conn value refering to this or other zones. ** Use this directive for nginx 
+    ## Define a zone for limiting the number of simultaneous connections nginx accepts. 1m means 32000 simultaneous sessions.
+    ## We need to define for each server the limit_conn value refering to this or other zones. ** Use this directive for nginx
     ## versions below 1.1.8. Uncomment the line below.
     #limit_zone arbeit $binary_remote_addr 10m;
 
@@ -1031,11 +1026,11 @@ http {
     ## Hide the Nginx version number.
     server_tokens off;
 
-    ## Use a SSL/TLS cache for SSL session resume. This needs to be here (in this context, for session resumption to work. See 
+    ## Use a SSL/TLS cache for SSL session resume. This needs to be here (in this context, for session resumption to work. See
     ## this thread on the Nginx mailing list: http://nginx.org/pipermail/nginx/2010-November/023736.html.
     #ssl_session_cache shared:SSL:10m; ssl_session_timeout 10m;
 
-    ## Enable clickjacking protection in modern browsers. Available in IE8 also. See 
+    ## Enable clickjacking protection in modern browsers. Available in IE8 also. See
     ## https://developer.mozilla.org/en/The_X-FRAME-OPTIONS_response_header
     add_header X-Frame-Options sameorigin;
 
@@ -1052,7 +1047,7 @@ http {
     ## Include all vhosts.
     include /etc/nginx/sites-enabled/*;
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;em&gt;Calm down. Es algo genérico y  funcionará con cualquier sitio.&lt;/em&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;em&gt;Calm down. Es algo genérico y funcionará con cualquier sitio.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Sólo debes asegurarte que el usuario que utilices sea el que realmente emplea tu servidor, en Archlinux es &lt;code&gt;http&lt;/code&gt;, otras distribuciones familia Debian como Ubuntu, utilizan &lt;code&gt;www-data&lt;/code&gt;.&lt;/p&gt;
 &lt;h2 id=&quot;hora-de-modular&quot;&gt;Hora de modular&lt;/h2&gt;
 &lt;p&gt;Ahora, creemos archivos de configuración para utilizarlos como módulos e incluirlos sólo en los sitios que queramos. Como por ejemplo para &lt;code&gt;php&lt;/code&gt;, controles de seguridad, manejo de archivos estáticos comúnes y el que necesites.&lt;/p&gt;
@@ -1060,19 +1055,19 @@ http {
 mkdir -p global
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Algunas restricciones para archivos comunes &lt;code&gt;/etc/nginx/global/drop.conf&lt;/code&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;# http://centminmod.com/nginx_configure_wordpress.html
-location = /robots.txt { access_log off; log_not_found off; } 
-location = /favicon.ico { access_log off; log_not_found off; expires 30d; } 
-location ~ /\.  { access_log off; log_not_found off; deny all; } 
+location = /robots.txt { access_log off; log_not_found off; }
+location = /favicon.ico { access_log off; log_not_found off; expires 30d; }
+location ~ /\.  { access_log off; log_not_found off; deny all; }
 location ~ ~$ { access_log off; log_not_found off; deny all; }
 location ~ /\.git { access_log off; log_not_found off; deny all; }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Algunos controles de seguridad &lt;code&gt;/etc/nginx/global/sec.conf&lt;/code&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;## http://centminmod.com/nginx_configure_wordpress.html
-# Deny access to any files with a .php extension in the uploads directory Works in sub-directory installs and also in multisite 
+# Deny access to any files with a .php extension in the uploads directory Works in sub-directory installs and also in multisite
 # network
 location ~* /(?:uploads|files)/.*\.php$ {
         deny all;
 }
-# Make sure files with the following extensions do not get loaded by nginx because nginx would display the source code, and 
+# Make sure files with the following extensions do not get loaded by nginx because nginx would display the source code, and
 # these files can contain PASSWORDS!
 location ~* \.(engine|inc|info|install|make|module|profile|test|po|sh|.*sql|theme|tpl(\.php)?|xtmpl)$|^(\..*|Entries.*|Repository|Root|Tag|Template)$|\.php_  {
     return 444;
@@ -1102,7 +1097,7 @@ location ~ \.php$ {
     <item>
       <title>Crear Menús Administrativos en Wordpress</title>
       <link>http://localhost:8080/articles/crear-menus-de-navegacion-administrativos-en-wordpress/</link>
-      <pubDate>Thu, 23 Jan 2014 15:00:00 -0500</pubDate>
+      <pubDate>Thu, 23 Jan 2014 15:00:00 +0100</pubDate>
       <guid isPermaLink="true">http://localhost:8080/articles/crear-menus-de-navegacion-administrativos-en-wordpress/</guid>
       <author></author>
       <description>&lt;p&gt;Se resume en:&lt;/p&gt;
@@ -1129,7 +1124,7 @@ add_action( &amp;#39;after_setup_theme&amp;#39;, &amp;#39;mi_tema_after_setup&am
     <item>
       <title>Welcome...</title>
       <link>http://localhost:8080/articles/hi-betch/</link>
-      <pubDate>Wed, 22 Jan 2014 15:00:00 -0500</pubDate>
+      <pubDate>Wed, 22 Jan 2014 15:00:00 +0100</pubDate>
       <guid isPermaLink="true">http://localhost:8080/articles/hi-betch/</guid>
       <author></author>
       <description>&lt;p class=&quot;text-center&quot;&gt;
