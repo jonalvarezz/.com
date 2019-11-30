@@ -16,7 +16,6 @@ html(lang='en')
       link(href=contents['favicon.ico'].url, rel="shortcut icon")
       link(rel='stylesheet', href=contents.css['main.css'].url)
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-      //- TODO: Add Facebook Meta tags
 
   body(class=bodyclass)
     div.wrap
@@ -24,7 +23,7 @@ html(lang='en')
 
     script.
       WebFontConfig = {
-        google: { families: [ 'Source+Sans+Pro:700,400:latin', 'Source+Serif+Pro:400,700:latin' ] }
+        google: { families: [ 'Merriweather:400,700:latin', 'Source+Sans+Pro:700' ] }
       };
       (function() {
         var wf = document.createElement('script');
