@@ -3,10 +3,7 @@ title: Replacing Redux with Context and Hooks
 author: jonalvarezz
 date: 2018-11-28 23:15
 template: article.jade
-thumb: noah-van-de-wetering-223984-unsplash.jpg
 ---
-
-<small>_Photo by [Noah van de Wetering ](https://unsplash.com/photos/bvDWbe0zI6Y) on [Unsplash](https://unsplash.com)_</small>
 
 > Heads up! Do not use this in production.
 
