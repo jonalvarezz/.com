@@ -6,7 +6,7 @@
     "start": "npm run dev",
     "dev": "gulp watch",
     "build": "gulp build",
-    "publish": "gulp deploy"
+    "deploy": "gulp deploy"
   },
   "dependencies": {
     "moment": "^2.20.1",
