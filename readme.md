@@ -6,10 +6,15 @@ Build with [wintersmith](https://github.com/jnordberg/wintersmith)
 
 1.  **Start developing.**
 
-    Navigate into your new site’s directory and start it up.
+    Install dependencies
 
     ```sh
     yarn
+    ```
+		
+    Start it up
+
+    ```sh
     yarn start
     ```
 		
