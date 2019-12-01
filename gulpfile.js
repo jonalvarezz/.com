@@ -6,8 +6,6 @@ const nib = require("nib");
 const through = require("through");
 const isDev = process.argv.indexOf("watch") !== -1;
 const wintersmith = require("run-wintersmith");
-const runSequence = require("run-sequence");
-
 const PORT = 8080;
 const baseDir = "./contents/";
 
@@ -42,7 +40,5 @@ function upload() {
 
 const deploy = series(build, upload);
 
-exports.styles = styles;
 exports.dev = dev;
 exports.build = build;
-exports.deploy = deploy;
