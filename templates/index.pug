@@ -21,11 +21,28 @@ block body
     div(class="default-wrap content")
       h2 Articles
       p I write about stuff I dont find easily in web for my further reference, maybe it is useful for someone else.
-      ul(class="article-list")
 
-        - var count = articles.length
-        each article in articles
-          li(data-count=count, class="article-item")
-            i= count
+      - var allArticles = env.helpers.getArticles(contents)
+      - var allArticlesLength = allArticles.length + 1
+      - var first10 = allArticles.slice(0, 10)
+
+      ul(class="article-list")
+        - var count = 0
+        each article in first10
+          - var position = allArticlesLength - count
+          li(data-count=(position), class="article-item")
+            i= position
             a(href=article.url)= article.title
-          - count--
+          - count += 1
+
+      div(class="see-more")
+        input(type="checkbox", id="see-all-articles")
+        label(for="see-all-articles") See all articles...
+        ul(class="article-list")
+          - var remainingArticles = allArticles.slice(first10.length - 1)
+          - count = remainingArticles.length
+          each article in remainingArticles
+            li(data-count=(count), class="article-item")
+              i= count
+              a(href=article.url)= article.title
+            - count -= 1

@@ -30,3 +30,18 @@
     margin-top 2.3rem
     padding-bottom .8rem
     a {color: grey; border-bottom: 0}
+
+.see-more
+  label
+    &:hover
+      color white
+      text-decoration underline
+  .article-list
+    margin-top 0
+    display: none
+  input
+    display none
+  input:checked ~ label
+    display none
+  input:checked ~ label ~ .article-list
+    display block
