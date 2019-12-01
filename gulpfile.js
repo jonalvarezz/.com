@@ -34,11 +34,5 @@ function dev() {
 
 const build = series(styles, html);
 
-function upload() {
-  return src("./build/**/*").pipe($.ghPages());
-}
-
-const deploy = series(build, upload);
-
 exports.dev = dev;
 exports.build = build;
