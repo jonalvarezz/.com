@@ -2,7 +2,7 @@
 title: Django Rest Framework Authentication with a custom Model User
 author: jonalvarezz
 date: 2015-7-7 10:54
-template: article.jade
+template: article.pug
 ---
 
 **Django Rest Framework** uses the Django user model by default. If you have a custom user model, you will get this error when trying to browse the API with a logged in user:
@@ -40,6 +40,7 @@ class ApiAuthentication(authentication.BaseAuthentication):
 The first line is the line what really matters; and note that our authentication class extends the Django Rest Framework default one: `BaseAuthentication`.
 
 Now, in your `settings.py` :
+
 ```python
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -51,4 +52,5 @@ REST_FRAMEWORK = {
 And that's all.
 
 ## More Info
-* [Authentication - Django Rest Framework Documentation](http://www.django-rest-framework.org/api-guide/authentication/)
+
+- [Authentication - Django Rest Framework Documentation](http://www.django-rest-framework.org/api-guide/authentication/)

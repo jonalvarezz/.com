@@ -2,7 +2,7 @@
 title: Ordenar strings numéricamente en Angular JS
 author: jonalvarezz
 date: 2014-10-26 23:37
-template: article.jade
+template: article.pug
 ---
 
 Utilizar el filtro `OrderBy` de **AngularJS** es bastante sencillo. Ordenará alfabéticamente las cadenas de texto y numéricamente los números.

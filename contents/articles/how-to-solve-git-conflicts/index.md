@@ -2,7 +2,7 @@
 title: How To Solve GIT Conflicts
 author: jonalvarezz
 date: 2016-8-7 13:30
-template: article.jade
+template: article.pug
 ---
 
 This is a quick guide that show you how to solve a GIT conflict manually using

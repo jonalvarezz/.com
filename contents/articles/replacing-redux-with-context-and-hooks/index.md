@@ -2,7 +2,7 @@
 title: Replacing Redux with Context and Hooks
 author: jonalvarezz
 date: 2018-11-28 23:15
-template: article.jade
+template: article.pug
 ---
 
 > Heads up! Do not use this in production.

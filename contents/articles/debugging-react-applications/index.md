@@ -2,7 +2,7 @@
 title: Debugging React Applications
 author: jonalvarezz
 date: 2018-2-19 23:08
-template: article.jade
+template: article.pug
 ---
 
 > Debugging a React application might be very confusing.

@@ -2,7 +2,7 @@
 title: Configurar y gestionar sitios en Nginx I
 author: jonalvarezz
 date: 2014-01-24 16:00
-template: article.jade
+template: article.pug
 ---
 
 _¿Así que quieres/debes abandonar tu querido servidor Apache con CPanel, te pasas a Nginx y no sabes cómo empezar?_

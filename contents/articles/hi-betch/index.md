@@ -2,7 +2,7 @@
 title: Welcome...
 author: jonalvarezz
 date: 2014-1-22 15:00
-template: article.jade
+template: article.pug
 ---
 
 <p class="text-center">

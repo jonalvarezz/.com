@@ -2,7 +2,7 @@
 title: Solución Wordpress pide datos FTP para los plugins
 author: jonalvarezz
 date: 2014-2-26 23:45
-template: article.jade
+template: article.pug
 ---
 
 Algunas veces, luego de instalar Wordpress, nos encontraremos que al acceder a nuestros plugins, bien sea para eliminar o instalar uno nuevo, Wordpress nos pide información de conexión relacionada a nuestro FTP.

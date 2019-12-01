@@ -2,7 +2,7 @@
 title: Features your editor must have for web development
 author: jonalvarezz
 date: 2018-6-16 11:05
-template: article.jade
+template: article.pug
 ---
 
 > In my years of experience, I have found some features I am always looking for when I'm using an Editor. Features which allows me to write faster and better code.

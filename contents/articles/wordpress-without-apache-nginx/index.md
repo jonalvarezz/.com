@@ -2,7 +2,7 @@
 title: Install WordPress without Apache nor Nginx
 author: jonalvarezz
 date: 2018-11-10 20:21
-template: article.jade
+template: article.pug
 ---
 
 This is a way to get your WordPress site running in a breeze with no need to install a server like Apache or Nginx.

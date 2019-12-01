@@ -2,7 +2,7 @@
 title: Crear Menús Administrativos en Wordpress
 author: jonalvarezz
 date: 2014-1-23 15:00
-template: article.jade
+template: article.pug
 ---
 
 Se resume en:

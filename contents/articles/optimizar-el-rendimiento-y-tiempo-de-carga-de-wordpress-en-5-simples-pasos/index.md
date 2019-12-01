@@ -2,7 +2,7 @@
 title: Optimizar el Rendimiento y Tiempo de Carga de Wordpress en 7 pasos
 author: jonalvarezz
 date: 2014-1-29 14:10
-template: article.jade
+template: article.pug
 ---
 
 Esta es una forma muy sencilla de optimizar el rendimiento y tiempo de carga de cualquier instalación de wordpress. Son 6 simples pasos y se puede lograr un aumento hasta del 30%.

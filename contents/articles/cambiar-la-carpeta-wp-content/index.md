@@ -2,7 +2,7 @@
 title: Cómo cambiar la carpeta wp-content en Wordpress
 author: jonalvarezz
 date: 2014-11-3 13:44
-template: article.jade
+template: article.pug
 ---
 
 Una buena forma de personalizar aún más nuestro Wordpress es cambiar la carpeta `wp-content` por otra que elijamos.
@@ -17,23 +17,23 @@ Pueden utilizar los nombres que quieran. Yo utilizaré la siguiente estructura
 
 Para hacerlo, modificaremos el archivo `wp-config.php`, pueden agregar esto al final.
 
-	/**
-	 * Changing Wordpress default directories
-	 *
-	 */
-	define ('WP_CONTENT_FOLDERNAME', 'assets');
-	define ('WP_CONTENT_DIR', ABSPATH . WP_CONTENT_FOLDERNAME);
+    /**
+     * Changing Wordpress default directories
+     *
+     */
+    define ('WP_CONTENT_FOLDERNAME', 'assets');
+    define ('WP_CONTENT_DIR', ABSPATH . WP_CONTENT_FOLDERNAME);
 
-	define('WP_SITEURL', 'http://sitioWordpress/');
-	define('WP_CONTENT_URL', WP_SITEURL . WP_CONTENT_FOLDERNAME);
+    define('WP_SITEURL', 'http://sitioWordpress/');
+    define('WP_CONTENT_URL', WP_SITEURL . WP_CONTENT_FOLDERNAME);
 
-	define ('WP_PLUGIN_FOLDERNAME', 'scripts');
-	define( 'WP_PLUGIN_DIR', WP_CONTENT_DIR . '/' . WP_PLUGIN_FOLDERNAME );
-	define( 'WP_PLUGIN_URL', WP_CONTENT_URL . '/' . WP_PLUGIN_FOLDERNAME );
+    define ('WP_PLUGIN_FOLDERNAME', 'scripts');
+    define( 'WP_PLUGIN_DIR', WP_CONTENT_DIR . '/' . WP_PLUGIN_FOLDERNAME );
+    define( 'WP_PLUGIN_URL', WP_CONTENT_URL . '/' . WP_PLUGIN_FOLDERNAME );
 
-	define( 'UPLOADS', 'assets/media' );
+    define( 'UPLOADS', 'assets/media' );
 
-Nótese que la URL del sitio debe *hardcodearse* en `WP_SITEURL` para que los plugins funcionen adecuadamente. 
+Nótese que la URL del sitio debe _hardcodearse_ en `WP_SITEURL` para que los plugins funcionen adecuadamente.
 
 Lo que resta por hacer es que cambies el nombre de las carpetas `wp-content`, `plugins` y `uploads` por los nuevos nombres que definiste.
 

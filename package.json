@@ -2,8 +2,9 @@
   "name": "jonalvarezz.com",
   "author": "@jonalvarezz",
   "engines": {
-    "node": "~8.16.0"
+    "node": "~10.17.0"
   },
+  "version": "0.1.0",
   "scripts": {
     "start": "npm run dev",
     "dev": "gulp dev",

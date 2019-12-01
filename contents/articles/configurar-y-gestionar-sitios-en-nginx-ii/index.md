@@ -2,7 +2,7 @@
 title: Configurar  y gestionar sitios en Nginx II
 author: jonalvarezz
 date: 2014-01-24 16:04
-template: article.jade
+template: article.pug
 ---
 
 Continuando, y ahora que tenemos nuestra [configuración global para Nginx](http://blog.jonalvarezz.com/configurar-y-gestionar-sitios-en-nginx/), veremos cómo administrar nuestros sitios.

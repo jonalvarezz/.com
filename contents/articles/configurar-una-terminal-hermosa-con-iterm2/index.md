@@ -2,7 +2,7 @@
 title: Configurar una terminal hermosa con iTerm 2 en MAC OS X
 author: jonalvarezz
 date: 2014-10-17 13:15
-template: article.jade
+template: article.pug
 ---
 
 <iframe width="760" height="428" src="//www.youtube.com/embed/v1S5J39-93I?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
@@ -23,9 +23,9 @@ Abrir iTerm2 y entrar a su configuración `⌘` + `,`
 
 1\. En la pestaña de **General**, desactivar **Confirm closing multiple sessions** y **Confirm "Quit iTerm2 (Cmd+Q)" command**
 
-2\. Crear un nuevo perfil desde la pestaña de **Profiles** presionando el ícono `+` (abajo) y seleccionenlo como perfil por defecto en **Other Actions... > Set as Default** 
+2\. Crear un nuevo perfil desde la pestaña de **Profiles** presionando el ícono `+` (abajo) y seleccionenlo como perfil por defecto en **Other Actions... > Set as Default**
 
-3\. *(Esto no aparece en el video)* Allí mismo, en la pestaña **General** (derecha) activar **Reuse previous session's directory**. Esto es para que al abrir una nueva pestaña/ventana de la terminal se sitúe por defecto en el directorio en el cual se esta trabajando.
+3\. _(Esto no aparece en el video)_ Allí mismo, en la pestaña **General** (derecha) activar **Reuse previous session's directory**. Esto es para que al abrir una nueva pestaña/ventana de la terminal se sitúe por defecto en el directorio en el cual se esta trabajando.
 
 4\. En la pestaña **Window** cambien el tamaño por defecto de la terminal. Un tamaño de 127x35 es promedio, aunque utilizo 140x26.
 
@@ -41,19 +41,19 @@ Si no tienes nada que perder en estos archivos, o no existían, que es lo más s
 
 La forma resumida es:
 
-	$ cd ~
-	$ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.bash_profile
-	$ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.bash_prompt
-	$ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.aliases
+    $ cd ~
+    $ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.bash_profile
+    $ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.bash_prompt
+    $ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.aliases
 
 Lo que hace eso es situarse en tu carpeta de usuario y descargar los archivos de configuración para el `bash_profile`, `bash_prompt` y `aliases`
 
 Otro archivo opcional es tener más colores al usar Git.
 
-	$ cd ~
-	$ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gitconfig
+    $ cd ~
+    $ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gitconfig
 
-*Todos estos archivos hacen parte de [Nicolas Henry](https://github.com/nicolashery). Pueden encontrar más tweaks para configurar su MAC en su repositorio [mac-dev-setup](https://github.com/nicolashery/mac-dev-setup). Aunque realmente lo más interesante es esto para iTerm. No vayan a instalar Homebrew por amor a Batman.*
+_Todos estos archivos hacen parte de [Nicolas Henry](https://github.com/nicolashery). Pueden encontrar más tweaks para configurar su MAC en su repositorio [mac-dev-setup](https://github.com/nicolashery/mac-dev-setup). Aunque realmente lo más interesante es esto para iTerm. No vayan a instalar Homebrew por amor a Batman._
 
 Con esto su terminal lucirá algo como:
 
@@ -70,5 +70,4 @@ En particular, estas son las fuentes que más me gustan.
 3\. [Droid Sans Mono](http://www.google.com/fonts/specimen/Droid+Sans+Mono)
 4\. En su defecto, Consolas. Viene con Windows.
 
-¿Conoces algún otro *tweak* hermoso?
-
+¿Conoces algún otro _tweak_ hermoso?
