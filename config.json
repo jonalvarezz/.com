@@ -3,7 +3,7 @@
     "url": "http://localhost:8080",
     "name": "Jonathan Álvarez González",
     "owner": "jonalvarezz",
-    "description": "Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development"
+    "description": "Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and thoughts about web development"
   },
   "plugins": ["./plugins/paginator.coffee"],
   "require": {
