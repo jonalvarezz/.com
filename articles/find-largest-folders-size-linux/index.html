@@ -1,82 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Find largest folders size in GNU/Linux - Jonathan Álvarez González
-    </title>
-    <meta name="description" content="Web Developer highly specialized in frontend Techologies, JavaScript applications, CSS and React. Design enthusiast.">
-    <link rel="alternate" href="http://localhost:8080/feed.xml" type="application/rss+xml" title="Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development">
-    <link href="/favicon.ico" rel="shortcut icon">
-    <link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  </head>
-  <body class="article">
-    <div class="wrap">
-      <article class="content">
-        <header class="article-header default-wrap">
-          <div class="article-inner">
-            <nav class="article-author"><a href="/" title="Go home">Jonathan Alvarez</a></nav>
-            <h1 class="article-title">Find largest folders size in GNU/Linux</h1>
-            <div class="article-meta"><span>August 6th 2016</span></div>
-          </div>
-        </header>
-        <section class="article-content default-wrap"><p>You can see your disk available space using `df in your<span class="widont">&nbsp;</span>console:</p>
-<pre><code>df -h
-</code></pre><p>Sample output:</p>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Find largest folders size in GNU/Linux - Jonathan Álvarez González</title><meta name="description" content="Web Developer highly specialized in frontend Techologies, JavaScript applications, CSS and React. Design enthusiast."><link rel="alternate" href="http://localhost:8080/feed.xml" type="application/rss+xml" title="Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development"><link href="/favicon.ico" rel="shortcut icon"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"></head><body class="article"><div class="wrap"><article class="content"><header class="article-header default-wrap"><div class="article-inner"><nav class="article-author"><a href="/" title="Go home">Jonathan Alvarez</a></nav><h1 class="article-title">Find largest folders size in GNU/Linux</h1><div class="article-meta"><span>August 6th 2016</span></div></div></header><section class="article-content default-wrap"><p>You can see your disk available space using `df in your<span class="widont">&nbsp;</span>console:</p>
+<pre><code>df -h</code></pre><p>Sample output:</p>
 <pre><code>Filesystem      Size  Used Avail Use% Mounted on
 /dev/vda1        30G  29.9G   25G  99% /
 dev             492M     0  492M   0% /dev
 run             500M  212K  500M   1% /run
 tmpfs           500M     0  500M   0% /dev/shm
-tmpfs           500M     0  500M   0% /sys/fs/cgroup
-</code></pre><p>To find the folder and files with largest size you can use <code>du</code></p>
+tmpfs           500M     0  500M   0% /sys/fs/cgroup</code></pre><p>To find the folder and files with largest size you can use <code>du</code></p>
 <pre><code># cd /
-# du -hsx * | sort -rh | head -10
-</code></pre><p>This will output the top 10 folders with larger size. Now on you can use <code>cd</code>
+# du -hsx * | sort -rh | head -10</code></pre><p>This will output the top 10 folders with larger size. Now on you can use <code>cd</code>
 to get into each folder and excecute <code>du</code> again and going deeper to find the
 folders and files which are occupying your disk<span class="widont">&nbsp;</span>space.</p>
 <p>Generally you will land into <code>/var/log/</code>. If so, you can delete that files
 safely just make sure you dont delete folders. I use to delete the log file and
 create a empty new one because some programms may asume the file exist.<span class="widont">&nbsp;</span>i.e.</p>
 <pre><code># rm unnecesarry-and-large-file.log
-# touch unnecesarry-and-large-file.log
-</code></pre><p>make sure to also restore the same file permissions, user and<span class="widont">&nbsp;</span>group.</p>
-<p>Btw, if you find <code>mysql</code> had very large files named like <code>mysql-bin.***</code> Its 
+# touch unnecesarry-and-large-file.log</code></pre><p>make sure to also restore the same file permissions, user and<span class="widont">&nbsp;</span>group.</p>
+<p>Btw, if you find <code>mysql</code> had very large files named like <code>mysql-bin.***</code> Its
 safer to use mysql purge<span class="widont">&nbsp;</span>feature:</p>
-<pre><code>$ mysql -u root -p 
-&gt; PURGE BINARY LOGS BEFORE &#39;2016-08-01&#39;;
-</code></pre></section>
-        <aside class="article-share text-center default-wrap">
-          <hr><a href="https://twitter.com/share?text=Find%20largest%20folders%20size%20in%20GNU/Linux by @jonalvarezz&amp;url=" title="Share on Twitter" onclick="this.href+=window.location.href; window.open(this.href, 'twitter-share', 'width=550,height=330');return false;"><i class="fa fa-twitter"></i></a><a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook" onclick="this.href+=window.location.href; window.open(this.href, 'facebook-share', 'width=580,height=330');return false;"><i class="fa fa-facebook"></i></a>
-        </aside>
-        <footer class="footer-article">
-          <div class="default-wrap">
-            <nav class="article-pagination grid grid--vertical-align">
-              <div class="prev grid-item grid-item--half text-left">
-                <div><small>PREV</small></div><a href="/articles/how-to-solve-git-conflicts/">How To Solve GIT Conflicts</a>
-              </div>
-              <div class="next grid-item grid-item--half text-right">
-                <div><small>NEXT</small></div><a href="/articles/django-rest-framework-authentication-with-a-custom-model-user/">Django Rest Framework Authentication with a custom Model User</a>
-              </div>
-            </nav>
-            <div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ALVAREZ</a></small></div>
-          </div>
-        </footer>
-      </article>
-    </div>
-    <script>
-      WebFontConfig = {
-        google: { families: [ 'Merriweather:400,900:latin', 'Source+Sans+Pro:700' ] }
-      };
-      (function() {
-        var wf = document.createElement('script');
-        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-        wf.type = 'text/javascript';
-        wf.async = 'true';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(wf, s);
-      })()
-    </script>
-  </body>
-</html>
+<pre><code>$ mysql -u root -p
+&gt; PURGE BINARY LOGS BEFORE &#39;2016-08-01&#39;;</code></pre></section><aside class="article-share text-center default-wrap"><hr><a href="https://twitter.com/share?text=Find%20largest%20folders%20size%20in%20GNU/Linux by @jonalvarezz&amp;url=" title="Share on Twitter" onclick="this.href+=window.location.href; window.open(this.href, 'twitter-share', 'width=550,height=330');return false;"><i class="fa fa-twitter"></i></a><a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook" onclick="this.href+=window.location.href; window.open(this.href, 'facebook-share', 'width=580,height=330');return false;"><i class="fa fa-facebook"></i></a></aside><footer class="footer-article"><div class="default-wrap"><nav class="article-pagination grid grid--vertical-align"><div class="prev grid-item grid-item--half text-left"><div><small>PREV</small></div><a href="/articles/how-to-solve-git-conflicts/">How To Solve GIT Conflicts</a></div><div class="next grid-item grid-item--half text-right"><div><small>NEXT</small></div><a href="/articles/django-rest-framework-authentication-with-a-custom-model-user/">Django Rest Framework Authentication with a custom Model User</a></div></nav><div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ALVAREZ</a></small></div></div></footer></article></div><script>WebFontConfig = {
+  google: { families: [ 'Merriweather:400,900:latin', 'Source+Sans+Pro:700' ] }
+};
+(function() {
+  var wf = document.createElement('script');
+  wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+  wf.type = 'text/javascript';
+  wf.async = 'true';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(wf, s);
+})()</script></body></html>

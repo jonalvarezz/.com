@@ -1,82 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Abrir una carpeta o archivo en Sublime Text desde la Terminal - Jonathan Álvarez González
-    </title>
-    <meta name="description" content="Web Developer highly specialized in frontend Techologies, JavaScript applications, CSS and React. Design enthusiast.">
-    <link rel="alternate" href="http://localhost:8080/feed.xml" type="application/rss+xml" title="Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development">
-    <link href="/favicon.ico" rel="shortcut icon">
-    <link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  </head>
-  <body class="article">
-    <div class="wrap">
-      <article class="content">
-        <header class="article-header default-wrap">
-          <div class="article-inner">
-            <nav class="article-author"><a href="/" title="Go home">Jonathan Alvarez</a></nav>
-            <h1 class="article-title">Abrir una carpeta o archivo en Sublime Text desde la Terminal</h1>
-            <div class="article-meta"><span>December 8th 2014</span></div>
-          </div>
-        </header>
-        <section class="article-content default-wrap"><p>Si eres desarrollador, poder abrir cualquier archivo o carpeta entera en Sublime Text mientras se esta trabajando en la terminal sin duda es algo que no puede faltar si quieres ahorrarte algunos segundos y clicks<span class="widont">&nbsp;</span>extras.</p>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Abrir una carpeta o archivo en Sublime Text desde la Terminal - Jonathan Álvarez González</title><meta name="description" content="Web Developer highly specialized in frontend Techologies, JavaScript applications, CSS and React. Design enthusiast."><link rel="alternate" href="http://localhost:8080/feed.xml" type="application/rss+xml" title="Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development"><link href="/favicon.ico" rel="shortcut icon"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"></head><body class="article"><div class="wrap"><article class="content"><header class="article-header default-wrap"><div class="article-inner"><nav class="article-author"><a href="/" title="Go home">Jonathan Alvarez</a></nav><h1 class="article-title">Abrir una carpeta o archivo en Sublime Text desde la Terminal</h1><div class="article-meta"><span>December 8th 2014</span></div></div></header><section class="article-content default-wrap"><p>Si eres desarrollador, poder abrir cualquier archivo o carpeta entera en Sublime Text mientras se esta trabajando en la terminal sin duda es algo que no puede faltar si quieres ahorrarte algunos segundos y clicks<span class="widont">&nbsp;</span>extras.</p>
 <iframe width="760" height="428" src="//www.youtube.com/embed/P1WW3wTU4WY?controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-
 
 <p>Los pasos para hacerlo<span class="widont">&nbsp;</span>son:</p>
 <p>1. Crear un enlace simbólico de la aplicación de Sublime Text en <code>/usr/local/bin/</code></p>
-<pre><code># ln -s /Applications/Sublime Text.app/Contents/SharedSupport/bin/subl usr/local/bin/subl
-</code></pre><p>Pueden crear el enlace con cualquier nombre. Prefiero <code>subl</code> porque es mas<span class="widont">&nbsp;</span>corto.</p>
+<pre><code># ln -s /Applications/Sublime Text.app/Contents/SharedSupport/bin/subl usr/local/bin/subl</code></pre><p>Pueden crear el enlace con cualquier nombre. Prefiero <code>subl</code> porque es mas<span class="widont">&nbsp;</span>corto.</p>
 <p>2. Asegurarse de que <code>/usr/local/bin</code> se encuentre en nuestro <code>$PATH</code>, pueden revisarlo abriendo el archivo <code>~/.bash_profile</code> o bien revisando la salida de esa<span class="widont">&nbsp;</span>variable:</p>
-<pre><code>$PATH
-</code></pre><p>En caso que la salida de que la ruta no este incluida la agregan al archivo <code>~/.bash_profile</code> </p>
+<pre><code>$PATH</code></pre><p>En caso que la salida de que la ruta no este incluida la agregan al archivo <code>~/.bash_profile</code></p>
 <p>3. Cargar el archivo bash nuevamente. También pueden cerrar por completo la terminal y abrirla de nuevo para retomar los<span class="widont">&nbsp;</span>cambios.</p>
-<pre><code>$ source ~/.bash_profile
-</code></pre><h2 id="modo-de-uso">Modo de uso</h2>
+<pre><code>$ source ~/.bash_profile</code></pre><h2 id="modo-de-uso">Modo de uso</h2>
 <p>Podemos <strong>abrir archivos o carpetas completas desde la terminal en Sublime Text</strong>:</p>
 <ul>
 <li><p>Para abrir archivos en<span class="widont">&nbsp;</span>específico</p>
-<pre><code>  $ subl nombre_del_archivo
-</code></pre></li>
+<pre><code>        $ subl nombre_del_archivo</code></pre></li>
 <li><p>Para abrir carpetas<span class="widont">&nbsp;</span>completas</p>
-<pre><code>  $ subl /ruta/de/la/carpeta/
-</code></pre></li>
+<pre><code>        $ subl /ruta/de/la/carpeta/</code></pre></li>
 </ul>
 <p>O bien si nos encontramos en la carpeta de nuestro interés, basta con reemplazar la ruta con un<span class="widont">&nbsp;</span>punto</p>
-<pre><code>$ subl .
-</code></pre></section>
-        <aside class="article-share text-center default-wrap">
-          <hr><a href="https://twitter.com/share?text=Abrir%20una%20carpeta%20o%20archivo%20en%20Sublime%20Text%20desde%20la%20Terminal by @jonalvarezz&amp;url=" title="Share on Twitter" onclick="this.href+=window.location.href; window.open(this.href, 'twitter-share', 'width=550,height=330');return false;"><i class="fa fa-twitter"></i></a><a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook" onclick="this.href+=window.location.href; window.open(this.href, 'facebook-share', 'width=580,height=330');return false;"><i class="fa fa-facebook"></i></a>
-        </aside>
-        <footer class="footer-article">
-          <div class="default-wrap">
-            <nav class="article-pagination grid grid--vertical-align">
-              <div class="prev grid-item grid-item--half text-left">
-                <div><small>PREV</small></div><a href="/articles/javascript-lo-basico/">Javascript, lo básico</a>
-              </div>
-              <div class="next grid-item grid-item--half text-right">
-                <div><small>NEXT</small></div><a href="/articles/error-404-en-wordpress-al-utilizar-query-vars-get/">Error 404 en Wordpress al utilizar query vars (GET)</a>
-              </div>
-            </nav>
-            <div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ALVAREZ</a></small></div>
-          </div>
-        </footer>
-      </article>
-    </div>
-    <script>
-      WebFontConfig = {
-        google: { families: [ 'Merriweather:400,900:latin', 'Source+Sans+Pro:700' ] }
-      };
-      (function() {
-        var wf = document.createElement('script');
-        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-        wf.type = 'text/javascript';
-        wf.async = 'true';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(wf, s);
-      })()
-    </script>
-  </body>
-</html>
+<pre><code>$ subl .</code></pre></section><aside class="article-share text-center default-wrap"><hr><a href="https://twitter.com/share?text=Abrir%20una%20carpeta%20o%20archivo%20en%20Sublime%20Text%20desde%20la%20Terminal by @jonalvarezz&amp;url=" title="Share on Twitter" onclick="this.href+=window.location.href; window.open(this.href, 'twitter-share', 'width=550,height=330');return false;"><i class="fa fa-twitter"></i></a><a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook" onclick="this.href+=window.location.href; window.open(this.href, 'facebook-share', 'width=580,height=330');return false;"><i class="fa fa-facebook"></i></a></aside><footer class="footer-article"><div class="default-wrap"><nav class="article-pagination grid grid--vertical-align"><div class="prev grid-item grid-item--half text-left"><div><small>PREV</small></div><a href="/articles/javascript-lo-basico/">Javascript, lo básico</a></div><div class="next grid-item grid-item--half text-right"><div><small>NEXT</small></div><a href="/articles/error-404-en-wordpress-al-utilizar-query-vars-get/">Error 404 en Wordpress al utilizar query vars (GET)</a></div></nav><div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ALVAREZ</a></small></div></div></footer></article></div><script>WebFontConfig = {
+  google: { families: [ 'Merriweather:400,900:latin', 'Source+Sans+Pro:700' ] }
+};
+(function() {
+  var wf = document.createElement('script');
+  wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+  wf.type = 'text/javascript';
+  wf.async = 'true';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(wf, s);
+})()</script></body></html>

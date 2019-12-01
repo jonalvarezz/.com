@@ -1,27 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Optimizar el Rendimiento y Tiempo de Carga de Wordpress en 7 pasos - Jonathan Álvarez González
-    </title>
-    <meta name="description" content="Web Developer highly specialized in frontend Techologies, JavaScript applications, CSS and React. Design enthusiast.">
-    <link rel="alternate" href="http://localhost:8080/feed.xml" type="application/rss+xml" title="Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development">
-    <link href="/favicon.ico" rel="shortcut icon">
-    <link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  </head>
-  <body class="article">
-    <div class="wrap">
-      <article class="content">
-        <header class="article-header default-wrap">
-          <div class="article-inner">
-            <nav class="article-author"><a href="/" title="Go home">Jonathan Alvarez</a></nav>
-            <h1 class="article-title">Optimizar el Rendimiento y Tiempo de Carga de Wordpress en 7 pasos</h1>
-            <div class="article-meta"><span>January 29th 2014</span></div>
-          </div>
-        </header>
-        <section class="article-content default-wrap"><p>Esta es una forma muy sencilla de optimizar el rendimiento y tiempo de carga de cualquier instalación de wordpress. Son 6 simples pasos y se puede lograr un aumento hasta del<span class="widont">&nbsp;</span>30%.</p>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Optimizar el Rendimiento y Tiempo de Carga de Wordpress en 7 pasos - Jonathan Álvarez González</title><meta name="description" content="Web Developer highly specialized in frontend Techologies, JavaScript applications, CSS and React. Design enthusiast."><link rel="alternate" href="http://localhost:8080/feed.xml" type="application/rss+xml" title="Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development"><link href="/favicon.ico" rel="shortcut icon"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"></head><body class="article"><div class="wrap"><article class="content"><header class="article-header default-wrap"><div class="article-inner"><nav class="article-author"><a href="/" title="Go home">Jonathan Alvarez</a></nav><h1 class="article-title">Optimizar el Rendimiento y Tiempo de Carga de Wordpress en 7 pasos</h1><div class="article-meta"><span>January 29th 2014</span></div></div></header><section class="article-content default-wrap"><p>Esta es una forma muy sencilla de optimizar el rendimiento y tiempo de carga de cualquier instalación de wordpress. Son 6 simples pasos y se puede lograr un aumento hasta del<span class="widont">&nbsp;</span>30%.</p>
 <blockquote>
 <p>Antes y despues de realizar estos pasos, mide tu sitio para saber cuánto ha mejorado. Recomiendo hacerlo desde <a href="http://gtmetrix.com">Gtmetrix</a> y <a href="http://tools.pingdom.com/fpt">Pingdoom<span class="widont">&nbsp;</span>Tools</a></p>
 </blockquote>
@@ -71,9 +48,8 @@
 
     ## END wordpress optimization
 
-    Guardan, e ingresan al sitio para comprobar que cargue sin problemas.
-</code></pre><h2 id="2-utilizar-plugin-photon-">2. Utilizar plugin<span class="widont">&nbsp;</span>Photon.</h2>
-<p>Photon es una extensión del plugin de <a href="http://jetpack.me">Jetpack</a> y lo que hace es funcionar como un <abbr title=\"Content Delivery Network\"><span class="caps">CDN</span></abbr> sirviendo las imágenes de nuestro sitio por nosotros, acelerando así la carga del sitio y menor consumo de ancho de<span class="widont">&nbsp;</span>banda.</p>
+    Guardan, e ingresan al sitio para comprobar que cargue sin problemas.</code></pre><h2 id="2-utilizar-plugin-photon-">2. Utilizar plugin<span class="widont">&nbsp;</span>Photon.</h2>
+<p>Photon es una extensión del plugin de <a href="http://jetpack.me">Jetpack</a> y lo que hace es funcionar como un &lt;abbr title=&#8221;Content Delivery Network&#8221;&gt;<span class="caps">CDN</span></abbr> sirviendo las imágenes de nuestro sitio por nosotros, acelerando así la carga del sitio y menor consumo de ancho de<span class="widont">&nbsp;</span>banda.</p>
 <p><img src="/articles/optimizar-el-rendimiento-y-tiempo-de-carga-de-wordpress-en-5-simples-pasos/jetpack_modules.png" alt="módulos Jetpack"></p>
 <p><a href="http://wordpress.org/plugins/jetpack/">Descargar Jetpack</a></p>
 <p>Aunque tenga sus detractores, por temas de <span class="caps">SEO</span> en imágenes, ciertamente mejora el mucho rendimiento. Aprovechando que estas en la configuración de Jetpack, deshabilita todo lo que no necesitas y<span class="widont">&nbsp;</span>desconozcas.</p>
@@ -96,8 +72,7 @@
                 wp_enqueue_script(&#39;jquery&#39;);
                 }
          }
-    add_action(&#39;init&#39;, &#39;jquery_cdn&#39;);
-</code></pre><p><a href="https://developers.google.com/speed/libraries/devguide#jquery">Pueden cambiar la versión de jQuery por la que<span class="widont">&nbsp;</span>deseen.</a></p>
+    add_action(&#39;init&#39;, &#39;jquery_cdn&#39;);</code></pre><p><a href="https://developers.google.com/speed/libraries/devguide#jquery">Pueden cambiar la versión de jQuery por la que<span class="widont">&nbsp;</span>deseen.</a></p>
 <h2 id="5-mover-los-archivos-js-al-footer-">5. Mover los archivos <code>js</code> al footer.</h2>
 <p><em>Esto puede causar comportamientos inesperados o romper el funcionamiento de algunos<span class="widont">&nbsp;</span>plugins.</em></p>
 <p>El script es:</p>
@@ -106,10 +81,8 @@
      remove_action(&#39;wp_head&#39;, &#39;wp_enqueue_scripts&#39;, 1);
      add_action(&#39;wp_footer&#39;, &#39;wp_print_scripts&#39;, 5);
      add_action(&#39;wp_footer&#39;, &#39;wp_enqueue_scripts&#39;, 5);
-     add_action(&#39;wp_footer&#39;, &#39;wp_print_head_scripts&#39;, 5);
-</code></pre><p>De nuevo, esto puede romper el funcionamiento de algunos plugins, y deberás regisrar todos los plugins de tu tema en el footer. Por<span class="widont">&nbsp;</span>ejemplo:</p>
-<pre><code>wp_enqueue_script( &#39;miPlugin&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, true );
-</code></pre><p><em>El <code>true</code> al final indica que se debe cargar en el<span class="widont">&nbsp;</span>footer.</em></p>
+     add_action(&#39;wp_footer&#39;, &#39;wp_print_head_scripts&#39;, 5);</code></pre><p>De nuevo, esto puede romper el funcionamiento de algunos plugins, y deberás regisrar todos los plugins de tu tema en el footer. Por<span class="widont">&nbsp;</span>ejemplo:</p>
+<pre><code>wp_enqueue_script( &#39;miPlugin&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, true );</code></pre><p><em>El <code>true</code> al final indica que se debe cargar en el<span class="widont">&nbsp;</span>footer.</em></p>
 <p>Hagan bien sus pruebas y atentos a los errores en ejecución de<span class="widont">&nbsp;</span>Javascript.</p>
 <h2 id="6-eliminar-query-strings-de-archivos-est-ticos">6. Eliminar Query Strings de archivos<span class="widont">&nbsp;</span>estáticos</h2>
 <p>Si? lo han visto? <code>http//misitio.com/wp-content/themes/mitema/js/archivo.js?ver=2.4.1</code></p>
@@ -120,42 +93,18 @@
     return $parts[0];
 }
 add_filter( &#39;script_loader_src&#39;, &#39;remove_query_script&#39;, 15, 1 );
-add_filter( &#39;style_loader_src&#39;, &#39;remove_query_script&#39;, 15, 1 );
-</code></pre><p>Tendrás conflictos si necesitas de alguna query string, como por ejemplo Google Webfonts o la <span class="caps">API</span> de Google Maps, pero con otra linea de más en el script controlas la<span class="widont">&nbsp;</span>excepción.</p>
+add_filter( &#39;style_loader_src&#39;, &#39;remove_query_script&#39;, 15, 1 );</code></pre><p>Tendrás conflictos si necesitas de alguna query string, como por ejemplo Google Webfonts o la <span class="caps">API</span> de Google Maps, pero con otra linea de más en el script controlas la<span class="widont">&nbsp;</span>excepción.</p>
 <h2 id="7-comparte-tus-resultados">7. Comparte tus<span class="widont">&nbsp;</span>resultados</h2>
 <p>Este es uno de los<span class="widont">&nbsp;</span>mios:</p>
 <p><img src="/articles/optimizar-el-rendimiento-y-tiempo-de-carga-de-wordpress-en-5-simples-pasos/gtmetrix_report_boost_wordpress.png" alt="Reporte optimización Wordpress 6 pasos jonalvarezz.com"></p>
-</section>
-        <aside class="article-share text-center default-wrap">
-          <hr><a href="https://twitter.com/share?text=Optimizar%20el%20Rendimiento%20y%20Tiempo%20de%20Carga%20de%20Wordpress%20en%207%20pasos by @jonalvarezz&amp;url=" title="Share on Twitter" onclick="this.href+=window.location.href; window.open(this.href, 'twitter-share', 'width=550,height=330');return false;"><i class="fa fa-twitter"></i></a><a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook" onclick="this.href+=window.location.href; window.open(this.href, 'facebook-share', 'width=580,height=330');return false;"><i class="fa fa-facebook"></i></a>
-        </aside>
-        <footer class="footer-article">
-          <div class="default-wrap">
-            <nav class="article-pagination grid grid--vertical-align">
-              <div class="prev grid-item grid-item--half text-left">
-                <div><small>PREV</small></div><a href="/articles/utplus/">UTPlus - Mejorando la forma en que ingresas al portal estudiantil UTPereira</a>
-              </div>
-              <div class="next grid-item grid-item--half text-right">
-                <div><small>NEXT</small></div><a href="/articles/configurar-y-gestionar-sitios-en-nginx-ii/">Configurar  y gestionar sitios en Nginx II</a>
-              </div>
-            </nav>
-            <div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ALVAREZ</a></small></div>
-          </div>
-        </footer>
-      </article>
-    </div>
-    <script>
-      WebFontConfig = {
-        google: { families: [ 'Merriweather:400,900:latin', 'Source+Sans+Pro:700' ] }
-      };
-      (function() {
-        var wf = document.createElement('script');
-        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-        wf.type = 'text/javascript';
-        wf.async = 'true';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(wf, s);
-      })()
-    </script>
-  </body>
-</html>
+</section><aside class="article-share text-center default-wrap"><hr><a href="https://twitter.com/share?text=Optimizar%20el%20Rendimiento%20y%20Tiempo%20de%20Carga%20de%20Wordpress%20en%207%20pasos by @jonalvarezz&amp;url=" title="Share on Twitter" onclick="this.href+=window.location.href; window.open(this.href, 'twitter-share', 'width=550,height=330');return false;"><i class="fa fa-twitter"></i></a><a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook" onclick="this.href+=window.location.href; window.open(this.href, 'facebook-share', 'width=580,height=330');return false;"><i class="fa fa-facebook"></i></a></aside><footer class="footer-article"><div class="default-wrap"><nav class="article-pagination grid grid--vertical-align"><div class="prev grid-item grid-item--half text-left"><div><small>PREV</small></div><a href="/articles/utplus/">UTPlus - Mejorando la forma en que ingresas al portal estudiantil UTPereira</a></div><div class="next grid-item grid-item--half text-right"><div><small>NEXT</small></div><a href="/articles/configurar-y-gestionar-sitios-en-nginx-ii/">Configurar  y gestionar sitios en Nginx II</a></div></nav><div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ALVAREZ</a></small></div></div></footer></article></div><script>WebFontConfig = {
+  google: { families: [ 'Merriweather:400,900:latin', 'Source+Sans+Pro:700' ] }
+};
+(function() {
+  var wf = document.createElement('script');
+  wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+  wf.type = 'text/javascript';
+  wf.async = 'true';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(wf, s);
+})()</script></body></html>

@@ -1,69 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TIP Programar el apagado en MAC OSX / *Unix - Jonathan Álvarez González
-    </title>
-    <meta name="description" content="Web Developer highly specialized in frontend Techologies, JavaScript applications, CSS and React. Design enthusiast.">
-    <link rel="alternate" href="http://localhost:8080/feed.xml" type="application/rss+xml" title="Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development">
-    <link href="/favicon.ico" rel="shortcut icon">
-    <link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  </head>
-  <body class="article">
-    <div class="wrap">
-      <article class="content">
-        <header class="article-header default-wrap">
-          <div class="article-inner">
-            <nav class="article-author"><a href="/" title="Go home">Jonathan Alvarez</a></nav>
-            <h1 class="article-title">TIP Programar el apagado en MAC OSX / *Unix</h1>
-            <div class="article-meta"><span>October 21st 2014</span></div>
-          </div>
-        </header>
-        <section class="article-content default-wrap"><p>Muchas veces dejamos nuestros equipos descargando archivos muy pesados en la noche mientras dormimos y aunque la descarga dure unas pocas horas, el equipo permanecerá encendido hasta que despertemos de<span class="widont">&nbsp;</span>nuevo.</p>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width, initial-scale=1"><title>TIP Programar el apagado en MAC OSX / *Unix - Jonathan Álvarez González</title><meta name="description" content="Web Developer highly specialized in frontend Techologies, JavaScript applications, CSS and React. Design enthusiast."><link rel="alternate" href="http://localhost:8080/feed.xml" type="application/rss+xml" title="Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development"><link href="/favicon.ico" rel="shortcut icon"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"></head><body class="article"><div class="wrap"><article class="content"><header class="article-header default-wrap"><div class="article-inner"><nav class="article-author"><a href="/" title="Go home">Jonathan Alvarez</a></nav><h1 class="article-title">TIP Programar el apagado en MAC OSX / *Unix</h1><div class="article-meta"><span>October 21st 2014</span></div></div></header><section class="article-content default-wrap"><p>Muchas veces dejamos nuestros equipos descargando archivos muy pesados en la noche mientras dormimos y aunque la descarga dure unas pocas horas, el equipo permanecerá encendido hasta que despertemos de<span class="widont">&nbsp;</span>nuevo.</p>
 <p>Para evitar esto, podemos <strong>programar el equipo para que se apague luego de cierto tiempo o a una hora específica</strong>, así ahorramos algo de<span class="widont">&nbsp;</span>energía.</p>
 <p>En la familia *Unix programar el apagado del equipo es tan fácil<span class="widont">&nbsp;</span>como:</p>
-<pre><code>$ sudo shutdown -h +90
-</code></pre><p>Esto creará una un proceso de apagado que indica que el equipo se apagará dentro de 1 hora 30<span class="widont">&nbsp;</span>minutos.</p>
+<pre><code>$ sudo shutdown -h +90</code></pre><p>Esto creará una un proceso de apagado que indica que el equipo se apagará dentro de 1 hora 30<span class="widont">&nbsp;</span>minutos.</p>
 <p>En general para apagar el<span class="widont">&nbsp;</span>equipo,</p>
-<pre><code>$ sudo shutdown -h &lt;time&gt;
-</code></pre><p>Donde <code>&lt;time&gt;</code> pueden ser los minutos a partir de los cuales se ejecutará el proceso de apagado <code>+minutos</code>, o bien una fecha exacta en formato <code>yymmddhhmm</code> año, mes, día, hora,<span class="widont">&nbsp;</span>minutos.</p>
+<pre><code>$ sudo shutdown -h &lt;time&gt;</code></pre><p>Donde <code>&lt;time&gt;</code> pueden ser los minutos a partir de los cuales se ejecutará el proceso de apagado <code>+minutos</code>, o bien una fecha exacta en formato <code>yymmddhhmm</code> año, mes, día, hora,<span class="widont">&nbsp;</span>minutos.</p>
 <p>Si programan un apagado no olviden <strong>desactivar la función de <em>dormir</em> del equipo</strong>, ya que podría dormir el proceso que se ha dejado ejecutando. Para esto utilizo en <span class="caps">MAC</span> <span class="caps">OS</span> X, <a href="http://sleepnomoreapp.com">Sleep No<span class="widont">&nbsp;</span>More</a>.</p>
 <p>Para más información sobre este<span class="widont">&nbsp;</span>comando:</p>
-<pre><code>$ man shutdown
-</code></pre><p>Si has descargado algún programa de un tercero para hacer esto, deberías sentirte muy mal ahora<span class="widont">&nbsp;</span>mismo.</p>
-</section>
-        <aside class="article-share text-center default-wrap">
-          <hr><a href="https://twitter.com/share?text=TIP%20Programar%20el%20apagado%20en%20MAC%20OSX%20/%20*Unix by @jonalvarezz&amp;url=" title="Share on Twitter" onclick="this.href+=window.location.href; window.open(this.href, 'twitter-share', 'width=550,height=330');return false;"><i class="fa fa-twitter"></i></a><a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook" onclick="this.href+=window.location.href; window.open(this.href, 'facebook-share', 'width=580,height=330');return false;"><i class="fa fa-facebook"></i></a>
-        </aside>
-        <footer class="footer-article">
-          <div class="default-wrap">
-            <nav class="article-pagination grid grid--vertical-align">
-              <div class="prev grid-item grid-item--half text-left">
-                <div><small>PREV</small></div><a href="/articles/ordenar-strings-numericamente-en-angular-js/">Ordenar strings numéricamente en Angular JS</a>
-              </div>
-              <div class="next grid-item grid-item--half text-right">
-                <div><small>NEXT</small></div><a href="/articles/configurar-una-terminal-hermosa-con-iterm2/">Configurar una terminal hermosa con iTerm 2 en MAC OS X</a>
-              </div>
-            </nav>
-            <div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ALVAREZ</a></small></div>
-          </div>
-        </footer>
-      </article>
-    </div>
-    <script>
-      WebFontConfig = {
-        google: { families: [ 'Merriweather:400,900:latin', 'Source+Sans+Pro:700' ] }
-      };
-      (function() {
-        var wf = document.createElement('script');
-        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-        wf.type = 'text/javascript';
-        wf.async = 'true';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(wf, s);
-      })()
-    </script>
-  </body>
-</html>
+<pre><code>$ man shutdown</code></pre><p>Si has descargado algún programa de un tercero para hacer esto, deberías sentirte muy mal ahora<span class="widont">&nbsp;</span>mismo.</p>
+</section><aside class="article-share text-center default-wrap"><hr><a href="https://twitter.com/share?text=TIP%20Programar%20el%20apagado%20en%20MAC%20OSX%20/%20*Unix by @jonalvarezz&amp;url=" title="Share on Twitter" onclick="this.href+=window.location.href; window.open(this.href, 'twitter-share', 'width=550,height=330');return false;"><i class="fa fa-twitter"></i></a><a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook" onclick="this.href+=window.location.href; window.open(this.href, 'facebook-share', 'width=580,height=330');return false;"><i class="fa fa-facebook"></i></a></aside><footer class="footer-article"><div class="default-wrap"><nav class="article-pagination grid grid--vertical-align"><div class="prev grid-item grid-item--half text-left"><div><small>PREV</small></div><a href="/articles/ordenar-strings-numericamente-en-angular-js/">Ordenar strings numéricamente en Angular JS</a></div><div class="next grid-item grid-item--half text-right"><div><small>NEXT</small></div><a href="/articles/post-post/">¿Realizarás un Clean Install del nuevo OSX? Asegúrate de guardar estos archivos</a></div></nav><div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ALVAREZ</a></small></div></div></footer></article></div><script>WebFontConfig = {
+  google: { families: [ 'Merriweather:400,900:latin', 'Source+Sans+Pro:700' ] }
+};
+(function() {
+  var wf = document.createElement('script');
+  wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+  wf.type = 'text/javascript';
+  wf.async = 'true';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(wf, s);
+})()</script></body></html>

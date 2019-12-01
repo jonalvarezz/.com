@@ -1,90 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Debugging React Applications - Jonathan Álvarez González
-    </title>
-    <meta name="description" content="Web Developer highly specialized in frontend Techologies, JavaScript applications, CSS and React. Design enthusiast.">
-    <link rel="alternate" href="http://localhost:8080/feed.xml" type="application/rss+xml" title="Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development">
-    <link href="/favicon.ico" rel="shortcut icon">
-    <link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  </head>
-  <body class="article">
-    <div class="wrap">
-      <article class="content">
-        <header class="article-header default-wrap">
-          <div class="article-inner">
-            <nav class="article-author"><a href="/" title="Go home">Jonathan Alvarez</a></nav>
-            <h1 class="article-title">Debugging React Applications</h1>
-            <div class="article-meta"><span>February 19th 2018</span></div>
-          </div>
-        </header>
-        <section class="article-content default-wrap"><blockquote>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Debugging React Applications - Jonathan Álvarez González</title><meta name="description" content="Web Developer highly specialized in frontend Techologies, JavaScript applications, CSS and React. Design enthusiast."><link rel="alternate" href="http://localhost:8080/feed.xml" type="application/rss+xml" title="Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development"><link href="/favicon.ico" rel="shortcut icon"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"></head><body class="article"><div class="wrap"><article class="content"><header class="article-header default-wrap"><div class="article-inner"><nav class="article-author"><a href="/" title="Go home">Jonathan Alvarez</a></nav><h1 class="article-title">Debugging React Applications</h1><div class="article-meta"><span>February 19th 2018</span></div></div></header><section class="article-content default-wrap"><blockquote>
 <p>Debugging a React application might be very<span class="widont">&nbsp;</span>confusing.</p>
 </blockquote>
 <p>If you are not familiar with bundlers, compilers, <span class="caps">JSX</span> and all that <em>modern JavaScript</em> stuff, you might spend a lot of time trying to debug your<span class="widont">&nbsp;</span>application.</p>
 <p>Let me introduce you three ways that might help<span class="widont">&nbsp;</span>you:</p>
 <h2 id="1-use-the-debugger-statement-">1. Use the <code>debugger</code> statement.</h2>
 <p>You just need to put the <code>debugger</code> statement in the line of code you want the browser to stop the JavaScript execution, as a<span class="widont">&nbsp;</span>breakpoint.</p>
-<pre><code class="lang-javascript"><span class="comment">// posible buggy line of code</span>
+<pre><code class="language-javascript"><span class="comment">// posible buggy line of code</span>
 <span class="keyword">const</span> b = ...
-debugger
-</code></pre>
+debugger</code></pre>
 <blockquote>
 <p>Do not forget to remove those debugger statements once you’re<span class="widont">&nbsp;</span>done.</p>
 </blockquote>
 <h2 id="2-add-breakpoints-from-chrome-s-devtool-">2. Add breakpoints from Chrome’s<span class="widont">&nbsp;</span>DevTool.</h2>
-<p class="text-center"><img src="/articles/debugging-react-applications/2-undefined-in-bundle-js.png" alt="Javascript error in bundle.js"></p>
+<p class="text-center">![Javascript error in<span class="widont">&nbsp;</span>bundle.js](2-undefined-in-bundle-js.png)</p>
 
 <p>Getting those kind of errors are not very helpful, right? Even if you manage to open your bundle.js file without your Text editor to hang for some minutes, most probably is you won’t be able to know where is that line coming<span class="widont">&nbsp;</span>from.</p>
 <p>That’s the reason why all bundlers will give you the option to produce source maps with your bundled files, allowing the browser to show you in which of your JavaScript files, the error<span class="widont">&nbsp;</span>occurred.</p>
-<p class="text-center"><img src="/articles/debugging-react-applications/2-undefined-in-body-jsx.png" alt="JavaScript error in body.jsx"></p>
+<p class="text-center">![JavaScript error in<span class="widont">&nbsp;</span>body.jsx](2-undefined-in-body-jsx.png)</p>
 
 <p>To add a breakpoint from Chrome’s DevTools, open the <strong>Source</strong> tab, hit <code>CMD</code> + <code>p</code> keys (<code>CTRL</code> if you on Windows) to search for your file, and then click the line number you want the breakpoint to be<span class="widont">&nbsp;</span>added.</p>
-<p class="text-center"><img src="/articles/debugging-react-applications/2-browser-sourcemaps.png" alt="Searching source maps from DevTools.jsx"></p>
+<p class="text-center">![Searching source maps from<span class="widont">&nbsp;</span>DevTools.jsx](2-browser-sourcemaps.png)</p>
 
 <p>There are some bugs adding breakpoints to source maps, like breakpoint been added in another line different to the clicked one, but it’ll work most of the<span class="widont">&nbsp;</span>times.</p>
 <h2 id="3-use-react-devtools">3. Use React<span class="widont">&nbsp;</span>DevTools</h2>
 <p>There is a very useful Chrome’s extension that allows you to search through your rendered React Components as a <span class="caps">DOM</span> tree, you can inspect them, see their props, ref, and<span class="widont">&nbsp;</span>state.</p>
-<p class="text-center"><img src="/articles/debugging-react-applications/3-react-devtools-components.png" alt="Searching React components in the DOM tree.jsx"></p>
+<p class="text-center">![Searching React components in the <span class="caps">DOM</span><span class="widont">&nbsp;</span>tree.jsx](3-react-devtools-components.png)</p>
 
 <p>You can go to the <a href="https://github.com/facebook/react-devtools">React DevTools official GitHub repository</a> to get more information and installation<span class="widont">&nbsp;</span>instructions.</p>
 <h2 id="4-console-log">4. <code>console.log</code></h2>
 <p>Well, and if nothing works, just console.log all the<span class="widont">&nbsp;</span>things.</p>
 <p>Is there any other handy way you use to debug React<span class="widont">&nbsp;</span>apps?</p>
-</section>
-        <aside class="article-share text-center default-wrap">
-          <hr><a href="https://twitter.com/share?text=Debugging%20React%20Applications by @jonalvarezz&amp;url=" title="Share on Twitter" onclick="this.href+=window.location.href; window.open(this.href, 'twitter-share', 'width=550,height=330');return false;"><i class="fa fa-twitter"></i></a><a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook" onclick="this.href+=window.location.href; window.open(this.href, 'facebook-share', 'width=580,height=330');return false;"><i class="fa fa-facebook"></i></a>
-        </aside>
-        <footer class="footer-article">
-          <div class="default-wrap">
-            <nav class="article-pagination grid grid--vertical-align">
-              <div class="prev grid-item grid-item--half text-left">
-                <div><small>PREV</small></div><a href="/articles/features-your-editor-must-have-for-web-development/">Features your editor must have for web development</a>
-              </div>
-              <div class="next grid-item grid-item--half text-right">
-                <div><small>NEXT</small></div><a href="/articles/how-to-solve-git-conflicts/">How To Solve GIT Conflicts</a>
-              </div>
-            </nav>
-            <div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ALVAREZ</a></small></div>
-          </div>
-        </footer>
-      </article>
-    </div>
-    <script>
-      WebFontConfig = {
-        google: { families: [ 'Merriweather:400,900:latin', 'Source+Sans+Pro:700' ] }
-      };
-      (function() {
-        var wf = document.createElement('script');
-        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-        wf.type = 'text/javascript';
-        wf.async = 'true';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(wf, s);
-      })()
-    </script>
-  </body>
-</html>
+</section><aside class="article-share text-center default-wrap"><hr><a href="https://twitter.com/share?text=Debugging%20React%20Applications by @jonalvarezz&amp;url=" title="Share on Twitter" onclick="this.href+=window.location.href; window.open(this.href, 'twitter-share', 'width=550,height=330');return false;"><i class="fa fa-twitter"></i></a><a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook" onclick="this.href+=window.location.href; window.open(this.href, 'facebook-share', 'width=580,height=330');return false;"><i class="fa fa-facebook"></i></a></aside><footer class="footer-article"><div class="default-wrap"><nav class="article-pagination grid grid--vertical-align"><div class="prev grid-item grid-item--half text-left"><div><small>PREV</small></div><a href="/articles/features-your-editor-must-have-for-web-development/">Features your editor must have for web development</a></div><div class="next grid-item grid-item--half text-right"><div><small>NEXT</small></div><a href="/articles/how-to-solve-git-conflicts/">How To Solve GIT Conflicts</a></div></nav><div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ALVAREZ</a></small></div></div></footer></article></div><script>WebFontConfig = {
+  google: { families: [ 'Merriweather:400,900:latin', 'Source+Sans+Pro:700' ] }
+};
+(function() {
+  var wf = document.createElement('script');
+  wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+  wf.type = 'text/javascript';
+  wf.async = 'true';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(wf, s);
+})()</script></body></html>

@@ -1,27 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>How To Solve GIT Conflicts - Jonathan Álvarez González
-    </title>
-    <meta name="description" content="Web Developer highly specialized in frontend Techologies, JavaScript applications, CSS and React. Design enthusiast.">
-    <link rel="alternate" href="http://localhost:8080/feed.xml" type="application/rss+xml" title="Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development">
-    <link href="/favicon.ico" rel="shortcut icon">
-    <link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  </head>
-  <body class="article">
-    <div class="wrap">
-      <article class="content">
-        <header class="article-header default-wrap">
-          <div class="article-inner">
-            <nav class="article-author"><a href="/" title="Go home">Jonathan Alvarez</a></nav>
-            <h1 class="article-title">How To Solve GIT Conflicts</h1>
-            <div class="article-meta"><span>August 7th 2016</span></div>
-          </div>
-        </header>
-        <section class="article-content default-wrap"><p>This is a quick guide that show you how to solve a <span class="caps">GIT</span> conflict manually using
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width, initial-scale=1"><title>How To Solve GIT Conflicts - Jonathan Álvarez González</title><meta name="description" content="Web Developer highly specialized in frontend Techologies, JavaScript applications, CSS and React. Design enthusiast."><link rel="alternate" href="http://localhost:8080/feed.xml" type="application/rss+xml" title="Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development"><link href="/favicon.ico" rel="shortcut icon"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"></head><body class="article"><div class="wrap"><article class="content"><header class="article-header default-wrap"><div class="article-inner"><nav class="article-author"><a href="/" title="Go home">Jonathan Alvarez</a></nav><h1 class="article-title">How To Solve GIT Conflicts</h1><div class="article-meta"><span>August 7th 2016</span></div></div></header><section class="article-content default-wrap"><p>This is a quick guide that show you how to solve a <span class="caps">GIT</span> conflict manually using
 your<span class="widont">&nbsp;</span>console.</p>
 <p>First at all a <span class="caps">GIT</span> conflict may happen when you merge another branch to your own.
 <span class="caps">GIT</span> will output something like<span class="widont">&nbsp;</span>this:</p>
@@ -30,8 +7,7 @@ CONFLICT (content): Merge conflict in apps/users/views.py
 Auto-merging apps/users/urls.py
 CONFLICT (content): Merge conflict in apps/users/urls.py
 ...
-Automatic merge failed; fix conflicts and then commit the result.
-</code></pre><p>Dont be scared by the <span class="caps">CONFLICT</span> word, if you already know what your team is doing,
+Automatic merge failed; fix conflicts and then commit the result.</code></pre><p>Dont be scared by the <span class="caps">CONFLICT</span> word, if you already know what your team is doing,
 project’s guidelines and roadmap are clear, solving conflicts will mostly be
 about including your folk’s code into yours or<span class="widont">&nbsp;</span>viceversa.</p>
 <blockquote>
@@ -54,8 +30,7 @@ Unmerged paths:
   (use &quot;git add &lt;file&gt;...&quot; to mark resolution)
 
         both modified:   apps/users/urls.py
-        both modified:   apps/users/views.py
-</code></pre><p>The part of interesting here is <strong>Unmerged<span class="widont">&nbsp;</span>paths</strong></p>
+        both modified:   apps/users/views.py</code></pre><p>The part of interesting here is <strong>Unmerged<span class="widont">&nbsp;</span>paths</strong></p>
 <h2 id="2-start-resolving-conflicts">2. Start resolving<span class="widont">&nbsp;</span>conflicts</h2>
 <p>Open the first file Unmerged paths shows with your text editor. You will find
 your code is separated by some lines <span class="caps">GIT</span><span class="widont">&nbsp;</span>introduced:</p>
@@ -63,8 +38,7 @@ your code is separated by some lines <span class="caps">GIT</span><span class="w
 ... You code
 =======
 ... Your folks code
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; merged-branch-name
-</code></pre><p><span class="caps">GIT</span> split the code with your code (From <code>HEAD</code> to <code>====</code> line) and your folk
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; merged-branch-name</code></pre><p><span class="caps">GIT</span> split the code with your code (From <code>HEAD</code> to <code>====</code> line) and your folk
 code (From <code>===</code> to <code>merged-branch-name</code>).</p>
 <p>Your task here is to compare which are the lines that need to be included.
 Delete and move the lines of code that should be kept. Make sure to also delete
@@ -80,8 +54,7 @@ will know a refactor<span class="widont">&nbsp;</span>ocurred.</li>
 </ul>
 <h2 id="3-mark-the-conflict-file-as-resolved">3. Mark the conflict file as<span class="widont">&nbsp;</span>resolved</h2>
 <p>Once you resolved the conflict you mark it as resolved<span class="widont">&nbsp;</span>with:</p>
-<pre><code>git add /path/to/the/resolved/file.ext
-</code></pre><h2 id="4-loop">4. Loop</h2>
+<pre><code>git add /path/to/the/resolved/file.ext</code></pre><h2 id="4-loop">4. Loop</h2>
 <p>Great! now repeat steps 1, 2, 3 until all the files in <span class="caps">GIT</span>’s Unmerged paths gets<span class="widont">&nbsp;</span>empty.</p>
 <h2 id="5-make-sure-everything-is-fine">5. Make sure everything is<span class="widont">&nbsp;</span>fine</h2>
 <p>Finish?</p>
@@ -90,8 +63,7 @@ will know a refactor<span class="widont">&nbsp;</span>ocurred.</li>
 the new<span class="widont">&nbsp;</span>features.</p>
 <h2 id="6-commit">6. Commit</h2>
 <p>Once everithing looks fine, commit the<span class="widont">&nbsp;</span>changes:</p>
-<pre><code>git commit
-</code></pre><p>Note that we are no adding a custom message to the commit, this very important
+<pre><code>git commit</code></pre><p>Note that we are no adding a custom message to the commit, this very important
 cause <span class="caps">GIT</span> will add the message automatically. That message will include the
 name of the merged branches and also a valuable list of the new commits the
 merge<span class="widont">&nbsp;</span>included.</p>
@@ -102,37 +74,14 @@ commit message. Just save the message (<code>CTRL</code>+<code>o</code>) and exi
 <p>Working in branch is a very powerfull way of managing a project with a team,
 specially for incoporating new features in paralallel. If you are looking in how
 to work with branches you can refer to <a href="http://nvie.com/posts/a-successful-git-branching-model/"><span class="caps">GIT</span> Branching<span class="widont">&nbsp;</span>Model</a>.</p>
-</section>
-        <aside class="article-share text-center default-wrap">
-          <hr><a href="https://twitter.com/share?text=How%20To%20Solve%20GIT%20Conflicts by @jonalvarezz&amp;url=" title="Share on Twitter" onclick="this.href+=window.location.href; window.open(this.href, 'twitter-share', 'width=550,height=330');return false;"><i class="fa fa-twitter"></i></a><a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook" onclick="this.href+=window.location.href; window.open(this.href, 'facebook-share', 'width=580,height=330');return false;"><i class="fa fa-facebook"></i></a>
-        </aside>
-        <footer class="footer-article">
-          <div class="default-wrap">
-            <nav class="article-pagination grid grid--vertical-align">
-              <div class="prev grid-item grid-item--half text-left">
-                <div><small>PREV</small></div><a href="/articles/debugging-react-applications/">Debugging React Applications</a>
-              </div>
-              <div class="next grid-item grid-item--half text-right">
-                <div><small>NEXT</small></div><a href="/articles/find-largest-folders-size-linux/">Find largest folders size in GNU/Linux</a>
-              </div>
-            </nav>
-            <div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ALVAREZ</a></small></div>
-          </div>
-        </footer>
-      </article>
-    </div>
-    <script>
-      WebFontConfig = {
-        google: { families: [ 'Merriweather:400,900:latin', 'Source+Sans+Pro:700' ] }
-      };
-      (function() {
-        var wf = document.createElement('script');
-        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-        wf.type = 'text/javascript';
-        wf.async = 'true';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(wf, s);
-      })()
-    </script>
-  </body>
-</html>
+</section><aside class="article-share text-center default-wrap"><hr><a href="https://twitter.com/share?text=How%20To%20Solve%20GIT%20Conflicts by @jonalvarezz&amp;url=" title="Share on Twitter" onclick="this.href+=window.location.href; window.open(this.href, 'twitter-share', 'width=550,height=330');return false;"><i class="fa fa-twitter"></i></a><a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook" onclick="this.href+=window.location.href; window.open(this.href, 'facebook-share', 'width=580,height=330');return false;"><i class="fa fa-facebook"></i></a></aside><footer class="footer-article"><div class="default-wrap"><nav class="article-pagination grid grid--vertical-align"><div class="prev grid-item grid-item--half text-left"><div><small>PREV</small></div><a href="/articles/debugging-react-applications/">Debugging React Applications</a></div><div class="next grid-item grid-item--half text-right"><div><small>NEXT</small></div><a href="/articles/find-largest-folders-size-linux/">Find largest folders size in GNU/Linux</a></div></nav><div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ALVAREZ</a></small></div></div></footer></article></div><script>WebFontConfig = {
+  google: { families: [ 'Merriweather:400,900:latin', 'Source+Sans+Pro:700' ] }
+};
+(function() {
+  var wf = document.createElement('script');
+  wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+  wf.type = 'text/javascript';
+  wf.async = 'true';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(wf, s);
+})()</script></body></html>

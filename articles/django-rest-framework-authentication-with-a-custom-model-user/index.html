@@ -1,33 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Django Rest Framework Authentication with a custom Model User - Jonathan Álvarez González
-    </title>
-    <meta name="description" content="Web Developer highly specialized in frontend Techologies, JavaScript applications, CSS and React. Design enthusiast.">
-    <link rel="alternate" href="http://localhost:8080/feed.xml" type="application/rss+xml" title="Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development">
-    <link href="/favicon.ico" rel="shortcut icon">
-    <link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  </head>
-  <body class="article">
-    <div class="wrap">
-      <article class="content">
-        <header class="article-header default-wrap">
-          <div class="article-inner">
-            <nav class="article-author"><a href="/" title="Go home">Jonathan Alvarez</a></nav>
-            <h1 class="article-title">Django Rest Framework Authentication with a custom Model User</h1>
-            <div class="article-meta"><span>July 7th 2015</span></div>
-          </div>
-        </header>
-        <section class="article-content default-wrap"><p><strong>Django Rest Framework</strong> uses the Django user model by default. If you have a custom user model, you will get this error when trying to browse the <span class="caps">API</span> with a logged in<span class="widont">&nbsp;</span>user:</p>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Django Rest Framework Authentication with a custom Model User - Jonathan Álvarez González</title><meta name="description" content="Web Developer highly specialized in frontend Techologies, JavaScript applications, CSS and React. Design enthusiast."><link rel="alternate" href="http://localhost:8080/feed.xml" type="application/rss+xml" title="Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and toughts about web development"><link href="/favicon.ico" rel="shortcut icon"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"></head><body class="article"><div class="wrap"><article class="content"><header class="article-header default-wrap"><div class="article-inner"><nav class="article-author"><a href="/" title="Go home">Jonathan Alvarez</a></nav><h1 class="article-title">Django Rest Framework Authentication with a custom Model User</h1><div class="article-meta"><span>July 7th 2015</span></div></div></header><section class="article-content default-wrap"><p><strong>Django Rest Framework</strong> uses the Django user model by default. If you have a custom user model, you will get this error when trying to browse the <span class="caps">API</span> with a logged in<span class="widont">&nbsp;</span>user:</p>
 <pre><code>TypeError at /some/endpoint/
 &#39;bool&#39; object is not iterable
-...
-</code></pre><p>You need to create your own authentication model in order to Django Rest Framework authenticate the<span class="widont">&nbsp;</span>resquest.</p>
+...</code></pre><p>You need to create your own authentication model in order to Django Rest Framework authenticate the<span class="widont">&nbsp;</span>resquest.</p>
 <p>First, create and <code>authentication.py</code> file under your project primary folder, wich defines the authenticate<span class="widont">&nbsp;</span>class:</p>
-<pre><code class="lang-python"><span class="keyword">from</span> your.custom.user.model.path <span class="keyword">import</span> User
+<pre><code class="language-python"><span class="keyword">from</span> your.custom.user.model.path <span class="keyword">import</span> User
 <span class="keyword">from</span> rest_framework <span class="keyword">import</span> authentication
 <span class="keyword">from</span> rest_framework <span class="keyword">import</span> exceptions
 
@@ -35,60 +11,35 @@
     <span class="function"><span class="keyword">def</span> <span class="title">authenticate</span><span class="params">(self, request)</span>:</span>
         username = request.<span class="caps">META</span>.get(<span class="string">'X_USERNAME'</span>)
         <span class="keyword">if</span> <span class="keyword">not</span> username:
-            <span class="keyword">return</span> <span class="keyword">None</span>
+            <span class="keyword">return</span> <span class="literal">None</span>
 
         <span class="keyword">try</span>:
             user = User.objects.get(username=username)
         <span class="keyword">except</span> User.DoesNotExist:
             <span class="keyword">raise</span> exceptions.AuthenticationFailed(<span class="string">'No such user'</span>)
 
-        <span class="keyword">return</span> (user, <span class="keyword">None</span>)
-
+        <span class="keyword">return</span> (user, <span class="literal">None</span>)
 </code></pre>
 <p>The first line is the line what really matters; and note that our authentication class extends the Django Rest Framework default one: <code>BaseAuthentication</code>.</p>
 <p>Now, in your <code>settings.py</code> :</p>
-<pre><code class="lang-python">REST_FRAMEWORK = {
+<pre><code class="language-python">REST_FRAMEWORK = {
     <span class="string">'DEFAULT_AUTHENTICATION_CLASSES'</span>: (
         <span class="string">'your-proyect.authentication.ApiAuthentication'</span>,
     )
-    }
-</code></pre>
+    }</code></pre>
 <p>And that’s all.</p>
 <h2 id="more-info">More Info</h2>
 <ul>
 <li><a href="http://www.django-rest-framework.org/api-guide/authentication/">Authentication - Django Rest Framework<span class="widont">&nbsp;</span>Documentation</a></li>
 </ul>
-</section>
-        <aside class="article-share text-center default-wrap">
-          <hr><a href="https://twitter.com/share?text=Django%20Rest%20Framework%20Authentication%20with%20a%20custom%20Model%20User by @jonalvarezz&amp;url=" title="Share on Twitter" onclick="this.href+=window.location.href; window.open(this.href, 'twitter-share', 'width=550,height=330');return false;"><i class="fa fa-twitter"></i></a><a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook" onclick="this.href+=window.location.href; window.open(this.href, 'facebook-share', 'width=580,height=330');return false;"><i class="fa fa-facebook"></i></a>
-        </aside>
-        <footer class="footer-article">
-          <div class="default-wrap">
-            <nav class="article-pagination grid grid--vertical-align">
-              <div class="prev grid-item grid-item--half text-left">
-                <div><small>PREV</small></div><a href="/articles/find-largest-folders-size-linux/">Find largest folders size in GNU/Linux</a>
-              </div>
-              <div class="next grid-item grid-item--half text-right">
-                <div><small>NEXT</small></div><a href="/articles/javascript-lo-basico/">Javascript, lo básico</a>
-              </div>
-            </nav>
-            <div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ALVAREZ</a></small></div>
-          </div>
-        </footer>
-      </article>
-    </div>
-    <script>
-      WebFontConfig = {
-        google: { families: [ 'Merriweather:400,900:latin', 'Source+Sans+Pro:700' ] }
-      };
-      (function() {
-        var wf = document.createElement('script');
-        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-        wf.type = 'text/javascript';
-        wf.async = 'true';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(wf, s);
-      })()
-    </script>
-  </body>
-</html>
+</section><aside class="article-share text-center default-wrap"><hr><a href="https://twitter.com/share?text=Django%20Rest%20Framework%20Authentication%20with%20a%20custom%20Model%20User by @jonalvarezz&amp;url=" title="Share on Twitter" onclick="this.href+=window.location.href; window.open(this.href, 'twitter-share', 'width=550,height=330');return false;"><i class="fa fa-twitter"></i></a><a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share on Facebook" onclick="this.href+=window.location.href; window.open(this.href, 'facebook-share', 'width=580,height=330');return false;"><i class="fa fa-facebook"></i></a></aside><footer class="footer-article"><div class="default-wrap"><nav class="article-pagination grid grid--vertical-align"><div class="prev grid-item grid-item--half text-left"><div><small>PREV</small></div><a href="/articles/find-largest-folders-size-linux/">Find largest folders size in GNU/Linux</a></div><div class="next grid-item grid-item--half text-right"><div><small>NEXT</small></div><a href="/articles/javascript-lo-basico/">Javascript, lo básico</a></div></nav><div class="footer-colophon text-center"><small><a href="/" title="Go home">JONATHAN ALVAREZ</a></small></div></div></footer></article></div><script>WebFontConfig = {
+  google: { families: [ 'Merriweather:400,900:latin', 'Source+Sans+Pro:700' ] }
+};
+(function() {
+  var wf = document.createElement('script');
+  wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+  wf.type = 'text/javascript';
+  wf.async = 'true';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(wf, s);
+})()</script></body></html>
