@@ -46,7 +46,11 @@ This is one of my favorite tiny but tremendously useful applications when develo
 
 Hotel allows you to manage your local sites from a single dashboard and plus it makes it stupidly easy to get your sites to use `.locahost` domains. How awesome is that?
 
-<p class="text-center">![Hotel, process manager](hotel.png)</p>
+<div class="text-center">
+
+![Hotel, process manager](hotel.png)
+
+</div>
 
 You can find the installation steps in [Hotel official repository](https://github.com/typicode/hotel)
 

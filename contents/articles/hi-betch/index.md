@@ -6,7 +6,9 @@ template: article.pug
 ---
 
 <p class="text-center">
-  ![featured-image](080423.gif)
+
+![featured-image](080423.gif)
+
 </p>
 
 That's all folks. Move along

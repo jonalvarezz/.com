@@ -25,17 +25,29 @@ debugger
 
 ## 2. Add breakpoints from Chrome's DevTool.
 
-<p class="text-center">![Javascript error in bundle.js](2-undefined-in-bundle-js.png)</p>
+<div class="text-center">
+
+![Javascript error in bundle.js](2-undefined-in-bundle-js.png)
+
+</div>
 
 Getting those kind of errors are not very helpful, right? Even if you manage to open your bundle.js file without your Text editor to hang for some minutes, most probably is you won't be able to know where is that line coming from.
 
 That's the reason why all bundlers will give you the option to produce source maps with your bundled files, allowing the browser to show you in which of your JavaScript files, the error occurred.
 
-<p class="text-center">![JavaScript error in body.jsx](2-undefined-in-body-jsx.png)</p>
+<div class="text-center">
+
+![JavaScript error in body.jsx](2-undefined-in-body-jsx.png)
+
+</div>
 
 To add a breakpoint from Chrome's DevTools, open the **Source** tab, hit `CMD` + `p` keys (`CTRL` if you on Windows) to search for your file, and then click the line number you want the breakpoint to be added.
 
-<p class="text-center">![Searching source maps from DevTools.jsx](2-browser-sourcemaps.png)</p>
+<div class="text-center">
+
+![Searching source maps from DevTools.jsx](2-browser-sourcemaps.png)
+
+</div>
 
 There are some bugs adding breakpoints to source maps, like breakpoint been added in another line different to the clicked one, but it'll work most of the times.
 
@@ -43,7 +55,11 @@ There are some bugs adding breakpoints to source maps, like breakpoint been adde
 
 There is a very useful Chrome's extension that allows you to search through your rendered React Components as a DOM tree, you can inspect them, see their props, ref, and state.
 
-<p class="text-center">![Searching React components in the DOM tree.jsx](3-react-devtools-components.png)</p>
+<div class="text-center">
+
+![Searching React components in the DOM tree.jsx](3-react-devtools-components.png)
+
+</div>
 
 You can go to the [React DevTools official GitHub repository](https://github.com/facebook/react-devtools) to get more information and installation instructions.
 

@@ -50,8 +50,16 @@ Therefore, what if we wrap our main component to handle the application's state 
 
 This is how the Store component ends up being like:
 
-<p class="text-center">![Store Component](1-store.png)</p>
-<p class="text-center"><small>_See full version on [GitHub.com/jonalvarezz](https://github.com/jonalvarezz/react-next-example/blob/master/src/store/Store.js)_</small></p>
+<div class="text-center">
+
+![Store Component](1-store.png)
+
+</div>
+<div class="text-center"><small>
+
+_See full version on [GitHub.com/jonalvarezz](https://github.com/jonalvarezz/react-next-example/blob/master/src/store/Store.js)_
+
+</small></div>
 
 ### What's cool about it?
 
@@ -62,8 +70,16 @@ This is how the Store component ends up being like:
 
 To achieve that, I created a **file structure** that may result very familiar to you:
 
-<p class="text-center">![File structure](4-file-structure.png)</p>
-<p class="text-center"><small>_See on [GitHub.com/jonalvarezz](https://github.com/jonalvarezz/react-next-example/blob/master/src/store)_</small></p>
+<div class="text-center">
+
+![File structure](4-file-structure.png)
+
+</div>
+<div class="text-center"><small>
+
+_See on [GitHub.com/jonalvarezz](https://github.com/jonalvarezz/react-next-example/blob/master/src/store)_
+
+</small></div>
 
 ### What's cool about it?
 
@@ -73,13 +89,29 @@ To achieve that, I created a **file structure** that may result very familiar to
 
 Now, I can use the Store component, which is a Context.Provider Component, to pass down the reducer state. Thus, I can wrap my application:
 
-<p class="text-center">![Wrapping the app with Store Component](2-store-wrap.png)</p>
-<p class="text-center"><small>_See full version on [GitHub.com/jonalvarezz](https://github.com/jonalvarezz/react-next-example/blob/master/src/App.js)_</small></p>
+<div class="text-center">
+
+![Wrapping the app with Store Component](2-store-wrap.png)
+
+</div>
+<div class="text-center"><small>
+
+_See full version on [GitHub.com/jonalvarezz](https://github.com/jonalvarezz/react-next-example/blob/master/src/App.js)_
+
+</small></div>
 
 To finally, being able to connect children components to get whatever data they need, and make'em able to dispatch actions to mutate the store!
 
-<p class="text-center">![Connecting with the Store](3-store-connect.png)</p>
-<p class="text-center"><small>_See full version on [GitHub.com/jonalvarezz](https://github.com/jonalvarezz/react-next-example/blob/master/src/components/sidebar/Sidebar.js)_</small></p>
+<div class="text-center">
+
+![Connecting with the Store](3-store-connect.png)
+
+</div>
+<div class="text-center"><small>
+
+_See full version on [GitHub.com/jonalvarezz](https://github.com/jonalvarezz/react-next-example/blob/master/src/components/sidebar/Sidebar.js)_
+
+</small></div>
 
 ### What's cool about it?
 
@@ -97,11 +129,23 @@ To finally, being able to connect children components to get whatever data they 
 
 - **You lose Redux DevTools**. That tool is great for debugging, and if Hooks make its way into React 17, it'll be a matter of time for that kind of tools to be integrated with `React.useReducer`.<p></p>In the meantime, if you have the React extension installed, inspecting a `React.useReducer` powered Component, you get very useful information and details to debug your actions and app's state. It is like a _tiny packed-up Redux Devtool_.
 
-<p class="text-center">![Inspecting a component with useReducer](5-inspecting-useReducer.png)</p>
+<div class="text-center">
+
+![Inspecting a component with useReducer](5-inspecting-useReducer.png)
+
+</div>
 
 - **About Hooks**. Although I disliked the idea of introducing _magic_ to React's API at first, once I tried them I started to enjoy using React without worrying about lifecycles.<p></p>Even though, **I strongly suggest newcomers to deeply learn about React's lifecycles**, as at the end, **the right use of a Hook, highly depends on your understanding of React**.<p></p>For instance, take a look to the `React.useEffect` [second parameter](https://reactjs.org/docs/hooks-reference.html#useeffect). You can easily miss it being new to React and end up with a lot of unnecessary re-renders and effects.
 
-<p class="text-center">![useEffect Hook's second parameter](6-useeffect-hook.png)</p>
-<p class="text-center"><small>_See full version on [GitHub.com/jonalvarezz](https://github.com/jonalvarezz/react-next-example/blob/master/src/store/Store.js)_</small></p>
+<div class="text-center">
+
+![useEffect Hook's second parameter](6-useeffect-hook.png)
+
+</div>
+<div class="text-center"><small>
+
+_See full version on [GitHub.com/jonalvarezz](https://github.com/jonalvarezz/react-next-example/blob/master/src/store/Store.js)_
+
+</small></div>
 
 - And finally, we are about to enter a _new era_ of React's rich diversity. Do you remember the hype when Flux came out? Well... you better sit down, grab some popcorn and enjoy the _JavaScript fatigue_.

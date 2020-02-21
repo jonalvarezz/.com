@@ -17,7 +17,11 @@ I love this feature because it looks so basic and useless, but believe me, it'll
 
 I am pretty sure shortcut is the one I use the most everyday.
 
-<p class="text-center">![Word selection in VS Code](0-multicursors-vs-code.gif)</p>
+<div class="text-center">
+
+![Word selection in VS Code](0-multicursors-vs-code.gif)
+
+</div>
 
 **Keyboard shortcut:** `CMD` + `D`.
 
@@ -25,7 +29,11 @@ I am pretty sure shortcut is the one I use the most everyday.
 
 This one blows the mind for every one which see it for the very first time.
 
-<p class="text-center">![Multicursors in VS Code](1-multicursors-vs-code.gif)</p>
+<div class="text-center">
+
+![Multicursors in VS Code](1-multicursors-vs-code.gif)
+
+</div>
 
 **Keyboard shortcut:** Hold `CMD` key, and `Click` wherever you want to put a cursor.
 
@@ -33,7 +41,11 @@ This one blows the mind for every one which see it for the very first time.
 
 This feature is a sort of comibation between word selections and multicursors.
 
-<p class="text-center">![Multiselection in VSCode](2-multiselection-vscode.gif)</p>
+<div class="text-center">
+
+![Multiselection in VSCode](2-multiselection-vscode.gif)
+
+</div>
 
 **Keyboard shortcut:** `CMD` + `D` Multiple times over a word or chunk of code.
 
@@ -41,24 +53,35 @@ This feature is a sort of comibation between word selections and multicursors.
 
 Either your project uses tabs or spaces, you should always use a consistent style. And being able to see if there is a space or tab really makes the difference.
 
-<p class="text-center">![Editor rendering whitespaces](3-render-whitespaces.png)</p>
+<div class="text-center">
+
+![Editor rendering whitespaces](3-render-whitespaces.png)
+
+</div>
 <em>Do you see those little dots? Those are spaces. Tabs get rendered as `->`.</em>
-<p>
-<p>**Add to Settings:** `"editor.renderWhitespace": "all"`.</p>
+
+**Add to Settings:** `"editor.renderWhitespace": "all"`.
 
 ## 4. Version Control Integration.
 
 Being able to see what is new in a file, what have changed, and where in the file are you working on, is priceless. You get that by integrating your editor with the version control software you are using on the project.
 
-<p class="text-center">![Editor displaying Git changes](4-git-integration.png)</p>
+<div class="text-center">
+
+![Editor displaying Git changes](4-git-integration.png)
+
+</div>
 <em>VS Code include Git integration by default</em>
-<p></p>
 
 ## 5. Snippets.
 
 No matter the library or framework you use, even if you use vanilla JavaScript there are boilerplate code you need to write down every time. Snippets will save you some time.
 
-<p class="text-center">![ES6 Snippet in VSCode](5-code-snippet-emmet.gif)</p>
+<div class="text-center">
+
+![ES6 Snippet in VSCode](5-code-snippet-emmet.gif)
+
+</div>
 
 I use: [Emmet](https://code.visualstudio.com/docs/editor/emmet), [ES6](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets), And [React](https://marketplace.visualstudio.com/items?itemName=burkeholland.react-food-truck) Snippets.
 
@@ -66,19 +89,27 @@ I use: [Emmet](https://code.visualstudio.com/docs/editor/emmet), [ES6](https://m
 
 Making typos is so easy when coding. Choose an editor which will help you out in _real time_ to catch up those kind of errors. Code completion is also very helpful and VS Code's is great at it.
 
-<p class="text-center">![VSCode Intellisense](6-intellisense.gif)</p>
+<div class="text-center">
+
+![VSCode Intellisense](6-intellisense.gif)
+
+</div>
 
 ## [Optional] Font and Theme.
 
 Just make sure you use a font which display characters easily distinguishable. [Hack](https://sourcefoundry.org/hack/) and [Iconsolata-dz](https://github.com/powerline/fonts/tree/master/InconsolataDz) are great. For color schemas I am currently using Coda2, available for [Sublime Text](https://packagecontrol.io/packages/Theme%20-%20Cobalt2) and [VS Code](https://marketplace.visualstudio.com/items?itemName=wesbos.theme-cobalt2)
 
-<p class="text-center">![Cobalt2 Theme](7-cobalt2.png)</p>
+<div class="text-center">
+
+![Cobalt2 Theme](7-cobalt2.png)
+
+</div>
 
 ## Bonus: Clipboard Manager.
 
 This will change your life. A clipboard manager gives you the ability to keep a history for every text you have copied to the clipboard. You won't need to switch over diffent applications for copying and pasting multiple things.
 
-<div class="text-center"><video controls="true" preload src="8-clipboard-managment.mp4" /></div>
+<div class="text-center"><video controls="true" preload src="./8-clipboard-managment.mp4" /></div>
 
 For MacOS users, [Flycut](https://itunes.apple.com/us/app/flycut-clipboard-manager/id442160987) works like a charm. Make sure you remember the key combination for opening up the history.
 
