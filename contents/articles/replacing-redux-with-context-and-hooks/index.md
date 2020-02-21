@@ -7,6 +7,8 @@ template: article.pug
 
 > Heads up! Do not use this in production.
 
+> Update 22.02.2019: You can use it in production. <a href="https://kentcdodds.com/blog/how-to-use-react-context-effectively" target="_blank">Kent C Dodds came up with a better implementation</a> to play nicer with Context
+
 When React Context got its [new and official API](https://reactjs.org/blog/2018/03/29/react-v-16-3.html), I was very skeptical about Redux dying; Now, with React Hooks, I am starting to have a second thought.
 
 I decided to create an application using **React Hooks and React Context** to build an architecture similar to **Redux**, and assert how similar they could get to be, as well as how suitable the new tools are for the job.
