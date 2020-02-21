@@ -2,7 +2,7 @@
   "name": "jonalvarezz.com",
   "author": "@jonalvarezz",
   "engines": {
-    "node": "~10.17.0"
+    "node": ">=10.17.0"
   },
   "version": "0.1.0",
   "scripts": {
