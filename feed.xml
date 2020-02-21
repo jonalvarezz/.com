@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jonathan Álvarez González</title><atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"></atom:link><link>http://localhost:8080</link><description>Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and thoughts about web development</description><pubDate>Wed, 28 Nov 2018 23:15:00 +0000</pubDate><generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator><language>en</language><item><title>Replacing Redux with Context and Hooks</title><link>http://localhost:8080/articles/replacing-redux-with-context-and-hooks/</link><pubDate>Wed, 28 Nov 2018 23:15:00 +0000</pubDate><guid isPermaLink="true">http://localhost:8080/articles/replacing-redux-with-context-and-hooks/</guid><author></author><description>&lt;blockquote&gt;
 &lt;p&gt;Heads up! Do not use this in production.&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Update 22.02.2019: You can use it in production. &lt;a href=&quot;https://kentcdodds.com/blog/how-to-use-react-context-effectively&quot; target=&quot;_blank&quot;&gt;Kent C Dodds came up with a better implementation&lt;/a&gt; to play nicer with Context&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;When React Context got its &lt;a href=&quot;https://reactjs.org/blog/2018/03/29/react-v-16-3.html&quot;&gt;new and official API&lt;/a&gt;, I was very skeptical about Redux dying; Now, with React Hooks, I am starting to have a second thought.&lt;/p&gt;
 &lt;p&gt;I decided to create an application using &lt;strong&gt;React Hooks and React Context&lt;/strong&gt; to build an architecture similar to &lt;strong&gt;Redux&lt;/strong&gt;, and assert how similar they could get to be, as well as how suitable the new tools are for the job.&lt;/p&gt;
 &lt;h2 id=&quot;tl-dr-&quot;&gt;TL:DR;&lt;/h2&gt;
@@ -22,9 +25,14 @@
 &lt;p&gt;Therefore, what if we wrap our main component to handle the application’s state with &lt;code&gt;React.useReducer&lt;/code&gt; and we pass down the state using &lt;code&gt;React.Context&lt;/code&gt;?&lt;/p&gt;
 &lt;h2 id=&quot;show-me-the-code&quot;&gt;Show me the code&lt;/h2&gt;
 &lt;p&gt;This is how the Store component ends up being like:&lt;/p&gt;
-&lt;p class=&quot;text-center&quot;&gt;![Store Component](1-store.png)&lt;/p&gt;
-&lt;p class=&quot;text-center&quot;&gt;&lt;small&gt;_See full version on [GitHub.com/jonalvarezz](https://github.com/jonalvarezz/react-next-example/blob/master/src/store/Store.js)_&lt;/small&gt;&lt;/p&gt;
+&lt;div class=&quot;text-center&quot;&gt;
 
+&lt;p&gt;&lt;img src=&quot;/articles/replacing-redux-with-context-and-hooks/1-store.png&quot; alt=&quot;Store Component&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;text-center&quot;&gt;&lt;small&gt;
+
+&lt;p&gt;&lt;em&gt;See full version on &lt;a href=&quot;https://github.com/jonalvarezz/react-next-example/blob/master/src/store/Store.js&quot;&gt;GitHub.com/jonalvarezz&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/small&gt;&lt;/div&gt;&lt;/p&gt;
 &lt;h3 id=&quot;what-s-cool-about-it-&quot;&gt;What’s cool about it?&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;We are using &lt;code&gt;useReducer&lt;/code&gt; to set our initial state&lt;/li&gt;
@@ -33,9 +41,14 @@
 &lt;li&gt;We are using the &lt;code&gt;useEffect&lt;/code&gt; hook to call our API and set some data in the store.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;To achieve that, I created a &lt;strong&gt;file structure&lt;/strong&gt; that may result very familiar to you:&lt;/p&gt;
-&lt;p class=&quot;text-center&quot;&gt;![File structure](4-file-structure.png)&lt;/p&gt;
-&lt;p class=&quot;text-center&quot;&gt;&lt;small&gt;_See on [GitHub.com/jonalvarezz](https://github.com/jonalvarezz/react-next-example/blob/master/src/store)_&lt;/small&gt;&lt;/p&gt;
+&lt;div class=&quot;text-center&quot;&gt;
 
+&lt;p&gt;&lt;img src=&quot;/articles/replacing-redux-with-context-and-hooks/4-file-structure.png&quot; alt=&quot;File structure&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;text-center&quot;&gt;&lt;small&gt;
+
+&lt;p&gt;&lt;em&gt;See on &lt;a href=&quot;https://github.com/jonalvarezz/react-next-example/blob/master/src/store&quot;&gt;GitHub.com/jonalvarezz&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/small&gt;&lt;/div&gt;&lt;/p&gt;
 &lt;h3 id=&quot;what-s-cool-about-it-&quot;&gt;What’s cool about it?&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;If you worked with Flux-like architectures, this will be familiar to you.&lt;/li&gt;
@@ -43,13 +56,23 @@
 &lt;li&gt;Other than React Context and Hooks, which have a very short-term cognitive cost to learn (really!), there are no added concepts.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Now, I can use the Store component, which is a Context.Provider Component, to pass down the reducer state. Thus, I can wrap my application:&lt;/p&gt;
-&lt;p class=&quot;text-center&quot;&gt;![Wrapping the app with Store Component](2-store-wrap.png)&lt;/p&gt;
-&lt;p class=&quot;text-center&quot;&gt;&lt;small&gt;_See full version on [GitHub.com/jonalvarezz](https://github.com/jonalvarezz/react-next-example/blob/master/src/App.js)_&lt;/small&gt;&lt;/p&gt;
+&lt;div class=&quot;text-center&quot;&gt;
 
+&lt;p&gt;&lt;img src=&quot;/articles/replacing-redux-with-context-and-hooks/2-store-wrap.png&quot; alt=&quot;Wrapping the app with Store Component&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;text-center&quot;&gt;&lt;small&gt;
+
+&lt;p&gt;&lt;em&gt;See full version on &lt;a href=&quot;https://github.com/jonalvarezz/react-next-example/blob/master/src/App.js&quot;&gt;GitHub.com/jonalvarezz&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/small&gt;&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;To finally, being able to connect children components to get whatever data they need, and make’em able to dispatch actions to mutate the store!&lt;/p&gt;
-&lt;p class=&quot;text-center&quot;&gt;![Connecting with the Store](3-store-connect.png)&lt;/p&gt;
-&lt;p class=&quot;text-center&quot;&gt;&lt;small&gt;_See full version on [GitHub.com/jonalvarezz](https://github.com/jonalvarezz/react-next-example/blob/master/src/components/sidebar/Sidebar.js)_&lt;/small&gt;&lt;/p&gt;
+&lt;div class=&quot;text-center&quot;&gt;
 
+&lt;p&gt;&lt;img src=&quot;/articles/replacing-redux-with-context-and-hooks/3-store-connect.png&quot; alt=&quot;Connecting with the Store&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;text-center&quot;&gt;&lt;small&gt;
+
+&lt;p&gt;&lt;em&gt;See full version on &lt;a href=&quot;https://github.com/jonalvarezz/react-next-example/blob/master/src/components/sidebar/Sidebar.js&quot;&gt;GitHub.com/jonalvarezz&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/small&gt;&lt;/div&gt;&lt;/p&gt;
 &lt;h3 id=&quot;what-s-cool-about-it-&quot;&gt;What’s cool about it?&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;No more HoCs nor nested logic to connect to the store, not even the need to fiddle around with React’s lifecycles&lt;/li&gt;
@@ -67,14 +90,22 @@
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;You lose Redux DevTools&lt;/strong&gt;. That tool is great for debugging, and if Hooks make its way into React 17, it’ll be a matter of time for that kind of tools to be integrated with &lt;code&gt;React.useReducer&lt;/code&gt;.&lt;p&gt;&lt;/p&gt;In the meantime, if you have the React extension installed, inspecting a &lt;code&gt;React.useReducer&lt;/code&gt; powered Component, you get very useful information and details to debug your actions and app’s state. It is like a &lt;em&gt;tiny packed-up Redux Devtool&lt;/em&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p class=&quot;text-center&quot;&gt;![Inspecting a component with useReducer](5-inspecting-useReducer.png)&lt;/p&gt;
+&lt;div class=&quot;text-center&quot;&gt;
+
+&lt;p&gt;&lt;img src=&quot;/articles/replacing-redux-with-context-and-hooks/5-inspecting-useReducer.png&quot; alt=&quot;Inspecting a component with useReducer&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;About Hooks&lt;/strong&gt;. Although I disliked the idea of introducing &lt;em&gt;magic&lt;/em&gt; to React’s API at first, once I tried them I started to enjoy using React without worrying about lifecycles.&lt;p&gt;&lt;/p&gt;Even though, &lt;strong&gt;I strongly suggest newcomers to deeply learn about React’s lifecycles&lt;/strong&gt;, as at the end, &lt;strong&gt;the right use of a Hook, highly depends on your understanding of React&lt;/strong&gt;.&lt;p&gt;&lt;/p&gt;For instance, take a look to the &lt;code&gt;React.useEffect&lt;/code&gt; &lt;a href=&quot;https://reactjs.org/docs/hooks-reference.html#useeffect&quot;&gt;second parameter&lt;/a&gt;. You can easily miss it being new to React and end up with a lot of unnecessary re-renders and effects.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p class=&quot;text-center&quot;&gt;![useEffect Hook's second parameter](6-useeffect-hook.png)&lt;/p&gt;
-&lt;p class=&quot;text-center&quot;&gt;&lt;small&gt;_See full version on [GitHub.com/jonalvarezz](https://github.com/jonalvarezz/react-next-example/blob/master/src/store/Store.js)_&lt;/small&gt;&lt;/p&gt;
+&lt;div class=&quot;text-center&quot;&gt;
 
+&lt;p&gt;&lt;img src=&quot;/articles/replacing-redux-with-context-and-hooks/6-useeffect-hook.png&quot; alt=&quot;useEffect Hook&amp;#39;s second parameter&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;text-center&quot;&gt;&lt;small&gt;
+
+&lt;p&gt;&lt;em&gt;See full version on &lt;a href=&quot;https://github.com/jonalvarezz/react-next-example/blob/master/src/store/Store.js&quot;&gt;GitHub.com/jonalvarezz&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/small&gt;&lt;/div&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;And finally, we are about to enter a &lt;em&gt;new era&lt;/em&gt; of React’s rich diversity. Do you remember the hype when Flux came out? Well… you better sit down, grab some popcorn and enjoy the &lt;em&gt;JavaScript fatigue&lt;/em&gt;.&lt;/li&gt;
 &lt;/ul&gt;
@@ -95,7 +126,10 @@ php -S 127.0.0.1:8000&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That’s it, going to &lt
 &lt;h2 id=&quot;bonus-introducing-hotel&quot;&gt;Bonus: Introducing Hotel&lt;/h2&gt;
 &lt;p&gt;This is one of my favorite tiny but tremendously useful applications when developing.&lt;/p&gt;
 &lt;p&gt;Hotel allows you to manage your local sites from a single dashboard and plus it makes it stupidly easy to get your sites to use &lt;code&gt;.locahost&lt;/code&gt; domains. How awesome is that?&lt;/p&gt;
-&lt;p class=&quot;text-center&quot;&gt;![Hotel, process manager](hotel.png)&lt;/p&gt;
+&lt;div class=&quot;text-center&quot;&gt;
+
+&lt;p&gt;&lt;img src=&quot;/articles/wordpress-without-apache-nginx/hotel.png&quot; alt=&quot;Hotel, process manager&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;p&gt;You can find the installation steps in &lt;a href=&quot;https://github.com/typicode/hotel&quot;&gt;Hotel official repository&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Once you got Hotel installed and running, you can add your WordPress site by running:&lt;/p&gt;
@@ -112,48 +146,70 @@ hotel add &amp;#39;php -S 127.0.0.1:$PORT&amp;#39;&lt;/code&gt;&lt;/pre&gt;&lt;p
 &lt;h2 id=&quot;0-word-selection-&quot;&gt;0. Word selection.&lt;/h2&gt;
 &lt;p&gt;I love this feature because it looks so basic and useless, but believe me, it’ll save you a ton of time when making selections from keyboard, and when combining together with other commands, it is very powerful.&lt;/p&gt;
 &lt;p&gt;I am pretty sure shortcut is the one I use the most everyday.&lt;/p&gt;
-&lt;p class=&quot;text-center&quot;&gt;![Word selection in VS Code](0-multicursors-vs-code.gif)&lt;/p&gt;
+&lt;div class=&quot;text-center&quot;&gt;
+
+&lt;p&gt;&lt;img src=&quot;/articles/features-your-editor-must-have-for-web-development/0-multicursors-vs-code.gif&quot; alt=&quot;Word selection in VS Code&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Keyboard shortcut:&lt;/strong&gt; &lt;code&gt;CMD&lt;/code&gt; + &lt;code&gt;D&lt;/code&gt;.&lt;/p&gt;
 &lt;h2 id=&quot;1-multicursors-&quot;&gt;1. Multicursors.&lt;/h2&gt;
 &lt;p&gt;This one blows the mind for every one which see it for the very first time.&lt;/p&gt;
-&lt;p class=&quot;text-center&quot;&gt;![Multicursors in VS Code](1-multicursors-vs-code.gif)&lt;/p&gt;
+&lt;div class=&quot;text-center&quot;&gt;
+
+&lt;p&gt;&lt;img src=&quot;/articles/features-your-editor-must-have-for-web-development/1-multicursors-vs-code.gif&quot; alt=&quot;Multicursors in VS Code&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Keyboard shortcut:&lt;/strong&gt; Hold &lt;code&gt;CMD&lt;/code&gt; key, and &lt;code&gt;Click&lt;/code&gt; wherever you want to put a cursor.&lt;/p&gt;
 &lt;h2 id=&quot;2-multiselection-&quot;&gt;2. Multiselection.&lt;/h2&gt;
 &lt;p&gt;This feature is a sort of comibation between word selections and multicursors.&lt;/p&gt;
-&lt;p class=&quot;text-center&quot;&gt;![Multiselection in VSCode](2-multiselection-vscode.gif)&lt;/p&gt;
+&lt;div class=&quot;text-center&quot;&gt;
+
+&lt;p&gt;&lt;img src=&quot;/articles/features-your-editor-must-have-for-web-development/2-multiselection-vscode.gif&quot; alt=&quot;Multiselection in VSCode&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Keyboard shortcut:&lt;/strong&gt; &lt;code&gt;CMD&lt;/code&gt; + &lt;code&gt;D&lt;/code&gt; Multiple times over a word or chunk of code.&lt;/p&gt;
 &lt;h2 id=&quot;3-render-whitespaces-&quot;&gt;3. Render whitespaces.&lt;/h2&gt;
 &lt;p&gt;Either your project uses tabs or spaces, you should always use a consistent style. And being able to see if there is a space or tab really makes the difference.&lt;/p&gt;
-&lt;p class=&quot;text-center&quot;&gt;![Editor rendering whitespaces](3-render-whitespaces.png)&lt;/p&gt;
-&lt;em&gt;Do you see those little dots? Those are spaces. Tabs get rendered as `-&gt;`.&lt;/em&gt;
-&lt;p&gt;
-&lt;p&gt;**Add to Settings:** `&quot;editor.renderWhitespace&quot;: &quot;all&quot;`.&lt;/p&gt;
+&lt;div class=&quot;text-center&quot;&gt;
 
+&lt;p&gt;&lt;img src=&quot;/articles/features-your-editor-must-have-for-web-development/3-render-whitespaces.png&quot; alt=&quot;Editor rendering whitespaces&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;em&gt;Do you see those little dots? Those are spaces. Tabs get rendered as `-&gt;`.&lt;/em&gt;
+
+&lt;p&gt;&lt;strong&gt;Add to Settings:&lt;/strong&gt; &lt;code&gt;&amp;quot;editor.renderWhitespace&amp;quot;: &amp;quot;all&amp;quot;&lt;/code&gt;.&lt;/p&gt;
 &lt;h2 id=&quot;4-version-control-integration-&quot;&gt;4. Version Control Integration.&lt;/h2&gt;
 &lt;p&gt;Being able to see what is new in a file, what have changed, and where in the file are you working on, is priceless. You get that by integrating your editor with the version control software you are using on the project.&lt;/p&gt;
-&lt;p class=&quot;text-center&quot;&gt;![Editor displaying Git changes](4-git-integration.png)&lt;/p&gt;
+&lt;div class=&quot;text-center&quot;&gt;
+
+&lt;p&gt;&lt;img src=&quot;/articles/features-your-editor-must-have-for-web-development/4-git-integration.png&quot; alt=&quot;Editor displaying Git changes&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
 &lt;em&gt;VS Code include Git integration by default&lt;/em&gt;
-&lt;p&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;5-snippets-&quot;&gt;5. Snippets.&lt;/h2&gt;
 &lt;p&gt;No matter the library or framework you use, even if you use vanilla JavaScript there are boilerplate code you need to write down every time. Snippets will save you some time.&lt;/p&gt;
-&lt;p class=&quot;text-center&quot;&gt;![ES6 Snippet in VSCode](5-code-snippet-emmet.gif)&lt;/p&gt;
+&lt;div class=&quot;text-center&quot;&gt;
+
+&lt;p&gt;&lt;img src=&quot;/articles/features-your-editor-must-have-for-web-development/5-code-snippet-emmet.gif&quot; alt=&quot;ES6 Snippet in VSCode&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;p&gt;I use: &lt;a href=&quot;https://code.visualstudio.com/docs/editor/emmet&quot;&gt;Emmet&lt;/a&gt;, &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets&quot;&gt;ES6&lt;/a&gt;, And &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=burkeholland.react-food-truck&quot;&gt;React&lt;/a&gt; Snippets.&lt;/p&gt;
 &lt;h2 id=&quot;6-linting-&quot;&gt;6. Linting.&lt;/h2&gt;
 &lt;p&gt;Making typos is so easy when coding. Choose an editor which will help you out in &lt;em&gt;real time&lt;/em&gt; to catch up those kind of errors. Code completion is also very helpful and VS Code’s is great at it.&lt;/p&gt;
-&lt;p class=&quot;text-center&quot;&gt;![VSCode Intellisense](6-intellisense.gif)&lt;/p&gt;
+&lt;div class=&quot;text-center&quot;&gt;
+
+&lt;p&gt;&lt;img src=&quot;/articles/features-your-editor-must-have-for-web-development/6-intellisense.gif&quot; alt=&quot;VSCode Intellisense&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;h2 id=&quot;-optional-font-and-theme-&quot;&gt;[Optional] Font and Theme.&lt;/h2&gt;
 &lt;p&gt;Just make sure you use a font which display characters easily distinguishable. &lt;a href=&quot;https://sourcefoundry.org/hack/&quot;&gt;Hack&lt;/a&gt; and &lt;a href=&quot;https://github.com/powerline/fonts/tree/master/InconsolataDz&quot;&gt;Iconsolata-dz&lt;/a&gt; are great. For color schemas I am currently using Coda2, available for &lt;a href=&quot;https://packagecontrol.io/packages/Theme%20-%20Cobalt2&quot;&gt;Sublime Text&lt;/a&gt; and &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=wesbos.theme-cobalt2&quot;&gt;VS Code&lt;/a&gt;&lt;/p&gt;
-&lt;p class=&quot;text-center&quot;&gt;![Cobalt2 Theme](7-cobalt2.png)&lt;/p&gt;
+&lt;div class=&quot;text-center&quot;&gt;
+
+&lt;p&gt;&lt;img src=&quot;/articles/features-your-editor-must-have-for-web-development/7-cobalt2.png&quot; alt=&quot;Cobalt2 Theme&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;h2 id=&quot;bonus-clipboard-manager-&quot;&gt;Bonus: Clipboard Manager.&lt;/h2&gt;
 &lt;p&gt;This will change your life. A clipboard manager gives you the ability to keep a history for every text you have copied to the clipboard. You won’t need to switch over diffent applications for copying and pasting multiple things.&lt;/p&gt;
-&lt;div class=&quot;text-center&quot;&gt;&lt;video controls=&quot;true&quot; preload src=&quot;8-clipboard-managment.mp4&quot; /&gt;&lt;/div&gt;
+&lt;div class=&quot;text-center&quot;&gt;&lt;video controls=&quot;true&quot; preload src=&quot;./8-clipboard-managment.mp4&quot; /&gt;&lt;/div&gt;
 
 &lt;p&gt;For MacOS users, &lt;a href=&quot;https://itunes.apple.com/us/app/flycut-clipboard-manager/id442160987&quot;&gt;Flycut&lt;/a&gt; works like a charm. Make sure you remember the key combination for opening up the history.&lt;/p&gt;
 &lt;h2 id=&quot;that-s-it-&quot;&gt;That’s it!&lt;/h2&gt;
@@ -179,19 +235,31 @@ debugger&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Do not forget to remove those debugger statements once you’re done.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;2-add-breakpoints-from-chrome-s-devtool-&quot;&gt;2. Add breakpoints from Chrome’s DevTool.&lt;/h2&gt;
-&lt;p class=&quot;text-center&quot;&gt;![Javascript error in bundle.js](2-undefined-in-bundle-js.png)&lt;/p&gt;
+&lt;div class=&quot;text-center&quot;&gt;
+
+&lt;p&gt;&lt;img src=&quot;/articles/debugging-react-applications/2-undefined-in-bundle-js.png&quot; alt=&quot;Javascript error in bundle.js&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Getting those kind of errors are not very helpful, right? Even if you manage to open your bundle.js file without your Text editor to hang for some minutes, most probably is you won’t be able to know where is that line coming from.&lt;/p&gt;
 &lt;p&gt;That’s the reason why all bundlers will give you the option to produce source maps with your bundled files, allowing the browser to show you in which of your JavaScript files, the error occurred.&lt;/p&gt;
-&lt;p class=&quot;text-center&quot;&gt;![JavaScript error in body.jsx](2-undefined-in-body-jsx.png)&lt;/p&gt;
+&lt;div class=&quot;text-center&quot;&gt;
+
+&lt;p&gt;&lt;img src=&quot;/articles/debugging-react-applications/2-undefined-in-body-jsx.png&quot; alt=&quot;JavaScript error in body.jsx&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;p&gt;To add a breakpoint from Chrome’s DevTools, open the &lt;strong&gt;Source&lt;/strong&gt; tab, hit &lt;code&gt;CMD&lt;/code&gt; + &lt;code&gt;p&lt;/code&gt; keys (&lt;code&gt;CTRL&lt;/code&gt; if you on Windows) to search for your file, and then click the line number you want the breakpoint to be added.&lt;/p&gt;
-&lt;p class=&quot;text-center&quot;&gt;![Searching source maps from DevTools.jsx](2-browser-sourcemaps.png)&lt;/p&gt;
+&lt;div class=&quot;text-center&quot;&gt;
+
+&lt;p&gt;&lt;img src=&quot;/articles/debugging-react-applications/2-browser-sourcemaps.png&quot; alt=&quot;Searching source maps from DevTools.jsx&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;p&gt;There are some bugs adding breakpoints to source maps, like breakpoint been added in another line different to the clicked one, but it’ll work most of the times.&lt;/p&gt;
 &lt;h2 id=&quot;3-use-react-devtools&quot;&gt;3. Use React DevTools&lt;/h2&gt;
 &lt;p&gt;There is a very useful Chrome’s extension that allows you to search through your rendered React Components as a DOM tree, you can inspect them, see their props, ref, and state.&lt;/p&gt;
-&lt;p class=&quot;text-center&quot;&gt;![Searching React components in the DOM tree.jsx](3-react-devtools-components.png)&lt;/p&gt;
+&lt;div class=&quot;text-center&quot;&gt;
+
+&lt;p&gt;&lt;img src=&quot;/articles/debugging-react-applications/3-react-devtools-components.png&quot; alt=&quot;Searching React components in the DOM tree.jsx&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;p&gt;You can go to the &lt;a href=&quot;https://github.com/facebook/react-devtools&quot;&gt;React DevTools official GitHub repository&lt;/a&gt; to get more information and installation instructions.&lt;/p&gt;
 &lt;h2 id=&quot;4-console-log&quot;&gt;4. &lt;code&gt;console.log&lt;/code&gt;&lt;/h2&gt;
@@ -879,7 +947,8 @@ add_action( &amp;#39;after_setup_theme&amp;#39;, &amp;#39;mi_tema_after_setup&am
 
 &lt;p&gt;Ahora, en &lt;strong&gt;Apariencia - Menús&lt;/strong&gt;, basta con crear un nuevo menú y elegir la ubicación del tema en la parte inferior, donde aparecerá nuestro &lt;code&gt;id humano&lt;/code&gt;&lt;/p&gt;
 </description></item><item><title>Welcome...</title><link>http://localhost:8080/articles/hi-betch/</link><pubDate>Wed, 22 Jan 2014 15:00:00 +0000</pubDate><guid isPermaLink="true">http://localhost:8080/articles/hi-betch/</guid><author></author><description>&lt;p class=&quot;text-center&quot;&gt;
-  ![featured-image](080423.gif)
+
+&lt;p&gt;&lt;img src=&quot;/articles/hi-betch/080423.gif&quot; alt=&quot;featured-image&quot;&gt;&lt;/p&gt;
 &lt;/p&gt;
 
 &lt;p&gt;That’s all folks. Move along&lt;/p&gt;

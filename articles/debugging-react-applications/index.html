@@ -12,19 +12,31 @@ debugger</code></pre>
 <p>Do not forget to remove those debugger statements once you’re<span class="widont">&nbsp;</span>done.</p>
 </blockquote>
 <h2 id="2-add-breakpoints-from-chrome-s-devtool-">2. Add breakpoints from Chrome’s<span class="widont">&nbsp;</span>DevTool.</h2>
-<p class="text-center">![Javascript error in<span class="widont">&nbsp;</span>bundle.js](2-undefined-in-bundle-js.png)</p>
+<div class="text-center">
+
+<p><img src="/articles/debugging-react-applications/2-undefined-in-bundle-js.png" alt="Javascript error in bundle.js"></p>
+</div>
 
 <p>Getting those kind of errors are not very helpful, right? Even if you manage to open your bundle.js file without your Text editor to hang for some minutes, most probably is you won’t be able to know where is that line coming<span class="widont">&nbsp;</span>from.</p>
 <p>That’s the reason why all bundlers will give you the option to produce source maps with your bundled files, allowing the browser to show you in which of your JavaScript files, the error<span class="widont">&nbsp;</span>occurred.</p>
-<p class="text-center">![JavaScript error in<span class="widont">&nbsp;</span>body.jsx](2-undefined-in-body-jsx.png)</p>
+<div class="text-center">
+
+<p><img src="/articles/debugging-react-applications/2-undefined-in-body-jsx.png" alt="JavaScript error in body.jsx"></p>
+</div>
 
 <p>To add a breakpoint from Chrome’s DevTools, open the <strong>Source</strong> tab, hit <code>CMD</code> + <code>p</code> keys (<code>CTRL</code> if you on Windows) to search for your file, and then click the line number you want the breakpoint to be<span class="widont">&nbsp;</span>added.</p>
-<p class="text-center">![Searching source maps from<span class="widont">&nbsp;</span>DevTools.jsx](2-browser-sourcemaps.png)</p>
+<div class="text-center">
+
+<p><img src="/articles/debugging-react-applications/2-browser-sourcemaps.png" alt="Searching source maps from DevTools.jsx"></p>
+</div>
 
 <p>There are some bugs adding breakpoints to source maps, like breakpoint been added in another line different to the clicked one, but it’ll work most of the<span class="widont">&nbsp;</span>times.</p>
 <h2 id="3-use-react-devtools">3. Use React<span class="widont">&nbsp;</span>DevTools</h2>
 <p>There is a very useful Chrome’s extension that allows you to search through your rendered React Components as a <span class="caps">DOM</span> tree, you can inspect them, see their props, ref, and<span class="widont">&nbsp;</span>state.</p>
-<p class="text-center">![Searching React components in the <span class="caps">DOM</span><span class="widont">&nbsp;</span>tree.jsx](3-react-devtools-components.png)</p>
+<div class="text-center">
+
+<p><img src="/articles/debugging-react-applications/3-react-devtools-components.png" alt="Searching React components in the DOM tree.jsx"></p>
+</div>
 
 <p>You can go to the <a href="https://github.com/facebook/react-devtools">React DevTools official GitHub repository</a> to get more information and installation<span class="widont">&nbsp;</span>instructions.</p>
 <h2 id="4-console-log">4. <code>console.log</code></h2>

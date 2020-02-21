@@ -1,6 +1,9 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Replacing Redux with Context and Hooks - Jonathan Álvarez González</title><meta name="description" content="Web Developer highly specialized in frontend Techologies, JavaScript applications, CSS and React. Design enthusiast."><link rel="alternate" href="http://localhost:8080/feed.xml" type="application/rss+xml" title="Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and thoughts about web development"><link href="/favicon.ico" rel="shortcut icon"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"></head><body class="article"><div class="wrap"><article class="content"><header class="article-header default-wrap"><div class="article-inner"><nav class="article-author"><a href="/" title="Go home">Jonathan Alvarez</a></nav><h1 class="article-title">Replacing Redux with Context and Hooks</h1><div class="article-meta"><span>November 28th 2018</span></div></div></header><section class="article-content default-wrap"><blockquote>
 <p>Heads up! Do not use this in<span class="widont">&nbsp;</span>production.</p>
 </blockquote>
+<blockquote>
+<p>Update 22.02.2019: You can use it in production. <a href="https://kentcdodds.com/blog/how-to-use-react-context-effectively" target="_blank">Kent C Dodds came up with a better implementation</a> to play nicer with<span class="widont">&nbsp;</span>Context</p>
+</blockquote>
 <p>When React Context got its <a href="https://reactjs.org/blog/2018/03/29/react-v-16-3.html">new and official <span class="caps">API</span></a>, I was very skeptical about Redux dying; Now, with React Hooks, I am starting to have a second<span class="widont">&nbsp;</span>thought.</p>
 <p>I decided to create an application using <strong>React Hooks and React Context</strong> to build an architecture similar to <strong>Redux</strong>, and assert how similar they could get to be, as well as how suitable the new tools are for the<span class="widont">&nbsp;</span>job.</p>
 <h2 id="tl-dr-"><span class="caps">TL</span>:<span class="caps">DR</span>;</h2>
@@ -22,9 +25,14 @@
 <p>Therefore, what if we wrap our main component to handle the application’s state with <code>React.useReducer</code> and we pass down the state using <code>React.Context</code>?</p>
 <h2 id="show-me-the-code">Show me the<span class="widont">&nbsp;</span>code</h2>
 <p>This is how the Store component ends up being<span class="widont">&nbsp;</span>like:</p>
-<p class="text-center">![Store Component](1-store.png)</p>
-<p class="text-center"><small>_See full version on [GitHub.com/jonalvarezz](https://github.com/jonalvarezz/react-next-example/blob/master/src/store/Store.js)_</small></p>
+<div class="text-center">
 
+<p><img src="/articles/replacing-redux-with-context-and-hooks/1-store.png" alt="Store Component"></p>
+</div>
+<div class="text-center"><small>
+
+<p><em>See full version on <a href="https://github.com/jonalvarezz/react-next-example/blob/master/src/store/Store.js">GitHub.com/jonalvarezz</a></em></p>
+<p></small></div></p>
 <h3 id="what-s-cool-about-it-">What’s cool about<span class="widont">&nbsp;</span>it?</h3>
 <ul>
 <li>We are using <code>useReducer</code> to set our initial<span class="widont">&nbsp;</span>state</li>
@@ -33,9 +41,14 @@
 <li>We are using the <code>useEffect</code> hook to call our <span class="caps">API</span> and set some data in the<span class="widont">&nbsp;</span>store.</li>
 </ul>
 <p>To achieve that, I created a <strong>file structure</strong> that may result very familiar to<span class="widont">&nbsp;</span>you:</p>
-<p class="text-center">![File structure](4-file-structure.png)</p>
-<p class="text-center"><small>_See on [GitHub.com/jonalvarezz](https://github.com/jonalvarezz/react-next-example/blob/master/src/store)_</small></p>
+<div class="text-center">
 
+<p><img src="/articles/replacing-redux-with-context-and-hooks/4-file-structure.png" alt="File structure"></p>
+</div>
+<div class="text-center"><small>
+
+<p><em>See on <a href="https://github.com/jonalvarezz/react-next-example/blob/master/src/store">GitHub.com/jonalvarezz</a></em></p>
+<p></small></div></p>
 <h3 id="what-s-cool-about-it-">What’s cool about<span class="widont">&nbsp;</span>it?</h3>
 <ul>
 <li>If you worked with Flux-like architectures, this will be familiar to<span class="widont">&nbsp;</span>you.</li>
@@ -43,13 +56,23 @@
 <li>Other than React Context and Hooks, which have a very short-term cognitive cost to learn (really!), there are no added<span class="widont">&nbsp;</span>concepts.</li>
 </ul>
 <p>Now, I can use the Store component, which is a Context.Provider Component, to pass down the reducer state. Thus, I can wrap my<span class="widont">&nbsp;</span>application:</p>
-<p class="text-center">![Wrapping the app with Store<span class="widont">&nbsp;</span>Component](2-store-wrap.png)</p>
-<p class="text-center"><small>_See full version on [GitHub.com/jonalvarezz](https://github.com/jonalvarezz/react-next-example/blob/master/src/App.js)_</small></p>
+<div class="text-center">
 
+<p><img src="/articles/replacing-redux-with-context-and-hooks/2-store-wrap.png" alt="Wrapping the app with Store Component"></p>
+</div>
+<div class="text-center"><small>
+
+<p><em>See full version on <a href="https://github.com/jonalvarezz/react-next-example/blob/master/src/App.js">GitHub.com/jonalvarezz</a></em></p>
+<p></small></div></p>
 <p>To finally, being able to connect children components to get whatever data they need, and make’em able to dispatch actions to mutate the<span class="widont">&nbsp;</span>store!</p>
-<p class="text-center">![Connecting with the<span class="widont">&nbsp;</span>Store](3-store-connect.png)</p>
-<p class="text-center"><small>_See full version on [GitHub.com/jonalvarezz](https://github.com/jonalvarezz/react-next-example/blob/master/src/components/sidebar/Sidebar.js)_</small></p>
+<div class="text-center">
 
+<p><img src="/articles/replacing-redux-with-context-and-hooks/3-store-connect.png" alt="Connecting with the Store"></p>
+</div>
+<div class="text-center"><small>
+
+<p><em>See full version on <a href="https://github.com/jonalvarezz/react-next-example/blob/master/src/components/sidebar/Sidebar.js">GitHub.com/jonalvarezz</a></em></p>
+<p></small></div></p>
 <h3 id="what-s-cool-about-it-">What’s cool about<span class="widont">&nbsp;</span>it?</h3>
 <ul>
 <li>No more HoCs nor nested logic to connect to the store, not even the need to fiddle around with React’s<span class="widont">&nbsp;</span>lifecycles</li>
@@ -67,14 +90,22 @@
 <li><p><strong>You lose Redux DevTools</strong>. That tool is great for debugging, and if Hooks make its way into React 17, it’ll be a matter of time for that kind of tools to be integrated with <code>React.useReducer</code>.<p></p>In the meantime, if you have the React extension installed, inspecting a <code>React.useReducer</code> powered Component, you get very useful information and details to debug your actions and app’s state. It is like a <em>tiny packed-up Redux<span class="widont">&nbsp;</span>Devtool</em>.</p>
 </li>
 </ul>
-<p class="text-center">![Inspecting a component with<span class="widont">&nbsp;</span>useReducer](5-inspecting-useReducer.png)</p>
+<div class="text-center">
+
+<p><img src="/articles/replacing-redux-with-context-and-hooks/5-inspecting-useReducer.png" alt="Inspecting a component with useReducer"></p>
+</div>
 
 <ul>
 <li><strong>About Hooks</strong>. Although I disliked the idea of introducing <em>magic</em> to React’s <span class="caps">API</span> at first, once I tried them I started to enjoy using React without worrying about lifecycles.<p></p>Even though, <strong>I strongly suggest newcomers to deeply learn about React’s lifecycles</strong>, as at the end, <strong>the right use of a Hook, highly depends on your understanding of React</strong>.<p></p>For instance, take a look to the <code>React.useEffect</code> <a href="https://reactjs.org/docs/hooks-reference.html#useeffect">second parameter</a>. You can easily miss it being new to React and end up with a lot of unnecessary re-renders and<span class="widont">&nbsp;</span>effects.</li>
 </ul>
-<p class="text-center">![useEffect Hook&#8217;s second<span class="widont">&nbsp;</span>parameter](6-useeffect-hook.png)</p>
-<p class="text-center"><small>_See full version on [GitHub.com/jonalvarezz](https://github.com/jonalvarezz/react-next-example/blob/master/src/store/Store.js)_</small></p>
+<div class="text-center">
 
+<p><img src="/articles/replacing-redux-with-context-and-hooks/6-useeffect-hook.png" alt="useEffect Hook&#39;s second parameter"></p>
+</div>
+<div class="text-center"><small>
+
+<p><em>See full version on <a href="https://github.com/jonalvarezz/react-next-example/blob/master/src/store/Store.js">GitHub.com/jonalvarezz</a></em></p>
+<p></small></div></p>
 <ul>
 <li>And finally, we are about to enter a <em>new era</em> of React’s rich diversity. Do you remember the hype when Flux came out? Well… you better sit down, grab some popcorn and enjoy the <em>JavaScript<span class="widont">&nbsp;</span>fatigue</em>.</li>
 </ul>
