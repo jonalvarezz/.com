@@ -114,7 +114,7 @@
 &lt;h2 id=&quot;1-download-wordpress-and-set-up-your-database-&quot;&gt;1. Download WordPress and set up your database.&lt;/h2&gt;
 &lt;p&gt;Same old, same old.&lt;/p&gt;
 &lt;p&gt;If you are using MacOS, the painless way to get MySQL running is through &lt;a href=&quot;https://brew.sh&quot;&gt;brew&lt;/a&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;brew install mysql@5.7&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;Heads Up!&lt;/strong&gt; We are specifying the version as Brew will install the latest MySQL by default, which is 8.xx, and it may be incompatible with some PHP features like &lt;code&gt;caching_sha2_password&lt;/code&gt;, see &lt;a href=&quot;https://stackoverflow.com/a/49950165&quot;&gt;https://stackoverflow.com/a/49950165&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;brew install mysql&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;Heads Up!&lt;/strong&gt; You may run in some issues between php and mysql, take a look to the &lt;a href=&quot;#troubleshooting&quot;&gt;troubleshooting section&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;2-use-any-php-version-above-5-4&quot;&gt;2. Use any PHP version above 5.4&lt;/h2&gt;
 &lt;p&gt;By the way, I had issues with PHP 7+, therefore &lt;a href=&quot;https://getgrav.org/blog/macos-mojave-apache-multiple-php-versions&quot;&gt;I used Brew to install PHP 5.6.&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;3-you-re-done-&quot;&gt;3. You’re done.&lt;/h2&gt;
@@ -138,6 +138,18 @@ hotel add &amp;#39;php -S 127.0.0.1:$PORT&amp;#39;&lt;/code&gt;&lt;/pre&gt;&lt;p
 &lt;p&gt;If you are on Windows, the command lines may change, make sure to follow the &lt;a href=&quot;https://github.com/typicode/hotel#port&quot;&gt;official documentation&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;Being able to get rid of Apache or Nginx to run your WordPress site locally is a huge time saver, no need to deal with virtual hosts nor &lt;code&gt;.conf&lt;/code&gt; files.&lt;/p&gt;
+&lt;h2 id=&quot;troubleshooting&quot;&gt;Troubleshooting&lt;/h2&gt;
+&lt;p&gt;If you had issues with &lt;code&gt;mysqli_real_connect(): Server sent charset (255)&lt;/code&gt; and &lt;code&gt;caching_sha2_password&lt;/code&gt;, edit your MySQL &lt;code&gt;/usr/local/etc/my.cnf&lt;/code&gt; file to add the following:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[client]
+default-character-set=utf8
+
+[mysql]
+default-character-set=utf8
+
+[mysqld]
+collation-server = utf8_unicode_ci
+character-set-server = utf8
+default_authentication_plugin=mysql_native_password&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Save, and &lt;code&gt;mysql.server restart&lt;/code&gt;.&lt;/p&gt;
 </description></item><item><title>Features your editor must have for web development</title><link>http://localhost:8080/articles/features-your-editor-must-have-for-web-development/</link><pubDate>Sat, 16 Jun 2018 11:05:00 +0000</pubDate><guid isPermaLink="true">http://localhost:8080/articles/features-your-editor-must-have-for-web-development/</guid><author></author><description>&lt;blockquote&gt;
 &lt;p&gt;In my years of experience, I have found some features I am always looking for when I’m using an Editor. Features which allows me to write faster and better code.&lt;/p&gt;
 &lt;/blockquote&gt;
