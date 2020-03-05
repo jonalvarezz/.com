@@ -16,10 +16,11 @@ Same old, same old.
 If you are using MacOS, the painless way to get MySQL running is through [brew](https://brew.sh)
 
 ```
-brew install mysql@5.7
+brew install mysql
 ```
 
-**Heads Up!** We are specifying the version as Brew will install the latest MySQL by default, which is 8.xx, and it may be incompatible with some PHP features like `caching_sha2_password`, see https://stackoverflow.com/a/49950165.
+**Heads Up!** You may run in some issues between php and mysql, take a look to the [troubleshooting section](#troubleshooting)
+
 
 ## 2. Use any PHP version above 5.4
 
@@ -68,3 +69,21 @@ If you are on Windows, the command lines may change, make sure to follow the [of
 ## Conclusion
 
 Being able to get rid of Apache or Nginx to run your WordPress site locally is a huge time saver, no need to deal with virtual hosts nor `.conf` files.
+
+## Troubleshooting
+If you had issues with `mysqli_real_connect(): Server sent charset (255)` and `caching_sha2_password`, edit your MySQL `/usr/local/etc/my.cnf` file to add the following:
+
+```
+[client]
+default-character-set=utf8
+
+[mysql]
+default-character-set=utf8
+
+[mysqld]
+collation-server = utf8_unicode_ci
+character-set-server = utf8
+default_authentication_plugin=mysql_native_password
+```
+
+Save, and `mysql.server restart`.
