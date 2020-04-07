@@ -12,12 +12,12 @@ const baseDir = "./contents/";
 wintersmith.settings.port = PORT;
 
 function styles(cb) {
-  return src(baseDir + "stylus/main.styl")
+  return src([`${baseDir}stylus/main.styl`, `${baseDir}stylus/dark.styl`])
     .pipe(!isDev ? through() : $.plumber())
     .pipe($.sourcemaps.init())
     .pipe(
       $.stylus({
-        use: nib()
+        use: nib(),
       })
     )
     .pipe(!isDev ? $.minifyCss() : through())
