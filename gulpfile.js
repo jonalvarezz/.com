@@ -6,12 +6,13 @@ const nib = require("nib");
 const through = require("through");
 const isDev = process.argv.indexOf("watch") !== -1;
 const wintersmith = require("run-wintersmith");
+const postcss = require("gulp-postcss");
 const PORT = 8080;
 const baseDir = "./contents/";
 
 wintersmith.settings.port = PORT;
 
-function styles(cb) {
+function stylus() {
   return src([`${baseDir}stylus/main.styl`, `${baseDir}stylus/dark.styl`])
     .pipe(!isDev ? through() : $.plumber())
     .pipe($.sourcemaps.init())
@@ -24,6 +25,14 @@ function styles(cb) {
     .pipe($.sourcemaps.write())
     .pipe(dest(baseDir + "css/"));
 }
+
+function tailwind() {
+  return src([`${baseDir}stylus/utilities.css`])
+    .pipe(postcss([require("tailwindcss"), require("autoprefixer")]))
+    .pipe(dest(baseDir + "css/"));
+}
+
+const styles = series(tailwind, stylus);
 
 const html = wintersmith.build;
 
