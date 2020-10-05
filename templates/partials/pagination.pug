@@ -1,10 +1,8 @@
 
-- var articles = env.helpers.getArticles(contents)
-- var actualIndex = articles.map(function (entry) {
--    return entry.metadata.title
--  }).indexOf(page.title)
-- var next = articles[actualIndex + 1] || false
-- var prev = articles[actualIndex - 1] || false
+- var articles = env.helpers.getContents(contents)
+- var currentIndex = articles.map((entry) => entry.metadata.title).indexOf(page.title)
+- var next = articles[currentIndex + 1] || false
+- var prev = articles[currentIndex - 1] || false
 
 nav(class="article-pagination grid grid--vertical-align")
   div(class="prev grid-item grid-item--half text-left")

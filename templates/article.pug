@@ -12,7 +12,7 @@ block body
     header(class="article-header default-wrap")
         div(class="article-inner")
           nav(class="article-author")
-            a(href=contents.index.url, title="Go home") Jonathan Alvarez
+            a(href="/", title="Go home") Jonathan Alvarez
           h1(class="article-title")= page.title
           div(class="article-meta")
             span!= moment(page.metadata.date, 'YYYY-MM-DD').format('MMMM Do YYYY')
@@ -26,4 +26,4 @@ block body
         include partials/pagination
         div(class="footer-colophon text-center")
           small
-            a(href=contents.index.url, title="Go home") JONATHAN ALVAREZ
+            a(href="/", title="Go home") JONATHAN ALVAREZ

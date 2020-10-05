@@ -5,7 +5,7 @@
     "owner": "jonalvarezz",
     "description": "Jonathan Álvarez González is a frontend developer from Colombia. In this site you will find articles and thoughts about web development"
   },
-  "plugins": ["./plugins/paginator.coffee"],
+  "plugins": ["./plugins/paginator.coffee", "./plugins/content.js"],
   "require": {
     "moment": "moment",
     "typogr": "typogr"
@@ -16,9 +16,6 @@
   "markdown": {
     "smartLists": true,
     "smartypants": true
-  },
-  "paginator": {
-    "perPage": 9
   },
   "ignore": ["stylus"],
   "baseUrl": "/"
