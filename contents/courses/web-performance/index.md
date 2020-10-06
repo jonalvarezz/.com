@@ -5,4 +5,4 @@ thumbnail: platzi-curso-optimizacion-web.jpg
 videoUrl: https://platzi.com/cursos/web-performance/
 ---
 
-Lleva tus aplicaciones web a otro nivel de performance.
+Lleva tus aplicaciones y sitios web a otro nivel de performance.
