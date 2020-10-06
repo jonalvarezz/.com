@@ -8,7 +8,7 @@ block body
     figure.hero.content.default-wrap
       h1.hero-title= locals.name
       figcaption.hero-caption
-        p Frontend developer. I build web stuff and <a href="#articles" title="Check my articles">sometimes write about it</a>
+        p Web Software Engineer. I build web applications. <a href="#articles" title="Check my articles">I write</a>, I <a href="#talks" title="Watch my talks">give talks</a>, and <a href="#courses" title="Watch my online courses">I've recorded courses</a> about it.
         div.hero-links
           a(href="https://github.com/jonalvarezz", title="Check my code", target="_blank")
             i.fa.fa-github
@@ -17,7 +17,7 @@ block body
           a(href="mailto:j@jonalvarezz.com?subject=Let's%20Work%20Together", title="Email me and let's work together")
             i.fa.fa-envelope
 
-  section(class="full-page grid grid--vertical-align grid--horizontal-align bg-gray-200")
+  section(id="courses", class="full-page grid grid--vertical-align grid--horizontal-align bg-gray-200")
     div(class="default-wrap content")
       h2 Online Courses
       p(class="content--extended")
@@ -28,7 +28,7 @@ block body
       - var contentType = 'courses'
       include partials/cards
 
-  section(class="full-page grid grid--vertical-align grid--horizontal-align bg-gray-400")
+  section(id="talks", class="full-page grid grid--vertical-align grid--horizontal-align bg-gray-400")
     div(class="default-wrap content")
       h2 Talks
       p Talks, presentantions and workshops available online
