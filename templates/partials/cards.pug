@@ -1,6 +1,6 @@
 - var contentList = env.helpers.getContents(contents, contentType)
 
-ul(class="flex mt-3")
+ul(class="flex mt-3 overflow-y-scroll")
   each cardItem in contentList
     li(class="p-3 list-none")
       a(href=cardItem.metadata.videoUrl, target="_blank", class="no-border")
