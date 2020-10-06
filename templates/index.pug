@@ -6,16 +6,16 @@ block vars
 block body
   section.full-page.grid.grid--vertical-align.grid--horizontal-align
     figure.hero.content.default-wrap
-      h1.hero-title= locals.name
-      figcaption.hero-caption
+      h1.pb-1= locals.name
+      figcaption
         p Web Software Engineer. I build web applications. <a href="#articles" title="Check my articles">I write</a>, I <a href="#talks" title="Watch my talks">give talks</a>, and <a href="#courses" title="Watch my online courses">I've recorded courses</a> about it.
-        div.hero-links
-          a(href="https://github.com/jonalvarezz", title="Check my code", target="_blank")
-            i.fa.fa-github
-          a(href="https://twitter.com/jonalvarezz", title="Follow me in Twitter", target="_blank")
-            i.fa.fa-twitter
-          a(href="mailto:j@jonalvarezz.com?subject=Let's%20Work%20Together", title="Email me and let's work together")
-            i.fa.fa-envelope
+      footer.mt-2
+        a(class="text-gray-400 text-2xl pr-1", href="https://github.com/jonalvarezz", title="Check my code", target="_blank")
+          i.fa.fa-github
+        a(class="text-gray-400 text-2xl pr-1", href="https://twitter.com/jonalvarezz", title="Follow me in Twitter", target="_blank")
+          i.fa.fa-twitter
+        a(class="text-gray-400 text-2xl", href="mailto:j@jonalvarezz.com?subject=Let's%20Work%20Together", title="Email me and let's work together")
+          i.fa.fa-envelope
 
   section(id="courses", class="full-page grid grid--vertical-align grid--horizontal-align bg-gray-200")
     div(class="default-wrap content")
