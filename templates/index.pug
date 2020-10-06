@@ -19,6 +19,17 @@ block body
 
   section(class="full-page grid grid--vertical-align grid--horizontal-align bg-gray-200")
     div(class="default-wrap content")
+      h2 Online Courses
+      p(class="content--extended")
+        | #{"Technical video courses I've recorded with "}
+        a(href="https://platzi.com/", target="__blank") Platzi
+        |, the leading educational platform in Latin America.
+
+      - var contentType = 'courses'
+      include partials/cards
+
+  section(class="full-page grid grid--vertical-align grid--horizontal-align bg-gray-400")
+    div(class="default-wrap content")
       h2 Talks
       p Talks, presentantions and workshops available online
 
