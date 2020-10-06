@@ -17,8 +17,25 @@ block body
           a(href="mailto:j@jonalvarezz.com?subject=Let's%20Work%20Together", title="Email me and let's work together")
             i.fa.fa-envelope
 
-  section(id="articles", class="full-page grid grid--vertical-align grid--horizontal-align")
+  section(class="full-page grid grid--vertical-align grid--horizontal-align bg-gray-200")
     div(class="default-wrap content")
+      h2 Talks
+      p Talks, presentantions and workshops available online
+
+      - var videos = env.helpers.getContents(contents, 'talks')
+
+      ul(class="flex mt-3")
+        each videoEntry in videos
+          li(class="p-3 list-none")
+            a(href=videoEntry.url, target="_blank", class="no-border")
+              div(class="w-64 bg-white rounded-md shadow-md overflow-hidden")
+                div(class="h-32 bg-center bg-no-repeat bg-cover", style="background-image: url(" + videoEntry.getUrl() + videoEntry.metadata.thumbnail + ")")
+                div(class="p-4")
+                  p(class="heading text-lg text-gray-800 pb-3")=videoEntry.title
+                  p(class="text-gray-600 leading-normal")=videoEntry.title
+
+  section(id="articles", class="full-page grid grid--vertical-align grid--horizontal-align")
+    div(class="default-wrap content content--extend")
       h2 Articles
       p I write about stuff I dont find easily in web for my further reference, maybe it is useful for someone else.
 
