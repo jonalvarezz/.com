@@ -32,7 +32,8 @@ block body
                 div(class="h-32 bg-center bg-no-repeat bg-cover", style="background-image: url(" + videoEntry.getUrl() + videoEntry.metadata.thumbnail + ")")
                 div(class="p-4")
                   p(class="heading text-lg text-gray-800 pb-3")=videoEntry.title
-                  p(class="text-gray-600 leading-normal")=videoEntry.title
+                  div(class="text-gray-600 leading-normal")
+                    | !{videoEntry.intro}
 
   section(id="articles", class="full-page grid grid--vertical-align grid--horizontal-align")
     div(class="default-wrap content content--extend")
