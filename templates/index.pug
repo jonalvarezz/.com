@@ -6,8 +6,8 @@ block vars
 block body
   section.full-page.grid.grid--vertical-align.grid--horizontal-align
     figure.hero.content.default-wrap
-      h1.pb-1= locals.name
-      figcaption
+      h1= locals.name
+      figcaption.content--extend.py-2
         p Web Software Engineer. I build web applications. <a href="#articles" title="Check my articles">I write</a>, I <a href="#talks" title="Watch my talks">give talks</a>, and <a href="#courses" title="Watch my online courses">I've recorded courses</a> about it.
       footer.mt-2
         a(class="text-gray-400 text-2xl pr-1", href="https://twitter.com/jonalvarezz", title="Follow me in Twitter", target="_blank")
@@ -18,7 +18,7 @@ block body
   section(id="courses", class="full-page grid grid--vertical-align grid--horizontal-align bg-gray-200")
     div(class="default-wrap content")
       h2 Online Courses
-      p(class="content--extended")
+      p(class="content--extend")
         | #{"Technical video courses I've recorded with "}
         a(href="https://platzi.com/", target="__blank") Platzi
         |, the leading educational platform in Latin America.
@@ -37,7 +37,7 @@ block body
   section(id="articles", class="full-page grid grid--vertical-align grid--horizontal-align")
     div(class="default-wrap content content--extend")
       h2 Articles
-      p I write about stuff I dont find easily in web for my further reference, maybe it is useful for someone else.
+      p Stuff I dont find easily on the web for further reference.
 
       - var allArticles = env.helpers.getContents(contents)
       - var allArticlesLength = allArticles.length
