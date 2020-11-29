@@ -1,5 +1,8 @@
 # jonalvarezz.com
-Build with [wintersmith](https://github.com/jnordberg/wintersmith)
+* Static website powered by [wintersmith](https://github.com/jnordberg/wintersmith)
+* Build tools: NPM Scripts + Gulp
+* It also uses TailwindCSS
+* Deploy is automated with GitHub Actions.
 
 
 ### 🚀 Quick start
