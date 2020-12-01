@@ -1,4 +1,4 @@
-name: Test that it builds
+name: It builds
 
 on:
   pull_request:
