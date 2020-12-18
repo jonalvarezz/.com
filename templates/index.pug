@@ -15,7 +15,7 @@ block body
         a(class="text-gray-400 text-2xl pr-1", href="https://github.com/jonalvarezz", title="Check my code", target="_blank")
           i.fa.fa-github
 
-  section(id="courses", class="full-page grid grid--vertical-align grid--horizontal-align bg-gray-200")
+  section(id="courses", class="full-page flex flex-col justify-center bg-gray-200")
     div(class="default-wrap content")
       h2 Online Courses
       p(class="content--extend")
@@ -23,18 +23,18 @@ block body
         a(href="https://platzi.com/", target="__blank") Platzi
         |, the leading educational platform in Latin America.
 
-      - var contentType = 'courses'
-      include partials/cards
+    - var contentType = 'courses'
+    include partials/cards
 
-  section(id="talks", class="full-page grid grid--vertical-align grid--horizontal-align bg-gray-400")
+  section(id="talks", class="full-page flex flex-col  justify-center bg-gray-400")
     div(class="default-wrap content")
       h2 Talks
       p Talks, presentantions and workshops available online
 
-      - var contentType = 'talks'
-      include partials/cards
+    - var contentType = 'talks'
+    include partials/cards
 
-  section(id="articles", class="full-page grid grid--vertical-align grid--horizontal-align")
+  section(id="articles", class="full-page flex flex-col justify-center")
     div(class="default-wrap content content--extend")
       h2 Articles
       p Stuff I dont find easily on the web for further reference.

@@ -1,10 +1,11 @@
 - var contentList = env.helpers.getContents(contents, contentType)
 
-ul(class="flex mt-3 overflow-y-scroll w-screen")
+ul(class="content flex flex-none mt-3 overflow-x-scroll overflow-y-hidden")
+  li(class="hidden md:block list-none", style="padding-left: calc(50vw - 16rem / 2)")
   each cardItem in contentList
     li(class="p-1 md:p-2 list-none")
       a(href=cardItem.metadata.videoUrl, target="_blank", class="no-border")
-        div(class="bg-white rounded-md shadow-md overflow-hidden", style="width: 80vw; min-width: 12rem; max-width: 16rem")
+        div(class="bg-white rounded-md shadow-md overflow-hidden", style="width: 16rem")
           div(class="h-32 bg-center bg-no-repeat bg-cover", style="background-image: url(" + cardItem.getUrl() + cardItem.metadata.thumbnail + ")")
           div(class="p-4")
             p(class="heading text-lg text-gray-800 pb-3")=cardItem.title
