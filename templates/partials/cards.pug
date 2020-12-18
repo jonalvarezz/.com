@@ -1,6 +1,6 @@
 - var contentList = env.helpers.getContents(contents, contentType)
 
-ul(class="content flex flex-none mt-3 overflow-x-scroll overflow-y-hidden")
+ul(class="content flex flex-none mt-3 overflow-x-scroll overflow-y-hidden no-scrollbar")
   li(class="hidden md:block list-none", style="padding-left: calc(50vw - 16rem / 2)")
   each cardItem in contentList
     li(class="p-1 md:p-2 list-none")

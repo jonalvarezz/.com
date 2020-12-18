@@ -45,3 +45,12 @@
     display none
   input:checked ~ label ~ .article-list
     display block
+
+.no-scrollbar {
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    width: 0px; /* For Chrome, Safari, and Opera */
+}
