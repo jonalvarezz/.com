@@ -23,6 +23,7 @@ html(lang='en')
     div.wrap
       block body
 
+    script(type="module", src=contents.scripts['main.js'].url)
     script.
       WebFontConfig = {
         google: { families: [ 'Merriweather:400,900:latin', 'Source+Sans+Pro:700' ] }
