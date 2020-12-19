@@ -14,5 +14,7 @@ div(class="relative mt-3 content card-container")
                 | !{cardItem.intro}
 
   nav(class="absolute right-0 pr-2")
-    button(class="fa fa-chevron-left w-5 h-5 bg-gray-500 hover:bg-gray-600 shadow-none border-none")
-    button(class="fa fa-chevron-right w-5 h-5 bg-gray-500 hover:bg-gray-600 shadow-none border-none")
+    a(role="button", class="fa fa-chevron-left w-5 h-5 bg-gray-500 hover:bg-gray-600 shadow-none border-none")
+      span.visually-hidden= 'Scroll left'
+    a(role="button", class="fa fa-chevron-right w-5 h-5 bg-gray-500 hover:bg-gray-600 shadow-none border-none")
+      span.visually-hidden= 'Scroll right'

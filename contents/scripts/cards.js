@@ -2,7 +2,7 @@ const SCROLL_OFFSET = 400;
 
 function onNavigationClick(event) {
   const target = event.target;
-  if (target.nodeName.toLowerCase() !== "button") {
+  if (target.nodeName !== "A") {
     return;
   }
 
