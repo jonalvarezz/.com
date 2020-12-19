@@ -2,14 +2,13 @@ const SCROLL_OFFSET = 400;
 
 function onNavigationClick(event) {
   const target = event.target;
-  if (target.nodeName.toLowerCase() !== "button") {
+  if (target.nodeName !== "A") {
     return;
   }
 
-  if (
-    !target.className.includes("right") &&
-    !target.className.includes("left")
-  ) {
+  const direction = target.dataset.cardDirection;
+
+  if (!direction) {
     return;
   }
 
@@ -17,7 +16,7 @@ function onNavigationClick(event) {
     node.className.includes("card-container")
   );
   if (cardContainer == null) {
-    return;
+    throw new Error("No .card-container were found");
   }
 
   const list = cardContainer.querySelector("ul");
@@ -25,9 +24,11 @@ function onNavigationClick(event) {
     throw new Error("No list found in the card container");
   }
 
-  if (target.className.includes("right")) {
+  event.preventDefault();
+
+  if (direction === "right") {
     list.scrollBy(SCROLL_OFFSET, 0);
-  } else if (target.className.includes("left")) {
+  } else if (direction === "left") {
     list.scrollBy(SCROLL_OFFSET * -1, 0);
   }
 }
