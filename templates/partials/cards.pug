@@ -1,7 +1,7 @@
 - var contentList = env.helpers.getContents(contents, contentType)
 - var id = contentType + '-card-list'
 
-div(class="relative mt-3 content card-container", id=id)
+div(class="mt-3 content card-container", id=id)
   ul(class=" flex flex-none m-0 overflow-x-scroll overflow-y-hidden no-scrollbar")
     li(class="hidden md:block list-none", style="padding-left: calc(50vw - 16rem / 2)")
     each cardItem in contentList
@@ -14,10 +14,11 @@ div(class="relative mt-3 content card-container", id=id)
               div(class="text-gray-600 leading-normal")
                 | !{cardItem.intro}
 
-  nav(class="absolute right-0 pr-2 text-center")
-    a(data-card-direction="left", role="button", class="w-5 h-5 inline-block bg-gray-500 hover:bg-gray-600", href="#" + id)
-      span(class="fa fa-chevron-left leading-5 pointer-events-none", aria-hidden="true")
-      span.visually-hidden= 'Scroll left'
-    a(data-card-direction="right", role="button", class="w-5 h-5 inline-block bg-gray-500 hover:bg-gray-600", href="#" + id)
-      span(class="fa fa-chevron-right leading-5 pointer-events-none", aria-hidden="true")
-      span.visually-hidden= 'Scroll right'
+  div(class="flex justify-end opacity-50 hover:opacity-100")
+    nav(class="pr-2 text-center")
+      a(data-card-direction="left", role="button", class="w-5 h-5 inline-block bg-gray-500 hover:bg-gray-600", href="#" + id)
+        span(class="fa fa-chevron-left leading-5 pointer-events-none", aria-hidden="true")
+        span.visually-hidden= 'Scroll left'
+      a(data-card-direction="right", role="button", class="w-5 h-5 inline-block bg-gray-500 hover:bg-gray-600", href="#" + id)
+        span(class="fa fa-chevron-right leading-5 pointer-events-none", aria-hidden="true")
+        span.visually-hidden= 'Scroll right'
