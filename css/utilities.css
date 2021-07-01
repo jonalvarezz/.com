@@ -15571,7 +15571,6 @@
 }
 
 .sticky {
-  position: -webkit-sticky;
   position: sticky
 }
 
@@ -36596,7 +36595,6 @@
   }
 
   .sm\:sticky {
-    position: -webkit-sticky;
     position: sticky
   }
 
@@ -57556,7 +57554,6 @@
   }
 
   .md\:sticky {
-    position: -webkit-sticky;
     position: sticky
   }
 
@@ -78516,7 +78513,6 @@
   }
 
   .lg\:sticky {
-    position: -webkit-sticky;
     position: sticky
   }
 
@@ -99476,7 +99472,6 @@
   }
 
   .xl\:sticky {
-    position: -webkit-sticky;
     position: sticky
   }
 
