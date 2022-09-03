@@ -13,7 +13,10 @@ html(lang='en')
       block description
         meta(name="description", content="Web Developer highly specialized in frontend Techologies, JavaScript applications, CSS and React. Design enthusiast.")
       link(rel='alternate', href=locals.url+'/feed.xml', type='application/rss+xml', title=locals.description)
-      link(href=contents['favicon.ico'].url, rel="shortcut icon")
+      <link
+        rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦑</text></svg>"
+      />
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
       link(rel='stylesheet', href=contents.css['main.css'].url)
       link(rel='stylesheet', href=contents.css['utilities.css'].url)
